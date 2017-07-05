@@ -34,7 +34,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String Sql = "select * from Course where Cname = '" + TextBox1.Text + "' and Cid IN (Select Cid from S_C where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
+            String Sql = "select * from Course where Cname = '" + TextBox1.Text + "' and Cid IN (Select Cid from S_C_Transcript where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -43,7 +43,7 @@ public partial class Default2 : System.Web.UI.Page
         }else {
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String Sql = "select * from Course where Cid IN (Select Cid from S_C where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
+            String Sql = "select * from Course where Cid IN (Select Cid from S_C_Transcript where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);

@@ -37,7 +37,7 @@ public partial class Default2 : System.Web.UI.Page
             cmd.CommandText = "select Tprofession from Teacher where Tid = ( select Tid from T_U where Uusername = '"
                 + (String)Session["username"] + "')";
             TextBox3.Text = (String)cmd.ExecuteScalar();
-            cmd.CommandText = "select Tphonenumber from Teacher where Tid = ( select Tid from T_U where Uusername = '"
+            cmd.CommandText = "select Tphone from Teacher where Tid = ( select Tid from T_U where Uusername = '"
                 + (String)Session["username"] + "')";
             TextBox4.Text = (String)cmd.ExecuteScalar();
             cmd.CommandText = "select Tintroduction from Teacher where Tid = ( select Tid from T_U where Uusername = '"
@@ -75,7 +75,7 @@ public partial class Default2 : System.Web.UI.Page
         cmd.CommandText = "update Teacher set Tprofession = '" + TextBox3.Text +
             "' where Tid = (select Tid from T_U where Uusername ='" + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
-        cmd.CommandText = "update Teacher set Tphonenumber = '" + TextBox4.Text +
+        cmd.CommandText = "update Teacher set Tphone = '" + TextBox4.Text +
             "' where Tid = (select Tid from T_U where Uusername ='" + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
         cmd.CommandText = "update Teacher set Tintroduction = '" + TextBox1.Text +

@@ -16,27 +16,31 @@
     <form id="form1" runat="server">
     <div>
     
+        &nbsp;&nbsp;
+    
         <asp:Label ID="Label6" runat="server" Text="用户名"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+&nbsp; <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    
         <br />
         <br />
-        <asp:Label ID="Label7" runat="server" Text="密码"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        &nbsp;<asp:Label ID="Label7" runat="server" Text="密码"></asp:Label>
+&nbsp;
+&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="Label8" runat="server" Text="确认密码"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         <br />
         <br />
     
         <asp:Label ID="Label1" runat="server" Text="管理员号"></asp:Label>
-        &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        &nbsp;<asp:TextBox ID="TextBox4" runat="server" OnTextChanged="TextBox4_TextChanged" Enabled="False" ReadOnly="True"></asp:TextBox>
     
     </div>
         <p>
+            &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server" Text="姓名"></asp:Label>
-&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            &nbsp; <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="Label5" runat="server" Text="性别"></asp:Label>
@@ -46,9 +50,19 @@
                 <asp:ListItem Value="女">女</asp:ListItem>
             </asp:RadioButtonList>
         </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label9" runat="server" Text="生日 "></asp:Label>
+            &nbsp;<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label10" runat="server" Text="年龄 "></asp:Label>
+            &nbsp;<asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+        </p>
         <asp:Label ID="Label4" runat="server" Text="管理权限"></asp:Label>
          
-        <asp:RadioButtonList ID="RadioButtonList4" runat="server" RepeatDirection="Horizontal" Height="16px " Width="398px" style="margin:auto">
+        <asp:RadioButtonList ID="RadioButtonList4" runat="server" RepeatDirection="Horizontal" Height="16px " Width="398px" style="margin:auto" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
             <asp:ListItem Value="1">高</asp:ListItem>
             <asp:ListItem Value="2">中</asp:ListItem>
             <asp:ListItem Value="3">低</asp:ListItem>

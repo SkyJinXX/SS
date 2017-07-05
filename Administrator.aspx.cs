@@ -29,12 +29,17 @@ public partial class Default2 : System.Web.UI.Page
             Label1.Text = (string)Session["username"];
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from A_Message where Aname1 = '" + (String)Session["username"] + "'" + " or Aname2 = '" + (String)Session["username"] + "'";
+        objConnection.Open();
+        String a = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+        SqlCommand cmd1 = new SqlCommand(a, objConnection);
+
+        String SelectSql = "select * from A_A_Management where Aname1 = '" + (String)cmd1.ExecuteScalar() + "'" + " or Aname2 = '" + (String)cmd1.ExecuteScalar() + "'";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
+        objConnection.Close();
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

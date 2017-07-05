@@ -27,7 +27,7 @@ public partial class _Default : System.Web.UI.Page
             Label2.Text = (String)Session["username"];
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from S_C";
+        String SelectSql = "select * from S_C_Transcript";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
