@@ -16,7 +16,7 @@
         <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="height: 21px" Text="权限管理" />
 &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" Text="新管理员注册" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="新管理员注" OnClick="Button2_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="用户信息管理" OnClick="Button3_Click" />
 &nbsp;&nbsp; &nbsp;&nbsp;<asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="成绩系统管理" />
