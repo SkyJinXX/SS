@@ -86,10 +86,10 @@
             <Columns>
                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
-                <asp:BoundField DataField="Cintroduction" HeaderText="课程介绍" />
                 <asp:BoundField DataField="Ccategory" HeaderText="课程类别" />
                 <asp:BoundField DataField="Ccredit" HeaderText="学分" />
                 <asp:BoundField DataField="Cpersonnumber" HeaderText="课程人数" />
+                <asp:BoundField DataField="Tscore" HeaderText="分数" />
             </Columns>
         </asp:GridView>
     

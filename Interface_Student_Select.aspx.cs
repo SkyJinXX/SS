@@ -30,20 +30,31 @@ public partial class Default2 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         SqlConnection objConnection = new SqlConnection();
+        String Sql1 = "select Sid from S_U where Uusername = '" + (String)Session["username"] + "'";
+        String Sql2 = "select Cid from Course where Cname = '" + TextBox1.Text + "'";
         if (TextBox1.Text != "")
         {
+            //查询指定课程成绩
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String Sql = "select * from Course where Cname = '" + TextBox1.Text + "' and Cid IN (Select Cid from S_C_Transcript where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
+            objConnection.Open();
+            //条件中通过表的连接来确保数据显示无误
+            String Sql = "select Course.Cid,Cname,Ccredit,Cpersonnumber,Ccategory,Tscore from Course," +
+                "S_C_Transcript,Student where S_C_Transcript.Cid IN(" + Sql2 + ") and S_C_Transcript.Sid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
-        }else {
+            objConnection.Close();
+        }
+        else {
+            //查询全部课程的成绩
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String Sql = "select * from Course where Cid IN (Select Cid from S_C_Transcript where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "'))";
+            //条件中通过表的连接来确保数据显示无误
+            String Sql = "select Course.Cid,Cname,Ccredit,Cpersonnumber,Ccategory,Tscore from Course," +
+                            "S_C_Transcript,Student where S_C_Transcript.Sid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
