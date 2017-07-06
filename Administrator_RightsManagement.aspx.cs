@@ -165,6 +165,9 @@ public partial class Default2 : System.Web.UI.Page
         TextBox3.Width  = 150;
         TextBox3.Height = 20;
         Button4.Text = "修改";
+        TextBox1.Text = "";
+        TextBox3.Text = "";
+
     }
 
     protected void Button6_Click(object sender, EventArgs e)
@@ -176,10 +179,14 @@ public partial class Default2 : System.Web.UI.Page
         Label3.Visible = true;
         TextBox3.Visible = true;
         Button4.Visible = true;
+
         TextBox3.Width = 300;
         TextBox3.Height = 100;
         Label3.Text = "留言：";
         Button4.Text = "发送";
+
+        TextBox1.Text = "";
+        TextBox3.Text = "";
 
     }
 
