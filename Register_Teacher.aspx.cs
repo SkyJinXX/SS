@@ -26,11 +26,12 @@ public partial class Register_Teacher1 : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         objConnection.Open();
-        if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 10) && Check.CheckLength(TextBox4.Text.Length, 20)
-           && Check.CheckLength(TextBox5.Text.Length, 15)  && Check.CheckLength(TextBox6.Text.Length, 11))
+        if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 20) && Check.CheckLength(TextBox3.Text.Length, 20)
+           && Check.CheckLength(TextBox5.Text.Length, 15) && Check.CheckLength(TextBox5.Text.Length, 15))
         {
 
-            String SqlStr = "Insert into Teacher values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + (string)RadioButtonList1.SelectedValue + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "')";
+            String SqlStr = "Insert into Teacher values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + (string)RadioButtonList1.SelectedValue + "','" 
+                + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "')";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             cmd.CommandText = SqlStr;
             cmd.ExecuteScalar();
@@ -45,5 +46,10 @@ public partial class Register_Teacher1 : System.Web.UI.Page
         else
             Response.Write("<script>alert('长度错误')</script>");
         objConnection.Close();
+    }
+
+    protected void TextBox6_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
