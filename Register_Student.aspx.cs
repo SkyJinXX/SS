@@ -29,11 +29,13 @@ public partial class Register_Student1 : System.Web.UI.Page
     {
         objConnection.Open();
         if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 8)&&Check.CheckLength(TextBox3.Text.Length, 20)
-           && Check.CheckLength(TextBox4.Text.Length, 3) && Check.CheckLength(TextBox5.Text.Length, 15) && Check.CheckLength(TextBox6.Text.Length, 15)
-           && Check.CheckLength(TextBox7.Text.Length, 15) && Check.CheckLength(TextBox7.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 11))
+           && Check.CheckLength(TextBox4.Text.Length, 5) && Check.CheckLength(TextBox5.Text.Length, 15) && Check.CheckLength(TextBox6.Text.Length, 15)
+           && Check.CheckLength(TextBox7.Text.Length, 15) && Check.CheckLength(TextBox8.Text.Length, 10) && Check.CheckLength(TextBox9.Text.Length, 11))
         {
 
-            String SqlStr = "Insert into Student values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + (string)RadioButtonList1.SelectedValue + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "')";
+            String SqlStr = "Insert into Student values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + (string)RadioButtonList1.SelectedValue 
+                + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox8.Text 
+                + "','" + TextBox9.Text + "')";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             cmd.CommandText = SqlStr;
             cmd.ExecuteScalar();

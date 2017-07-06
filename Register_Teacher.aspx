@@ -39,12 +39,14 @@
         <asp:TextBox ID="TextBox4" runat="server" ></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label6" runat="server" Text="个人简介"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="联系方式"></asp:Label>
         <asp:TextBox ID="TextBox5" runat="server" ></asp:TextBox>
         <br />
+&nbsp;<br />
+        <asp:Label ID="Label6" runat="server" Text="个人简介："></asp:Label>
         <br />
-        <asp:Label ID="Label7" runat="server" Text="联系方式"></asp:Label>
-        <asp:TextBox ID="TextBox6" runat="server" ></asp:TextBox>
+        <br />
+        <asp:TextBox ID="TextBox6" runat="server" Height="101px" OnTextChanged="TextBox6_TextChanged" style="margin-top: 0px" Width="312px" ></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="Button1" runat="server" Text="上一步" OnClick="Button1_Click" />
