@@ -108,6 +108,11 @@
                 <asp:BoundField DataField="Ccategory" HeaderText="课程类别" />
                 <asp:BoundField DataField="Cpersonnumber" HeaderText="课程人数" />
                 <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="选择"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
                     
@@ -123,10 +128,19 @@
             </tr>
             <tr>
                 <td align="center" class="auto-style6">
-                    <asp:GridView ID="GridView2" runat="server" Height="177px" Width="596px" AutoGenerateColumns="False">
+                    <asp:GridView ID="GridView2" runat="server" Height="177px" Width="596px" AutoGenerateColumns="False" >
                         <Columns>
-                            <asp:BoundField DataField="Sid" HeaderText="学号" />
-                            <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                            <asp:BoundField DataField="Cid" HeaderText="课程编号" />
+                            <asp:BoundField DataField="Cname" HeaderText="课程名称" />
+                            <asp:BoundField DataField="Ccredit" HeaderText="课程学分" />
+                            <asp:BoundField DataField="Cpersonnumber" HeaderText="课程人数" />
+                            <asp:BoundField DataField="Ccategory" HeaderText="课程类别" />
+                            <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
+                            <asp:TemplateField ShowHeader="False">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click1" Text="退选"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </td>
