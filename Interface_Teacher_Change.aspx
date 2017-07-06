@@ -16,7 +16,6 @@
         <p>
         <asp:Button ID="Button_Change" runat="server" Text="个人信息修改" OnClick="Button_Change_Click" EnableTheming="True" />
         <asp:Button ID="Button_Create" runat="server" Text="课程管理" OnClick="Button_Create_Click" />
-        <asp:Button ID="Button3" runat="server" Text="打分" OnClick="Button3_Click" />
         </p>
         <asp:Label ID="Label2" runat="server" Text="生日:"></asp:Label>
         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -28,7 +27,7 @@
         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="Label5" runat="server" Text="介绍："></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" Height="294px" TextMode="MultiLine" Width="426px"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Height="113px" TextMode="MultiLine" Width="426px"></asp:TextBox>
         </p>
         <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="提交" />
     </form>

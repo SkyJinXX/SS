@@ -17,7 +17,6 @@
     </div>
         <asp:Button ID="Button_Change" runat="server" Text="个人信息修改" OnClick="Button_Change_Click" />
         <asp:Button ID="Button_Create" runat="server" Text="课程管理" OnClick="Button_Create_Click" />
-        <asp:Button ID="Button_Manage" runat="server" Text="打分" OnClick="Button3_Click" />
         <asp:GridView ID="GridView1" runat="server" Height="349px" Width="686px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
             <Columns>
                 <asp:BoundField DataField="Tmessage" HeaderText="公告" SortExpression="Tmessage" />
