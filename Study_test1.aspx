@@ -35,6 +35,7 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:注册报名系统ConnectionString %>" SelectCommand="SELECT [Qid], [Question] FROM [Questions]"></asp:SqlDataSource>
     
     </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="完成测" />
     </form>
 </body>
 </html>
