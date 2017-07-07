@@ -38,7 +38,7 @@ public partial class Default2 : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
             cmd.CommandText = "select max(Cid) from Course";
             int id = 1;
-            if (cmd.ExecuteScalar() != null)
+            if (cmd.ExecuteScalar() != DBNull.Value)
                 id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             TextBox1.Text = id.ToString();
             Button5.Visible = false;
