@@ -11,9 +11,10 @@ using System.Data;
 public partial class Default2 : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
-    int flag = 0;
+    int flag;
     protected void Page_Load(object sender, EventArgs e)
     {
+        flag = 0;
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
@@ -92,11 +93,11 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.Open();
         String Select1 = "";
+        TextBox1.Text = Convert.ToString(flag);
         if (flag == 1)
         {
             Select1 = "select Student.Sid , Sname , Ssex , Sbirthday ,Sage , Sschool , Scollege , Smajor, Sphone, Users.Uusername, Upassword , Uidentity" +
-                " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername and Student.Sid = '" +
-                TextBox1.Text + "'";
+            " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername";
         }
 
         if (flag == 2)
@@ -120,10 +121,6 @@ public partial class Default2 : System.Web.UI.Page
             GridView1.DataBind();
 
             objConnection.Close();
-        }
-        else
-        {
-            Response.Redirect("Administrator.aspx");
         }
     }
 
