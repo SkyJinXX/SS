@@ -73,4 +73,9 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.DataSource = ds;
         GridView1.DataBind();
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator.aspx");
+    }
 }

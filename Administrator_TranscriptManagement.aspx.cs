@@ -35,11 +35,12 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click1(object sender, EventArgs e)
     {
+        Label4.Text = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         if (TextBox1.Text != "")
         {
-            //
+            //通过文本框查询 选择该课程的学生详细信息形成表单
             String Sql = "select * from Course";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
@@ -49,9 +50,14 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Response.Write("<script>alert('请输入课程')</script>");
+            Response.Write("<script>alert('请输入课程名')</script>");
             
         }
         objConnection.Close();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator.aspx");
     }
 }

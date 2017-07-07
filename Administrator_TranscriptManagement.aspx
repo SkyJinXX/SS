@@ -12,6 +12,13 @@
         .auto-style2 {
             width: 44%;
         }
+        .auto-style3 {
+            height: 20px;
+        }
+        .auto-style4 {
+            height: 20px;
+            width: 16px;
+        }
     </style>
 </head>
 <body>
@@ -19,6 +26,8 @@
     <div>
     
         Welcome !<asp:Label ID="Label1" runat="server"></asp:Label>
+        &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="返回" />
         <br />
         <br />
         <table class="auto-style2">
@@ -38,12 +47,20 @@
     </div>
         <table class="auto-style1">
             <tr>
-                <td>课程名单</td>
-                <td>&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label3" runat="server" Text="课程名单"></asp:Label>
+                </td>
+                <td class="auto-style4">
+                    <asp:Label ID="Label4" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style3"></td>
+                <td class="auto-style3"></td>
             </tr>
             <tr>
-                <td>
-                    <asp:GridView ID="GridView1" runat="server" Height="272px" Width="330px">
+                <td colspan="5">
+                    <asp:GridView ID="GridView1" runat="server" Height="308px" Width="572px">
                     </asp:GridView>
                 </td>
                 <td>&nbsp;</td>
