@@ -45,5 +45,32 @@ public partial class Default2 : System.Web.UI.Page
     {
 
     }
-    
+
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        String str1 = GridView1.Rows[row].Cells[0].Text;
+        objConnection.Open();
+        String SqlStr = "Delete S_C_Transcript where Cid = '" + str1 + "'";
+        SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        SqlStr = "Delete T_C where Cid = '" + str1 + "'";
+        cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        SqlStr = "Delete Course where Cid = '" + str1 + "'";
+        cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        Response.Write("<script>alert('删除成功')</script>");
+        //删除成功之后实时刷新
+        String SelectSql = "select * from Course ";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+    }
 }
