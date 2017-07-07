@@ -102,4 +102,33 @@ public partial class Register_Administrator3 : System.Web.UI.Page
     {
 
     }
+
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (CheckBox1.Checked == true)
+        {
+            String S = TextBox2.Text;
+            String S1 = TextBox3.Text;
+
+            TextBox2.TextMode = TextBoxMode.SingleLine;
+            TextBox3.TextMode = TextBoxMode.SingleLine;
+
+            TextBox2.Text = S;
+            TextBox3.Text = S1;
+        }
+        if (CheckBox1.Checked == false)
+        {
+            String S = TextBox2.Text;
+            String S1 = TextBox3.Text;
+
+
+            TextBox2.TextMode = TextBoxMode.Password;
+            TextBox3.TextMode = TextBoxMode.Password;
+
+            TextBox2.Attributes["value"] = S;
+            TextBox3.Attributes["value"] = S1;
+
+        }
+
+    }
 }
