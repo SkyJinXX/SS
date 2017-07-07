@@ -67,33 +67,49 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        objConnection.Open();
-        String SelectSql = "";
-        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-        cmd.CommandText = "select Cname from Course where Cid = '" + TextBox1.Text + "'";
-        TextBox2.Text = (String)cmd.ExecuteScalar();
-
-        if (TextBox2.Text != "")
-        {
-            cmd.CommandText = "select Ccredit from Course where Cid = '" + TextBox1.Text + "'";
-            TextBox3.Text = ((int)cmd.ExecuteScalar()).ToString();
-            cmd.CommandText = "select Cpersonnumber from Course where Cid = '" + TextBox1.Text + "'";
-            TextBox4.Text = ((int)cmd.ExecuteScalar()).ToString();
-            cmd.CommandText = "select Ccategory from Course where Cid = '" + TextBox1.Text + "'";
-            TextBox5.Text = (String)cmd.ExecuteScalar();
-            cmd.CommandText = "select Cintroduction from Course where Cid = '" + TextBox1.Text + "'";
-            TextBox6.Text = (String)cmd.ExecuteScalar();            
-        }
-        else
-        {
-            Response.Write("<script>alert('课程号错误')</script>");
-        }
-        objConnection.Close();
     }
 
     protected void Button4_Click(object sender, EventArgs e)
-    {   
+    {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
+        objConnection.Open();
+
+        String SelectSql = "";
+
+        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);              
+            //插入Course, T_C
+
+            cmd.CommandText = "insert into Course values('" + TextBox1.Text +
+
+              "', '" + TextBox2.Text + "', " + TextBox3.Text + ", " + TextBox4.Text + ", '"
+
+              + TextBox5.Text + "', '" + TextBox6.Text + "')";
+
+            cmd.ExecuteScalar();
+
+            cmd.CommandText = "insert into T_C(Tid, Cid) select Tid, '" + TextBox1.Text + "' from T_U where Uusername = '" +
+
+                (String)Session["username"] + "'";
+
+            cmd.ExecuteScalar();
+
+            objConnection.Close();
+            //刷新GridView
+
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
+            String Sql = "select * from Course where Cid IN (Select Cid from T_C where Tid = (select Tid from T_U where Uusername = '" + (String)Session["username"] + "'))";
+
+            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            GridView1.DataSource = ds;
+
+            GridView1.DataBind();        
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
