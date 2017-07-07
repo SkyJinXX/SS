@@ -24,11 +24,12 @@
         <p class="auto-style1">
             <asp:Label ID="Label3" runat="server" Text="密码"></asp:Label>
 &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="188px" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" Width="141px" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
+            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
         </p>
         <p class="auto-style1">
             <asp:Label ID="Label5" runat="server" Text="确认密码"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged" TextMode="Password"></asp:TextBox>
             
         </p>
         <asp:RadioButtonList ID="Identity" runat="server" Height="16px" 

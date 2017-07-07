@@ -11,10 +11,8 @@ using System.Data;
 public partial class Default2 : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
-    int flag;
     protected void Page_Load(object sender, EventArgs e)
     {
-        flag = 0;
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
@@ -43,7 +41,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        flag = 1;
+        Label3.Text = "1";
         objConnection.Open();
         String SelectSql = "select Student.Sid , Sname , Ssex , Sbirthday ,Sage , Sschool , Scollege , Smajor, Sphone, Users.Uusername, Upassword , Uidentity" +
             " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername";
@@ -57,7 +55,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        flag = 2;
+        Label3.Text = "2";
         objConnection.Open();
         String SelectSql = "select Teacher.Tid, Tname, Tsex, Tbirthday, Tprofession, Tphone,  Users.Uusername, Upassword , Uidentity  from Teacher, " +
             "Users, T_U where  Users.Uidentity = 'T' and Teacher.Tid = T_U.Tid and T_U.Uusername = Users.Uusername";
@@ -71,7 +69,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        flag = 3;
+        Label3.Text = "3";
         objConnection.Open();
         String SelectSql = "select Administrator.Aid, Aname, Asex, Abirthday, Aage, Alevel, Users.Uusername, Upassword , Uidentity from Administrator ," +
             " Users , A_U where  Users.Uidentity = 'A' and Administrator.Aid = A_U.Aid and A_U.Uusername = Users.Uusername";
@@ -93,20 +91,19 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.Open();
         String Select1 = "";
-        TextBox1.Text = Convert.ToString(flag);
-        if (flag == 1)
+        if (Label3.Text == "1")
         {
             Select1 = "select Student.Sid , Sname , Ssex , Sbirthday ,Sage , Sschool , Scollege , Smajor, Sphone, Users.Uusername, Upassword , Uidentity" +
-            " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername";
+            " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername and S_U.Sid = '" + TextBox1.Text + "'";
         }
 
-        if (flag == 2)
+        if (Label3.Text == "2")
         {
             Select1 = "select Teacher.Tid, Tname, Tsex, Tbirthday, Tprofession, Tphone,  Users.Uusername, Upassword , Uidentity  from Teacher, " +
             "Users, T_U where  Users.Uidentity = 'T' and Teacher.Tid = T_U.Tid and T_U.Uusername = Users.Uusername and T_U.Tid = '" + TextBox1.Text + "'";
         }
 
-        if (flag == 3)
+        if (Label3.Text == "3")
         {
             Select1 = "select Administrator.Aid, Aname, Asex, Abirthday, Aage, Alevel, Users.Uusername, Upassword , Uidentity from Administrator ," +
             " Users , A_U where  Users.Uidentity = 'A' and Administrator.Aid = A_U.Aid and A_U.Uusername = Users.Uusername A_U.Sid = '" +
@@ -128,22 +125,26 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.Open();
         String Select1 = "";
-        if (flag == 1)
+        if (Label3.Text == "1")
         {
-            Select1 = "updata Users set Upassword = '" + "666666" + "' where Uidentity = '" + "S" + "' and Uusername in (select Uusername from S_U where Sid = '"
+            Select1 = "update Users set Upassword = '" + "666666" + "' where Uidentity = '" + "S" + "' and Uusername in (select Uusername from S_U where Sid = '"
                 + TextBox1.Text + "')";
         }
 
-        if (flag == 2)
+        if (Label3.Text == "2")
         {
-            Select1 = "updata Users set Upassword = '" + "666666" + "' where Uidentity = '" + "T" + "' and Uusername in (select Uusername from T_U where Tid = '"
+            Select1 = "update Users set Upassword = '" + "666666" + "' where Uidentity = '" + "T" + "' and Uusername in (select Uusername from T_U where Tid = '"
                 + TextBox1.Text + "')";
         }
 
-        if (flag == 3)
+        if (Label3.Text == "3")
         {
-            Select1 = "updata Users set Upassword = '" + "666666" + "' where Uidentity = '" + "A" + "' and Uusername in (select Uusername from A_U where Aid = '"
+            Select1 = "update Users set Upassword = '" + "666666" + "' where Uidentity = '" + "A" + "' and Uusername in (select Uusername from A_U where Aid = '"
                 + TextBox1.Text + "')";
         }
+        SqlCommand cmd = new SqlCommand(Select1, objConnection);
+        cmd.ExecuteScalar();
+        objConnection.Close();
     }
+
 }

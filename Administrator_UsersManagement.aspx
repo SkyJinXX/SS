@@ -12,6 +12,7 @@
     
         Welcome !<asp:Label ID="Label1" runat="server"></asp:Label>
         <br />
+        <asp:Label ID="Label3" runat="server" Enabled="False" Visible="False"></asp:Label>
         <br />
         <br />
     
