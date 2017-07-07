@@ -14,7 +14,7 @@ public partial class Study_test : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        using (objConnection)
+       /* using (objConnection)
         {
             string username = "forever";
             string strSQL = "select Qid,Question from Questions";
@@ -27,6 +27,7 @@ public partial class Study_test : System.Web.UI.Page
 
             }
         }
+        */
         /*objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String SqlStr = "Select  Qid,Question  From  Questions";
@@ -59,5 +60,15 @@ public partial class Study_test : System.Web.UI.Page
     protected void Button3_Click(object sender, EventArgs e)
     {
         Response.Redirect("Study_test.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_test1.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_exam.aspx");
     }
 }

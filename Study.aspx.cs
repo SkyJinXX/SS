@@ -21,9 +21,14 @@ public partial class Study : System.Web.UI.Page
     {
         Response.Redirect("Study_notice.aspx");
     }
-
-    protected void Button3_Click(object sender, EventArgs e)
+    
+protected void Button3_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Study_test.aspx");
+       Response.Redirect("Study_test.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_exam.aspx");
     }
 }
