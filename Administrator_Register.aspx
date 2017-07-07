@@ -25,11 +25,12 @@
         <br />
         &nbsp;<asp:Label ID="Label7" runat="server" Text="密码"></asp:Label>
 &nbsp;
-&nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
         <br />
         <br />
         <asp:Label ID="Label8" runat="server" Text="确认密码"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <br />
     
