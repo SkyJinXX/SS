@@ -1,6 +1,9 @@
-
 *.config
 *.config
 *.config
 *.config
 .vs/config/applicationhost.config
+
+*.config
+*.config
+*.config
