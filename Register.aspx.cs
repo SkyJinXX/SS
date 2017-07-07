@@ -125,8 +125,8 @@ public partial class Default2 : System.Web.UI.Page
             String S = TextBox2.Text;
             String S1 = TextBox3.Text;
 
-            Label6.Text = S;
-            Label7.Text = S1;
+            //Label6.Text = S;
+            //Label7.Text = S1;
             
 
             TextBox2.TextMode = TextBoxMode.Password;

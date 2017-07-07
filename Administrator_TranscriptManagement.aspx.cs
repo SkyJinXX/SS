@@ -86,14 +86,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
         cmd.CommandText = SqlStr;
         cmd.ExecuteScalar();
-        /*SqlStr = "Delete T_C,S_C_Transcript where Sid = '" + str1 + "' and T_C.Cid = S_C_Transscript.Cid";
-        cmd = new SqlCommand(SqlStr, objConnection);
-        cmd.CommandText = SqlStr;
-        cmd.ExecuteScalar();
-        SqlStr = "Delete Course,S_C_Transcript where Sid = '" + str1 + "' and T_C.Cid = S_C_Transscript.Cid";
-        cmd = new SqlCommand(SqlStr, objConnection);
-        cmd.CommandText = SqlStr;
-        cmd.ExecuteScalar();*/
+        
         Response.Write("<script>alert('删除成功')</script>");
         objConnection.Close();
         //删除成功之后实时刷新
@@ -127,9 +120,11 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
+        cname = TextBox1.Text;
+        String Sql2 = "select Cid from Course where Cname = '" + cname + "'";
         String Sid = GridView1.Rows[e.RowIndex].Cells[0].Text;
         String Tscore = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[1])).Text;
-        String updateSql = "update S_C_Transcript set Tscore = '" + Tscore + "' where Sid = '" + Sid + "'";
+        String updateSql = "update S_C_Transcript set Tscore = '" + Tscore + "' where Sid = '" + Sid + "' and Cid = (" + Sql2 + ")";
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         SqlCommand cmd = new SqlCommand(updateSql, objConnection);
         objConnection.Open();
