@@ -26,10 +26,13 @@
                 <asp:BoundField DataField="Cpersonnumber" HeaderText="授课人数" />
                 <asp:BoundField DataField="Ccategory" HeaderText="类别" />
                 <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
-                <asp:CheckBoxField HeaderText="xuanze" />
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="删除"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="删除" />
     </form>
 </body>
 </html>

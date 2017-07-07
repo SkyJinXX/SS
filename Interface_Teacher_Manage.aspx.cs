@@ -80,6 +80,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);              
             //插入Course, T_C
 
+
             cmd.CommandText = "insert into Course values('" + TextBox1.Text +
 
               "', '" + TextBox2.Text + "', " + TextBox3.Text + ", " + TextBox4.Text + ", '"
