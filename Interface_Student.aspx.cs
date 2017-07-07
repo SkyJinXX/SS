@@ -138,4 +138,9 @@ public partial class _Default : System.Web.UI.Page
         GridView2.DataSource = ds;
         GridView2.DataBind();
     }
+
+    protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study.aspx");
+    }
 }
