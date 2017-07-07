@@ -16,21 +16,52 @@
         <br />
         <asp:Label ID="Label2" runat="server" Text="课程表："></asp:Label>
         </div>
-        <asp:GridView ID="GridView1" runat="server" Height="307px" Width="624px" AutoGenerateColumns="False" 
+        <asp:GridView ID="GridView1" runat="server" Height="226px" Width="1214px" AutoGenerateColumns="False" 
             OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
-            style="margin-right: 0px">
+            style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
-                <asp:BoundField DataField="Cid" HeaderText="课程号" />
-                <asp:BoundField DataField="Cname" HeaderText="课程名" />
-                <asp:BoundField DataField="Ccredit" HeaderText="学分" />
-                <asp:BoundField DataField="Cpersonnumber" HeaderText="授课人数" />
-                <asp:BoundField DataField="Ccategory" HeaderText="类别" />
-                <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
-                <asp:TemplateField ShowHeader="False">
+                <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
+                <asp:TemplateField HeaderText="课程名">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Cname") %>'></asp:TextBox>
+                    </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="删除"></asp:LinkButton>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Cname") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="学分">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Ccredit") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Ccredit") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="授课人数">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Cpersonnumber") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Cpersonnumber") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="类别">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Ccategory") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Ccategory") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="课程简介">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:CommandField CancelText="取消" DeleteText="删除" EditText="修改" ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>
     </form>

@@ -27,13 +27,16 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (string)Session["username"];
         }
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course ";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        if (!IsPostBack)
+        {
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            String SelectSql = "select * from Course ";
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+        }
     }
 
     protected void Button3_Click(object sender, EventArgs e)
@@ -46,10 +49,14 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    protected void GridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
-        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+
+    }
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int row = e.RowIndex;
         String str1 = GridView1.Rows[row].Cells[0].Text;
         objConnection.Open();
         String SqlStr = "Delete S_C_Transcript where Cid = '" + str1 + "'";
@@ -66,6 +73,61 @@ public partial class Default2 : System.Web.UI.Page
         cmd.ExecuteScalar();
         Response.Write("<script>alert('删除成功')</script>");
         //删除成功之后实时刷新
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        String SelectSql = "select * from Course ";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+    }
+
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GridView1.EditIndex = e.NewEditIndex;
+        //删除成功之后实时刷新
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        String SelectSql = "select * from Course ";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+    }
+
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        //更新Course表
+        String Cid = GridView1.Rows[e.RowIndex].Cells[0].Text;
+        String Cname = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[1].Controls[1])).Text;
+        String Ccridit = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[1])).Text;
+        String Cpersonnumber = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[1])).Text;
+        String Ccategory = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[1])).Text;
+        String Cintroduction = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[1])).Text;
+        String updateSql = "update Course set Cname = '" + Cname + "', Ccredit = '" + Ccridit +
+            "', Cpersonnumber = '" + Cpersonnumber + "', Ccategory = '" + Ccategory + "', Cintroduction = '"
+            + Cintroduction + "' where Cid = '" + Cid + "'";
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        SqlCommand cmd = new SqlCommand(updateSql, objConnection);
+        objConnection.Open();
+        cmd.ExecuteNonQuery();
+        objConnection.Close();
+        GridView1.EditIndex = -1;
+        //删除成功之后实时刷新
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        String SelectSql = "select * from Course ";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+    }
+
+    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        GridView1.EditIndex = -1;
+        //删除成功之后实时刷新
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String SelectSql = "select * from Course ";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
