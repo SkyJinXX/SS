@@ -25,20 +25,23 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
-        //设置默认课程号
-        TextBox1.Enabled = false;
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        objConnection.Open();
-        String SelectSql = "";
-        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-        cmd.CommandText = "select count(*) from Course";
-        int id = (int)cmd.ExecuteScalar() + 1;
-        TextBox1.Text = id.ToString();
-        Button5.Visible = false;
-        objConnection.Close();
-        //刷新GridView
+        
+        
+        
         if (!IsPostBack)
         {
+            //设置默认课程号
+            TextBox1.Enabled = false;
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            String SelectSql = "";
+            SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+            cmd.CommandText = "select max(Cid) from Course";
+            int id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            TextBox1.Text = id.ToString();
+            Button5.Visible = false;
+            objConnection.Close();
+            //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             SelectSql = "select * from Course where Cid IN (Select Cid from T_C where Tid = (select Tid from T_U where Uusername = '" + (String)Session["username"] + "'))";
             SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
@@ -79,38 +82,33 @@ public partial class Default2 : System.Web.UI.Page
 
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);              
             //插入Course, T_C
-
-
             cmd.CommandText = "insert into Course values('" + TextBox1.Text +
-
               "', '" + TextBox2.Text + "', " + TextBox3.Text + ", " + TextBox4.Text + ", '"
-
               + TextBox5.Text + "', '" + TextBox6.Text + "')";
-
             cmd.ExecuteScalar();
-
             cmd.CommandText = "insert into T_C(Tid, Cid) select Tid, '" + TextBox1.Text + "' from T_U where Uusername = '" +
-
                 (String)Session["username"] + "'";
-
             cmd.ExecuteScalar();
-
             objConnection.Close();
             //刷新GridView
-
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-
             String Sql = "select * from Course where Cid IN (Select Cid from T_C where Tid = (select Tid from T_U where Uusername = '" + (String)Session["username"] + "'))";
-
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-
             DataSet ds = new DataSet();
-
             da.Fill(ds);
-
             GridView1.DataSource = ds;
-
-            GridView1.DataBind();        
+            GridView1.DataBind();
+            //设置默认课程号
+            TextBox1.Enabled = false;
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            SelectSql = "";
+            cmd = new SqlCommand(SelectSql, objConnection);
+            cmd.CommandText = "select max(Cid) from Course";
+            int id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            TextBox1.Text = id.ToString();
+            Button5.Visible = false;
+            objConnection.Close();
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
