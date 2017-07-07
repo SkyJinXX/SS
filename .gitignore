@@ -3,5 +3,5 @@
 *.config
 *.config
 *.config
-.vs/WebSite2/v15/.suo
-*.config
+.vs/config/applicationhost.config
+
