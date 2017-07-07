@@ -70,4 +70,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Default.aspx");
     }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_individual.aspx");
+    }
 }

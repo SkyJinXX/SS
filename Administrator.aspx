@@ -14,6 +14,8 @@
         <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text=" 注销 " />
         </div>
         <p>
+&nbsp;<asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="个人信息修改" />
+&nbsp; &nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="height: 21px" Text="操作管理" />
 &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button2" runat="server" Text="新管理员注册" OnClick="Button2_Click" />
