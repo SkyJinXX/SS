@@ -14,13 +14,13 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label1" runat="server" Text="公告"></asp:Label>
         <br />
-        <asp:Button ID="Button1" runat="server" Height="36px" style="margin-left: 0px" Text="公告" Width="166px" />
+        <asp:Button ID="Button1" runat="server" Height="36px" style="margin-left: 0px" Text="公告" Width="166px" OnClick="Button1_Click1" />
         这是一个公告！！！！！！！！！！！！！！！！！！！！！！！！<br />
         <asp:Button ID="Button2" runat="server" Height="36px" Text="课件学习" Width="166px" OnClick="Button2_Click" />
         <br />
         <asp:Button ID="Button3" runat="server" Height="36px" Text="测验与作业" Width="166px" OnClick="Button3_Click1" />
         <br />
-        <asp:Button ID="Button4" runat="server" Height="36px" Text="考试" Width="166px" />
+        <asp:Button ID="Button4" runat="server" Height="36px" Text="考试" Width="166px" OnClick="Button4_Click" />
         <br />
         <asp:Button ID="Button5" runat="server"  Height="36px" Text="讨论区" Width="166px" />
         <br />

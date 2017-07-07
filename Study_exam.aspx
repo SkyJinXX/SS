@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_test.aspx.cs" Inherits="Study_test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_exam.aspx.cs" Inherits="Study_exam" %>
 
 <!DOCTYPE html>
 
@@ -10,10 +10,10 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <asp:Image ID="Image1" runat="server" Height="117px" Width="164px"  ImageUrl="~/image/1.jpg" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text="第一章"></asp:Label>
+     <asp:Image ID="Image1" runat="server" Height="117px" Width="164px"  ImageUrl="~/image/1.jpg" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="作业测试" />
+        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="进入考试" />
         &nbsp;&nbsp;
         <br />
         <asp:Button ID="Button1" runat="server" Height="36px" style="margin-left: 0px" Text="公告" Width="166px" OnClick="Button1_Click"  />

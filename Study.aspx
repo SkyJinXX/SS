@@ -19,7 +19,7 @@
         <br />
         <asp:Button ID="Button3" runat="server" Height="36px" Text="作业与测验" Width="166px" OnClick="Button3_Click" />
         <br />
-        <asp:Button ID="Button4" runat="server" Height="36px" Text="考试" Width="166px" />
+        <asp:Button ID="Button4" runat="server" Height="36px" Text="考试" Width="166px" OnClick="Button4_Click" />
         <br />
         <asp:Button ID="Button5" runat="server"  Height="36px" Text="讨论区" Width="166px" />
         <br />
