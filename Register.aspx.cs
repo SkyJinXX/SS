@@ -13,7 +13,9 @@ public partial class Default2 : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
+
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
     }
 
     protected void Button1_Click1(object sender, EventArgs e)
@@ -103,5 +105,37 @@ public partial class Default2 : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         Response.Redirect("Default.aspx");
+    }
+
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (CheckBox1.Checked == true)
+        {
+            String S = TextBox2.Text;
+            String S1 = TextBox3.Text;
+
+            TextBox2.TextMode = TextBoxMode.SingleLine;
+            TextBox3.TextMode = TextBoxMode.SingleLine;
+
+            TextBox2.Text = S;
+            TextBox3.Text = S1;
+        }
+        if(CheckBox1.Checked == false)
+        {
+            String S = TextBox2.Text;
+            String S1 = TextBox3.Text;
+
+            Label6.Text = S;
+            Label7.Text = S1;
+            
+
+            TextBox2.TextMode = TextBoxMode.Password;
+            TextBox3.TextMode = TextBoxMode.Password;
+
+            TextBox2.Attributes["value"] = S;
+            TextBox3.Attributes["value"] = S1;
+
+        }
+
     }
 }
