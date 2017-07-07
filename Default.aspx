@@ -34,7 +34,7 @@
         <p>
             &nbsp;
             <asp:Button ID="Login" runat="server" OnClick="Button1_Click" Text="登陆" Width="51px" Height="25px" />
-            <asp:Button ID="Register" runat="server" OnClick="Register_Click" Text="注册" Height="25px" Width="50px" />
+            <asp:Button ID="Register" runat="server" OnClick="Register_Click" Text="册注" Height="25px" Width="50px" />
         </p>
         
     </form>
