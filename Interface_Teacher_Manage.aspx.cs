@@ -80,11 +80,7 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);              
             //插入Course, T_C
 
-<<<<<<< HEAD
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-        
-=======
+
             cmd.CommandText = "insert into Course values('" + TextBox1.Text +
 
               "', '" + TextBox2.Text + "', " + TextBox3.Text + ", " + TextBox4.Text + ", '"
@@ -115,7 +111,6 @@ public partial class Default2 : System.Web.UI.Page
             GridView1.DataSource = ds;
 
             GridView1.DataBind();        
->>>>>>> 790b190b7f36a222899a5c88eca6106bbb013df0
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
