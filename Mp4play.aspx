@@ -27,10 +27,7 @@ background-color: #222; background-size: cover; max-width: 800px; }
     .flowplayer .fp-timeline { background-color: rgba(0, 0, 0, 0.5)}
     .flowplayer .fp-progress { background-color: rgba(219, 0, 0, 1)}
     .flowplayer .fp-buffer { background-color: rgba(249, 249, 249, 1)}
-     .flowplayer { background-image: url('http://farm4.staticflickr.com/3169/2972817861_73ae53c2e5_b.jpg');
-            top: 0px;
-            left: -17px;
-            height: 761px;
+    
         }
  
     </style>
@@ -50,6 +47,23 @@ background-color: #222; background-size: cover; max-width: 800px; }
           <asp:Literal ID="LiteralSource" runat="server" ></asp:Literal>
        </video>   
     </div>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="返回" Width="142px" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
