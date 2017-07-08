@@ -82,4 +82,11 @@ public partial class Default2 : System.Web.UI.Page
             "' where Tid = (select Tid from T_U where Uusername ='" + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
 }

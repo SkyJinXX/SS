@@ -12,6 +12,8 @@
     
         Welcome back!<asp:Label ID="Label1" runat="server"></asp:Label>
     
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
+    
     </div>
         <p>
         <asp:Button ID="Button_Change" runat="server" Text="个人信息修改" OnClick="Button_Change_Click" />
