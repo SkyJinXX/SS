@@ -56,4 +56,9 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
         //Response.Redirect("Study_test.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study.aspx");
+    }
 }
