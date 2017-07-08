@@ -141,6 +141,8 @@ public partial class _Default : System.Web.UI.Page
 
     protected void LinkButton2_Click(object sender, EventArgs e)
     {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
         Response.Redirect("Study.aspx");
     }
 }
