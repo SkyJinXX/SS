@@ -34,13 +34,19 @@
 <br />
             </ItemTemplate>
             <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <SelectedItemTemplate>
+                <asp:RadioButtonList ID="RadioButtonList2" runat="server">
+                </asp:RadioButtonList>
+            </SelectedItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConStr %>" SelectCommand="SELECT [Qid], [Question] FROM [Questions]"></asp:SqlDataSource>
     
     </div>
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="完成测试" />
     &nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="返回" />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        &nbsp;
     </form>
 </body>
 </html>

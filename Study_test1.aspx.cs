@@ -15,7 +15,7 @@ public partial class Default2 : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*
+
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
@@ -29,7 +29,6 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
-        */
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         SqlDataAdapter sda = new SqlDataAdapter();
@@ -39,29 +38,30 @@ public partial class Default2 : System.Web.UI.Page
         sda.Fill(ds);
         DataList1.DataSource = ds;
         DataList1.DataBind();
+        objConnection.Close();
 
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         objConnection.Open();
-         for(int i = 0; i < 3; i++)
-        {
-            String SqlStr = "Select Qanswer From Questions  where Qid='"+Convert.ToString(i+1)+"'";
+        //for (int i = 0; i < 3; i++)
+        //{
+            String ql = ((Label)DataList1.Items[0].FindControl("QidLabel")).Text;
+            String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             String st = (String)cmd.ExecuteScalar();
-            RadioButtonList rd = (RadioButtonList)DataList1.Items[i].FindControl("RadioButtonList1");
-            //TextBox1.Text = rd.SelectedValue;
-           // TextBox2.Text = st;
+            RadioButtonList rd = (RadioButtonList)DataList1.Items[1].FindControl("RadioButtonList1");
+            TextBox1.Text = rd.SelectedValue;
+             TextBox2.Text = st;
             if (rd.SelectedValue == st)
-           {
-            count += 10;
+            {
+                count += 10;
             }
             else
-            count += 0;
-        }
-        
-
+                count += 0;
+       // }
+   
         Response.Write("<script>alert('你的分数为:"+count.ToString()+"');</script>");
         objConnection.Close();
         //Response.Redirect("Study_test.aspx");
