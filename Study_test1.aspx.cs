@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,15 @@ public partial class Default2 : System.Web.UI.Page
         }
         */
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        SqlDataAdapter sda = new SqlDataAdapter();
+        string sql = "select Qid,Question  from Questions where Cid='"+(String)Session["Cid"]+"'";
+        sda.SelectCommand = new SqlCommand(sql, objConnection);
+        DataSet ds = new DataSet();
+        sda.Fill(ds);
+        DataList1.DataSource = ds;
+        DataList1.DataBind();
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
     
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="Qid" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
             <FooterStyle BackColor="White" ForeColor="#333333" />
             <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
             <ItemStyle BackColor="White" ForeColor="#333333" />
