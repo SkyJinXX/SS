@@ -17,8 +17,19 @@ public partial class _Default : System.Web.UI.Page
     }
     private void Data_Binding()
     {
-        string mp4File = ResolveUrl("~/image/1.mp4");
-        this.LiteralSource.Text = string.Format("<source type=\"video/mp4\" src=\"{0}\">", mp4File);
+
+        String q = (String)Session["Cid"];
+        if ((Convert.ToInt32(q) )== 1){
+            string mp4File = ResolveUrl("~/image/3.mp4");
+            this.LiteralSource.Text = string.Format("<source type=\"video/mp4\" src=\"{0}\">", mp4File);
+        }
+        else
+        {
+
+            string mp4File1 = ResolveUrl("~/image/2.mp4");
+            this.LiteralSource.Text = string.Format("<source type=\"video/mp4\" src=\"{0}\">", mp4File1);
+        }
+        
     }
 
 

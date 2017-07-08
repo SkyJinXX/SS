@@ -29,6 +29,8 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
+        if(!IsPostBack)
+        {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         SqlDataAdapter sda = new SqlDataAdapter();
@@ -40,27 +42,31 @@ public partial class Default2 : System.Web.UI.Page
         DataList1.DataBind();
         objConnection.Close();
 
+        }
+       
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        //for (int i = 0; i < 3; i++)
-        //{
-            String ql = ((Label)DataList1.Items[0].FindControl("QidLabel")).Text;
+        for (int i = 0; i < 3; i++)
+        {
+            String ql = ((Label)DataList1.Items[i].FindControl("QidLabel")).Text;
             String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             String st = (String)cmd.ExecuteScalar();
-            RadioButtonList rd = (RadioButtonList)DataList1.Items[1].FindControl("RadioButtonList1");
-            TextBox1.Text = rd.SelectedValue;
-             TextBox2.Text = st;
+            RadioButtonList rd = (RadioButtonList)DataList1.Items[i].FindControl("RadioButtonList1");
+           // TextBox1.Text = rd.SelectedValue;
+             //TextBox2.Text = st;
             if (rd.SelectedValue == st)
             {
                 count += 10;
             }
             else
                 count += 0;
-       // }
+        }
    
         Response.Write("<script>alert('你的分数为:"+count.ToString()+"');</script>");
         objConnection.Close();

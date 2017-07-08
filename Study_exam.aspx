@@ -26,6 +26,7 @@
         <br />
         <asp:Button ID="Button5" runat="server"  Height="36px" Text="讨论区" Width="166px" />
         <br />
+        <asp:Button ID="Button7" runat="server" Text="返回"  Height="36px"  Width="166px" OnClick="Button7_Click" />
         <br />
     </div>
     </form>

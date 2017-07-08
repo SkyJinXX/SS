@@ -36,4 +36,9 @@ public partial class Study_notice : System.Web.UI.Page
     {
         Response.Redirect("Study_notice.aspx");
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
+    }
 }

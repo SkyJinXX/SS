@@ -36,4 +36,9 @@ public partial class Study_exam : System.Web.UI.Page
     {
 
     }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
+    }
 }

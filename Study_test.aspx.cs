@@ -71,4 +71,9 @@ public partial class Study_test : System.Web.UI.Page
     {
         Response.Redirect("Study_exam.aspx");
     }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
+    }
 }

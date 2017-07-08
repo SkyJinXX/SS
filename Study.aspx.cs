@@ -31,4 +31,14 @@ protected void Button3_Click(object sender, EventArgs e)
     {
         Response.Redirect("Study_exam.aspx");
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
+    }
+
+    protected void Button2_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Mp4play.aspx");
+    }
 }
