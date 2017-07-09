@@ -14,8 +14,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         if(Session["username"] == null)
         {
-            Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>"); 
-                      
+            Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");                       
         }
         else if((String)Session["identity"] != "T")
         {
