@@ -14,7 +14,7 @@
 <body style="height: 557px">
     <form id="form1" runat="server">
     <div>
-    <iframe src='https://webchat.botframework.com/embed/ChatBotJJK?s=KH2LA7Co09A.cwA.Vcw.OZj9ET5VWCQnI94QjesS036nChrAQubIKl1jpMqQAWg'></iframe>
+    <iframe width="400" height="600" src='https://webchat.botframework.com/embed/ChatBotJJK?s=KH2LA7Co09A.cwA.Vcw.OZj9ET5VWCQnI94QjesS036nChrAQubIKl1jpMqQAWg'></iframe>
     </div>
         <asp:Label ID="Label2" runat="server" Text="用户名:"></asp:Label>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
