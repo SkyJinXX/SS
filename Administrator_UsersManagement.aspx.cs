@@ -36,48 +36,62 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.DataSource = ds;
         GridView1.DataBind();
         objConnection.Close();
-
+        GridView2.Visible = false;
+        GridView3.Visible = false;
+        GridView4.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         Label3.Text = "1";
+        GridView1.Visible = false;
+        GridView2.Visible = true;
+        GridView3.Visible = false;
+        GridView4.Visible = false;
         objConnection.Open();
         String SelectSql = "select Student.Sid , Sname , Ssex , Sbirthday ,Sage , Sschool , Scollege , Smajor, Sphone, Users.Uusername, Upassword , Uidentity" +
             " from Student , Users ,S_U where  Users.Uidentity = 'S' and Student.Sid = S_U.Sid and S_U.Uusername = Users.Uusername";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridView2.DataSource = ds;
+        GridView2.DataBind();
         objConnection.Close();
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
         Label3.Text = "2";
+        GridView1.Visible = false;
+        GridView2.Visible = false;
+        GridView3.Visible = true;
+        GridView4.Visible = false;
         objConnection.Open();
         String SelectSql = "select Teacher.Tid, Tname, Tsex, Tbirthday, Tprofession, Tphone,  Users.Uusername, Upassword , Uidentity  from Teacher, " +
             "Users, T_U where  Users.Uidentity = 'T' and Teacher.Tid = T_U.Tid and T_U.Uusername = Users.Uusername";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridView3.DataSource = ds;
+        GridView3.DataBind();
         objConnection.Close();
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
         Label3.Text = "3";
+        GridView1.Visible = false;
+        GridView2.Visible = false;
+        GridView3.Visible = false;
+        GridView4.Visible = true;
         objConnection.Open();
         String SelectSql = "select Administrator.Aid, Aname, Asex, Abirthday, Aage, Alevel, Users.Uusername, Upassword , Uidentity from Administrator ," +
             " Users , A_U where  Users.Uidentity = 'A' and Administrator.Aid = A_U.Aid and A_U.Uusername = Users.Uusername";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridView4.DataSource = ds;
+        GridView4.DataBind();
         objConnection.Close();
     }
 
@@ -106,17 +120,38 @@ public partial class Default2 : System.Web.UI.Page
         if (Label3.Text == "3")
         {
             Select1 = "select Administrator.Aid, Aname, Asex, Abirthday, Aage, Alevel, Users.Uusername, Upassword , Uidentity from Administrator ," +
-            " Users , A_U where  Users.Uidentity = 'A' and Administrator.Aid = A_U.Aid and A_U.Uusername = Users.Uusername A_U.Sid = '" +
+            " Users , A_U where  Users.Uidentity = 'A' and Administrator.Aid = A_U.Aid and A_U.Uusername = Users.Uusername and A_U.Aid = '" +
                 TextBox1.Text + "'";
         }
+
         if (Select1 != "")
         {
+            GridView1.Visible = false;
+            GridView2.Visible = false;
+            GridView3.Visible = false;
+            GridView4.Visible = false;
+
             SqlDataAdapter da = new SqlDataAdapter(Select1, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-
+            if (Label3.Text == "1")
+            {
+                GridView2.Visible = true;
+                GridView2.DataSource = ds;
+                GridView2.DataBind();
+            }
+            if (Label3.Text == "2")
+            {
+                GridView3.Visible = true;
+                GridView3.DataSource = ds;
+                GridView3.DataBind();
+            }
+            if (Label3.Text == "3")
+            {
+                GridView4.Visible = true;
+                GridView4.DataSource = ds;
+                GridView4.DataBind();
+            }
             objConnection.Close();
         }
     }

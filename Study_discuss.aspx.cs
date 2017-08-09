@@ -4,27 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
-public partial class Study_exam : System.Web.UI.Page
+public partial class Study_discuss : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
-    }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Study_test1.aspx");
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Study_notice.aspx");
-    }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Mp4play.aspx");
     }
 
     protected void Button3_Click(object sender, EventArgs e)
@@ -34,7 +22,7 @@ public partial class Study_exam : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Study_exam.aspx");
     }
 
     protected void Button7_Click(object sender, EventArgs e)
@@ -42,8 +30,13 @@ public partial class Study_exam : System.Web.UI.Page
         Response.Redirect("Interface_Student.aspx");
     }
 
-    protected void Button5_Click(object sender, EventArgs e)
+    protected void Button1_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("Study_discuss.aspx");
+        Response.Redirect("Study_notice.aspx");
+    }
+
+    protected void Button2_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Mp4play.aspx");
     }
 }
