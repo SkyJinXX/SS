@@ -1,0 +1,82 @@
+﻿body {
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#top {
+    width: 1000px;
+    height: 80px;
+    background-color: white;
+    background: url(../image/sky1_top.jpg);
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#top_p_r {
+    float: right;
+}
+
+#d_menu {
+    border: 2px solid;
+    border-style: double;
+    border-color: blue;
+    background-color: skyblue;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    width: 1000px;
+    height: 32px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#d_search {
+    width: 1000px;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#d_course {
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+#footer {
+    width: 1000px;
+    height: 30px;
+    background-color: lightyellow;
+    margin: auto;
+}
+
+#GridView1 {
+    width: 100%;
+    height: auto;
+}
+
+#GridView2 {
+    width: 100%;
+    height: auto;
+}
+
+.T {
+    width: 100%;
+}
+
+p_1 {
+    margin-bottom: auto;
+}
+
+#Label7 {
+    font-weight: 600;
+}
+
+#Label8 {
+    font-weight: 600;
+}

@@ -27,7 +27,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button4_Click(object sender, EventArgs e)
     {
         SqlConnection objConnection = new SqlConnection();
         String Sql1 = "select Sid from S_U where Uusername = '" + (String)Session["username"] + "'";
@@ -48,7 +48,8 @@ public partial class Default2 : System.Web.UI.Page
             GridView1.DataBind();
             objConnection.Close();
         }
-        else {
+        else
+        {
             //查询全部课程的成绩
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -61,11 +62,32 @@ public partial class Default2 : System.Web.UI.Page
             GridView1.DataSource = ds;
             GridView1.DataBind();
         }
-        
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        Response.Redirect("Interface_Student_Select.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student_Change.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
         Response.Redirect("Interface_Student.aspx");
+    }
+
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
 }

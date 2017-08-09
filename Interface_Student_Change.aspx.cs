@@ -35,8 +35,8 @@ public partial class _Default : System.Web.UI.Page
             cmd.CommandText = "select Sname from Student where Sid = ( select Sid from S_U where Uusername = '"
                 + (String)Session["username"] + "')";
             TextBox1.Text = (String)cmd.ExecuteScalar();
-            
-            
+
+
             cmd.CommandText = "select Smajor from Student where Sid = ( select Sid from S_U where Uusername = '"
                 + (String)Session["username"] + "')";
             TextBox2.Text = (String)cmd.ExecuteScalar();
@@ -51,6 +51,21 @@ public partial class _Default : System.Web.UI.Page
     }
 
     protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student_Select.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
@@ -73,8 +88,13 @@ public partial class _Default : System.Web.UI.Page
         Response.Write("<script>alert('修改成功');window.location.href='Interface_Student_Change.aspx'</script>");
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button5_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Student.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
 }

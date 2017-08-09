@@ -1,0 +1,59 @@
+﻿body {
+    background: url(../image/earth1.jpg)no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+}
+
+#bot {
+    background-color: white;
+    float: left;
+}
+
+#d2 {
+    width: 400px;
+    height: 210px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: Highlight;
+    opacity: 0.8;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#p2_1 {
+    margin-bottom: 30px;
+}
+
+.p2_2 {
+    margin-bottom: 20px;
+}
+
+button {
+    opacity: 1;
+}
+
+#f1 {
+    margin: auto;
+    text-align: center;
+}
+
+.L_font {
+    font-family: 微软雅黑,宋体;
+    font-weight: 800;
+    font-size: 1em;
+    color: black;
+}
+
+.T {
+    margin: auto;
+    text-indent: 0.5em;
+    vertical-align: middle;
+}
