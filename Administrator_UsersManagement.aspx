@@ -30,14 +30,14 @@
 &nbsp;<asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="搜索" />
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" Height="160px" Width="224px" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" runat="server" Height="160px" Width="224px" AutoGenerateColumns="False" style="margin-right: 0px">
             <Columns>
-                <asp:BoundField DataField="Uusername" HeaderText="账号" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" />
+                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
         </asp:GridView>
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="810px">
             <Columns>
                 <asp:BoundField DataField="Sid" HeaderText="学生工号" />
                 <asp:BoundField DataField="Sname" HeaderText="姓名" />
@@ -48,8 +48,8 @@
                 <asp:BoundField DataField="Scollege" HeaderText="隶属学院" />
                 <asp:BoundField DataField="Smajor" HeaderText="专业" />
                 <asp:BoundField DataField="Sphone" HeaderText="联系电话" />
-                <asp:BoundField DataField="Uusername" HeaderText="账号" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" />
+                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
         </asp:GridView>
@@ -61,8 +61,8 @@
                 <asp:BoundField DataField="Tbirthday" HeaderText="生日" />
                 <asp:BoundField DataField="Tprofession" HeaderText="专业" />
                 <asp:BoundField DataField="Tphone" HeaderText="联系电话" />
-                <asp:BoundField DataField="Uusername" HeaderText="账号" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" />
+                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
         </asp:GridView>
@@ -74,8 +74,8 @@
                 <asp:BoundField DataField="Abirthday" HeaderText="生日" />
                 <asp:BoundField DataField="Aage" HeaderText="年龄" />
                 <asp:BoundField DataField="Alevel" HeaderText="权限等级" />
-                <asp:BoundField DataField="Uusername" HeaderText="账号" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" />
+                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
         </asp:GridView>
