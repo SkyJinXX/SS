@@ -86,6 +86,7 @@
                                 <asp:BoundField DataField="Cpersonnumber" HeaderText="课程人数" />
                                 <asp:BoundField DataField="Tscore" HeaderText="分数" />
                             </Columns>
+                            <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
                     </td>
                 </tr>

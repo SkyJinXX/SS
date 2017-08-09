@@ -110,8 +110,11 @@
                 </table>
             </div>
         </div>
+        <div id="T_title">
+            <asp:Label ID="Label9" runat="server" Text="已开课程" Font-Size="X-Large"></asp:Label>
+        </div>
         <div id="view">
-            <asp:GridView ID="GridView1" runat="server" Height="140px" Width="1023px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+            <asp:GridView ID="GridView1" runat="server" Height="140px" Width="1023px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="Cid" HeaderText="课程编号" ReadOnly="True" />
                     <asp:TemplateField HeaderText="课程名称">
@@ -170,6 +173,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <RowStyle HorizontalAlign="Center" />
             </asp:GridView>
         </div>
         <div id="footer">

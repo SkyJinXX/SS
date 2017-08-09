@@ -32,7 +32,7 @@
             </table>
         </div>
         <div id="middle">
-            <asp:GridView ID="GridView1" runat="server" Height="349px" Width="686px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+            <asp:GridView ID="GridView1" runat="server" Height="350px" Width="680px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
             <Columns>
                 <asp:BoundField DataField="Tmessage" HeaderText="公告" SortExpression="Tmessage" />
             </Columns>  

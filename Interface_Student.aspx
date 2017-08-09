@@ -74,6 +74,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                            <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
                     </td>
                 </tr>
@@ -107,6 +108,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
+                            <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
                     </td>
                 </tr>

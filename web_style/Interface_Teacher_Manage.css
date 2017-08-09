@@ -72,7 +72,15 @@
     vertical-align: middle;
 }
 
+#T_title {
+    width: 100px;
+    height: auto;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
 #view {
     width: 1000px;
     height: auto;
+    margin: auto;
 }
