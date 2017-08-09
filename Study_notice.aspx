@@ -35,7 +35,7 @@
         <br />
         <asp:Button ID="Button4" runat="server" Height="70px" Text="考试" Width="200px" OnClick="Button4_Click" cssclass="a" />
         <br />
-        <asp:Button ID="Button5" runat="server"  Height="70px" Text="讨论区" Width="200px" cssclass="a"/>
+        <asp:Button ID="Button5" runat="server"  Height="70px" Text="讨论区" Width="200px" cssclass="a" OnClick="Button5_Click"/>
         <br />
         <asp:Button ID="Button6" runat="server" Text="返回"  Height="70px"  Width="200px" OnClick="Button6_Click" cssclass="a" />
         <br />

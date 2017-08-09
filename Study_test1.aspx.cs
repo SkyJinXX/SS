@@ -51,7 +51,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i <5; i++)
         {
             String ql = ((Label)DataList1.Items[i].FindControl("QidLabel")).Text;
             String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";

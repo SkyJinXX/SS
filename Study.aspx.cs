@@ -41,4 +41,9 @@ protected void Button3_Click(object sender, EventArgs e)
     {
         Response.Redirect("Mp4play.aspx");
     }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_discuss.aspx");
+    }
 }
