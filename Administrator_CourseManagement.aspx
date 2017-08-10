@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <div  id="top">
             <p id="top_p_r">
-                <font id="font_1">Welcome!</font>
+                <font id="font_1">Welcome !</font>
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
                 <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text=" 注销 " />
             </p>

@@ -92,4 +92,11 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Administrator.aspx");
     }
 
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
 }

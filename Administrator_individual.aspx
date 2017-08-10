@@ -14,7 +14,8 @@
         <div id="top">
             <p id="top_p_r">
                 <font id="font_1">Welcome !</font>
-                <asp:Label ID="Label1" runat="server"></asp:Label>
+                <asp:Label ID="Label1" ForeColor="#FF9900" runat="server"></asp:Label>
+                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text=" 注销 " />
             </p>
         </div>
         <div id="d_message">
