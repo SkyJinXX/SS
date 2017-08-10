@@ -39,11 +39,6 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-
-    }
-
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -139,5 +134,35 @@ public partial class Default2 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_Register.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_UsersManagement.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_CourseManagement.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_TranscriptManagement.aspx");
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_individual.aspx");
     }
 }

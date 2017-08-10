@@ -28,10 +28,10 @@ public partial class Default2 : System.Web.UI.Page
             Label1.Text = (String)Session["username"];
             Label3.Visible = false;
             TextBox3.Visible = false;
-            Button4.Visible = false;
+            Button12.Visible = false;
             Label2.Visible = false;
             TextBox1.Visible = false;
-            Button1.Visible = false;
+            Button11.Visible = false;
         }
 
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -48,19 +48,101 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Response.Redirect("Administrator_RightsManagement.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_Register.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_UsersManagement.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_TranscriptManagement.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_CourseManagement.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_individual.aspx");
+    }
+
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
         Label2.Visible = true;
         TextBox1.Visible = true;
-        Button1.Visible = true;
+        Button11.Visible = true;
         Label3.Visible = true;
         TextBox3.Visible = true;
-        Button4.Visible = true;
+        Button12.Visible = true;
+
+        Label3.Text = "权限：";
+        TextBox3.Width = 300;
+        TextBox3.Height = 20;
+        Button12.Text = "修改";
+        TextBox1.Text = "";
+        TextBox3.Text = "";
+
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+
+        Label2.Visible = true;
+        TextBox1.Visible = true;
+        Button11.Visible = true;
+        Label3.Visible = true;
+        TextBox3.Visible = true;
+        Button12.Visible = true;
+
+        TextBox3.Width = 300;
+        TextBox3.Height = 200;
+        TextBox3.TextMode = TextBoxMode.MultiLine;
+        Label3.Text = "留言：";
+        Button12.Text = "发送";
+
+        TextBox1.Text = "";
+        TextBox3.Text = "";
+
+    }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Label2.Visible = true;
+        TextBox1.Visible = true;
+        Button11.Visible = true;
+        Label3.Visible = true;
+        TextBox3.Visible = true;
+        Button12.Visible = true;
 
         objConnection.Open();
 
         String TB1 = TextBox1.Text;
         String SelectSql = "select Alevel from Administrator where Aid = '" + TB1 + "'";
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-        if (Button4.Text == "修改")
+        if (Button12.Text == "修改")
         {
             if ((String)cmd.ExecuteScalar() == null)
             {
@@ -74,22 +156,17 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
             TextBox3.Text = "";
-       objConnection.Close();
+        objConnection.Close();
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Administrator.aspx");
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
+    protected void Button12_Click(object sender, EventArgs e)
     {
         Label2.Visible = true;
         TextBox1.Visible = true;
-        Button1.Visible = true;
+        Button11.Visible = true;
         Label3.Visible = true;
         TextBox3.Visible = true;
-        Button4.Visible = true;
+        Button12.Visible = true;
 
         objConnection.Open();
 
@@ -98,7 +175,7 @@ public partial class Default2 : System.Web.UI.Page
         String b = "select Aname from Administrator where Aid = '" + TextBox1.Text + "'";
         SqlCommand cmd2 = new SqlCommand(b, objConnection);
 
-        if (Button4.Text == "修改")
+        if (Button12.Text == "修改")
         {
             int levea = Convert.ToInt32((String)TextBox3.Text);
             String selectlevel = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
@@ -123,7 +200,7 @@ public partial class Default2 : System.Web.UI.Page
                 {
                     action += " be down ";
                 }
-                action += "and the level become " + Convert.ToString(levea) +" .";
+                action += "and the level become " + Convert.ToString(levea) + " .";
                 cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar()
                         + "','" + "" + "','" + (String)action + "')";
                 cmd.ExecuteScalar();
@@ -138,7 +215,7 @@ public partial class Default2 : System.Web.UI.Page
                 Response.Write("<script>alert('修改成功')</script>");
             }
         }
-        if (Button4.Text == "发送")
+        if (Button12.Text == "发送")
         {
             String SelectSql = "";
             SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
@@ -152,44 +229,10 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-    protected void Button5_Click(object sender, EventArgs e)
+    protected void Button13_Click(object sender, EventArgs e)
     {
-        Label2.Visible = true;
-        TextBox1.Visible = true;
-        Button1.Visible = true;
-        Label3.Visible = true;
-        TextBox3.Visible = true;
-        Button4.Visible = true;
-
-        Label3.Text = "权限：";
-        TextBox3.Width  = 150;
-        TextBox3.Height = 20;
-        Button4.Text = "修改";
-        TextBox1.Text = "";
-        TextBox3.Text = "";
-
+        Response.Redirect("Administrator.aspx");
     }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-
-        Label2.Visible = true;
-        TextBox1.Visible = true;
-        Button1.Visible = true;
-        Label3.Visible = true;
-        TextBox3.Visible = true;
-        Button4.Visible = true;
-
-        TextBox3.Width = 300;
-        TextBox3.Height = 100;
-        Label3.Text = "留言：";
-        Button4.Text = "发送";
-
-        TextBox1.Text = "";
-        TextBox3.Text = "";
-
-    }
-
 }
 
 

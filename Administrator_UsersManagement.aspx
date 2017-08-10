@@ -4,32 +4,71 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="web_style/Administrator_UsersManagement.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        Welcome !<asp:Label ID="Label1" runat="server"></asp:Label>
-        <br />
-        <asp:Label ID="Label3" runat="server" Enabled="False" Visible="False"></asp:Label>
-        <br />
-        <br />
-    
-    </div>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="学生表" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="教师表" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="管理员表" />
-        &nbsp;&nbsp;&nbsp;
-        <br />
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="工号 "></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="搜索" />
-        <br />
-        <br />
+        <div id="top">
+            <p id="top_p_r">
+                <font id="font_1">Welcome !</font>
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+                <asp:Button ID="Button13" runat="server" OnClick="Button13_Click" Text=" 注销 " />
+            </p>
+        </div>
+        <div id="d_menu_1">
+            <table>
+                <tr>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Width="100px" Text="操作管理" OnClick="Button1_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button2" runat="server" Width="100px" Text="新管理员注册" OnClick="Button2_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button3" runat="server" Width="100px" Text="用户信息管理" OnClick="Button3_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button4" runat="server" Width="100px" Text="课程信息管理" OnClick="Button4_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button5" runat="server" Width="100px" Text="成绩系统管理" OnClick="Button5_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button6" runat="server" Width="100px" Text="个人信息修改" OnClick="Button7_Click" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="d_menu_2">
+            <table>
+                <tr>
+                    <td>
+                        <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="学生表" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button8" runat="server" OnClick="Button8_Click" Text="教师表" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="管理员表" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="返回主界面" />
+                    </td>
+                    <td>
+                        <asp:Label ID="Label3" runat="server" Enabled="False" Visible="False"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="search">
+            <asp:Label ID="Label2" runat="server" Text="工号 "></asp:Label>
+            <asp:TextBox ID="TextBox1" Width="500px" Height="17px" runat="server"></asp:TextBox>
+            <asp:Button ID="Button10" runat="server" OnClick="Button10_Click" Text="搜索" />
+        </div>
+        
         <asp:GridView ID="GridView1" runat="server" Height="160px" Width="224px" AutoGenerateColumns="False" style="margin-right: 0px">
             <Columns>
                 <asp:BoundField DataField="Uusername" HeaderText="用户名" />
@@ -81,9 +120,9 @@
         </asp:GridView>
         <br />
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="返回" />
+&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="重置密码" />
+        <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="重置密码" />
     </form>
 </body>
 </html>

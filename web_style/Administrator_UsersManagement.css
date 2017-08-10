@@ -1,0 +1,56 @@
+﻿body {
+}
+
+#font_1 {
+    color: #FF9900;
+}
+
+#top {
+    width: 1000px;
+    height: 80px;
+    background-color: white;
+    background: url(../image/sky1_top.jpg);
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#top_p_r {
+    float: right;
+}
+
+#d_menu_1 {
+    border: 2px solid;
+    border-style: double;
+    border-color: blue;
+    background-color: skyblue;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    width: 1000px;
+    height: 32px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#d_menu_2 {
+    border: 2px solid;
+    border-style: double;
+    border-color: blue;
+    background-color: skyblue;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    width: 1000px;
+    height: 32px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#search {
+    width:1000px;
+    height:auto;
+    margin:auto;
+    margin-bottom:30px;
+}
