@@ -86,4 +86,10 @@ public partial class Default2 : System.Web.UI.Page
         cmd.ExecuteScalar();
 
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator.aspx");
+    }
+
 }

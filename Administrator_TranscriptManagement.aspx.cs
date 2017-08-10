@@ -25,16 +25,41 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (string)Session["username"];
+            Label1.Text = (String)Session["username"];
         }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Administrator_RightsManagement.aspx");
     }
 
-    protected void Button1_Click1(object sender, EventArgs e)
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_Register.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_UsersManagement.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_CourseManagement.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_TranscriptManagement.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_individual.aspx");
+    }
+
+    protected void Button8_Click1(object sender, EventArgs e)
     {
         
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -70,7 +95,7 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button9_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator.aspx");
     }
@@ -100,6 +125,13 @@ public partial class Default2 : System.Web.UI.Page
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
+    }
+
+    protected void Button13_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
     }
 
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)

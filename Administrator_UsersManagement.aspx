@@ -68,44 +68,55 @@
             <asp:TextBox ID="TextBox1" Width="500px" Height="17px" runat="server"></asp:TextBox>
             <asp:Button ID="Button10" runat="server" OnClick="Button10_Click" Text="搜索" />
         </div>
-        
-        <asp:GridView ID="GridView1" runat="server" Height="160px" Width="224px" AutoGenerateColumns="False" style="margin-right: 0px">
-            <Columns>
-                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
-                <asp:BoundField DataField="Uidentity" HeaderText="身份" />
-            </Columns>
-        </asp:GridView>
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"  Width="810px">
-            <Columns>
-                <asp:BoundField DataField="Sid" HeaderText="学生工号" />
-                <asp:BoundField DataField="Sname" HeaderText="姓名" />
-                <asp:BoundField DataField="Ssex" HeaderText="性别" />
-                <asp:BoundField DataField="Sbirthday" HeaderText="生日" />
-                <asp:BoundField DataField="Sage" HeaderText="年龄" />
-                <asp:BoundField DataField="Sschool" HeaderText="所在学校" />
-                <asp:BoundField DataField="Scollege" HeaderText="隶属学院" />
-                <asp:BoundField DataField="Smajor" HeaderText="专业" />
-                <asp:BoundField DataField="Sphone" HeaderText="联系电话" />
-                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
-                <asp:BoundField DataField="Uidentity" HeaderText="身份" />
-            </Columns>
-        </asp:GridView>
-        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="Tid" HeaderText="教师工号" />
-                <asp:BoundField DataField="Tname" HeaderText="姓名" />
-                <asp:BoundField DataField="Tsex" HeaderText="性别" />
-                <asp:BoundField DataField="Tbirthday" HeaderText="生日" />
-                <asp:BoundField DataField="Tprofession" HeaderText="专业" />
-                <asp:BoundField DataField="Tphone" HeaderText="联系电话" />
-                <asp:BoundField DataField="Uusername" HeaderText="用户名" />
-                <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
-                <asp:BoundField DataField="Uidentity" HeaderText="身份" />
-            </Columns>
-        </asp:GridView>
-        <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False">
+        <div id="d_body">
+            <div id="T_U">
+                <asp:GridView ID="GridView1" runat="server" Width="300px" AutoGenerateColumns="False" Style="margin-right: 0px">
+                    <Columns>
+                        <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                        <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
+                        <asp:BoundField DataField="Uidentity" HeaderText="身份" />
+                    </Columns>
+                    <RowStyle HorizontalAlign="Center" />
+                </asp:GridView>
+            </div>
+            <div id="T_S">
+                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" Width="1000px">
+                    <Columns>
+                        <asp:BoundField DataField="Sid" HeaderText="学生工号" />
+                        <asp:BoundField DataField="Sname" HeaderText="姓名" />
+                        <asp:BoundField DataField="Ssex" HeaderText="性别" />
+                        <asp:BoundField DataField="Sbirthday" HeaderText="生日" />
+                        <asp:BoundField DataField="Sage" HeaderText="年龄" />
+                        <asp:BoundField DataField="Sschool" HeaderText="所在学校" />
+                        <asp:BoundField DataField="Scollege" HeaderText="隶属学院" />
+                        <asp:BoundField DataField="Smajor" HeaderText="专业" />
+                        <asp:BoundField DataField="Sphone" HeaderText="联系电话" />
+                        <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                        <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
+                        <asp:BoundField DataField="Uidentity" HeaderText="身份" />
+                    </Columns>
+                    <RowStyle HorizontalAlign="Center" />
+                </asp:GridView>
+            </div>
+        </div>
+        <div id="T_T">
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" Width="800px">
+                <Columns>
+                    <asp:BoundField DataField="Tid" HeaderText="教师工号" />
+                    <asp:BoundField DataField="Tname" HeaderText="姓名" />
+                    <asp:BoundField DataField="Tsex" HeaderText="性别" />
+                    <asp:BoundField DataField="Tbirthday" HeaderText="生日" />
+                    <asp:BoundField DataField="Tprofession" HeaderText="专业" />
+                    <asp:BoundField DataField="Tphone" HeaderText="联系电话" />
+                    <asp:BoundField DataField="Uusername" HeaderText="用户名" />
+                    <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
+                    <asp:BoundField DataField="Uidentity" HeaderText="身份" />
+                </Columns>
+                <RowStyle HorizontalAlign="Center" />
+            </asp:GridView>
+        </div>
+        <div id="T_A">
+            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="Aid" HeaderText="管理员工号" />
                 <asp:BoundField DataField="Aname" HeaderText="姓名" />
@@ -117,12 +128,12 @@
                 <asp:BoundField DataField="Upassword" HeaderText="密码" Visible="False" />
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
+            <RowStyle HorizontalAlign="Center" />
         </asp:GridView>
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="重置密码" />
+        </div>
+        <div id="reset_password">
+            <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="重置密码" />
+        </div>
     </form>
 </body>
 </html>
