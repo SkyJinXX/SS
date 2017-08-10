@@ -94,7 +94,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <asp:Label ID="Label7" runat="server" Text="管理员级别"></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text="管理权限"></asp:Label>
                     </th>
                     <th>
                         <asp:TextBox ID="TextBox6" runat="server" Enabled="False"></asp:TextBox>
