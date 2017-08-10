@@ -67,7 +67,15 @@
             <asp:Label ID="Label6" runat="server" Text="管理" Font-Size="X-Large"></asp:Label>
         </div>
         <div id="d_message">
-            <asp:GridView ID="GridView1" runat="server" Width="800px">
+            <asp:GridView ID="GridView1" runat="server" Width="800px" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Aid" HeaderText="管理员编号" />
+                    <asp:BoundField DataField="Aname" HeaderText="管理员姓名" />
+                    <asp:BoundField DataField="Asex" HeaderText="性别" />
+                    <asp:BoundField DataField="Abirthday" HeaderText="生日" />
+                    <asp:BoundField DataField="Aage" HeaderText="年龄" />
+                    <asp:BoundField DataField="Alevel" HeaderText="权限" />
+                </Columns>
                 <RowStyle HorizontalAlign="Center" />
             </asp:GridView>
         </div>
