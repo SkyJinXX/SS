@@ -20,30 +20,30 @@ public partial class _Default : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         try
-        { 
+        {
             objConnection.Open();
-            
+
             if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 16))
             {
                 String SqlStr = "Select Upassword From Users where Uusername = '" + TextBox1.Text +
-                    "' and Uidentity = '" + RadioButtonList1.SelectedValue + "'"  ;
+                    "' and Uidentity = '" + RadioButtonList1.SelectedValue + "'";
                 SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-                
+
                 String st = TextBox2.Text;
                 int l1 = st.Length;
                 String st1 = (String)cmd.ExecuteScalar();
                 int l2 = st1.Length;
-                             
+
                 for (int i = 0; i < l2 - l1; i++)
-                        st += ' ';
-        
+                    st += ' ';
+
                 if (st == st1)
                 {
                     Session["username"] = TextBox1.Text;
                     Session["identity"] = RadioButtonList1.SelectedValue;
                     if ((String)Session["identity"] == "T")
-                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_Teacher.aspx'</script>");             
-                    else if ((String)Session["identity"] == "S") 
+                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_Teacher.aspx'</script>");
+                    else if ((String)Session["identity"] == "S")
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_student.aspx'</script>");
                     else if ((String)Session["identity"] == "A")
                         Response.Write("<script>alert('登陆成功');window.location.href='Administrator.aspx'</script>");

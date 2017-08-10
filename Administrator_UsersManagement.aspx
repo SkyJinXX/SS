@@ -37,7 +37,7 @@
                 <asp:BoundField DataField="Uidentity" HeaderText="身份" />
             </Columns>
         </asp:GridView>
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="810px">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"  Width="810px">
             <Columns>
                 <asp:BoundField DataField="Sid" HeaderText="学生工号" />
                 <asp:BoundField DataField="Sname" HeaderText="姓名" />

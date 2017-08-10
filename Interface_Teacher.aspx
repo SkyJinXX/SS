@@ -4,25 +4,43 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <link href="web_style/Interface_Teacher.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        Welcome back!<asp:Label ID="Label1" runat="server"></asp:Label>
-    
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
-    
-    </div>
-        <asp:Button ID="Button_Change" runat="server" Text="个人信息修改" OnClick="Button_Change_Click" />
-        <asp:Button ID="Button_Create" runat="server" Text="课程管理" OnClick="Button_Create_Click" />
-        <asp:GridView ID="GridView1" runat="server" Height="349px" Width="686px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+        <div  id="top">
+            <p id="top_p_r">
+                <font id="font_1">Welcome back!</font>
+                <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
+            </p>
+        </div>
+        <div id="d_menu">
+            <table>
+                <tr>
+                    <td>
+                        <asp:Button ID="Button_Change" runat="server" Width="105px" Text="个人信息修改" OnClick="Button_Change_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button_Create" runat="server" Width="80px" Text="课程管理" OnClick="Button_Create_Click" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="middle">
+            <asp:GridView ID="GridView1" runat="server" Height="350px" Width="680px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
             <Columns>
                 <asp:BoundField DataField="Tmessage" HeaderText="公告" SortExpression="Tmessage" />
-            </Columns>
-            
+            </Columns>  
         </asp:GridView>
+        </div>
+        <div id="footer">
+
+        </div>  
     </form>
 </body>
 </html>

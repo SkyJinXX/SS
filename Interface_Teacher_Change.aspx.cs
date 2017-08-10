@@ -66,7 +66,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-       
+
         String SelectSql = "";
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
         cmd.CommandText = "update Teacher set Tbirthday = '" + TextBox2.Text +
