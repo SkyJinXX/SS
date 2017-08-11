@@ -130,10 +130,12 @@
                         <asp:Label ID="Label4" runat="server" Text="管理权限"></asp:Label>
                     </th>
                     <th>
-                        <asp:RadioButtonList ID="RadioButtonList4" runat="server" RepeatDirection="Horizontal" Height="20px " Width="160px" Style="margin: auto" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
-                            <asp:ListItem Value="1">高</asp:ListItem>
-                            <asp:ListItem Value="2">中</asp:ListItem>
-                            <asp:ListItem Value="3">低</asp:ListItem>
+                        <asp:RadioButtonList ID="RadioButtonList4" runat="server" RepeatDirection="Horizontal" Height="20px" Width="263px" Style="margin: auto" OnSelectedIndexChanged="RadioButtonList4_SelectedIndexChanged">
+                            <asp:ListItem Value="5">VIP</asp:ListItem>
+<asp:ListItem Value="4">高</asp:ListItem>
+                            <asp:ListItem Value="3">中</asp:ListItem>
+                            <asp:ListItem Value="2">低</asp:ListItem>
+                            <asp:ListItem Value="1">基本</asp:ListItem>
                         </asp:RadioButtonList>
                     </th>
                     <th>
@@ -144,6 +146,7 @@
             <table id="T_3">
                 <tr>
                     <th>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;
                     </th>
                     <th>

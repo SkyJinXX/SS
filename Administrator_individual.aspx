@@ -62,7 +62,7 @@
                         <asp:Label ID="Label4" runat="server" Text="性别"></asp:Label>
                     </th>
                     <th>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="98px">
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="126px">
                             <asp:ListItem>男</asp:ListItem>
                             <asp:ListItem>女</asp:ListItem>
                         </asp:RadioButtonList>
@@ -108,7 +108,7 @@
             <table id="T_3">
                 <tr>
                     <th>
-                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                     </th>
                     <th>
                         <asp:Button ID="Button1" runat="server" Width="50px" OnClick="Button1_Click" Text="确定" />

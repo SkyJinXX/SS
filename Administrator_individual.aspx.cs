@@ -60,6 +60,7 @@ public partial class Default2 : System.Web.UI.Page
 
             objConnection.Close();
         }
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
