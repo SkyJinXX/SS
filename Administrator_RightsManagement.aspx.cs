@@ -42,6 +42,27 @@ public partial class Default2 : System.Web.UI.Page
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
+
+        String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+        SqlCommand cmd1 = new SqlCommand(a, objConnection);
+        int b = Convert.ToInt32(cmd1.ExecuteScalar());
+        if (b < 2)
+        {
+            Button2.Enabled = false;
+        }
+        if (b < 3)
+        {
+            Button3.Enabled = false;
+        }
+        if (b < 4)
+        {
+            Button4.Enabled = false;
+        }
+        if (b < 5)
+        {
+            Button5.Enabled = false;
+        }
+
         objConnection.Close();
 
     }
@@ -182,37 +203,47 @@ public partial class Default2 : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand(selectlevel, objConnection);
             int levelb = Convert.ToInt32((String)cmd.ExecuteScalar());
 
-            if (levea != levelb)
+            selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+            cmd = new SqlCommand(selectlevel, objConnection);
+            int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
+            if (levelc > levelb)
             {
-                String SelectSql = "";
-                cmd = new SqlCommand(SelectSql, objConnection);
-                cmd.CommandText = "update Administrator set Alevel = '" + TextBox3.Text
-                    + "' where Aid = '" + TextBox1.Text + "'";
-                cmd.ExecuteScalar();
-
-                cmd = new SqlCommand(SelectSql, objConnection);
-                String action = (String)cmd1.ExecuteScalar() + " let  the level of " + (String)cmd2.ExecuteScalar();
-                if (levea > levelb)
+                if (levea != levelb)
                 {
-                    action += " be up ";
-                }
-                else
-                {
-                    action += " be down ";
-                }
-                action += "and the level become " + Convert.ToString(levea) + " .";
-                cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar()
-                        + "','" + "" + "','" + (String)action + "')";
-                cmd.ExecuteScalar();
+                    String SelectSql = "";
+                    cmd = new SqlCommand(SelectSql, objConnection);
+                    cmd.CommandText = "update Administrator set Alevel = '" + TextBox3.Text
+                        + "' where Aid = '" + TextBox1.Text + "'";
+                    cmd.ExecuteScalar();
 
-                String SelectSql1 = "select * from Administrator";
-                SqlDataAdapter da = new SqlDataAdapter(SelectSql1, objConnection);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
+                    cmd = new SqlCommand(SelectSql, objConnection);
+                    String action = (String)cmd1.ExecuteScalar() + " let  the level of " + (String)cmd2.ExecuteScalar();
+                    if (levea > levelb)
+                    {
+                        action += " be up ";
+                    }
+                    else
+                    {
+                        action += " be down ";
+                    }
+                    action += "and the level become " + Convert.ToString(levea) + " .";
+                    cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar()
+                            + "','" + "" + "','" + (String)action + "')";
+                    cmd.ExecuteScalar();
 
-                Response.Write("<script>alert('修改成功')</script>");
+                    String SelectSql1 = "select * from Administrator";
+                    SqlDataAdapter da = new SqlDataAdapter(SelectSql1, objConnection);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    GridView1.DataSource = ds;
+                    GridView1.DataBind();
+
+                    Response.Write("<script>alert('修改成功')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('无法修改高等级管理员信息');</script>");
             }
         }
         if (Button12.Text == "发送")

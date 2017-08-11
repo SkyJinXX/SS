@@ -35,7 +35,29 @@ public partial class Default2 : System.Web.UI.Page
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
+
+        String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+        SqlCommand cmd1 = new SqlCommand(a, objConnection);
+        int b = Convert.ToInt32(cmd1.ExecuteScalar());
+        if (b < 2)
+        {
+            Button2.Enabled = false;
+        }
+        if (b < 3)
+        {
+            Button3.Enabled = false;
+        }
+        if (b < 4)
+        {
+            Button4.Enabled = false;
+        }
+        if (b < 5)
+        {
+            Button5.Enabled = false;
+        }
+
         objConnection.Close();
+
         GridView2.Visible = false;
         GridView3.Visible = false;
         GridView4.Visible = false;
@@ -203,8 +225,22 @@ public partial class Default2 : System.Web.UI.Page
 
         if (Label3.Text == "3")
         {
-            Select1 = "update Users set Upassword = '" + "666666" + "' where Uidentity = '" + "A" + "' and Uusername in (select Uusername from A_U where Aid = '"
-                + TextBox1.Text + "')";
+            String selectlevel = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
+            SqlCommand cmd1 = new SqlCommand(selectlevel, objConnection);
+            int levelb = Convert.ToInt32((String)cmd1.ExecuteScalar());
+
+            selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+            cmd1 = new SqlCommand(selectlevel, objConnection);
+            int levelc = Convert.ToInt32((String)cmd1.ExecuteScalar());
+            if (levelc > levelb)
+            {
+                Select1 = "update Users set Upassword = '" + "666666" + "' where Uidentity = '" + "A" + "' and Uusername in (select Uusername from A_U where Aid = '"
+                    + TextBox1.Text + "')";
+            }
+            else
+            {
+                Response.Write("<script>alert('无法修改高等级管理员信息');</script>");
+            }
         }
         SqlCommand cmd = new SqlCommand(Select1, objConnection);
         cmd.ExecuteScalar();

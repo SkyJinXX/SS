@@ -31,6 +31,12 @@ public partial class Register_Administrator3 : System.Web.UI.Page
         }
         TextBox4.Text = AD;
 
+        String selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+        SqlCommand cmd = new SqlCommand(selectlevel, objConnection);
+        int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
+        for (int i = levelc + 1; i < 6; i++)
+            RadioButtonList4.Items[5 - i].Enabled = false;
+
         objConnection.Close();
     }
 
@@ -64,28 +70,40 @@ public partial class Register_Administrator3 : System.Web.UI.Page
                     if (Check.CheckLength(TextBox4.Text.Length, 10) && Check.CheckLength(TextBox5.Text.Length, 10)
                         && Check.CheckLength(TextBox6.Text.Length, 10) && Check.CheckLength(TextBox7.Text.Length, 5))
                     {
+                        int levea = Convert.ToInt32((String)TextBox3.Text);
+                        String selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+                        cmd = new SqlCommand(selectlevel, objConnection);
+                        int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
+                        int levelb = Convert.ToInt32((String)RadioButtonList4.SelectedValue);
 
-                        String SqlStr1 = "Insert into Administrator values('" + (String)AD+ "', '" + TextBox5.Text 
-                            + "', '" + (string)RadioButtonList3.SelectedValue + "', '" + TextBox6.Text +"', '" 
-                            + TextBox7.Text + "', '" +(String)RadioButtonList4.SelectedValue + "')";
+                        if (levelc <= levelb)
+                        {
+                            Response.Write("<script>alert('无法赋值比自身权限更高或相同的权限，请重新选择正确权限')</script>");
+                        }
+                        else
+                        {
+                            String SqlStr1 = "Insert into Administrator values('" + (String)AD + "', '" + TextBox5.Text
+                                + "', '" + (string)RadioButtonList3.SelectedValue + "', '" + TextBox6.Text + "', '"
+                                + TextBox7.Text + "', '" + (String)RadioButtonList4.SelectedValue + "')";
 
-                        SqlCommand cmd1 = new SqlCommand(SqlStr1, objConnection);
-                        cmd1.CommandText = SqlStr1;
-                        cmd1.ExecuteScalar();
+                            SqlCommand cmd1 = new SqlCommand(SqlStr1, objConnection);
+                            cmd1.CommandText = SqlStr1;
+                            cmd1.ExecuteScalar();
 
-                        String SqlStr2 = "Insert into A_U values('" + TextBox4.Text + "' , '" + (string)Session["username"] + "')";
-                        SqlCommand cmd2 = new SqlCommand(SqlStr2, objConnection);
-                        cmd2.CommandText = SqlStr2;
-                        cmd2.ExecuteScalar();
+                            String SqlStr2 = "Insert into A_U values('" + TextBox4.Text + "' , '" + (string)Session["username"] + "')";
+                            SqlCommand cmd2 = new SqlCommand(SqlStr2, objConnection);
+                            cmd2.CommandText = SqlStr2;
+                            cmd2.ExecuteScalar();
 
-                        Response.Write("<script>alert('注册成功');window.location.href='Administrator.aspx'</script>");
+                            Response.Write("<script>alert('注册成功');window.location.href='Administrator.aspx'</script>");
+                        }
                     }
                     else
                         Response.Write("<script>alert('长度错误')</script>");
-                    objConnection.Close();
                 }
             }
         }
+        objConnection.Close();
     }
 
     protected void RadioButtonList3_SelectedIndexChanged(object sender, EventArgs e)

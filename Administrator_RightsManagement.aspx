@@ -54,12 +54,6 @@
                     <td>
                         <asp:Button ID="Button13" runat="server" Width="100px" OnClick="Button13_Click" Text="返回主界面" />
                     </td>
-                    <td>
-                        <asp:Label ID="Label4" runat="server"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:Label ID="Label5" runat="server"></asp:Label>
-                    </td>
                 </tr>
             </table>
         </div>
