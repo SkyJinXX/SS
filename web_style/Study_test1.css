@@ -1,0 +1,46 @@
+﻿body {
+    background-color: white;
+}
+
+#top {
+    width: 1000px;
+    height: 200px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+
+#top_image {
+    float: left;
+}
+
+#title_1 {
+    width: 100px;
+    height: auto;
+    float: right;
+    margin-right: 100px;
+    margin-top: 20px;
+}
+
+#title_2 {
+    width: 100px;
+    height: auto;
+    float: right;
+    margin-right: 220px;
+    margin-top: 100px;
+}
+
+#testpaper {
+    width:700px;
+    margin:auto;
+    margin-bottom:10px;
+}
+
+#operate {
+    width:300px;
+    margin:auto;
+}
+
+#T_1 {
+    width:300px;
+    margin:auto;
+}
