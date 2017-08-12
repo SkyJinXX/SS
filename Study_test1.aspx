@@ -13,6 +13,10 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
+
+        <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="1000">
+            </asp:Timer>
+        
         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <div id="top">
             <div id="top_image">
