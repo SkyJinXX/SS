@@ -11,6 +11,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <div id="top">
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px" ImageUrl="~/image/1.jpg" />
@@ -21,9 +24,13 @@
             </div>
             <div id="title_2">
                 <asp:Label ID="Label2" runat="server" Text="第一章" Font-Size="XX-Large"></asp:Label>
+                
             </div>
         </div>
         <div id="testpaper">
+            
+            
+&nbsp;&nbsp;&nbsp;
             <asp:DataList ID="DataList1" runat="server" Width="700px" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
