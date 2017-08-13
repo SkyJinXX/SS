@@ -146,8 +146,7 @@
             <table id="T_3">
                 <tr>
                     <th>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                     </th>
                     <th>
                         <asp:Button ID="Button2" runat="server" Text="完成注册" OnClick="Button2_Click1" />
