@@ -14,8 +14,15 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
 
-        <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="1000">
-            </asp:Timer>
+        <asp:UpdatePanel ID="UpdatePanelCountdown" runat="server" UpdateMode="Conditional">  
+            <ContentTemplate>  
+                <asp:Label ID="lblTimerDays" runat="server" Text="0" ForeColor="Red" />天  
+                <asp:Label ID="lblTimerHours" runat="server" Text="0" ForeColor="Red" />时  
+                <asp:Label ID="lblTimerMinutes" runat="server" Text="0" ForeColor="Red" />分  
+                <asp:Label ID="lblTimerSeconds" runat="server" Text="0" ForeColor="Red" />秒  
+             <asp:Timer ID="Timer1" runat="server" Interval="1000"  />  
+            </ContentTemplate>  
+        </asp:UpdatePanel>   
         
         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <div id="top">

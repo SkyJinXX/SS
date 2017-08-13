@@ -10,7 +10,10 @@ using System.Web.UI.WebControls;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    
+    DateTime NowTime;//当前时间  
+    DateTime EndTime = Convert.ToDateTime("2017-8-13 23:59:59");//结束时间  
+    TimeSpan CountdownSpan;//时间间隔  
+                           // TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
     int count = 0;
     int n = 3;
     SqlConnection objConnection = new SqlConnection();
@@ -44,9 +47,20 @@ public partial class Default2 : System.Web.UI.Page
         DataList1.DataBind();
         objConnection.Close();
 
-        }
-       
 
+            //TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
+            //this.Timer1.Enabled = true;
+            NowTime = DateTime.Now;
+            CountdownSpan = EndTime - NowTime;
+            if (CountdownSpan.TotalSeconds > 0)
+            {
+                lblTimerDays.Text = CountdownSpan.Days.ToString();
+                lblTimerHours.Text = CountdownSpan.Hours > 10 ? CountdownSpan.Hours.ToString() : "0" + CountdownSpan.Hours.ToString();
+                lblTimerMinutes.Text = CountdownSpan.Minutes > 10 ? CountdownSpan.Minutes.ToString() : "0" + CountdownSpan.Minutes.ToString();
+                lblTimerSeconds.Text = CountdownSpan.Seconds > 10 ? CountdownSpan.Seconds.ToString() : "0" + CountdownSpan.Seconds.ToString();
+            }
+            
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -79,25 +93,37 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Study.aspx");
     }
-
-TimeSpan ts = new TimeSpan(0, 0,10);
-    //int i = 200;
+   //TimeSpan ts = new TimeSpan(0, 20, 0);
     protected void Timer1_Tick(object sender, EventArgs e)
     {
-        //this.Label4.Text = (i--).ToString();
         
+        //TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
+        NowTime = DateTime.Now;
+         CountdownSpan = EndTime - NowTime;
+       // CountdownSpan = CountdownSpan.Subtract(new TimeSpan(0, 0, 1));//每隔一秒减去一秒
+
+        if (CountdownSpan.TotalSeconds > 0)
+        {
+            lblTimerDays.Text = CountdownSpan.Days.ToString();
+            lblTimerHours.Text = CountdownSpan.Hours > 10 ? CountdownSpan.Hours.ToString() : "0" + CountdownSpan.Hours.ToString();
+            lblTimerMinutes.Text = CountdownSpan.Minutes > 10 ? CountdownSpan.Minutes.ToString() : "0" + CountdownSpan.Minutes.ToString();
+            lblTimerSeconds.Text = CountdownSpan.Seconds > 10 ? CountdownSpan.Seconds.ToString() : "0" + CountdownSpan.Seconds.ToString();
+        }
+        
+        /*
+        Timer1.Enabled = true;
         Timer1.Interval = 1000;
         String str = ts.Hours.ToString() + ":" + ts.Minutes.ToString() + ":" + ts.Seconds.ToString();
-
         Label4.Text = str;//label17用来显示剩余的时间
         ts = ts.Subtract(new TimeSpan(0, 0, 1));//每隔一秒减去一秒
-        if (ts.TotalSeconds < 0.0)//当倒计时完毕
+        if (ts.TotalSeconds < 0)//当倒计时完毕
         {
 
             Timer1.Enabled = false;
-            Response.Write("<script>alert('考试时间到，系统将强行交卷')</script>");
+            //Response.Write("<script>alert('考试时间到，系统将强行交卷')</script>");
             //ystem.Windows.Forms.MessageBox.Show("考试时间到，系统将强行交卷");//提示时间到,下面可以加你想要的操作
 
         }
+        */
     }
 }
