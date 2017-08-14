@@ -46,7 +46,7 @@
             <asp:Label ID="Label2" runat="server" Text="信息公告" Font-Size="X-Large"></asp:Label>
         </div>
         <div id="d_message">
-            <asp:GridView ID="GridView1" runat="server" Height="300px" Width="800px" AutoGenerateColumns="False">
+            <asp:GridView ID="GridView1" runat="server" Height="300px" Width="800px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="Aname1" HeaderText="管理员A" />
                     <asp:BoundField DataField="Aname2" HeaderText="管理员B" />
