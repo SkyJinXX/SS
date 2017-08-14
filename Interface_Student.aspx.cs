@@ -10,8 +10,8 @@ using System.Data;
 using System.Net;
 public partial class _Default : System.Web.UI.Page
 {
-    public const string courseTimeStart = "2017-8-15 00:00:00";
-    public const string courseTimeEnd = "2017-8-20 23:59:59";
+    public const string courseTimeStart = "2017-08-14 00:00:00";
+    public const string courseTimeEnd = "2017-08-20 23:59:59";
     SqlConnection objConnection = new SqlConnection();
     public static string GetNetDateTime()
     {
@@ -129,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
         string DT = Convert.ToDateTime(dt).ToString("yyyy-MM-dd HH:mm:ss");
         if (string.Compare(DT, courseTimeStart ) ==-1||string.Compare(DT,courseTimeEnd)==1)
         {
-            Response.Write("<script>alert('Time Error')</script>");
+            Response.Write("<script>alert('Time Error! You can pick course between ')</script>");
         }
         else {
             int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
