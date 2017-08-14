@@ -17,6 +17,16 @@ public partial class Register_Administrator3 : System.Web.UI.Page
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
 
+        if (Session["username"] == null)
+        {
+            Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
+
+        }
+        else if ((String)Session["identity"] != "A")
+        {
+            Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
+        }
+
         String st = "";
         SqlCommand cmd3 = new SqlCommand(st, objConnection);
         cmd3.CommandText = "select count(*) from Administrator";
@@ -138,7 +148,6 @@ public partial class Register_Administrator3 : System.Web.UI.Page
         {
             String S = TextBox2.Text;
             String S1 = TextBox3.Text;
-
 
             TextBox2.TextMode = TextBoxMode.Password;
             TextBox3.TextMode = TextBoxMode.Password;
