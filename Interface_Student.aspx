@@ -41,7 +41,7 @@
                         <asp:Label ID="Label6" runat="server" Text="寻找课程：" Font-Size="Large"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" Width="400px"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" Width="400px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" />
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowPaging="True">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />

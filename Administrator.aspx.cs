@@ -97,4 +97,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Administrator_individual.aspx");
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -7,10 +7,40 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-
+using System.Net;
 public partial class _Default : System.Web.UI.Page
 {
+    public const string courseTimeStart = "2017-8-15 00:00:00";
+    public const string courseTimeEnd = "2017-8-20 23:59:59";
     SqlConnection objConnection = new SqlConnection();
+    public static string GetNetDateTime()
+    {
+        WebRequest request = null;
+        WebResponse response = null;
+        WebHeaderCollection headerCollection = null;
+        string datetime = string.Empty;
+        try
+        {
+            request = WebRequest.Create("https://www.baidu.com");
+            request.Timeout = 3000;
+            request.Credentials = CredentialCache.DefaultCredentials;
+            response = (WebResponse)request.GetResponse();
+            headerCollection = response.Headers;
+            foreach (var h in headerCollection.AllKeys)
+            { if (h == "Date") { datetime = headerCollection[h]; } }
+            return datetime;
+        }
+        catch (Exception) { return datetime; }
+        finally
+        {
+            if (request != null)
+            { request.Abort(); }
+            if (response != null)
+            { response.Close(); }
+            if (headerCollection != null)
+            { headerCollection.Clear(); }
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] == null)
@@ -95,31 +125,41 @@ public partial class _Default : System.Web.UI.Page
 
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
-        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
-        String str1 = GridView1.Rows[row].Cells[0].Text;
-        String str2 = "select Sid from S_U where Uusername = '" + (String)Session["username"] + "'";
-        objConnection.Open();
-        //验证课程是否重复选择
-        String SqlStr = "Select Sid,Cid From S_C_Transcript Where Cid = '" + str1 + "' and Sid IN(select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
-        SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-        if (cmd.ExecuteScalar() != null)
-            Response.Write("<script>alert('课程已选择，请勿重复选择')</script>");
-        //将用户选择课程数据插入到数据库表中
-        else
+        string dt = GetNetDateTime();
+        string DT = Convert.ToDateTime(dt).ToString("yyyy-MM-dd HH:mm:ss");
+        if (string.Compare(DT, courseTimeStart ) ==-1||string.Compare(DT,courseTimeEnd)==1)
         {
-            SqlStr = "Insert into S_C_Transcript select Sid, '" + str1 + "', '' from S_U where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
-            cmd = new SqlCommand(SqlStr, objConnection);
-            cmd.CommandText = SqlStr;
-            cmd.ExecuteScalar();
-            Response.Write("<script>alert('选课成功')</script>");
-            //选课成功之后实时刷新
-            String SelectSql = "select * from Course,S_C_Transcript where Course.Cid = S_C_Transcript.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
-            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView2.DataSource = ds;
-            GridView2.DataBind();
+            Response.Write("<script>alert('Time Error')</script>");
         }
+        else {
+            int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+            String str1 = GridView1.Rows[row].Cells[0].Text;
+            String str2 = "select Sid from S_U where Uusername = '" + (String)Session["username"] + "'";
+            objConnection.Open();
+            //验证课程是否重复选择
+            String SqlStr = "Select Sid,Cid From S_C_Transcript Where Cid = '" + str1 + "' and Sid IN(select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+            SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
+            if (cmd.ExecuteScalar() != null)
+                Response.Write("<script>alert('课程已选择，请勿重复选择')</script>");
+            //将用户选择课程数据插入到数据库表中
+            else
+            {
+                SqlStr = "Insert into S_C_Transcript select Sid, '" + str1 + "', '' from S_U where Sid = (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+                cmd = new SqlCommand(SqlStr, objConnection);
+                cmd.CommandText = SqlStr;
+                cmd.ExecuteScalar();
+                Response.Write("<script>alert('选课成功')</script>");
+                //选课成功之后实时刷新
+                String SelectSql = "select * from Course,S_C_Transcript where Course.Cid = S_C_Transcript.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+                SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                GridView2.DataSource = ds;
+                GridView2.DataBind();
+            }
+
+        }
+       
 
 
     }
@@ -153,4 +193,14 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("Study.aspx");
     }
 
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }
