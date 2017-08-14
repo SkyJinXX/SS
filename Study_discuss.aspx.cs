@@ -31,6 +31,17 @@ public partial class Study_discuss : System.Web.UI.Page
             GridView1.DataBind();
     }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_notice.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Mp4play.aspx");
+
+    }
+
     protected void Button3_Click(object sender, EventArgs e)
     {
         Response.Redirect("Study_test.aspx");
@@ -41,21 +52,16 @@ public partial class Study_discuss : System.Web.UI.Page
         Response.Redirect("Study_exam.aspx");
     }
 
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_discuss.aspx");
+    }
+
     protected void Button7_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Student.aspx");
     }
 
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-        Response.Redirect("Study_notice.aspx");
-    }
-
-    protected void Button2_Click1(object sender, EventArgs e)
-    {
-        Response.Redirect("Mp4play.aspx");
-
-    }
     protected void Button8_Click(object sender, EventArgs e)
     {
         objConnection.Open();
@@ -79,4 +85,6 @@ public partial class Study_discuss : System.Web.UI.Page
         objConnection.Close();
     }
 
+
+    
 }

@@ -81,4 +81,5 @@ public partial class Study_test : System.Web.UI.Page
     {
         Response.Redirect("Study_discuss.aspx");
     }
+    
 }
