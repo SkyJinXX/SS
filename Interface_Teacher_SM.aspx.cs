@@ -41,6 +41,12 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
 
     protected void Button_Change_Click(object sender, EventArgs e)
     {
