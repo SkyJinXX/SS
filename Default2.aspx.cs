@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Timers;
+using System.Threading;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    System.Timers.Timer timer = new System.Timers.Timer();
 
     //DateTime NowTime;//当前时间  
     //DateTime EndTime = Convert.ToDateTime("2017-8-13 23:59:59");//结束时间  
@@ -16,7 +16,7 @@ public partial class Default2 : System.Web.UI.Page
    // TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
     protected void Page_Load(object sender, EventArgs e)
     {
-        Timer.Start();
+       Timer1.Start();
             if (!IsPostBack)
         {
             //this.Timer1.Enabled = true;

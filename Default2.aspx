@@ -18,7 +18,7 @@
                 <asp:Label ID="lblTimerHours" runat="server" Text="0" ForeColor="Red" />时  
                 <asp:Label ID="lblTimerMinutes" runat="server" Text="0" ForeColor="Red" />分  
                 <asp:Label ID="lblTimerSeconds" runat="server" Text="0" ForeColor="Red" />秒  
-             <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick1" />  
+             <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer1_Tick1" ViewStateMode="Enabled" />  
             </ContentTemplate>  
         </asp:UpdatePanel>   
     </div>
