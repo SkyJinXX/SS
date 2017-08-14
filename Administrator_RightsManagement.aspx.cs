@@ -198,7 +198,7 @@ public partial class Default2 : System.Web.UI.Page
 
         if (Button12.Text == "修改")
         {
-            int levea = Convert.ToInt32((String)TextBox3.Text);
+            int levela = Convert.ToInt32((String)TextBox3.Text);
             String selectlevel = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
             SqlCommand cmd = new SqlCommand(selectlevel, objConnection);
             int levelb = Convert.ToInt32((String)cmd.ExecuteScalar());
@@ -208,7 +208,7 @@ public partial class Default2 : System.Web.UI.Page
             int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
             if (levelc > levelb)
             {
-                if (levea != levelb)
+                if (levela != levelb && levelc > levela)
                 {
                     String SelectSql = "";
                     cmd = new SqlCommand(SelectSql, objConnection);
@@ -218,7 +218,7 @@ public partial class Default2 : System.Web.UI.Page
 
                     cmd = new SqlCommand(SelectSql, objConnection);
                     String action = (String)cmd1.ExecuteScalar() + " let  the level of " + (String)cmd2.ExecuteScalar();
-                    if (levea > levelb)
+                    if (levela > levelb)
                     {
                         action += " be up ";
                     }
@@ -226,7 +226,7 @@ public partial class Default2 : System.Web.UI.Page
                     {
                         action += " be down ";
                     }
-                    action += "and the level become " + Convert.ToString(levea) + " .";
+                    action += "and the level become " + Convert.ToString(levela) + " .";
                     cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar()
                             + "','" + "" + "','" + (String)action + "')";
                     cmd.ExecuteScalar();
@@ -243,7 +243,7 @@ public partial class Default2 : System.Web.UI.Page
             }
             else
             {
-                Response.Write("<script>alert('无法修改高等级管理员信息');</script>");
+                Response.Write("<script>alert('无法修改高等级或平级管理员信息');</script>");
             }
         }
         if (Button12.Text == "发送")
