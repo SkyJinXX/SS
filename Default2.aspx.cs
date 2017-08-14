@@ -4,20 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Timers;
 
 public partial class Default2 : System.Web.UI.Page
 {
-     //DateTime NowTime;//当前时间  
-     //DateTime EndTime = Convert.ToDateTime("2017-8-13 23:59:59");//结束时间  
+    System.Timers.Timer timer = new System.Timers.Timer();
+
+    //DateTime NowTime;//当前时间  
+    //DateTime EndTime = Convert.ToDateTime("2017-8-13 23:59:59");//结束时间  
     TimeSpan CountdownSpan;//时间间隔  
    // TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        if (!IsPostBack)
+        Timer.Start();
+            if (!IsPostBack)
         {
-            this.Timer1.Enabled = true;
+            //this.Timer1.Enabled = true;
             TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
 
             //NowTime = DateTime.Now;
@@ -31,7 +33,7 @@ public partial class Default2 : System.Web.UI.Page
             }
         }
     }
-
+    
     protected void Timer1_Tick1(object sender, EventArgs e)
     {
         TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);

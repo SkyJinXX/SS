@@ -52,7 +52,7 @@
                         <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                     </th>
                     <th>
-                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
+                        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
                     </th>
                 </tr>
                 <tr>
