@@ -27,6 +27,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);

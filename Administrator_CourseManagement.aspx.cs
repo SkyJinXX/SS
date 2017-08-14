@@ -10,7 +10,7 @@ public partial class Default2 : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
-        objConnection.Open();
+        
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
@@ -27,14 +27,17 @@ public partial class Default2 : System.Web.UI.Page
         if (!IsPostBack)
         {
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
             String SelectSql = "select * from Course ";
             SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+            objConnection.Close();
         }
-
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         int b = Convert.ToInt32(cmd1.ExecuteScalar());
