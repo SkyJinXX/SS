@@ -22,6 +22,7 @@
             <table>
                 <tr>
                     <td>
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="公告" Width="105px" />
                         <asp:Button ID="Button_Change" runat="server" Width="105px" Text="个人信息修改" OnClick="Button_Change_Click" />
                     </td>
                     <td>
