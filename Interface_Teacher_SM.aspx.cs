@@ -110,4 +110,9 @@ public partial class Default2 : System.Web.UI.Page
         //刷新GridView
         FlushGridView();
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
 }

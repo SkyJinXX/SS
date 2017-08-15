@@ -89,4 +89,9 @@ public partial class Default2 : System.Web.UI.Page
         Session["identity"] = null;
         Response.Redirect("Default.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
 }
