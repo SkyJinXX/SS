@@ -86,6 +86,8 @@ public partial class Default2 : System.Web.UI.Page
                 + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
 
+        Response.Write("<script>alert('修改成功')</script>");
+        objConnection.Close();
     }
 
     protected void Button2_Click(object sender, EventArgs e)
