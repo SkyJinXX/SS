@@ -40,7 +40,6 @@
                     <asp:TextBox ID="TextBox1" runat="server" Width="383px" Height="17px"></asp:TextBox>
                     <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="搜索" />
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="返回主界面" />
-                    <asp:Label ID="Label4" runat="server"></asp:Label>
                 </div>
                 <div id="d_title">
                     <asp:Label ID="Label3" runat="server" Text="课程名单" Font-Size="X-Large"></asp:Label>

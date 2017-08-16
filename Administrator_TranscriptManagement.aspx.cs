@@ -163,7 +163,7 @@ public partial class Default2 : System.Web.UI.Page
         cname = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -185,7 +185,7 @@ public partial class Default2 : System.Web.UI.Page
         cname = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -210,7 +210,7 @@ public partial class Default2 : System.Web.UI.Page
         cname = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -225,7 +225,7 @@ public partial class Default2 : System.Web.UI.Page
         cname = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
