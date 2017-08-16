@@ -11,7 +11,32 @@ using System.Data;
 public partial class Default2 : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
+
     String cname = "";
+    public void GridViewFlush()
+    {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        if(TextBox1.Text != "")
+        {
+            cname = TextBox1.Text;
+            String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
+            String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+        }
+        else
+        {
+            String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();            
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] == null)
@@ -27,19 +52,16 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
+        if (!IsPostBack)
+        {
+            GridViewFlush();
+        }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-
-        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
-
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         int b = Convert.ToInt32(cmd1.ExecuteScalar());
+        objConnection.Close();
         if (b < 2)
         {
             Button2.Enabled = false;
@@ -57,7 +79,7 @@ public partial class Default2 : System.Web.UI.Page
             Button5.Enabled = false;
         }
 
-        objConnection.Close();
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -160,15 +182,7 @@ public partial class Default2 : System.Web.UI.Page
         Response.Write("<script>alert('删除成功')</script>");
         objConnection.Close();
         //删除成功之后实时刷新
-        cname = TextBox1.Text;
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void Button13_Click(object sender, EventArgs e)
@@ -182,24 +196,20 @@ public partial class Default2 : System.Web.UI.Page
     {
         GridView1.EditIndex = e.NewEditIndex;
         //刷新GridView
-        cname = TextBox1.Text;
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-        cname = TextBox1.Text;
-        String Sql2 = "select Cid from Course where Cname = '" + cname + "'";
         String Sid = GridView1.Rows[e.RowIndex].Cells[2].Text;
-        String Tscore = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[7].Controls[1])).Text;
-        String updateSql = "update S_C_Transcript set Tscore = '" + Tscore + "' where Sid = '" + Sid + "' and Cid = (" + Sql2 + ")";
+        String Cid = GridView1.Rows[e.RowIndex].Cells[0].Text;     
+        String Tscore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox1"))).Text;
+        String PScore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox4"))).Text;
+        String MScore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox3"))).Text;
+        String FScore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox2"))).Text;
+        
+        String updateSql = "update S_C_Transcript set Tscore = " + Tscore + 
+            " , PScore = " + PScore + " , MScore = " + MScore + " , FScore = " + FScore + " where Sid = '" + Sid + "' and Cid = '" + Cid + "'";
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         SqlCommand cmd = new SqlCommand(updateSql, objConnection);
         objConnection.Open();
@@ -207,29 +217,18 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
         GridView1.EditIndex = -1;
         //刷新GridView
-        cname = TextBox1.Text;
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
         GridView1.EditIndex = -1;
         //刷新GridView
-        cname = TextBox1.Text;
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
