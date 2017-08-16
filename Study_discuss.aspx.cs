@@ -87,5 +87,20 @@ public partial class Study_discuss : System.Web.UI.Page
     }
 
 
-    
+
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_reply.aspx");
+    }
+
+    protected void LinkButton1_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_reply.aspx");
+    }
 }
