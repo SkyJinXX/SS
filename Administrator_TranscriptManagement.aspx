@@ -51,10 +51,10 @@
                             <asp:BoundField DataField="Cname" HeaderText="课程名" />
                             <asp:BoundField DataField="Sid" HeaderText="学生学号" ReadOnly="True" />
                             <asp:BoundField DataField="Sname" HeaderText="学生姓名" ReadOnly="True" />
-                            <asp:BoundField DataField="Scollege" HeaderText="所属学院" ReadOnly="True" />
-                            <asp:BoundField DataField="Smajor" HeaderText="专业" ReadOnly="True" />
-                            <asp:BoundField DataField="Sclass" HeaderText="班级" ReadOnly="True" />
-                            <asp:TemplateField HeaderText="分数">
+                            <asp:BoundField DataField="Pscore" HeaderText="平时分" ReadOnly="True" />
+                            <asp:BoundField DataField="Mscore" HeaderText="期中考试" ReadOnly="True" />
+                            <asp:BoundField DataField="Fscore" HeaderText="期末考试" ReadOnly="True" />
+                            <asp:TemplateField HeaderText="总分">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Tscore") %>'></asp:TextBox>
                                 </EditItemTemplate>
