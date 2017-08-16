@@ -1,4 +1,5 @@
 ﻿body {
+    overflow-y:scroll;
 }
 
 #font_1 {
@@ -8,6 +9,7 @@
 #top {
     width: 1000px;
     height: 80px;
+    border: 1px solid black;
     background-color: white;
     background: url(../image/sky1_top.jpg);
     margin: auto;
@@ -18,46 +20,110 @@
     float: right;
 }
 
-#d_menu_1 {
-    border: 2px solid;
-    border-style: double;
-    border-color: blue;
-    background-color: skyblue;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+#globllink {
     width: 1000px;
-    height: 32px;
+    height: 42px;
     margin: auto;
-    margin-bottom: 10px;
+    background-color: black;
 }
 
-#d_menu_2 {
-    border: 2px solid;
-    border-style: double;
-    border-color: blue;
-    background-color: skyblue;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    width: 1000px;
-    height: 32px;
-    margin: auto;
-    margin-bottom: 40px;
+#globllink ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+#globllink ul .li_1{
+    float:left;
+    text-align:center;
+    width:110px;
+    background-color:black;
+}
+
+#globllink ul .li_1 a{
+    display:block;
+    padding:9px 6px 11px 6px;
+}
+
+#globllink ul .li_1 a:link, #globllink ul .li_1 a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+#globllink ul .li_1 a:hover {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#574d4d;
 }
 
 #d_body {
+    width: 1000px;
+    height: auto;
+    background-color: white;
+    border: 2px solid black;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#menu {
+    width: 100px;
+    height: 155px;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+    margin-top: 15px;
+    margin-left: 45px;
+    float: left;
+}
+
+
+#menu ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+#menu ul li{
+    margin-top:8px;
+    text-align:center;
+    width:100px;
+    background-color:black;
+}
+
+#menu ul li a{
+    display:block;
+    padding:3px 2px 4px 2px;
+}
+
+#menu ul li a:link, #menu ul li a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+#menu ul li a:hover {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#574d4d;
+}
+
+#d_body_1 {
     width:auto;
     height:auto;
     margin:auto;
 }
 
 #search {
-    width: 1000px;
+    width: 700px;
     height: auto;
-    margin: auto;
+    margin-left: 200px;
+    margin-top: 15px;
     margin-bottom: 40px;
 }
 
@@ -69,23 +135,23 @@
 }
 
 #T_S {
-    width: 1000px;
+    width: 750px;
     height: auto;
-    margin: auto;
+    margin-left: 200px;
     margin-bottom: 40px;
 }
 
 #T_T {
-    width: 800px;
+    width: 600px;
     height: auto;
-    margin: auto;
+    margin-left: 200px;
     margin-bottom: 40px;
 }
 
 #T_A {
-    width: 800px;
+    width: 600px;
     height: auto;
-    margin: auto;
+    margin-left: 200px;
     margin-bottom: 40px;
 }
 

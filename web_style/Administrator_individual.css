@@ -1,4 +1,5 @@
 ﻿body {
+    overflow-y:scroll;
 }
 
 #font_1 {
@@ -9,6 +10,7 @@
     width: 1000px;
     height: 80px;
     background-color: white;
+    border: 1px solid black;
     background: url(../image/sky1_top.jpg);
     margin: auto;
     margin-bottom: 10px;
@@ -18,16 +20,41 @@
     float: right;
 }
 
+#d_body {
+    width: 1000px;
+    height: auto;
+    background-color: white;
+    border: 2px solid black;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin: auto;
+    margin-top: 10px;
+}
+
 #d_message {
-    width: 600px;
+    width: 400px;
     height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: lightskyblue;
     margin: auto;
     margin-bottom: 40px;
+}
+
+#view {
+    width: 400px;
+    height: auto;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #T_1 {

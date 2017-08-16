@@ -34,14 +34,18 @@
             </ul>
         </div>
         <div id="d_body">
-            <div id="menu">
-                <ul>
-                <li><a><asp:Button ID="Button9" runat="server" Width="100px" OnClick="Button9_Click" Text="权限修改" /></a></li>
-                <li><a><asp:Button ID="Button10" runat="server" Width="100px" OnClick="Button10_Click" Text="回复留言" /></a></li>
-                <li><a><asp:Button ID="Button13" runat="server" Width="100px" OnClick="Button13_Click" Text="返回主界面" /></a></li>
-            </ul>
-            </div>
-            <div id="view">
+            <div id="box">
+                <div id="menu">
+                    <ul>
+                        <li><a>
+                            <asp:Button ID="Button9" runat="server" Width="100px" OnClick="Button9_Click" Text="权限修改" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button10" runat="server" Width="100px" OnClick="Button10_Click" Text="回复留言" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button13" runat="server" Width="100px" OnClick="Button13_Click" Text="返回主界面" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                    </ul>
+                </div>
+                <div id="view">
                 <div id="d_title">
                     <asp:Label ID="Label6" runat="server" Text="管理" Font-Size="X-Large"></asp:Label>
                 </div>
@@ -90,6 +94,8 @@
                     </table>
                 </div>
             </div>
+            </div>
+            
         </div>
     </form>
 </body>
