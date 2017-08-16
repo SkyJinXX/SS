@@ -100,7 +100,7 @@ public partial class Register_Administrator3 : System.Web.UI.Page
                             cmd1.CommandText = SqlStr1;
                             cmd1.ExecuteScalar();
 
-                            String SqlStr2 = "Insert into A_U values('" + TextBox4.Text + "' , '" + (string)Session["username"] + "')";
+                            String SqlStr2 = "Insert into A_U values('" + TextBox4.Text + "' , '" + TextBox1.Text + "')";
                             SqlCommand cmd2 = new SqlCommand(SqlStr2, objConnection);
                             cmd2.CommandText = SqlStr2;
                             cmd2.ExecuteScalar();
