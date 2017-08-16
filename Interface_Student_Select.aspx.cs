@@ -39,7 +39,7 @@ public partial class Default2 : System.Web.UI.Page
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             objConnection.Open();
             //条件中通过表的连接来确保数据显示无误
-            String Sql = "select Course.Cid,Cname,Ccredit,Cpersonnumber,Ccategory,Tscore from Course," +
+            String Sql = "select Course.Cid, Cname, Ccredit, Ccategory, PScore, MScore, FScore, Tscore from Course," +
                 "S_C_Transcript,Student where S_C_Transcript.Cid IN(" + Sql2 + ") and S_C_Transcript.Sid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
@@ -54,7 +54,7 @@ public partial class Default2 : System.Web.UI.Page
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             //条件中通过表的连接来确保数据显示无误
-            String Sql = "select Course.Cid,Cname,Ccredit,Cpersonnumber,Ccategory,Tscore from Course," +
+            String Sql = "select Course.Cid, Cname, Ccredit, Ccategory, PScore, MScore, FScore, Tscore from Course," +
                             "S_C_Transcript,Student where S_C_Transcript.Sid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
             SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
             DataSet ds = new DataSet();
