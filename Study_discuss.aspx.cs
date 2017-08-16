@@ -72,6 +72,7 @@ public partial class Study_discuss : System.Web.UI.Page
             cmd.ExecuteScalar();
             Response.Write("<script>alert('发言成功')</script>");
 
+            TextBox1.Text = "";
             //objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             String SelectSql = "select * from Umessage";
             SqlDataAdapter da1 = new SqlDataAdapter(SelectSql, objConnection);
