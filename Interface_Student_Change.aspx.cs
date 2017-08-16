@@ -50,21 +50,6 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Student.aspx");
-    }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Student_Select.aspx");
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Student_Change.aspx");
-    }
-
     protected void Button4_Click(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();

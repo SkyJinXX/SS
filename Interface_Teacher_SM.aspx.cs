@@ -52,16 +52,6 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
-    protected void Button_Change_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Change.aspx");
-    }
-
-    protected void Button_Create_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Manage.aspx");
-    }
-
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
@@ -110,9 +100,5 @@ public partial class Default2 : System.Web.UI.Page
         //刷新GridView
         FlushGridView();
     }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher.aspx");
-    }
+    
 }

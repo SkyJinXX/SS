@@ -16,32 +16,70 @@
     float: right;
 }
 
-#d_menu {
-    border: 2px solid;
-    border-style: double;
-    border-color: blue;
-    background-color: skyblue;
+#globllink {
+    width: 1000px;
+    height: 42px;
+    margin: auto;
+    background-color: black;
+}
+
+#globllink ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+#globllink ul .li_1{
+    float:left;
+    text-align:center;
+    width:110px;
+    background-color:black;
+}
+
+#globllink ul .li_1 a{
+    display:block;
+    padding:9px 6px 11px 6px;
+}
+
+#globllink ul .li_1 a:link, #globllink ul .li_1 a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+#globllink ul .li_1 a:hover {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#574d4d;
+}
+
+#d_body {
+    width: 1000px;
+    height: auto;
+    border: 2px solid black;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    width: 1000px;
-    height: 32px;
     margin: auto;
-    margin-bottom: 10px;
+    margin-top:10px;
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+
 
 #d_select {
     width: 400px;
     height: 200px;
+    border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: lightskyblue;
-    opacity: 0.8;
     margin: auto;
     margin-bottom: 10px;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 #d_result {
@@ -51,8 +89,6 @@
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: lightskyblue;
-    opacity: 0.8;
     margin: auto;
     margin-bottom: 10px;
 }

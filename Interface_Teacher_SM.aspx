@@ -15,62 +15,66 @@
             <p id="top_p_r">
                 <font id="font_1">Welcome back!</font>
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
             </p>
         </div>
-        <div id="d_menu">
-            <table>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="公告" Width="105px" />
-                        <asp:Button ID="Button_Change" runat="server" Width="105px" Text="个人信息修改" OnClick="Button_Change_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button_Create" runat="server" Width="80px" Text="课程管理" OnClick="Button_Create_Click" />
-                    </td>
-                </tr>
-            </table>
+        <div id="globllink">
+            <ul>
+                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
+                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
+                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <!---填充导航菜单栏>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <--->
+            </ul>
         </div>
-        <div id="d_message">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
-                <Columns>
-                    <asp:BoundField DataField="Sid" HeaderText="学号" ReadOnly="True" />
-                    <asp:BoundField DataField="Sname" HeaderText="姓名" ReadOnly="True" />
-                    <asp:TemplateField HeaderText="平时分">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("PScore") %>' Width="25px"></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("PScore") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="期中考试">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("MScore") %>' Width="25px"></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("MScore") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="期末考试">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("FScore") %>' Width="25px"></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("FScore") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="总成绩">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Tscore") %>' Width="25px"></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Tscore") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:CommandField DeleteText="开除" EditText="打分" ShowDeleteButton="True" ShowEditButton="True" UpdateText="确认" />
-                </Columns>
-            </asp:GridView>
+        <div id="middle">
+            <div id="d_message">
+                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <Columns>
+                        <asp:BoundField DataField="Sid" HeaderText="学号" ReadOnly="True" />
+                        <asp:BoundField DataField="Sname" HeaderText="姓名" ReadOnly="True" />
+                        <asp:TemplateField HeaderText="平时分">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("PScore") %>' Width="25px"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("PScore") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="期中考试">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("MScore") %>' Width="25px"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("MScore") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="期末考试">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("FScore") %>' Width="25px"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Bind("FScore") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="总成绩">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Tscore") %>' Width="25px"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("Tscore") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:CommandField DeleteText="开除" EditText="打分" ShowDeleteButton="True" ShowEditButton="True" UpdateText="确认" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
     </form>
 </body>

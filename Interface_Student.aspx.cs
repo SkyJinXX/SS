@@ -11,7 +11,7 @@ using System.Net;
 public partial class _Default : System.Web.UI.Page
 {
     public const string courseTimeStart = "2017-08-14 00:00:00";
-    public const string courseTimeEnd = "2017-08-20 23:59:59";
+    public const string courseTimeEnd = "2017-08-15 23:59:59";
     SqlConnection objConnection = new SqlConnection();
     public static string GetNetDateTime()
     {
@@ -72,21 +72,6 @@ public partial class _Default : System.Web.UI.Page
         da.Fill(ds);
         GridView2.DataSource = ds;
         GridView2.DataBind();
-    }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Student_Select.aspx");
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Student_Change.aspx");
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-
     }
 
     protected void Button1_Click(object sender, EventArgs e)

@@ -116,7 +116,7 @@
             </asp:GridView>
         </div>
         <div id="T_A">
-            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" Width="800px">
             <Columns>
                 <asp:BoundField DataField="Aid" HeaderText="管理员工号" />
                 <asp:BoundField DataField="Aname" HeaderText="姓名" />

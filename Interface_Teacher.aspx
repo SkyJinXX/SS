@@ -16,28 +16,35 @@
             <p id="top_p_r">
                 <font id="font_1">Welcome back!</font>
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
             </p>
         </div>
-        <div id="d_menu">
-            <table>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="公告" Width="105px" />
-                        <asp:Button ID="Button_Change" runat="server" Width="105px" Text="个人信息修改" OnClick="Button_Change_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button_Create" runat="server" Width="80px" Text="课程管理" OnClick="Button_Create_Click" />
-                    </td>
-                </tr>
-            </table>
+        <div id="globllink">
+            <ul>
+                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
+                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
+                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <!---填充导航菜单栏>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <--->
+            </ul>
         </div>
         <div id="middle">
-            <asp:GridView ID="GridView1" runat="server" Height="350px" Width="680px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
-            <Columns>
-                <asp:BoundField DataField="Tmessage" HeaderText="公告" SortExpression="Tmessage" />
-            </Columns>  
-        </asp:GridView>
+            <div id="T_title">
+                <asp:Label ID="Label2" runat="server" Text="公告" Font-Size="X-Large"></asp:Label>
+            </div>
+            <div id="view">
+                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+                    <Columns>
+                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
         <div id="footer">
 

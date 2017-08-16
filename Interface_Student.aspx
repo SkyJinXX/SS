@@ -16,23 +16,23 @@
             <p id="top_p_r">
                 <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>
                 <asp:Label ID="Label2" runat="server" ForeColor="#FF9900"></asp:Label>
-                <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text=" 注销 " />
+                <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
             </p>
         </div>
-        <div id="d_menu">
-            <table>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button4" runat="server" Width="80px" OnClick="Button4_Click" Text="选课" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button2" runat="server" Width="80px" OnClick="Button2_Click" Text="查询成绩" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button3" runat="server" Width="80px" OnClick="Button3_Click" Text="信息修改" />
-                    </td>
-                </tr>
-            </table>
+        <div id="globllink">
+            <ul>
+                <li class="li_1"><a href="Interface_Student.aspx">选课</a></li>
+                <li class="li_1"><a href="Interface_Student_Select.aspx">查询成绩</a></li>
+                <li class="li_1"><a href="Interface_Student_Change.aspx">信息修改</a></li>
+                <!---填充导航菜单栏>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <--->
+            </ul>
         </div>
         <div id="d_search">
             <table>
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
@@ -78,7 +78,6 @@
                         </asp:GridView>
                     </td>
                 </tr>
-
                 <tr>
                     <td>&nbsp;</td>
                 </tr>

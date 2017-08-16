@@ -47,16 +47,6 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void Button_Change_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Change.aspx");
-    }
-
-    protected void Button_Create_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Manage.aspx");
-    }
-
     protected void Button3_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher_Rank.aspx");
@@ -89,9 +79,5 @@ public partial class Default2 : System.Web.UI.Page
         Session["identity"] = null;
         Response.Redirect("Default.aspx");
     }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher.aspx");
-    }
+    
 }
