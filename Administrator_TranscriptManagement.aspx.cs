@@ -29,6 +29,14 @@ public partial class Default2 : System.Web.UI.Page
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
+
+        String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         int b = Convert.ToInt32(cmd1.ExecuteScalar());
@@ -93,22 +101,36 @@ public partial class Default2 : System.Web.UI.Page
         {
             String Isexist = "select Cname from Course where Cname = '" + TextBox1.Text + "'";
             SqlCommand cmd = new SqlCommand(Isexist, objConnection);
-            //查询文本框中输入课程名是否存在
-            if (cmd.ExecuteScalar() == null)
+            cmd.CommandText = Isexist;
+            String Isexist1 = "select Cid from Course where Cid = '" + TextBox1.Text + "'";
+            SqlCommand cmd1 = new SqlCommand(Isexist, objConnection);
+            cmd1.CommandText = Isexist1;
+
+            if(cmd1.ExecuteScalar() != null)
             {
-                Response.Write("<script>alert('未开设此课程')</script>");
-            }
-            //通过文本框查询 课程存在 选择该课程的学生详细信息形成表单
-            else {
-                Label4.Text = TextBox1.Text;
-                String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+                String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid = '" + TextBox1.Text + "' and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
                 SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 GridView1.DataSource = ds;
                 GridView1.DataBind();
             }
-            
+
+            else if (cmd.ExecuteScalar() != null)
+            {
+                String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cname = '" + TextBox1.Text + "' and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
+                SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+
+            else 
+            {
+                Response.Write("<script>alert('未开设此课程')</script>");
+            }
+
         }
         else
         {
@@ -139,7 +161,6 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
         //删除成功之后实时刷新
         cname = TextBox1.Text;
-        Label4.Text = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
         String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
@@ -162,7 +183,6 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.EditIndex = e.NewEditIndex;
         //刷新GridView
         cname = TextBox1.Text;
-        Label4.Text = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
         String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
@@ -188,7 +208,6 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.EditIndex = -1;
         //刷新GridView
         cname = TextBox1.Text;
-        Label4.Text = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
         String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
@@ -204,7 +223,6 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.EditIndex = -1;
         //刷新GridView
         cname = TextBox1.Text;
-        Label4.Text = TextBox1.Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
         String Sql = "select Student.Sid,Sname,Scollege,Smajor,Sclass,Tscore from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";

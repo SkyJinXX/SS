@@ -36,18 +36,20 @@
         <div id="d_body">
             <div id="view">
                 <div id="search">
-                    <asp:Label ID="Label2" runat="server" Text="请输入课程名"></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="400px" Height="17px"></asp:TextBox>
+                    <asp:Label ID="Label2" runat="server" Text="课程查询（ID/课程名）"></asp:Label>
+                    <asp:TextBox ID="TextBox1" runat="server" Width="383px" Height="17px"></asp:TextBox>
                     <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="搜索" />
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="返回主界面" />
+                    <asp:Label ID="Label4" runat="server"></asp:Label>
                 </div>
                 <div id="d_title">
                     <asp:Label ID="Label3" runat="server" Text="课程名单" Font-Size="X-Large"></asp:Label>
-                    <asp:Label ID="Label4" runat="server"></asp:Label>
                 </div>
                 <div id="d_message">
-                    <asp:GridView ID="GridView1" runat="server" Width="600px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <asp:GridView ID="GridView1" runat="server" Width="635px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                         <Columns>
+                            <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                            <asp:BoundField DataField="Cname" HeaderText="课程名" />
                             <asp:BoundField DataField="Sid" HeaderText="学生学号" ReadOnly="True" />
                             <asp:BoundField DataField="Sname" HeaderText="学生姓名" ReadOnly="True" />
                             <asp:BoundField DataField="Scollege" HeaderText="所属学院" ReadOnly="True" />
