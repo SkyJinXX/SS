@@ -54,7 +54,7 @@ public partial class Study_test : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Mp4play.aspx");
+        Response.Redirect("Study1.aspx");
     }
 
     protected void Button3_Click(object sender, EventArgs e)

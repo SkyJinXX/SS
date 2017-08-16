@@ -38,7 +38,7 @@ public partial class Study_discuss : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Mp4play.aspx");
+        Response.Redirect("Study1.aspx");
 
     }
 

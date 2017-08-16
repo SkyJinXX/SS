@@ -83,8 +83,10 @@
                                     <asp:BoundField DataField="Cname" HeaderText="课程名称" />
                                     <asp:BoundField DataField="Ccategory" HeaderText="课程类别" />
                                     <asp:BoundField DataField="Ccredit" HeaderText="学分" />
-                                    <asp:BoundField DataField="Cpersonnumber" HeaderText="课程人数" />
-                                    <asp:BoundField DataField="Tscore" HeaderText="分数" />
+                                    <asp:BoundField DataField="PScore" HeaderText="平时分" />
+                                    <asp:BoundField DataField="MScore" HeaderText="期中考试" />
+                                    <asp:BoundField DataField="FScore" HeaderText="期末考试" />
+                                    <asp:BoundField DataField="Tscore" HeaderText="总分" />
                                 </Columns>
                                 <RowStyle HorizontalAlign="Center" />
                             </asp:GridView>
