@@ -29,6 +29,14 @@ public partial class Study_discuss : System.Web.UI.Page
             da1.Fill(ds1);
             GridView1.DataSource = ds1;
             GridView1.DataBind();
+
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        String Sql = "select * from Ureply";
+        SqlDataAdapter da2 = new SqlDataAdapter(Sql, objConnection);
+        DataSet ds2 = new DataSet();
+        da2.Fill(ds2);
+        GridView2.DataSource = ds2;
+        GridView2.DataBind();
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -93,14 +101,22 @@ public partial class Study_discuss : System.Web.UI.Page
     {
         
     }
-
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    protected void LinkButton1_Click1(object sender, EventArgs e)
     {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["reply"] = GridView1.Rows[row].Cells[0].Text;
         Response.Redirect("Study_reply.aspx");
     }
 
-    protected void LinkButton1_Click1(object sender, EventArgs e)
+    protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Response.Redirect("Study_reply.aspx");
+
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        int row1 = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["reply1"] = GridView2.Rows[row1].Cells[0].Text;
+        Response.Redirect("Study_reply1.aspx");
     }
 }
