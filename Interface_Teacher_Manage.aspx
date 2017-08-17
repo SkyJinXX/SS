@@ -183,6 +183,11 @@
                                 &nbsp;
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton2_Click" Text="发布公告"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <RowStyle HorizontalAlign="Center" />
                 </asp:GridView>

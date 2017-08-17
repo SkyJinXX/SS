@@ -195,4 +195,16 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Interface_Teacher.aspx");
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["release"] = GridView1.Rows[row].Cells[0].Text;
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
 }
