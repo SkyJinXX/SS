@@ -187,4 +187,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Administrator_individual.aspx");
     }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+
+    }
 }

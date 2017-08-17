@@ -89,7 +89,17 @@
                             <asp:Label ID="Label6" runat="server" Text="类别:"></asp:Label>
                         </th>
                         <th>
-                            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" style="margin-left: 0px" Width="109px">
+                        <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                        <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                        <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                        <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                        <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                        <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                        <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                        <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                        <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                    </asp:DropDownList>
                         </th>
                     </tr>
                     <tr>

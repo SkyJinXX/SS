@@ -84,10 +84,18 @@
 
 #d_title {
     width: 100px;
-    height: 30px;
+    height: auto;
     margin: auto;
     margin-bottom:10px;
 }
+
+#d_menu{
+    width:800px;
+    height:auto;
+    margin:auto;
+
+}
+
 
 #d_message {
     width: 700px;

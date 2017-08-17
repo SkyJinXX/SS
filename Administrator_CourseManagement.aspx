@@ -37,6 +37,28 @@
             <div id="view">
                 <div id="d_title">
                     <asp:Label ID="Label2" runat="server" Text="课程管理" Font-Size="X-Large"></asp:Label>
+                    
+                </div>
+                <div id ="d_menu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label6" runat="server" Text="课程ID："></asp:Label>
+&nbsp;<asp:TextBox ID="TextBox6" runat="server" Width="100px"></asp:TextBox>
+&nbsp;<asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
+                    <asp:TextBox ID="TextBox7" runat="server" Width="100px"></asp:TextBox>
+&nbsp;<asp:Label ID="Label8" runat="server" Text="课程类别："></asp:Label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px">
+                        <asp:ListItem Value="1">办公效率</asp:ListItem>
+                        <asp:ListItem Value="2">编程开发</asp:ListItem>
+                        <asp:ListItem Value="3">产品和设计</asp:ListItem>
+                        <asp:ListItem Value="4">生活方式</asp:ListItem>
+                        <asp:ListItem Value="5">职业发展</asp:ListItem>
+                        <asp:ListItem Value="6">市场营销</asp:ListItem>
+                        <asp:ListItem Value="7">技能特长</asp:ListItem>
+                        <asp:ListItem Value="8">人文社会</asp:ListItem>
+                        <asp:ListItem Value="9">艺术发展</asp:ListItem>
+                    </asp:DropDownList>
+&nbsp;
+                    <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="查询" Width="55px" />
                 </div>
                 <div id="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"

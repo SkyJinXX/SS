@@ -86,7 +86,7 @@ public partial class Default2 : System.Web.UI.Page
         //插入Course, T_C
         cmd.CommandText = "insert into Course values('" + TextBox1.Text +
           "', '" + TextBox2.Text + "', " + TextBox3.Text + ", " + TextBox4.Text + ", '"
-          + TextBox5.Text + "', '" + TextBox6.Text + "')";
+          + DropDownList1.SelectedValue.ToString() + "', '" + TextBox6.Text + "')";
         cmd.ExecuteScalar();
         cmd.CommandText = "insert into T_C(Tid, Cid) select Tid, '" + TextBox1.Text + "' from T_U where Uusername = '" +
             (String)Session["username"] + "'";
