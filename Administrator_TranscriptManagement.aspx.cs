@@ -173,8 +173,8 @@ public partial class Default2 : System.Web.UI.Page
         String str1 = GridView1.Rows[row].Cells[2].Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String str2 = "select Cid from Course where Cname = '" + TextBox1.Text + "'";
-        String SqlStr = "Delete S_C_Transcript where Sid IN(" + str1 + ") and Cid IN(" + str2 + ")";
+        String str2 = GridView1.Rows[row].Cells[0].Text;
+        String SqlStr = "Delete S_C_Transcript where Sid ='" + str1 + "' and Cid ='" + str2 + "'";
         SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
         cmd.CommandText = SqlStr;
         cmd.ExecuteScalar();
