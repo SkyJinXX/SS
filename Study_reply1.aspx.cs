@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Study_reply : System.Web.UI.Page
+public partial class Study_reply1 : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +25,20 @@ public partial class Study_reply : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        String Sql = "Insert into Ureply Values('" + (String)Session["username"] + "','" + (String)Session["reply1"] + "','" + TextBox1.Text + "')";
+        SqlCommand cmd = new SqlCommand(Sql, objConnection);
+        cmd.CommandText = Sql;
+        cmd.ExecuteScalar();
+        Response.Write("<script>alert('发言成功')</script>");
+        objConnection.Close();
+        TextBox1.Text = "";
+        Response.Redirect("Study_discuss.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -55,20 +69,5 @@ public partial class Study_reply : System.Web.UI.Page
     protected void Button6_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Student.aspx");
-    }
-
-    protected void Button7_Click(object sender, EventArgs e)
-    {
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        objConnection.Open();
-       String Sql = "Insert into Ureply Values('"+(String)Session["username"]+"','"+(String)Session["reply"]+"','"+TextBox1.Text+"')";
-        SqlCommand cmd = new SqlCommand(Sql, objConnection);
-        cmd.CommandText = Sql;
-        cmd.ExecuteScalar();
-        Response.Write("<script>alert('发言成功')</script>");
-        objConnection.Close();
-        TextBox1.Text = "";
-            Response.Redirect("Study_discuss.aspx");
-
     }
 }

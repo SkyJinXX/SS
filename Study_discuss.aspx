@@ -60,7 +60,7 @@
                 <asp:Button ID="Button8" runat="server" Text="发起主题" Height="32px" Width="80px" OnClick="Button8_Click"/>
             </div>
             <div id="content_table">
-                <asp:GridView ID="GridView1" runat="server" Width="470px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                <asp:GridView ID="GridView1" runat="server" Width="470px" AutoGenerateColumns="False" >
                     <Columns>
                         <asp:BoundField DataField="Uusername" HeaderText="用户名">
                             <HeaderStyle Width="80px"></HeaderStyle>
@@ -68,7 +68,7 @@
                         <asp:BoundField DataField="Umessage" HeaderText="发言内容" />
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="回复"></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel"  Text="回复" OnClick="LinkButton1_Click1"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -76,14 +76,14 @@
                 </asp:GridView>
                 <br />
                 <br />
-                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="470px">
                     <Columns>
                         <asp:BoundField DataField="Uname1" HeaderText="回复者" />
                         <asp:BoundField DataField="Uname2" HeaderText="回复对象" />
                         <asp:BoundField DataField="Ureply" HeaderText="回复内容" />
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click1" Text="回复"></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="回复"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

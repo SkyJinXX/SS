@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_reply.aspx.cs" Inherits="Study_reply" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_reply1.aspx.cs" Inherits="Study_reply1" %>
 
 <!DOCTYPE html>
 
