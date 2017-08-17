@@ -11,7 +11,7 @@
     
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton ="Button1">
         <div id="top">
             <p id="top_p_r">
                 <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>

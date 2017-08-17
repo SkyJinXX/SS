@@ -9,7 +9,7 @@
     <link href="web_style/Interface_Student_Select.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton ="Button4">
         <div id="top">
             <p id="top_p_r">
                 <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>
