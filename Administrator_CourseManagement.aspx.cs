@@ -8,6 +8,80 @@ using System.Data;
 public partial class Default2 : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
+
+    public void GridViewFlush()
+    {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        String SelectSql = GridViewFlush_Condition();
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+        objConnection.Close();
+    }
+
+    protected String GridViewFlush_Condition()
+    {
+        String SelectSql = "";
+        if (TextBox6.Text == "")
+        {
+            if (TextBox7.Text == "")
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    SelectSql = "select * from Course ";
+                }
+                else
+                {
+                    SelectSql = "select * from Course where Ccategory = '" + DropDownList1.SelectedValue + "'";
+                }
+            }
+            else
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    SelectSql = "select * from Course where Cname = '" + TextBox7.Text + "'"; ;
+                }
+                else
+                {
+                    SelectSql = "select * from Course where Ccategory = '" + DropDownList1.SelectedValue + "'and Cname = '"
+                        + TextBox7.Text + "'";
+                }
+            }
+        }
+        else
+        {
+            if (TextBox7.Text == "")
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    SelectSql = "select * from Course where Cid = '" + TextBox6.Text + "'";
+                }
+                else
+                {
+                    SelectSql = "select * from Course where Ccategory = '" + DropDownList1.SelectedValue + "'and Cid = '"
+                        + TextBox6.Text + "'";
+                }
+            }
+            else
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    SelectSql = "select * from Course where Cid = '" + TextBox6.Text + "'and Cname = '"
+                        + TextBox7.Text + "'";
+                }
+                else
+                {
+                    SelectSql = "select * from Course where Ccategory = '" + DropDownList1.SelectedValue + "'and Cname = '"
+                        + TextBox7.Text + "' and Cid = '" + TextBox6.Text + "'";
+                }
+            }
+        }
+        return SelectSql;
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -26,15 +100,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            objConnection.Open();
-            String SelectSql = "select * from Course ";
-            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-            objConnection.Close();
+            GridViewFlush();
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
@@ -57,7 +123,6 @@ public partial class Default2 : System.Web.UI.Page
         {
             Button5.Enabled = false;
         }
-
         objConnection.Close();
     }
 
@@ -89,27 +154,16 @@ public partial class Default2 : System.Web.UI.Page
         cmd.CommandText = SqlStr;
         cmd.ExecuteScalar();
         Response.Write("<script>alert('删除成功')</script>");
+        objConnection.Close();
         //删除成功之后实时刷新
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course ";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
         //删除成功之后实时刷新
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course ";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -119,7 +173,7 @@ public partial class Default2 : System.Web.UI.Page
         String Cname = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[1].Controls[1])).Text;
         String Ccridit = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[1])).Text;
         String Cpersonnumber = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[1])).Text;
-        String Ccategory = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[1])).Text;
+        String Ccategory = ((DropDownList)(GridView1.Rows[e.RowIndex].Cells[4].Controls[1])).SelectedValue;
         String Cintroduction = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[1])).Text;
         String updateSql = "update Course set Cname = '" + Cname + "', Ccredit = '" + Ccridit +
             "', Cpersonnumber = '" + Cpersonnumber + "', Ccategory = '" + Ccategory + "', Cintroduction = '"
@@ -131,26 +185,14 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
         GridView1.EditIndex = -1;
         //删除成功之后实时刷新
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course ";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
         GridView1.EditIndex = -1;
         //删除成功之后实时刷新
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course ";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridViewFlush();
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -190,6 +232,25 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button9_Click(object sender, EventArgs e)
     {
-
+        String SelectSql = GridViewFlush_Condition();
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+        cmd.CommandText = SelectSql;
+            
+        if ((String)cmd.ExecuteScalar() == null)
+        {
+            Response.Write("<script>alert('查无此课程')</script>");
+        }
+        else
+        {
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+        }
+        objConnection.Close();
     }
+
 }

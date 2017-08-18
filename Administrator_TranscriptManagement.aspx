@@ -31,25 +31,45 @@
                 <li><a></a></li>
                 <li><a></a></li>
                 <--->
+                <li>
+                    <br />
+                </li>
             </ul>
         </div>
         <div id="d_body">
             <div id="view">
                 <div id="search">
-                    <asp:Label ID="Label2" runat="server" Text="课程查询（ID/课程名）"></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="383px" Height="17px"></asp:TextBox>
-                    <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="搜索" />
-                    <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="返回主界面" />
+                    <asp:Label ID="Label5" runat="server" Text="课程ID："></asp:Label>
+                    <asp:TextBox ID="TextBox5" runat="server" Width="111px" Height="17px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="Label2" runat="server" Text="课程名："></asp:Label>
+                    <asp:TextBox ID="TextBox1" runat="server" Width="122px" Height="17px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="Label6" runat="server" Text="课程类别："></asp:Label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" style="margin-left: 0px" Width="97px">
+                        <asp:ListItem> </asp:ListItem>
+                        <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                        <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                        <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                        <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                        <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                        <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                        <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                        <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                        <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                        <asp:ListItem>其他</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="课程查询" />
                 </div>
                 <div id="d_title">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label3" runat="server" Text="课程名单" Font-Size="X-Large"></asp:Label>
                     
                 </div>
                 <div id="d_message">
-                    <asp:GridView ID="GridView1" runat="server" Width="635px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                    <asp:GridView ID="GridView1" runat="server" Width="762px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" style="margin-left: 0px">
                         <Columns>
                             <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
                             <asp:BoundField DataField="Cname" HeaderText="课程名" ReadOnly="True" />
+                            <asp:BoundField DataField="Ccategory" HeaderText="课程类别" ReadOnly="True" />
                             <asp:BoundField DataField="Sid" HeaderText="学生学号" ReadOnly="True" />
                             <asp:BoundField DataField="Sname" HeaderText="学生姓名" ReadOnly="True" />
                             <asp:TemplateField HeaderText="平时分">
@@ -96,6 +116,10 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="返回主界面" />
                 </div>
             </div>
         </div>
