@@ -9,7 +9,7 @@
     <link href="web_style/Interface_Student_Select.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server" defaultbutton ="Button4">
+    <form id="form1" runat="server">
         <div id="top">
             <p id="top_p_r">
                 <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>
@@ -19,11 +19,11 @@
         </div>
         <div id="globllink">
             <ul>
+                <li class="li_1"><a href="Interface_Student_Announcement.aspx">公告</a></li>
                 <li class="li_1"><a href="Interface_Student.aspx">选课</a></li>
                 <li class="li_1"><a href="Interface_Student_Select.aspx">查询成绩</a></li>
                 <li class="li_1"><a href="Interface_Student_Change.aspx">信息修改</a></li>
                 <!---填充导航菜单栏>
-                <li><a></a></li>
                 <li><a></a></li>
                 <li><a></a></li>
                 <li><a></a></li>

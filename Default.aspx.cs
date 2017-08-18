@@ -44,7 +44,7 @@ public partial class _Default : System.Web.UI.Page
                     if ((String)Session["identity"] == "T")
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_Teacher.aspx'</script>");
                     else if ((String)Session["identity"] == "S")
-                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_student.aspx'</script>");
+                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_Student_Announcement.aspx'</script>");
                     else if ((String)Session["identity"] == "A")
                         Response.Write("<script>alert('登陆成功');window.location.href='Administrator.aspx'</script>");
                     else
