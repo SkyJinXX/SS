@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Interface_Teacher_release.aspx.cs" Inherits="Interface_Teacher_release" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Interface_Teacher_Setdate.aspx.cs" Inherits="Interface_Teacher_Setdate" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
             <p id="top_p_r">
                 <font id="font_1">Welcome back!</font>
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server"  Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" OnClick="Button1_Click1" style="height: 25px" />
+                <asp:Button ID="Button1" runat="server"  Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" OnClick="Button1_Click" />
             </p>
         </div>
         <div id="globllink">
@@ -36,12 +36,23 @@
         </div>
         <div id="middle">
             <div id="d_message">
-                <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="484px"></asp:TextBox>
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="496px">
+                    <Columns>
+                        <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                        <asp:BoundField DataField="Cname" HeaderText="课程名" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="设置考试时间"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
                 <br />
                 <br />
                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button2" runat="server"  Text="发布" />
+&nbsp;&nbsp;&nbsp;
+                <br />
+                <br />
             </div>
         </div>
     </form>
