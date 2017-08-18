@@ -47,12 +47,9 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Rank.aspx");
-    }
+    
 
-    protected void Button4_Click(object sender, EventArgs e)
+    protected void Button6_Click(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
@@ -79,5 +76,25 @@ public partial class Default2 : System.Web.UI.Page
         Session["identity"] = null;
         Response.Redirect("Default.aspx");
     }
-    
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
+
 }

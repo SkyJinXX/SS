@@ -33,11 +33,6 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.DataBind();
     }
 
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Rank.aspx");
-    }
-
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -55,4 +50,23 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
 }
