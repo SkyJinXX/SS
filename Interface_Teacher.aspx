@@ -41,7 +41,10 @@
             <div id="view">
                 <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
                     <Columns>
-                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage" />
+                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage">
+                            <HeaderStyle Height="50px"></HeaderStyle>
+                            <ItemStyle Height="80px" HorizontalAlign="Center"></ItemStyle>
+                        </asp:BoundField>
                     </Columns>
                 </asp:GridView>
             </div>

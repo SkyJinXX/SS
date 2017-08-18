@@ -38,7 +38,14 @@
                 <asp:Label ID="Label3" runat="server" Text="公告" Font-Size="X-Large"></asp:Label>
             </div>
             <div id="view">
-                
+                <asp:GridView ID="GridView1" Width="500px" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="Crelease" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
         <div id="footer">
