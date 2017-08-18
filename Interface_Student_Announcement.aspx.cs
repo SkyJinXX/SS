@@ -22,7 +22,7 @@ public partial class announcement : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label2.Text = (String)Session["username"];
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         String SelectSql = "select Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
