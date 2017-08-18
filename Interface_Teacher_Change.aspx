@@ -20,9 +20,10 @@
         </div>
         <div id="globllink">
             <ul>
-                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="公告" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="设置考试时间" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -90,7 +91,7 @@
                             &nbsp;
                         </th>
                         <th>
-                            <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="保存" Width="60px" Height="30px" Font-Size="Medium"  />
+                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="保存" Width="60px" Height="30px" Font-Size="Medium"  />
                         </th>
                         
                     </tr>

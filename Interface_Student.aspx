@@ -32,11 +32,11 @@
         </div>
         <div id="globllink">
             <ul>
+                <li class="li_1"><a href="Interface_Student_Announcement.aspx">公告</a></li>
                 <li class="li_1"><a href="Interface_Student.aspx">选课</a></li>
                 <li class="li_1"><a href="Interface_Student_Select.aspx">查询成绩</a></li>
                 <li class="li_1"><a href="Interface_Student_Change.aspx">信息修改</a></li>
                 <!---填充导航菜单栏>
-                <li><a></a></li>
                 <li><a></a></li>
                 <li><a></a></li>
                 <li><a></a></li>

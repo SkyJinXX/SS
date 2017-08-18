@@ -20,9 +20,10 @@
         </div>
         <div id="globllink">
             <ul>
-                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="公告" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="设置考试时间" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -57,7 +58,7 @@
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="确认号码" Visible="False" />
+                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="确认号码" Visible="False" style="height: 21px" />
                         </th>
                     </tr>
                     <tr>
@@ -116,7 +117,7 @@
                         <th>&nbsp;
                         </th>
                         <th>
-                            <asp:Button ID="Button4" runat="server" Text="开设课程" OnClick="Button4_Click" />
+                            <asp:Button ID="Button7" runat="server" Text="开设课程" OnClick="Button7_Click" />
                         </th>
                     </tr>
                 </table>
@@ -130,7 +131,7 @@
                         <asp:BoundField DataField="Cid" HeaderText="课程编号" ReadOnly="True" />
                         <asp:TemplateField HeaderText="课程名称">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Cname") %>' Width="108px"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Cname") %>' Width="25px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("Cname") %>'></asp:Label>
@@ -138,7 +139,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="课程学分">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Ccredit") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Ccredit") %>' Width="25px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("Ccredit") %>'></asp:Label>
@@ -146,7 +147,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="课程类别">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Ccategory") %>' Width="97px"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Ccategory") %>' Width="25px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label3" runat="server" Text='<%# Bind("Ccategory") %>'></asp:Label>
@@ -154,7 +155,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="课程人数">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Cpersonnumber") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Cpersonnumber") %>' Width="25px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# Bind("Cpersonnumber") %>'></asp:Label>
@@ -162,7 +163,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="课程简介">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Cintroduction") %>' Width="25px"></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
@@ -170,7 +171,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="Manage" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="管理"></asp:LinkButton>
+                                <asp:LinkButton ID="Manage" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="打分"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField ShowHeader="False">
@@ -181,6 +182,16 @@
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
                                 &nbsp;
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton3_Click" Text="考试"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton2_Click" Text="发布公告"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

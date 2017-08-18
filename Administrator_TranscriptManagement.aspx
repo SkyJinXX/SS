@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton ="Button8">
         <div id="top">
             <p id="top_p_r">
                 <font id="font_1">Welcome !</font>

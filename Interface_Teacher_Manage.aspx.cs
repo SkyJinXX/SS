@@ -41,7 +41,7 @@ public partial class Default2 : System.Web.UI.Page
             if (cmd.ExecuteScalar() != DBNull.Value)
                 id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
             TextBox1.Text = id.ToString();
-            Button5.Visible = false;
+            Button6.Visible = false;
             objConnection.Close();
             //刷新GridView
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -54,27 +54,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void Button_Change_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Change.aspx");
-    }
-
-    protected void Button_Create_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Manage.aspx");
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Rank.aspx");
-    }
-
-
-    protected void Button5_Click(object sender, EventArgs e)
-    {
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
+    protected void Button7_Click(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
 
@@ -109,7 +89,7 @@ public partial class Default2 : System.Web.UI.Page
         cmd.CommandText = "select max(Cid) from Course";
         int id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
         TextBox1.Text = id.ToString();
-        Button5.Visible = false;
+        Button6.Visible = false;
         objConnection.Close();
     }
 
@@ -191,8 +171,42 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
+    protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["release"] = GridView1.Rows[row].Cells[0].Text;
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
     protected void Button2_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void LinkButton3_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
+        Response.Redirect("Interface_Teacher_Test.aspx");
     }
 }

@@ -70,6 +70,7 @@
 #d_message {
     width: 400px;
     height: 250px;
+    border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
