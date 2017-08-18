@@ -24,34 +24,34 @@
     background-color: black;
 }
 
-    #globllink ul {
-        list-style-type: none;
-        padding: 0px;
-        margin: 0px;
-    }
+#globllink ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
 
-        #globllink ul .li_1 {
-            float: left;
-            text-align: center;
-            width: 110px;
-            background-color: black;
-        }
+#globllink ul .li_1 {
+    float: left;
+    text-align: center;
+    width: 110px;
+    background-color: black;
+}
 
-            #globllink ul .li_1 a {
-                display: block;
-                padding: 9px 6px 11px 6px;
-            }
+#globllink ul .li_1 a {
+    display: block;
+    padding: 9px 6px 11px 6px;
+}
 
-                #globllink ul .li_1 a:link, #globllink ul .li_1 a:visited {
-                    color: white;
-                    text-decoration: none;
-                }
+#globllink ul .li_1 a:link, #globllink ul .li_1 a:visited {
+    color: white;
+    text-decoration: none;
+}
 
-                #globllink ul .li_1 a:hover {
-                    color: #ffffff;
-                    text-decoration: none;
-                    background-color: #574d4d;
-                }
+#globllink ul .li_1 a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #574d4d;
+}
 
 #middle {
     width: 1000px;

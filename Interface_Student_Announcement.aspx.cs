@@ -24,15 +24,13 @@ public partial class announcement : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
-        /*
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid";
+        String SelectSql = "select Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
-        */
     }
 
     protected void Button5_Click(object sender, EventArgs e)

@@ -77,7 +77,7 @@
                 <table class="T">
                     <tr>
                         <td>
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Font-Size="X-Large">
+                            <asp:GridView ID="GridView1" runat="server" Width="600px" AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                     <asp:BoundField DataField="Cname" HeaderText="课程名称" />
