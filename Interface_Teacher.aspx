@@ -24,6 +24,7 @@
                 <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
                 <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
                 <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <li class="li_1"><a href="Interface_Teacher_Setdate.aspx">设置考试时间</a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -41,7 +42,10 @@
             <div id="view">
                 <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
                     <Columns>
-                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage" />
+                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage">
+                            <HeaderStyle Height="50px"></HeaderStyle>
+                            <ItemStyle Height="80px" HorizontalAlign="Center"></ItemStyle>
+                        </asp:BoundField>
                     </Columns>
                 </asp:GridView>
             </div>

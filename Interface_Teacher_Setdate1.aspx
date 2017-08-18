@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Interface_Teacher_release.aspx.cs" Inherits="Interface_Teacher_release" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Interface_Teacher_Setdate1.aspx.cs" Inherits="Interface_Teacher_Setdate1" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
             <p id="top_p_r">
                 <font id="font_1">Welcome back!</font>
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server"  Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" OnClick="Button1_Click1" style="height: 25px" />
+                <asp:Button ID="Button1" runat="server"  Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" OnClick="Button1_Click" style="height: 25px" />
             </p>
         </div>
         <div id="globllink">
@@ -36,12 +36,12 @@
         </div>
         <div id="middle">
             <div id="d_message">
-                <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="484px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Height="24px" Width="487px"></asp:TextBox>
                 <br />
                 <br />
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button2" runat="server"  Text="发布" />
+                <asp:Button ID="Button2" runat="server"  Text="设置" OnClick="Button2_Click" />
             </div>
         </div>
     </form>
