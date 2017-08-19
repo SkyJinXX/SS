@@ -38,7 +38,7 @@
                 <tr>
                     <td>
                         <asp:Label ID="Label10" runat="server" Text="课程ID："></asp:Label>
-                        <asp:TextBox ID="TextBox2" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged" Height="15px"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
                     <td>
                         <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
@@ -59,7 +59,7 @@
                             <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
                             <asp:ListItem>其他</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" Width="59px" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" Width="55px" />
                     </td>
                 </tr>
             </table>
