@@ -159,9 +159,9 @@ public partial class _Default : System.Web.UI.Page
         cmd.CommandText = SelectSql;
 
         if ((String)cmd.ExecuteScalar() == null)
-<<<<<<< HEAD
         {
             Response.Write("<script>alert('查无此课程')</script>");
+            SelectSql = "select * from Course ";
         }
         else
         {
@@ -170,17 +170,8 @@ public partial class _Default : System.Web.UI.Page
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
-=======
-        {
-            Response.Write("<script>alert('查无此课程')</script>");
-            SelectSql = "select * from Course ";
->>>>>>> ca36ec3427a73af9dcfbf407bf8cd5e0d2485dbe
+            
         }
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
         objConnection.Close();
     }
 
