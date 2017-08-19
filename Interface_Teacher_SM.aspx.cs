@@ -34,6 +34,10 @@ public partial class Default2 : System.Web.UI.Page
         {
             Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
         }
+        else if ((String)Session["Cid"] == null)
+        {
+            Response.Write("<script>alert('课程未定');window.location.href='Interface_Teacher_Manage'</script>");
+        }
         else
         {
             Label1.Text = (String)Session["username"];
