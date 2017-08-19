@@ -8,18 +8,6 @@
     <title></title>
     <link href="web_style/Interface_Student.css" rel="stylesheet" type="text/css" />
 
-    
-    <style type="text/css">
-        .auto-style1 {
-            width: 279px;
-            height: 27px;
-        }
-        .auto-style2 {
-            height: 27px;
-        }
-    </style>
-
-    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,20 +33,20 @@
                 <--->
             </ul>
         </div>
-        <div>
+        <div id="d_search">
             <table>
                 <tr>
-                    <td class="auto-style2">
+                    <td>
                         <asp:Label ID="Label10" runat="server" Text="课程ID："></asp:Label>
-                        <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style11" Width="105px" OnTextChanged="TextBox1_TextChanged" Height="15px"></asp:TextBox>
-                    &nbsp;</td>
-                    <td class="auto-style1">
-                        <asp:Label ID="Label6" runat="server" Text="课程名：" Font-Size="Large"></asp:Label>
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" Width="105px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged" Height="15px"></asp:TextBox>
                     </td>
-                    <td class="auto-style2">
+                    <td>
+                        <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                    </td>
+                    <td>
                         <asp:Label ID="Label9" runat="server" Text="课程类别"></asp:Label>
-                        <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px" >
+                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100px" >
                             <asp:ListItem> </asp:ListItem>
                             <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                             <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
