@@ -174,8 +174,8 @@ public partial class Default2 : System.Web.UI.Page
     protected void LinkButton2_Click(object sender, EventArgs e)
     {
         int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
-        Session["release"] = GridView1.Rows[row].Cells[0].Text;
-        Response.Redirect("Interface_Teacher_release.aspx");
+        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
+        Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -206,6 +206,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
         Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
-        Response.Redirect("Interface_Teacher_Test.aspx");
+        Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
 }

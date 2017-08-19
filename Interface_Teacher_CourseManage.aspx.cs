@@ -38,8 +38,4 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
 
     }
 
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-
-    }
 }

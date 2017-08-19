@@ -14,16 +14,30 @@ public partial class _Default : System.Web.UI.Page
     public const string courseTimeEnd = "2018-08-15 23:59:59";
     SqlConnection objConnection = new SqlConnection();
 
-    public void GridViewFlush()
+    public void GridViewFlush(int a)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String SelectSql = GridViewFlush_Condition();
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        String SelectSql = "";
+        if (a == 1)
+        {
+            SelectSql = GridViewFlush_Condition();
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+        }
+        if(a == 0)
+        {
+            SelectSql = "select * from Course,S_C_Transcript where Course.Cid = S_C_Transcript.Cid and S_C_Transcript.Sid " +
+                "IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView2.DataSource = ds;
+            GridView2.DataBind();
+        }
         objConnection.Close();
     }
 
@@ -131,21 +145,9 @@ public partial class _Default : System.Web.UI.Page
             Label2.Text = (String)Session["username"];
         }
         //显示可选课程
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Course";
-        SqlDataAdapter da1 = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds1 = new DataSet();
-        da1.Fill(ds1);
-        GridView1.DataSource = ds1;
-        GridView1.DataBind();
+        GridViewFlush(1);
         //显示已选课程
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        SelectSql = "select * from Course,S_C_Transcript where Course.Cid = S_C_Transcript.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView2.DataSource = ds;
-        GridView2.DataBind();
+        GridViewFlush(0);
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -157,6 +159,7 @@ public partial class _Default : System.Web.UI.Page
         cmd.CommandText = SelectSql;
 
         if ((String)cmd.ExecuteScalar() == null)
+<<<<<<< HEAD
         {
             Response.Write("<script>alert('查无此课程')</script>");
         }
@@ -167,7 +170,17 @@ public partial class _Default : System.Web.UI.Page
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+=======
+        {
+            Response.Write("<script>alert('查无此课程')</script>");
+            SelectSql = "select * from Course ";
+>>>>>>> ca36ec3427a73af9dcfbf407bf8cd5e0d2485dbe
         }
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
         objConnection.Close();
     }
 
@@ -214,9 +227,6 @@ public partial class _Default : System.Web.UI.Page
             }
 
         }
-       
-
-
     }
 
 
