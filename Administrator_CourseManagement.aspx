@@ -46,19 +46,22 @@
 &nbsp;<asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
                     <asp:TextBox ID="TextBox7" runat="server" Width="100px"></asp:TextBox>
 &nbsp;<asp:Label ID="Label8" runat="server" Text="课程类别："></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px">
-                        <asp:ListItem Value="1">办公效率</asp:ListItem>
-                        <asp:ListItem Value="2">编程开发</asp:ListItem>
-                        <asp:ListItem Value="3">产品和设计</asp:ListItem>
-                        <asp:ListItem Value="4">生活方式</asp:ListItem>
-                        <asp:ListItem Value="5">职业发展</asp:ListItem>
-                        <asp:ListItem Value="6">市场营销</asp:ListItem>
-                        <asp:ListItem Value="7">技能特长</asp:ListItem>
-                        <asp:ListItem Value="8">人文社会</asp:ListItem>
-                        <asp:ListItem Value="9">艺术发展</asp:ListItem>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px" >
+                        <asp:ListItem> </asp:ListItem>
+                        <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                        <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                        <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                        <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                        <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                        <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                        <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                        <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                        <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                        <asp:ListItem>其他</asp:ListItem>
                     </asp:DropDownList>
 &nbsp;
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="查询" Width="55px" />
+                    <br />
                 </div>
                 <div id="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
@@ -92,7 +95,19 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="类别">
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Ccategory") %>'></asp:TextBox>
+                                    <asp:DropDownList ID="DropDownList2" runat="server">
+                                        <asp:ListItem> </asp:ListItem>
+                                        <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                                        <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                                        <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                                        <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                                        <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                                        <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                                        <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                                        <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                                        <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                                        <asp:ListItem>其他</asp:ListItem>
+                                    </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("Ccategory") %>'></asp:Label>

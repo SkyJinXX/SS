@@ -16,27 +16,92 @@ public partial class Default2 : System.Web.UI.Page
     public void GridViewFlush()
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        if(TextBox1.Text != "")
+        objConnection.Open();
+        String Sql = GridViewFlush_Condition();
+        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();            
+        objConnection.Close();
+    }
+
+    protected String GridViewFlush_Condition()
+    {
+        String Sql = "";
+        if (TextBox5.Text == "")
         {
-            cname = TextBox1.Text;
-            String Sql1 = "select Cid from Course where Cname = '" + cname + "'";
-            String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid IN(" + Sql1 + ") and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            if (TextBox1.Text == "")
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                        "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid";
+                }
+                else
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                          + "= Course.Cid and Ccategory = '" + DropDownList1.SelectedValue + "'";
+                }
+            }
+            else
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                          + "= Course.Cid and Cname = '" + TextBox1.Text + "'";
+                }
+                else
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid and Cname = '" + TextBox1.Text + "'and Ccategory = '" + DropDownList1.SelectedValue
+                         + "'";
+                    
+                }
+            }
         }
         else
         {
-            String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();            
+            if (TextBox1.Text == "")
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'";
+                }
+                else
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Ccategory = '" + DropDownList1.SelectedValue
+                         + "'";
+                }
+            }
+            else
+            {
+                if (DropDownList1.SelectedValue == "")
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Cname = '" + TextBox1.Text + "'";
+                }
+                else
+                {
+                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Cname = '" + TextBox1.Text +
+                         "'and Ccategory = '" + DropDownList1.SelectedValue + "'";
+                }
+            }
         }
+        return Sql;
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] == null)
@@ -114,52 +179,26 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button8_Click1(object sender, EventArgs e)
     {
-        
+        String SelectSql = GridViewFlush_Condition();
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql1 = "select Cid from Course where Cname = '" + TextBox1.Text + "'";
-        //判断输入文本框是否为空
-        if (TextBox1.Text != "")
+        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+        cmd.CommandText = SelectSql;
+            
+        if ((String)cmd.ExecuteScalar() == null)
         {
-            String Isexist = "select Cname from Course where Cname = '" + TextBox1.Text + "'";
-            SqlCommand cmd = new SqlCommand(Isexist, objConnection);
-            cmd.CommandText = Isexist;
-            String Isexist1 = "select Cid from Course where Cid = '" + TextBox1.Text + "'";
-            SqlCommand cmd1 = new SqlCommand(Isexist, objConnection);
-            cmd1.CommandText = Isexist1;
-
-            if(cmd1.ExecuteScalar() != null)
-            {
-                String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cid = '" + TextBox1.Text + "' and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-                SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
-            }
-
-            else if (cmd.ExecuteScalar() != null)
-            {
-                String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname from Student,S_C_Transcript,Course where Course.Cname = '" + TextBox1.Text + "' and S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid = Course.Cid";
-                SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
-            }
-
-            else 
-            {
-                Response.Write("<script>alert('未开设此课程')</script>");
-            }
-
+            Response.Write("<script>alert('查无此课程')</script>");
         }
         else
         {
-            Response.Write("<script>alert('请输入课程名')</script>");
-            
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
         }
         objConnection.Close();
+        
     }
 
     protected void Button9_Click(object sender, EventArgs e)
@@ -170,7 +209,7 @@ public partial class Default2 : System.Web.UI.Page
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         int row = e.RowIndex;
-        String str1 = GridView1.Rows[row].Cells[2].Text;
+        String str1 = GridView1.Rows[row].Cells[3].Text;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String str2 = GridView1.Rows[row].Cells[0].Text;
@@ -201,7 +240,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-        String Sid = GridView1.Rows[e.RowIndex].Cells[2].Text;
+        String Sid = GridView1.Rows[e.RowIndex].Cells[3].Text;
         String Cid = GridView1.Rows[e.RowIndex].Cells[0].Text;     
         String Tscore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox1"))).Text;
         String PScore = ((TextBox)(GridView1.Rows[e.RowIndex].FindControl("TextBox4"))).Text;

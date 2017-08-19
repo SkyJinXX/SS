@@ -55,4 +55,24 @@ public partial class Interface_Teacher_Setdate : System.Web.UI.Page
         Session["identity"] = null;
         Response.Redirect("Default.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
 }

@@ -20,10 +20,10 @@
         </div>
         <div id="globllink">
             <ul>
-                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Setdate.aspx">设置考试时间</a></li>
+                <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="公告" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="设置考试时间" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -58,7 +58,7 @@
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="确认号码" Visible="False" />
+                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="确认号码" Visible="False" style="height: 21px" />
                         </th>
                     </tr>
                     <tr>
@@ -117,7 +117,7 @@
                         <th>&nbsp;
                         </th>
                         <th>
-                            <asp:Button ID="Button4" runat="server" Text="开设课程" OnClick="Button4_Click" />
+                            <asp:Button ID="Button7" runat="server" Text="开设课程" OnClick="Button7_Click" />
                         </th>
                     </tr>
                 </table>

@@ -36,6 +36,26 @@ public partial class Interface_Teacher_Setdate1 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String Sql = "Insert into Ctest Values('" + (String)Session["Cid"] + "','" + TextBox1.Text + "')";

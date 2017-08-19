@@ -35,7 +35,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button6_Click(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
@@ -53,5 +53,25 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
         Session["username"] = null;
         Session["identity"] = null;
         Response.Redirect("Default.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
     }
 }

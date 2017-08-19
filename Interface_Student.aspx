@@ -9,6 +9,17 @@
     <link href="web_style/Interface_Student.css" rel="stylesheet" type="text/css" />
 
     
+    <style type="text/css">
+        .auto-style1 {
+            width: 279px;
+            height: 27px;
+        }
+        .auto-style2 {
+            height: 27px;
+        }
+    </style>
+
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,17 +45,33 @@
                 <--->
             </ul>
         </div>
-        <div id="d_search">
+        <div>
             <table>
                 <tr>
-                    <td>
-                        <asp:Label ID="Label6" runat="server" Text="寻找课程：" Font-Size="Large"></asp:Label>
+                    <td class="auto-style2">
+                        <asp:Label ID="Label10" runat="server" Text="课程ID："></asp:Label>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style11" Width="105px" OnTextChanged="TextBox1_TextChanged" Height="15px"></asp:TextBox>
+                    &nbsp;</td>
+                    <td class="auto-style1">
+                        <asp:Label ID="Label6" runat="server" Text="课程名：" Font-Size="Large"></asp:Label>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" Width="105px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
-                    <td>
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" Width="400px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-                    </td>
-                    <td>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" />
+                    <td class="auto-style2">
+                        <asp:Label ID="Label9" runat="server" Text="课程类别"></asp:Label>
+                        <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px" >
+                            <asp:ListItem> </asp:ListItem>
+                            <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                            <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                            <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                            <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                            <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                            <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                            <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                            <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                            <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                            <asp:ListItem>其他</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" Width="59px" />
                     </td>
                 </tr>
             </table>
