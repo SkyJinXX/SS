@@ -39,14 +39,13 @@
                     <asp:Label ID="Label2" runat="server" Text="课程管理" Font-Size="X-Large"></asp:Label>
                     
                 </div>
-                <div id ="d_menu">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div id="d_menu">
                     <asp:Label ID="Label6" runat="server" Text="课程ID："></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox6" runat="server" Width="100px"></asp:TextBox>
-&nbsp;<asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
+                    <asp:TextBox ID="TextBox6" runat="server" Width="100px"></asp:TextBox>
+                    <asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
                     <asp:TextBox ID="TextBox7" runat="server" Width="100px"></asp:TextBox>
-&nbsp;<asp:Label ID="Label8" runat="server" Text="课程类别："></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" style="margin-left: 0px" Width="97px" >
+                    <asp:Label ID="Label8" runat="server" Text="课程类别："></asp:Label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Width="100px">
                         <asp:ListItem> </asp:ListItem>
                         <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                         <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
@@ -59,7 +58,6 @@
                         <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
                         <asp:ListItem>其他</asp:ListItem>
                     </asp:DropDownList>
-&nbsp;
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="查询" Width="55px" />
                     <br />
                 </div>

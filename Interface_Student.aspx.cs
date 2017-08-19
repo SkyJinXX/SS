@@ -62,7 +62,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (DropDownList1.SelectedValue == "")
                 {
-                    SelectSql = "select * from Course where Cid = '" + TextBox1.Text + "'";
+                    SelectSql = "select * from Course where Cid = '" + TextBox2.Text + "'";
                 }
                 else
                 {
@@ -150,23 +150,19 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        String SelectSql = GridViewFlush_Condition();
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        if (TextBox1.Text != "")
+        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+        cmd.CommandText = SelectSql;
+
+        if ((String)cmd.ExecuteScalar() == null)
         {
-            //若文本框不为空，查询相关课程
-            String Sql = "select * from Course where Cname = '" + TextBox1.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            Response.Write("<script>alert('查无此课程')</script>");
         }
         else
         {
-            //若文本框为空 或 课程名与数据库中课程名不匹配，则显示全部课程
-            String Sql = "select * from Course";
-            SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
