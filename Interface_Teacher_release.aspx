@@ -44,10 +44,14 @@
             <div id="d_message">
                 <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="487px"></asp:TextBox>
                 <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button6" runat="server"  Text="发布" OnClick="Button6_Click"/>
                 <br />
+                <br />
+                <br />
+                <asp:Label ID="Label2" runat="server" Text="已发公告"></asp:Label>
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button6" runat="server"  Text="发布" OnClick="Button6_Click"/>
                 <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                     <Columns>
@@ -74,7 +78,6 @@
                 </asp:GridView>
                 <br />
                 <br />
-                <asp:Label ID="Label2" runat="server" Text="已发公告"></asp:Label>
                 <br />
             </div>
         </div>
