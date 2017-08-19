@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="web_style/Interface_Student_Select.css" rel="stylesheet" type="text/css" />
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,27 +42,49 @@
                         </td>
                     </tr>
                 </table>
-                <p class="p2_1"></p>
                 <table class="T">
                     <tr>
                         <td>
-                            <asp:TextBox ID="TextBox1" runat="server" Width="235px"></asp:TextBox>
+                            <asp:Label ID="Label5" runat="server" Text="课程ID："></asp:Label>
+                            <asp:TextBox ID="TextBox2" runat="server" Width="100px" Height="12px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
+                            <asp:TextBox ID="TextBox1" runat="server" Width="100px" Height="12px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Label7" runat="server" Text="课程类别："></asp:Label>
+                            <asp:DropDownList ID="DropDownList1" runat="server" Width="90px" Height="20px">
+                                <asp:ListItem> </asp:ListItem>
+                                <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
+                                <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
+                                <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>
+                                <asp:ListItem Value="生活方式">生活方式</asp:ListItem>
+                                <asp:ListItem Value="职业发展">职业发展</asp:ListItem>
+                                <asp:ListItem Value="市场营销">市场营销</asp:ListItem>
+                                <asp:ListItem Value="技能特长">技能特长</asp:ListItem>
+                                <asp:ListItem Value="人文社会">人文社会</asp:ListItem>
+                                <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
+                                <asp:ListItem>其他</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                     </tr>
                 </table>
-                <p class="p2_1"></p>
                 <table class="T">
                     <tr>
                         <td>
-                            <asp:Button ID="Button4" runat="server" Text="查询成绩" OnClick="Button4_Click" Width="90px" Height="30px" Font-Size="Medium" />
+                            <asp:Button ID="Button4" runat="server" Text="查询成绩" OnClick="Button4_Click" Width="85px" Height="40px" Font-Size="Medium" />
                         </td>
                     </tr>
                 </table>
-                <p class="p2_1"></p>
                 <table class="T">
                     <tr>
                         <td>
-                            <asp:Button ID="Button5" runat="server" Text="返回选课" OnClick="Button5_Click" Width="90px" Height="30px" Font-Size="Medium" />
+                            <asp:Button ID="Button5" runat="server" Text="返回选课" OnClick="Button5_Click" Width="85px" Height="40px" Font-Size="Medium" />
                         </td>
                     </tr>
                 </table>

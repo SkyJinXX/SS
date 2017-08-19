@@ -90,10 +90,11 @@
 }
 
 #d_menu{
-    width:800px;
+    width:605px;
     height:auto;
     margin:auto;
-
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 

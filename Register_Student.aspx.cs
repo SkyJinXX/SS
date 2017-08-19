@@ -14,12 +14,24 @@ public partial class Register_Student1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
+        if (!IsPostBack)
+        {
+            //设置默认学号
+            TextBox1.Enabled = false;
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            String SelectSql = "";
+            SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+            cmd.CommandText = "select max(Sid) from Student";
+            int id = 1;
+            if (cmd.ExecuteScalar() != DBNull.Value)
+                id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            TextBox1.Text = id.ToString();
+            objConnection.Close();
+        }
     }
-
-
-
-
-
+    
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Register.aspx");

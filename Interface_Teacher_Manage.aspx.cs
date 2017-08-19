@@ -26,8 +26,6 @@ public partial class Default2 : System.Web.UI.Page
             Label1.Text = (String)Session["username"];
         }
 
-
-
         if (!IsPostBack)
         {
             //设置默认课程号
