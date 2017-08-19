@@ -11,7 +11,7 @@ using System.Net;
 public partial class _Default : System.Web.UI.Page
 {
     public const string courseTimeStart = "2017-08-18 00:00:00";
-    public const string courseTimeEnd = "2018-08-15 23:59:59";
+    public const string courseTimeEnd = "2018-08-19 23:59:59";
     SqlConnection objConnection = new SqlConnection();
 
     public void GridViewFlush(int a)

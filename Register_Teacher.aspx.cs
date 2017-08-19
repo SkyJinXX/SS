@@ -14,6 +14,22 @@ public partial class Register_Teacher1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
+        if (!IsPostBack)
+        {
+            //设置默认工号
+            TextBox1.Enabled = false;
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            String SelectSql = "";
+            SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+            cmd.CommandText = "select max(Tid) from Teacher";
+            int id = 1;
+            if (cmd.ExecuteScalar() != DBNull.Value)
+                id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            TextBox1.Text = id.ToString();
+            objConnection.Close();
+        }
     }
 
 

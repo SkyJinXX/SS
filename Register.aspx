@@ -49,7 +49,7 @@
                             <asp:Label ID="Label3" runat="server" Text="密码"></asp:Label>
                         </th>
                         <th>
-                            <asp:TextBox ID="TextBox2" runat="server" Width="141px" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
                         </th>
                         <th>
                             <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
