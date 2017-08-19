@@ -42,9 +42,7 @@
                         <li><a>
                             <asp:Button ID="Button4" runat="server" Width="100px" OnClick="Button4_Click" Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button5" runat="server" Width="100px" OnClick="Button5_Click" Text="测验管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
-                        <li><a>
-                            <asp:Button ID="Button6" runat="server" Width="100px" OnClick="Button6_Click" Text="课件管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                            <asp:Button ID="Button5" runat="server" Width="100px" OnClick="Button5_Click" Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                     </ul>
                 </div>
             </div>
