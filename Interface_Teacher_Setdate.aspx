@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="web_style/Interface_Teacher_SM.css" rel="stylesheet" type="text/css" />
+    <link href="web_style/Interface_Teacher_Setdate.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -36,7 +36,7 @@
         </div>
         <div id="middle">
             <div id="d_message">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="496px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="500px">
                     <Columns>
                         <asp:BoundField DataField="Cid" HeaderText="课程号" />
                         <asp:BoundField DataField="Cname" HeaderText="课程名" />
@@ -47,12 +47,6 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <br />
-                <br />
-                <br />
-&nbsp;&nbsp;&nbsp;
-                <br />
-                <br />
             </div>
         </div>
     </form>

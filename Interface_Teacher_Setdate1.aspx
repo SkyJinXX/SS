@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="web_style/Interface_Teacher_SM.css" rel="stylesheet" type="text/css" />
+    <link href="web_style/Interface_Teacher_Setdate.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -35,12 +35,9 @@
             </ul>
         </div>
         <div id="middle">
-            <div id="d_message">
-                <asp:TextBox ID="TextBox1" runat="server" Height="24px" Width="487px"></asp:TextBox>
-                <br />
-                <br />
-                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="d_message" style="width:350px">
+                <asp:Label ID="Label2" runat="server" Text="请设置时间:"></asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="200px"></asp:TextBox>
                 <asp:Button ID="Button6" runat="server"  Text="设置" OnClick="Button6_Click" />
             </div>
         </div>
