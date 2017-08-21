@@ -8,52 +8,25 @@
     <link href="web_style/StyleSheet.css" rel="stylesheet" type="text/css" />
     
     <script>
-        function $(element) {
-            return element = document.getElementById(element);
-        }
-        function $D() {
-            var d = $('class1content');
-            var h = d.offsetHeight;
-            var maxh = 300;
-            function dmove() {
-                h += 50; //设置层展开的速度
-                if (h >= maxh) {
-                    d.style.height = '400px';
-                    clearInterval(iIntervalId);
-                } else {
-                    d.style.display = 'block';
-                    d.style.height = h + 'px';
-                }
+    window.onload = function () {
+        var odiv = document.getElementById('thediv');
+        odiv.onmouseover = function () { startmove(0, 10); }
+        odiv.onmouseout = function () { startmove(-300, -10); }
+    }
+    var timer = null;
+    function startmove(target, speed) {
+        var odiv = document.getElementById('thediv');
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if (odiv.offsetLeft == target) {
+                clearInterval(timer);
             }
-            iIntervalId = setInterval(dmove, 2);
-        }
-        function $D2() {
-            var d = $('class1content');
-            var h = d.offsetHeight;
-            var maxh = 300;
-            function dmove() {
-                h -= 50;//设置层收缩的速度
-                if (h <= 0) {
-                    d.style.display = 'none';
-                    clearInterval(iIntervalId);
-                } else {
-                    d.style.height = h + 'px';
-                }
+            else {
+                odiv.style.left = odiv.offsetLeft + speed + 'px';
             }
-            iIntervalId = setInterval(dmove, 2);
-        }
-        function $use() {
-            var d = $('class1content');
-            var sb = $('stateBut');
-            if (d.style.display == 'none') {
-                $D();
-                sb.innerHTML = '遇到问题了？请咨询我吧!点我收起咨询对话';
-            } else {
-                $D2();
-                sb.innerHTML = '遇到问题了？请咨询我吧!点我展开咨询对话';
-            }
-        }
-    </script>
+        }, 30)
+    }
+</script>
     
 </head>
 <body>
@@ -140,11 +113,10 @@
                 </table>
             </div>
         </div>
-        <div class="class1">
-            <span id="stateBut" onclick="$use()">遇到问题了？请咨询我吧!点我收起咨询对话</span>
-            <p id="class1content" style="background-color: white; padding-bottom: 0px;">
-                <iframe src='https://webchat.botframework.com/embed/ChatBotJJK?s=KH2LA7Co09A.cwA.Vcw.OZj9ET5VWCQnI94QjesS036nChrAQubIKl1jpMqQAWg' width="316" height="420"></iframe>
-            </p>
+        <div id="thediv">
+            <iframe src='https://webchat.botframework.com/embed/ChatBotJJK?s=KH2LA7Co09A.cwA.Vcw.OZj9ET5VWCQnI94QjesS036nChrAQubIKl1jpMqQAWg' width="296" height="450"></iframe>
+            <span>咨询
+            </span>
         </div>
     </form>
 </body>
