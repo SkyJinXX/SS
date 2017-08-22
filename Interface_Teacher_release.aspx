@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="web_style/Interface_Teacher_SM.css" rel="stylesheet" type="text/css" />
+    <link href="web_style/Interface_Teacher_release.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
         .auto-style1 {
@@ -40,17 +40,42 @@
             </ul>
         </div>
         <div id="middle">
+            <div id="box">
+                <div id="menu">
+                    <ul>
+                        <li><a>
+                            <asp:Button ID="Button7" runat="server" Width="100px" OnClick="Button7_Click" Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button8" runat="server" Width="100px" OnClick="Button8_Click" Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button9" runat="server" Width="100px" OnClick="Button9_Click" Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button10" runat="server" Width="100px" OnClick="Button10_Click" Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                    </ul>
+                </div>
+            </div>
             <div id="d_message">
-                <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="487px"></asp:TextBox>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button6" runat="server"  Text="发布" OnClick="Button6_Click"/>
-                <br />
-                <br />
-                <br />
+                <div id="announcement">
+                    <asp:TextBox ID="TextBox1" runat="server" Height="120px" Width="500px"></asp:TextBox>
+                    <table>
+                        <tr>
+                            <th style="width:100px">
+                            </th>
+                            <th style="width:100px">
+                                <asp:Button ID="Button6" runat="server"  Text="发布" OnClick="Button6_Click"/>
+                            </th>
+                            <th style="width:100px">
+                            </th>
+                            <th  style="width:100px">
+                                <asp:Button ID="Button11" runat="server" Text="返回" OnClick="Button11_Click"/>
+                            </th>
+                            <th  style="width:100px">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
                 <asp:Label ID="Label2" runat="server" Text="已发公告"></asp:Label>
                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                     <Columns>

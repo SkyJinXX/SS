@@ -145,4 +145,30 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
         //刷新GridView
         GridViewFlush();
     }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+
+    }
 }

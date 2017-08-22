@@ -84,6 +84,10 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
 
     }
 
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
 
     protected void Button7_Click(object sender, EventArgs e)
     {
@@ -100,4 +104,24 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         objConnection.Close();
     }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
+
+    
+
+
+    
 }

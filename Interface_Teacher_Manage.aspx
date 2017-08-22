@@ -89,7 +89,7 @@
                             <asp:Label ID="Label6" runat="server" Text="类别:"></asp:Label>
                         </th>
                         <th>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" style="margin-left: 0px" Width="109px">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="147px">
                             <asp:ListItem> </asp:ListItem>
                                 <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                                 <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
@@ -127,7 +127,7 @@
                 <asp:Label ID="Label9" runat="server" Text="已开课程" Font-Size="X-Large"></asp:Label>
             </div>
             <div id="view">
-                <asp:GridView ID="GridView1" runat="server" Width="900px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" HorizontalAlign="Center">
+                <asp:GridView ID="GridView1" runat="server" Width="900px" AutoGenerateColumns="False"  HorizontalAlign="Center">
                     <Columns>
                         <asp:BoundField DataField="Cid" HeaderText="课程编号" ReadOnly="True" />
                         <asp:TemplateField HeaderText="课程名称">
@@ -160,34 +160,6 @@
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# Bind("Cpersonnumber") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="课程简介">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Cintroduction") %>' Width="25px"></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="Manage" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="打分"></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField ShowHeader="False">
-                            <EditItemTemplate>
-                                <asp:LinkButton ID="Update" runat="server" CausesValidation="True" CommandName="Update" Text="完成"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消"></asp:LinkButton>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="Edit" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
-                                &nbsp;
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton3_Click" Text="考试"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField ShowHeader="False">

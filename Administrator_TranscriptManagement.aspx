@@ -31,20 +31,17 @@
                 <li><a></a></li>
                 <li><a></a></li>
                 <--->
-                <li>
-                    <br />
-                </li>
             </ul>
         </div>
         <div id="d_body">
             <div id="view">
                 <div id="search">
                     <asp:Label ID="Label5" runat="server" Text="课程ID："></asp:Label>
-                    <asp:TextBox ID="TextBox5" runat="server" Width="111px" Height="17px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox5" runat="server" Width="100px" Height="15px"></asp:TextBox>
                     &nbsp;<asp:Label ID="Label2" runat="server" Text="课程名："></asp:Label>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="122px" Height="17px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Width="100px" Height="15px"></asp:TextBox>
                     &nbsp;<asp:Label ID="Label6" runat="server" Text="课程类别："></asp:Label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" style="margin-left: 0px" Width="97px">
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="20px" Width="100px">
                         <asp:ListItem> </asp:ListItem>
                         <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                         <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
@@ -57,15 +54,13 @@
                         <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
                         <asp:ListItem>其他</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="课程查询" />
+                    &nbsp<asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="课程查询" />
                 </div>
                 <div id="d_title">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label3" runat="server" Text="课程名单" Font-Size="X-Large"></asp:Label>
-                    
                 </div>
                 <div id="d_message">
-                    <asp:GridView ID="GridView1" runat="server" Width="762px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" style="margin-left: 0px">
+                    <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" Style="margin-left: 0px" HorizontalAlign="Center">
                         <Columns>
                             <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
                             <asp:BoundField DataField="Cname" HeaderText="课程名" ReadOnly="True" />
@@ -107,18 +102,19 @@
                             <asp:TemplateField ShowHeader="False">
                                 <EditItemTemplate>
                                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="更新"></asp:LinkButton>
-                                    &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消"></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消"></asp:LinkButton>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
-                                    &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除"></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                </div>
+                <div id="d_botton">
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="返回主界面" />
                 </div>
             </div>
