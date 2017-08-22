@@ -8,6 +8,13 @@
     <title></title>
     <link href="web_style/Administrator.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .auto-style1 {
+            width: 1003px;
+            height: 44px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,13 +26,14 @@
             </p>
         </div>
         <div id="globllink">
-            <ul>
+            <ul class="auto-style1">
                 <li class="li_1"><a><asp:Button ID="Button1" runat="server" Width="100px" Text="操作管理" OnClick="Button1_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="新管理员注册" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="用户信息管理" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程信息管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="成绩系统管理" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
-                <li class="li_1"><a><asp:Button ID="Button7" runat="server" Width="100px" Text="个人信息修改" OnClick="Button7_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button7" runat="server" Width="100px" Text="个人信息修改" OnClick="Button7_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a>
+                <li class="li_1"><a><asp:Button ID="Button8" runat="server" Width="100px" Text="公告发布" OnClick="Button8_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -39,7 +47,7 @@
                     <asp:Label ID="Label2" runat="server" Text="信息公告" Font-Size="X-Large"></asp:Label>
                 </div>
                 <div id="d_message">
-                    <asp:GridView ID="GridView1" runat="server" Height="300px" Width="500px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    <asp:GridView ID="GridView1" runat="server" Height="300px" Width="500px" AutoGenerateColumns="False" >
                         <Columns>
                             <asp:BoundField DataField="Aname1" HeaderText="管理员A" />
                             <asp:BoundField DataField="Aname2" HeaderText="管理员B" />
