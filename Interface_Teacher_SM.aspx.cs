@@ -14,7 +14,7 @@ public partial class Default2 : System.Web.UI.Page
     public void FlushGridView()//刷新Gridview函数
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select Student.Sid, Sname, PScore, MScore, FScore, Tscore from S_C_Transcript,Student where Cid = '" +
+        String SelectSql = "select Student.Sid, Sname, PScore, MScore, FScore, Tscore, Progress from S_C_Transcript,Student where Cid = '" +
             (String)Session["Cid"] + "' and S_C_Transcript.Sid = Student.Sid";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
@@ -104,5 +104,51 @@ public partial class Default2 : System.Web.UI.Page
         //刷新GridView
         FlushGridView();
     }
-    
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_CourseManage.aspx"); 
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher.aspx");
+    }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate.aspx");
+    }
+
 }

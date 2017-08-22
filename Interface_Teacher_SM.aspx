@@ -20,10 +20,9 @@
         </div>
         <div id="globllink">
             <ul>
-                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Setdate.aspx">设置考试时间</a></li>
+                <li class="li_1"><a><asp:Button ID="Button7" runat="server" Width="100px" Text="公告" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button8" runat="server" Width="100px" Text="个人信息修改" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button9" runat="server" Width="100px" Text="课程管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -35,8 +34,22 @@
             </ul>
         </div>
         <div id="middle">
+            <div id="box">
+                <div id="menu">
+                    <ul>
+                        <li><a>
+                            <asp:Button ID="Button2" runat="server" Width="100px" OnClick="Button2_Click" Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button3" runat="server" Width="100px" OnClick="Button3_Click" Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button4" runat="server" Width="100px" OnClick="Button4_Click" Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                        <li><a>
+                            <asp:Button ID="Button5" runat="server" Width="100px" OnClick="Button5_Click" Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                    </ul>
+                </div>
+            </div>
             <div id="d_message">
-                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" style="margin-top: 0px">
                     <Columns>
                         <asp:BoundField DataField="Sid" HeaderText="学号" ReadOnly="True" />
                         <asp:BoundField DataField="Sname" HeaderText="姓名" ReadOnly="True" />
@@ -72,9 +85,13 @@
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("Tscore") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="Progress" HeaderText="学习进度" ReadOnly="True" />
                         <asp:CommandField DeleteText="开除" EditText="打分" ShowDeleteButton="True" ShowEditButton="True" UpdateText="确认" />
                     </Columns>
                 </asp:GridView>
+            </div>
+            <div id="button_box">
+                <asp:Button ID="Button6" runat="server" Text="回到课程信息修改" OnClick="Button6_Click" />
             </div>
         </div>
     </form>

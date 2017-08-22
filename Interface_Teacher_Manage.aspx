@@ -23,7 +23,6 @@
                 <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="公告" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
-                <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="设置考试时间" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -90,7 +89,7 @@
                             <asp:Label ID="Label6" runat="server" Text="类别:"></asp:Label>
                         </th>
                         <th>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Height="20px" Width="147px">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="147px">
                             <asp:ListItem> </asp:ListItem>
                                 <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                                 <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
