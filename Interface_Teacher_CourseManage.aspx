@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <link href="web_style/Administrator_RightsManagement.css" rel="stylesheet" type="text/css" />
+     <link href="web_style/Interface_Teacher_CourseManage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,9 +18,10 @@
         </div>
         <div id="globllink">
             <ul>
-                <li class="li_1"><a href="Interface_Teacher.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Change.aspx">个人信息修改</a></li>
-                <li class="li_1"><a href="Interface_Teacher_Manage.aspx">课程管理</a></li>
+                <li class="li_1"><a><asp:Button ID="Button6" runat="server" Width="100px" Text="公告" OnClick="Button6_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button8" runat="server" Width="100px" Text="个人信息修改" OnClick="Button8_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button9" runat="server" Width="100px" Text="课程管理" OnClick="Button9_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button10" runat="server" Width="100px" Text="设置考试时间" OnClick="Button10_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -100,7 +101,7 @@
                             <asp:Label ID="Label6" runat="server" Text="类别:"></asp:Label>
                         </th>
                         <th>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" style="margin-left: 0px" Width="109px">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="147px">
                         <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                         <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
                         <asp:ListItem Value="产品和设计">产品和设计</asp:ListItem>

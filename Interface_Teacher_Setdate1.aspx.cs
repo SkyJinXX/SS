@@ -66,4 +66,9 @@ public partial class Interface_Teacher_Setdate1 : System.Web.UI.Page
         objConnection.Close();
         TextBox1.Text = "";
     }
+
+    protected void Button7_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
 }

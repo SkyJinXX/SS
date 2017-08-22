@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="web_style/Interface_Teacher_Setdate.css" rel="stylesheet" type="text/css" />
+    <link href="web_style/Interface_Teacher_Setdate1.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -36,9 +36,21 @@
         </div>
         <div id="middle">
             <div id="d_message" style="width:350px">
-                <asp:Label ID="Label2" runat="server" Text="请设置时间:"></asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="200px"></asp:TextBox>
-                <asp:Button ID="Button6" runat="server"  Text="设置" OnClick="Button6_Click" />
+                <table>
+                    <tr>
+                        <th style="width:150px"><asp:Label ID="Label2" runat="server" Text="请设置时间:" Height="20px" Width="100px"></asp:Label></th>
+                        <th style="width:200px"><asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="200px"></asp:TextBox></th>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th style="width:70px"></th>
+                        <th style="width:70px"><asp:Button ID="Button6" runat="server"  Text="设置" OnClick="Button6_Click" /></th>
+                        <th style="width:70px"></th>
+                        <th style="width:70px"><asp:Button ID="Button7" runat="server" Text="返回" OnClick="Button7_Click1" /></th>
+                        <th style="width:70px"></th>
+                    </tr>
+                </table>
             </div>
         </div>
     </form>
