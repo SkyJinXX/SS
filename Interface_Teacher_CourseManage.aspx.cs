@@ -29,7 +29,8 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
         {
             Label1.Text = (String)Session["username"];
         }
-        
+
+
         if (!IsPostBack)
         {
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -81,7 +82,7 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Interface_Teacher_Chapter.aspx");
     }
 
 

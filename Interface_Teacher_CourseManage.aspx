@@ -6,6 +6,11 @@
 <head runat="server">
     <title></title>
      <link href="web_style/Administrator_RightsManagement.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -64,10 +69,10 @@
                 </table>
                 <table id="T_2">
                     <tr>
-                        <th>
+                        <th class="auto-style1">
                             <asp:Label ID="Label2" runat="server" Text="课程号:"></asp:Label>
                         </th>
-                        <th>
+                        <th class="auto-style1">
                             <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
                         </th>
                     </tr>

@@ -12,7 +12,7 @@ public partial class Default2 : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["username"] == null)
+        if (Session["username"] == null) 
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
 
