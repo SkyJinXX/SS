@@ -28,6 +28,8 @@
     }
 </script>
     
+    
+    
 </head>
 <body>
     <form id="f1" runat="server">
@@ -49,34 +51,31 @@
                     </tr>
                 </table>
                 <table id="T_2">
-                    <tr style="height: 5px"></tr>
                     <tr>
                         <th class="th_2">&nbsp;
                         </th>
                         <th style="width: 100px">
-                            <asp:Label ID="Label2" CssClass="L_font" runat="server" Text="用户名:"></asp:Label>
+                            用户名:
                         </th>
                         <th style="width: 150px">
-                            <asp:TextBox ID="TextBox1" CssClass="T" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                         </th>
                         <th class="th_2">&nbsp;
                         </th>
                     </tr>
-                    <tr style="height: 5px"></tr>
                     <tr>
                         <th class="th_2">&nbsp;
                         </th>
                         <th style="width: 100px">
-                            <asp:Label ID="Label3" CssClass="L_font" runat="server" Text="密码:"></asp:Label>
+                            密码:
                         </th>
                         <th style="width: 150px">
-                            <asp:TextBox ID="TextBox2" CssClass="T" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
                         </th>
                         <th class="th_2">&nbsp;
                         </th>
                     </tr>
-                    <tr style="height: 5px"></tr>
-                </table>
+                    </table>
                 <table>
                     <tr>
                         <th style="width: 80px">&nbsp;
