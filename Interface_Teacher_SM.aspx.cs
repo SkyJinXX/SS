@@ -14,7 +14,7 @@ public partial class Default2 : System.Web.UI.Page
     public void FlushGridView()//刷新Gridview函数
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select Student.Sid, Sname, PScore, MScore, FScore, Tscore from S_C_Transcript,Student where Cid = '" +
+        String SelectSql = "select Student.Sid, Sname, PScore, MScore, FScore, Tscore, Progress from S_C_Transcript,Student where Cid = '" +
             (String)Session["Cid"] + "' and S_C_Transcript.Sid = Student.Sid";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();

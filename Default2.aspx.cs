@@ -58,7 +58,7 @@ public partial class     Default2: System.Web.UI.Page
              // 保存文件的虚拟路径
              string Url = "File\\" + NewFileName + OldExtensionName;
              // 保存文件的物理路径
-             string FullPath = Server.MapPath(Url);
+             string FullPath = HttpContext.Current.Server.MapPath(Url);
              try
             {
                  // 检查文件是否存在

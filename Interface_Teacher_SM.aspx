@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div id="d_message">
-                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" style="margin-top: 0px">
                     <Columns>
                         <asp:BoundField DataField="Sid" HeaderText="学号" ReadOnly="True" />
                         <asp:BoundField DataField="Sname" HeaderText="姓名" ReadOnly="True" />
@@ -85,6 +85,7 @@
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("Tscore") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="Progress" HeaderText="学习进度" ReadOnly="True" />
                         <asp:CommandField DeleteText="开除" EditText="打分" ShowDeleteButton="True" ShowEditButton="True" UpdateText="确认" />
                     </Columns>
                 </asp:GridView>
