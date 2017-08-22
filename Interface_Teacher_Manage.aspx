@@ -90,7 +90,7 @@
                             <asp:Label ID="Label6" runat="server" Text="类别:"></asp:Label>
                         </th>
                         <th>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Height="33px" style="margin-left: 0px" Width="109px">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="20px" Width="147px">
                             <asp:ListItem> </asp:ListItem>
                                 <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                                 <asp:ListItem Value="编程开发">编程开发</asp:ListItem>

@@ -34,7 +34,6 @@
 <body>
     <form id="f1" runat="server">
         <div id="middle">
-            
             <div id="d_message">
                 <table id="T_1">
                     <tr>
