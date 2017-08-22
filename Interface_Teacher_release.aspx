@@ -42,7 +42,7 @@
         </div>
         <div id="middle">
             <div id="d_message">
-                <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="487px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Height="127px" Width="487px" TextMode="MultiLine"></asp:TextBox>
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button6" runat="server"  Text="发布" OnClick="Button6_Click"/>
