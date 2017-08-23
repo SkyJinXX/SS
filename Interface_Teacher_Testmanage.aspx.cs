@@ -32,7 +32,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         if (!IsPostBack)  // 页面首次加载
         {
             // 返回指定目录的所有文件的名称
-            string[] AllFile = Directory.GetFiles(Server.MapPath("~\\test\\"));
+            string[] AllFile = Directory.GetFiles(Server.MapPath("~/test/"));
             foreach (string Name in AllFile)
             {
                 // 返回指定路径的文件的名称
@@ -49,6 +49,46 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
             GridView1.DataBind();
         }
     }
+    public void DownLoadFile(string FullFileName)
+    {
+        // 保存文件的虚拟路径
+        string Url = "test\\" + FullFileName;
+        // 保存文件的物理路径
+        string FullPath = HttpContext.Current.Server.MapPath(Url);
+        // 初始化FileInfo类的实例，作为文件路径的包装
+        FileInfo FI = new FileInfo(FullPath);
+        // 判断文件是否存在
+        if (FI.Exists)
+        {
+            // 将文件保存到本机
+            Response.Clear();
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + Server.UrlEncode(FI.Name));
+            Response.AddHeader("Content-Length", FI.Length.ToString());
+            Response.ContentType = "application/octet-stream";
+            Response.Filter.Close();
+            Response.WriteFile(FI.FullName);
+            Response.End();
+        }
+    }
+
+    // 删除文件类
+    public void DeleteFile(string FullFileName)
+    {
+        // 保存文件的虚拟路径
+        string Url = "test\\" + FullFileName;
+        // 保存文件的物理路径
+        string FullPath = HttpContext.Current.Server.MapPath(Url);
+        // 去除文件的只读属性
+        File.SetAttributes(FullPath, FileAttributes.Normal);
+        // 初始化FileInfo类的实例，作为文件路径的包装
+        FileInfo FI = new FileInfo(FullPath);
+        // 判断文件是否存在
+        if (FI.Exists)
+        {
+            FI.Delete();
+        }
+    }
+
     protected void Button6_Click(object sender, EventArgs e)
     {
         string strName = FileUpload1.PostedFile.FileName;//使用fileupload控件获取上传文件的文件名
@@ -61,7 +101,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
 
             string xiangdui = @"~\test\";//设置文件相对网站根目录的保存路径 ，~号表示当前目录，在此表示根目录下的images文件夹
             string juedui = Server.MapPath("~\\test\\");//设置文件保存的本地目录绝对路径，对于路径中的字符“＼”在字符串中必须以“＼＼”表示，因为“＼”为特殊字符。或者可以使用上一行的给路径前面加上＠
-            string newFileName = juedui + newName + kzm;
+            string newFileName = juedui + strName;
             if (FileUpload1.HasFile)//验证 FileUpload 控件确实包含文件
             {
                 String[] allowedExtensions = { ".gif", ".png", ".bmp", ".docx", ".txt" };
@@ -75,63 +115,122 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
             }
             if (fileOK)
             {
-                try
-                {
-                    // 判定该路径是否存在
-                    if (!Directory.Exists(juedui))
-                        Directory.CreateDirectory(juedui);
-                    // Label3.Text = newFileName;     //为了能看清楚我们提取出来的图片地址，在这使用label
-                    /* Label4.Text = "<b>原文件路径：</b>" + FileUpload1.PostedFile.FileName + "<br />" +
-                                       "<b>文件大小：</b>" + FileUpload1.PostedFile.ContentLength + "字节<br />" +
-                                       "<b>文件类型：</b>" + FileUpload1.PostedFile.ContentType + "<br />";
-                                       */
-                    // Label3.Text = xiangdui + newName + kzm;
-                    // Label6.Text = "文件上传成功.";
-                    //Label3.Text = strName;
+                // 判定该路径是否存在
+                if (!Directory.Exists(juedui))
+                    Directory.CreateDirectory(juedui);
+                // Label3.Text = newFileName;     //为了能看清楚我们提取出来的图片地址，在这使用label
+                /* Label4.Text = "<b>原文件路径：</b>" + FileUpload1.PostedFile.FileName + "<br />" +
+                                   "<b>文件大小：</b>" + FileUpload1.PostedFile.ContentLength + "字节<br />" +
+                                   "<b>文件类型：</b>" + FileUpload1.PostedFile.ContentType + "<br />";
+                                   */
+                // Label3.Text = xiangdui + newName + kzm;
+                // Label6.Text = "文件上传成功.";
+                //Label3.Text = strName;
 
-                   Response.Write("<script>alert('文件上传成功')</script>");
-                    FileUpload1.PostedFile.SaveAs(newFileName);//将图片存储到服务器上
-                }
-                catch (Exception)
-                {
-                    Response.Write("<script>alert('文件上传失败')</script>");
-                   // Label6.Text = "文件上传失败.";
-                }
+                Response.Write("<script>alert('文件上传成功')</script>");
+                FileUpload1.PostedFile.SaveAs(newFileName);//将图片存储到服务器上
             }
             else
             {
                 Response.Write("<script>alert('不能上传该类型文件')</script>");
-               // Label6.Text = "只能够上传图片文件.";
+                // Label6.Text = "只能够上传图片文件.";
             }
         }
+        else
+        {
+            Response.Write("<script>alert('请选择文件')</script>");
+        }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
     }
 
     protected void Button7_Click(object sender, EventArgs e)
     {
-        bool isDelete = true;
-        //String path = Server.MapPath("~\\test\\");
-        String path = Server.MapPath(strName);
-        if (System.IO.File.Exists(path))
+        // 判断是否选择了文件名
+        if (ListBox1.SelectedValue != "")
         {
-            Response.Write("<script>alert('文件删除成功')</script>");
-            /*
-            try
+            if ((String)Session["SelectedFile"] != "")
             {
-                System.IO.File.Delete(path);
-                Response.Write("<script>alert('文件删除成功')</script>");
+                string FullFileName = Session["SelectedFile"].ToString();
+                DownLoadFile(FullFileName);
             }
-            catch (Exception)
-            {
-                isDelete = false;
-            }
-            */
+        }
+        else
+        {
+            Response.Write("<script>alert('请先选择要下载的文件')</script>");
         }
     }
 
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    protected void Button8_Click(object sender, EventArgs e)
     {
-        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
-        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
+
+        // 判断是否选择了文件名
+        if (ListBox1.SelectedValue != "")
+        {
+            if ((String)Session["SelectedFile"] != "")
+            {
+                string FullFileName = Session["SelectedFile"].ToString();
+                DeleteFile(FullFileName);
+                Response.Redirect(Request.Url.PathAndQuery.ToString());
+            }
+        }
+        else
+        {
+            Response.Write("<script>alert('请先选择要删除的文件')</script>");
+        }
+    }
+
+    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["SelectedFile"] = ListBox1.SelectedValue.ToString();
+    }
+
+    protected void Button5_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button9_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button10_Click1(object sender, EventArgs e)
+    {
         Response.Redirect("Interface_Teacher_Setdate1.aspx");
     }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Chapter.aspx");
+    }
+
 }
