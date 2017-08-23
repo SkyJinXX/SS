@@ -318,4 +318,25 @@ public partial class Interface_Teacher_Chapter : System.Web.UI.Page
     {
         Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
+    
+    protected void Button16_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button17_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button18_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button19_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Chapter.aspx");
+    }
+
 }

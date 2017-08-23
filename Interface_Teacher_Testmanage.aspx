@@ -40,11 +40,11 @@
                 <div id="menu">
                     <ul>
                         <li><a>
-                            <asp:Button ID="Button5" runat="server" Width="100px"  Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button5_Click1" /></a></li>
+                            <asp:Button ID="Button5" runat="server" Width="100px"  Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button5_Click" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button9" runat="server" Width="100px"  Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button9_Click1" /></a></li>
+                            <asp:Button ID="Button9" runat="server" Width="100px"  Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button9_Click" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button10" runat="server" Width="100px"  Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button10_Click1" /></a></li>
+                            <asp:Button ID="Button10" runat="server" Width="100px"  Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button10_Click" /></a></li>
                         <li><a>
                             <asp:Button ID="Button11" runat="server" Width="100px"  Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" style="height: 17px" OnClick="Button11_Click" /></a></li>
                     </ul>
