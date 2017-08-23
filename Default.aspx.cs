@@ -42,13 +42,30 @@ public partial class _Default : System.Web.UI.Page
                     Session["username"] = TextBox1.Text;
                     Session["identity"] = RadioButtonList1.SelectedValue;
                     if ((String)Session["identity"] == "T")
+                    {
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_Teacher.aspx'</script>");
+                        cmd.CommandText = "select Tname from Teacher where Tid = (select Tid from T_U where Uusername = '" +
+                            TextBox1.Text + "')";
+                        Session["name"] = cmd.ExecuteScalar().ToString();
+                    }
                     else if ((String)Session["identity"] == "S")
+                    {
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_Student_Announcement.aspx'</script>");
+                        cmd.CommandText = "select Sname from Student where Sid = (select Sid from S_U where Uusername = '" +
+                            TextBox1.Text + "')";
+                        Session["name"] = cmd.ExecuteScalar().ToString();
+                    }
                     else if ((String)Session["identity"] == "A")
+                    {
                         Response.Write("<script>alert('登陆成功');window.location.href='Administrator.aspx'</script>");
+                        cmd.CommandText = "select Aname from Administrator where Aid = (select Aid from A_U where Uusername = '" +
+                            TextBox1.Text + "')";
+                        Session["name"] = cmd.ExecuteScalar().ToString();
+                    }
                     else
+                    {
                         Response.Write("<script>alert('身份错误');window.location.href='Default.aspx'</script>");
+                    }
                 }
 
                 else

@@ -26,7 +26,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (string)Session["username"];
+            Label1.Text = (string)Session["name"];
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();

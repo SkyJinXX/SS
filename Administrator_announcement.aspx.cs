@@ -26,9 +26,15 @@ public partial class Administrator_announcement : System.Web.UI.Page
         {
             Label1.Text = (string)Session["username"];
         }
-        GridView1.Visible = false;
-        GridView2.Visible = false;
-        GridView3.Visible = false;
+        if (!IsPostBack)
+        {
+            GridView1.Visible = false;
+            GridView2.Visible = false;
+            GridView3.Visible = false;
+            Label3.Visible = false;
+            TextBox1.Visible = false;
+            Button5.Visible = false;
+        }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
 
     }
@@ -42,15 +48,18 @@ public partial class Administrator_announcement : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
+        int i;
+        objConnection.Open();
+        String s = "";
+        SqlCommand cmd = new SqlCommand(s, objConnection);
+          
         if (Label2.Text == "1")
         {
-            foreach (GridViewRow gr in this.GridView1.Rows)
+            for (i = 0; i < GridView1.Rows.Count; i++)
             {
-                Control cl = gr.FindControl("CheckBox1");
-                CheckBox ck = (CheckBox)cl;
-                if (ck.Checked)
+                if(((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
                 {
-
+                    s = "insert into A_A_Management values('";
                 }
             }
         }
@@ -59,6 +68,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
 
     protected void Button3_Click(object sender, EventArgs e)
     {
+        Label3.Visible = true;
+        TextBox1.Visible = true;
+        Button5.Visible = true;
         GridView1.Visible = false;
         GridView2.Visible = true;
         GridView3.Visible = false;
@@ -76,7 +88,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-
+        Label3.Visible = true;
+        TextBox1.Visible = true;
+        Button5.Visible = true;
         GridView1.Visible = false;
         GridView2.Visible = false;
         GridView3.Visible = true;
@@ -94,7 +108,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        Label3.Visible = true;
+        TextBox1.Visible = true;
+        Button5.Visible = true;
         GridView1.Visible = true;
         GridView2.Visible = false;
         GridView3.Visible = false;
@@ -112,13 +128,60 @@ public partial class Administrator_announcement : System.Web.UI.Page
     }
     protected void GridView1_SelectAll(object sender, EventArgs e)
     {
-        foreach (GridViewRow gr in this.GridView1.Rows)
+        int i;
+        if (((CheckBox)sender).Checked)
         {
-            Control cl = gr.FindControl("CheckBox1");
-            CheckBox ck = (CheckBox)cl;
-            ck.Checked = true;
+            for (i = 0; i < GridView1.Rows.Count; i++)
+            {
+                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = true;
+            }
+        }
+        else
+        {
+            for (i = 0; i < GridView1.Rows.Count; i++)
+            {
+                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = false;
+            }
+        }
+    }
+
+    protected void GridView2_SelectAll(object sender, EventArgs e)
+    {
+        int i;
+        if (((CheckBox)sender).Checked)
+        {
+            for (i = 0; i < GridView2.Rows.Count; i++)
+            {
+                ((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked = true;
+            }
+        }
+        else
+        {
+            for (i = 0; i < GridView2.Rows.Count; i++)
+            {
+                ((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked = false;
+            }
         }
     }
 
 
+
+    protected void GridView3_SelectAll(object sender, EventArgs e)
+    {
+        int i;
+        if (((CheckBox)sender).Checked)
+        {
+            for (i = 0; i < GridView3.Rows.Count; i++)
+            {
+                ((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked = true;
+            }
+        }
+        else
+        {
+            for (i = 0; i < GridView3.Rows.Count; i++)
+            {
+                ((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked = false;
+            }
+        }
+    }
 }
