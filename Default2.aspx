@@ -28,7 +28,7 @@
      </div>
      <div>已上传文件</div>
      <div>
-         <asp:ListBox ID="ListBox1" runat="server" Width="170px"></asp:ListBox>
+         <asp:ListBox ID="ListBox1" runat="server" Width="170px" ></asp:ListBox>
      </div>
      <div>
          <asp:Button ID="Button4" runat="server" Text="下载文件" onclick="Button4_Click"  Height="25px"/>

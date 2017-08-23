@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using System.IO;
+
 public partial class     Default2: System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
@@ -14,7 +16,7 @@ public partial class     Default2: System.Web.UI.Page
          if (!IsPostBack)  // 页面首次加载
          {
              // 返回指定目录的所有文件的名称
-             string[] AllFile = Directory.GetFiles(Server.MapPath("~\\test\\"));
+             string[] AllFile = Directory.GetFiles(Server.MapPath("~/File/"));
              foreach (string Name in AllFile)
              {
                 // 返回指定路径的文件的名称
@@ -58,24 +60,44 @@ public partial class     Default2: System.Web.UI.Page
             string Url = "File\\" + NewFileName + OldExtensionName;
              // 保存文件的物理路径
              string FullPath = HttpContext.Current.Server.MapPath(Url);
-             try
+            //string savePath = Server.MapPath("~/test/");
+            try
              {
-                 // 检查文件是否存在
-                 if (File.Exists(FullPath))
+                // 检查文件是否存在
+                if (!Directory.Exists(FullPath))
                 {
-                     HttpContext.Current.Response.Write("<script>alert('文件已存在，请重新上传。');</script>");
+                    Directory.CreateDirectory(FullPath);
+                }
+                    FU.SaveAs(FullPath);
+                    HttpContext.Current.Response.Write("<script>alert(‘文件已成功上传。’)</script>");
+                
+                /*
+                else
+                {
+                    HttpContext.Current.Response.Write("<script>alert(‘文件已存在。’)</script>");
+                }
+                */
+                /* if (File.Exists(FullPath))
+                {
+                     HttpContext.Current.Response.Write("<script>alert('文件已存在，请重新上传。')</script>");
                  }
+                 
                  else
                  {
                      FU.SaveAs(FullPath);
-                     HttpContext.Current.Response.Write("<script>alert(‘文件已成功上传。’);</script>");
+                     HttpContext.Current.Response.Write("<script>alert(‘文件已成功上传。’)</script>");
                  }
+                 */
              }
-             catch { }
-         }
+            catch (Exception)
+            {
+                HttpContext.Current.Response.Write("<script>alert('文件上传失败')</script>");
+                // Label6.Text = "文件上传失败.";
+            }
+        }
          else
          {
-             HttpContext.Current.Response.Write("<script>alert('请选择上传的文件');</script>");
+             HttpContext.Current.Response.Write("<script>alert('请选择上传的文件')</script>");
          }
      }
  
@@ -199,7 +221,8 @@ public partial class     Default2: System.Web.UI.Page
              {
                 string FullFileName = Session["SelectedFile"].ToString();
                 DeleteFile(FullFileName);
-                 Response.Redirect(Request.Url.PathAndQuery.ToString());
+                Response.Write("<script>alert('文件已删除')</script>");
+                Response.Redirect(Request.Url.PathAndQuery.ToString());
             }
         }
          else
@@ -207,4 +230,4 @@ public partial class     Default2: System.Web.UI.Page
              Response.Write("<script>alert('请先选择要删除的文件')</script>");
          }
      }
- }
+}

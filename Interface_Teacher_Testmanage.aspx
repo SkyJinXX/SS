@@ -54,12 +54,12 @@
                 <br />
                 <div>已上传文件</div>
      <div>
-         <asp:ListBox ID="ListBox1" runat="server" Width="269px" Height="87px"></asp:ListBox>
+         <asp:ListBox ID="ListBox1" runat="server" Width="269px" Height="87px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged1"></asp:ListBox>
          <br />
          <br />
-         <asp:Button ID="Button7" runat="server" Text="下载文件" />
+         <asp:Button ID="Button7" runat="server" Text="下载文件" OnClick="Button7_Click1" />
 &nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:Button ID="Button8" runat="server" Text="删除文件" />
+         <asp:Button ID="Button8" runat="server" Text="删除文件" OnClick="Button8_Click" />
      </div>
                 <br />
                 <br />
