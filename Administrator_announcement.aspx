@@ -38,12 +38,8 @@
             <Columns>
                 <asp:TemplateField>
                      <HeaderTemplate>
-                        <asp:CheckBox runat="server" ID="cbHead" OnCheckedChanged="GridView1_SelectAll" AutoPostBack="true">
-                        </asp:CheckBox>
+                        <asp:CheckBox runat="server" ID="cbHead" Text ="全选" OnCheckedChanged="GridView1_SelectAll" AutoPostBack="true"/>
                     </HeaderTemplate>
-                    <EditItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" />
-                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="CheckBox1" runat="server" />
                     </ItemTemplate>
@@ -51,15 +47,17 @@
                 <asp:BoundField DataField="Aid" HeaderText="工号" />
                 <asp:BoundField DataField="Aname" HeaderText="姓名" />
                 <asp:BoundField DataField="Asex" HeaderText="性别" />
-                <asp:BoundField DataField="Aage" HeaderText="年龄" />
-                <asp:BoundField DataField="Abirthday" HeaderText="出生日期" />
+                 <asp:BoundField DataField="Abirthday" HeaderText="出生日期" />
             </Columns>
         </asp:GridView>
         <asp:GridView ID="GridView2" runat="server" Visible="False" AutoGenerateColumns="False">
             <Columns>
                 <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox runat="server" ID="cbHead" Text ="全选" OnCheckedChanged="GridView2_SelectAll" AutoPostBack="true"/>
+                    </HeaderTemplate>
                     <EditItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" />
+                        <asp:CheckBox ID="CheckBox2" runat="server" />
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -76,8 +74,11 @@
         <asp:GridView ID="GridView3" runat="server" Visible="False" AutoGenerateColumns="False">
             <Columns>
                 <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox runat="server" ID="cbHead" Text ="全选" OnCheckedChanged="GridView3_SelectAll" AutoPostBack="true"/>
+                    </HeaderTemplate>
                     <EditItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" />
+                        <asp:CheckBox ID="CheckBox2" runat="server" />
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -86,7 +87,7 @@
                 <asp:BoundField DataField="Sid" HeaderText="学号" />
                 <asp:BoundField DataField="Sname" HeaderText="姓名" />
                 <asp:BoundField DataField="Ssex" HeaderText="性别" />
-                <asp:BoundField DataField="Sbirthday" HeaderText="生日" />
+                <asp:BoundField DataField="Sbirthday" HeaderText="出生日期" />
                 <asp:BoundField DataField="Sage" HeaderText="年龄" />
                 <asp:BoundField DataField="Sschool" HeaderText="所在学校" />
                 <asp:BoundField DataField="Scollege" HeaderText="隶属学院" />
@@ -95,12 +96,14 @@
             </Columns>
         </asp:GridView>
         <br />
-        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="发布" Width="57px" />
+        <asp:Label ID="Label3" runat="server" Text="公告内容：" Visible="False"></asp:Label>
+        <br />
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server" Height="100px" TextMode="MultiLine" Visible="False" Width="321px"></asp:TextBox>
         <br />
         <br />
         <br />
-        <br />
-        <br />
+        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="发布" Width="57px" Visible="False" />
         <br />
         <br />
         <br />
