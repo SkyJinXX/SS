@@ -74,10 +74,6 @@
 &nbsp;
         <br />
         <br />
-        <asp:Label ID="Label14" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label15" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label16" runat="server" Text="Label"></asp:Label>
-        <asp:Label ID="Label17" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;
