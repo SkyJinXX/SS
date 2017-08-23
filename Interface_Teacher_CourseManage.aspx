@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <link href="web_style/Administrator_RightsManagement.css" rel="stylesheet" type="text/css" />
+     <link href="web_style/Interface_Teacher_CourseManage.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .auto-style1 {
             height: 23px;
@@ -26,7 +26,6 @@
                 <li class="li_1"><a><asp:Button ID="Button6" runat="server" Width="100px" Text="公告" OnClick="Button6_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button8" runat="server" Width="100px" Text="个人信息修改" OnClick="Button8_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button9" runat="server" Width="100px" Text="课程管理" OnClick="Button9_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
-                <li class="li_1"><a><asp:Button ID="Button10" runat="server" Width="100px" Text="设置考试时间" OnClick="Button10_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
