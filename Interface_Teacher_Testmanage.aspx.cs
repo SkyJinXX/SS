@@ -136,6 +136,10 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
                 // Label6.Text = "只能够上传图片文件.";
             }
         }
+        else
+        {
+            Response.Write("<script>alert('请选择文件')</script>");
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)
