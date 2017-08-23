@@ -208,4 +208,25 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
     {
         Session["SelectedFile"] = ListBox1.SelectedValue.ToString();
     }
+
+    protected void Button5_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button9_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button10_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Chapter.aspx");
+    }
+
 }
