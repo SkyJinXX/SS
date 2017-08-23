@@ -148,7 +148,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
 
     protected void Button11_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
 
     protected void Button7_Click(object sender, EventArgs e)

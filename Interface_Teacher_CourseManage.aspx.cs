@@ -61,7 +61,9 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
     }
 
 
