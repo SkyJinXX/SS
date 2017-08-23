@@ -40,13 +40,13 @@
                 <div id="menu">
                     <ul>
                         <li><a>
-                            <asp:Button ID="Button5" runat="server" Width="100px" OnClick="Button5_Click" Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                            <asp:Button ID="Button5" runat="server" Width="100px"  Text="成绩管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button9" runat="server" Width="100px" OnClick="Button9_Click" Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                            <asp:Button ID="Button9" runat="server" Width="100px"  Text="公告管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button10" runat="server" Width="100px" OnClick="Button10_Click" Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                            <asp:Button ID="Button10" runat="server" Width="100px"  Text="考试管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                         <li><a>
-                            <asp:Button ID="Button11" runat="server" Width="100px" OnClick="Button11_Click" Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" style="height: 17px" /></a></li>
+                            <asp:Button ID="Button11" runat="server" Width="100px"  Text="章节管理" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" style="height: 17px" /></a></li>
                     </ul>
                 </div>
                 <div id="d_message">
@@ -60,13 +60,13 @@
                     <div id="upload_file">
                         <div>已上传文件</div>
                         <div>
-                            <asp:ListBox ID="ListBox1" runat="server" Width="270px"></asp:ListBox>
+                            <asp:ListBox ID="ListBox1" runat="server" Width="270px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
                             <br />
                             <br />
                         </div>
-                        <asp:Button ID="Button7" runat="server" Text="下载文件" />
+                        <asp:Button ID="Button7" runat="server" Text="下载文件" OnClick="Button7_Click"  />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button8" runat="server" Text="删除文件" />
+                    <asp:Button ID="Button8" runat="server" Text="删除文件" OnClick="Button8_Click"   />
                     </div>
                     <br />
                     <br />
