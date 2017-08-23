@@ -96,8 +96,8 @@ public partial class Interface_Teacher_Chapter : System.Web.UI.Page
             objConnection.Open();
             String s = "";
             SqlCommand cmd = new SqlCommand(s, objConnection);
-            cmd.CommandText = "insert into C_Chapter values ('" + (String)Session["Cid"] + "' , '" + Label6.Text + "','"
-                + TextBox1.Text + "' , '" + savePath + "')";
+            cmd.CommandText = "insert into C_Chapter values ('" + (String)Session["Cid"] + "' , '" + Label6.Text + "' , '"
+                + Label12.Text + "','" + TextBox1.Text + "' , '" + FileUpload1.FileName + "' , '" + savePath + "')";
 
             cmd.ExecuteNonQuery();
             objConnection.Close();

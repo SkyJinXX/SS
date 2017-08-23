@@ -163,7 +163,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
 
     protected void Button9_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
     }
 
 
