@@ -106,6 +106,36 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         }
     }
 
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
     protected void Button7_Click(object sender, EventArgs e)
     {
         bool isDelete = true;
@@ -133,5 +163,14 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
         Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
         Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+
+
+
+
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+
     }
 }
