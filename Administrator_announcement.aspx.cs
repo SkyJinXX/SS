@@ -59,7 +59,8 @@ public partial class Administrator_announcement : System.Web.UI.Page
             {
                 if(((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
                 {
-                    s = "insert into A_A_Management values('";
+                    s = "insert into A_A_Management values('" + (String)Session["name"] + "' , '" 
+                        + GridView1.Rows[i].Cells[2].ToString() + "' , '"
                 }
             }
         }
