@@ -4,26 +4,54 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="web_style/Study_test1.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript"  >
+        var t;
+        var hour = 1;
+        var minute =59;
+        var second = 50;
+        function timeCount() {
+            second++;
+            if (second == 60) {
+                second = 0;
+                minute++;
+            }
+            if (minute == 60) {
+                minute = 0;
+                hour++;
+            }
+            if (hour == 2) {
+                clearTimeout(t);
+                alert("考试结束") 
+                location.href='study1.aspx'
+            }
+            
+            document.getElementById('<%=lblTimerHours.ClientID %>').innerHTML = hour;
+            document.getElementById('<%=lblTimerMinutes.ClientID%>').innerHTML = minute;
+            document.getElementById('<%=lblTimerSeconds.ClientID%>').innerHTML = second;
+            t = setTimeout("timeCount()", 1000);
+        }
+      
 
+</script>
+         
 </head>
 <body>
+    <script type="text/javascript">
+        window.onload = function () {
+            timeCount();
+        }
+</script>
+       
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
-
-        <asp:UpdatePanel ID="UpdatePanelCountdown" runat="server" UpdateMode="Conditional">  
-            <ContentTemplate>  
-                <asp:Label ID="lblTimerDays" runat="server" Text="0" ForeColor="Red" />天  
-                <asp:Label ID="lblTimerHours" runat="server" Text="0" ForeColor="Red" />时  
-                <asp:Label ID="lblTimerMinutes" runat="server" Text="0" ForeColor="Red" />分  
-                <asp:Label ID="lblTimerSeconds" runat="server" Text="0" ForeColor="Red" />秒  
-             <asp:Timer ID="Timer1" runat="server" Interval="1000"  />  
-            </ContentTemplate>  
-        </asp:UpdatePanel>   
         
+        <asp:Label ID="lblTimerDays" runat="server" Text="0" ForeColor="Red" />天  
+        <asp:Label ID="lblTimerHours" runat="server" Text="0" ForeColor="Red" />时  
+        <asp:Label ID="lblTimerMinutes" runat="server" Text="0" ForeColor="Red" />分  
+        <asp:Label ID="lblTimerSeconds" runat="server" Text="0" ForeColor="Red" />秒       
+         <br />
         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <div id="top">
             <div id="top_image">
@@ -35,13 +63,11 @@
             </div>
             <div id="title_2">
                 <asp:Label ID="Label2" runat="server" Text="第一章" Font-Size="XX-Large"></asp:Label>
-                
+
             </div>
         </div>
         <div id="testpaper">
-            
-            
-&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
             <asp:DataList ID="DataList1" runat="server" Width="700px" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
@@ -75,8 +101,7 @@
                     <th>
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="完成测试" />
                     </th>
-                    <th>
-                        &nbsp;
+                    <th>&nbsp;
                     </th>
                     <th>
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="返回选课" />
