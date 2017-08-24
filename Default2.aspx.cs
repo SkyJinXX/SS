@@ -51,53 +51,34 @@ public partial class     Default2: System.Web.UI.Page
     }
 
     // 上传文件类
-    public static void UpLoadFile(FileUpload FU, string NewFileName)    {
+    public static void UpLoadFile(FileUpload FU, string NewFileName)
+     {
          if (FU.HasFile)  // 判断是否有文件上传
          {
              // 原来的扩展名（取得的扩展名包括“.”）
-            string OldExtensionName = Path.GetExtension(FU.FileName).ToLower();
-           // 保存文件的虚拟路径
+             string OldExtensionName = Path.GetExtension(FU.FileName).ToLower();
+             // 保存文件的虚拟路径
             string Url = "File\\" + NewFileName + OldExtensionName;
              // 保存文件的物理路径
              string FullPath = HttpContext.Current.Server.MapPath(Url);
-            //string savePath = Server.MapPath("~/test/");
-            try
+             try
              {
-                // 检查文件是否存在
-                if (!Directory.Exists(FullPath))
-                {
-                    Directory.CreateDirectory(FullPath);
-                }
-                    FU.SaveAs(FullPath);
-                    HttpContext.Current.Response.Write("<script>alert(‘文件已成功上传。’)</script>");
-                
-                /*
-                else
-                {
-                    HttpContext.Current.Response.Write("<script>alert(‘文件已存在。’)</script>");
-                }
-                */
-                /* if (File.Exists(FullPath))
-                {
-                     HttpContext.Current.Response.Write("<script>alert('文件已存在，请重新上传。')</script>");
+                 // 检查文件是否存在
+                 if (File.Exists(FullPath))
+                 {
+                     HttpContext.Current.Response.Write("<script>alert('文件已存在，请重新上传。');</script>");
                  }
-                 
                  else
                  {
                      FU.SaveAs(FullPath);
-                     HttpContext.Current.Response.Write("<script>alert(‘文件已成功上传。’)</script>");
+                     HttpContext.Current.Response.Write("<script>alert('文件已成功上传。');</script>");
                  }
-                 */
              }
-            catch (Exception)
-            {
-                HttpContext.Current.Response.Write("<script>alert('文件上传失败')</script>");
-                // Label6.Text = "文件上传失败.";
-            }
-        }
+             catch { }
+         }
          else
          {
-             HttpContext.Current.Response.Write("<script>alert('请选择上传的文件')</script>");
+             HttpContext.Current.Response.Write("<script>alert('请选择上传的文件');</script>");
          }
      }
  
