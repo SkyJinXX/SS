@@ -77,7 +77,7 @@
                                 <asp:BoundField DataField="Cname" HeaderText="课程名" />
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel"  Text="设置考试时间"></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel"  Text="设置考试时间" OnClick="LinkButton1_Click"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
