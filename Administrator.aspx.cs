@@ -26,14 +26,17 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (string)Session["name"];
+            Label1.Text = (String)Session["name"];
         }
+
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String a = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
 
-        String SelectSql = "select * from A_A_Management where Aname1 = '" + (String)cmd1.ExecuteScalar() + "'" + " or Aname2 = '" + (String)cmd1.ExecuteScalar() + "'";
+        String SelectSql = "select Aname1, Aname2, A_A_Message, A_A_Action from A_A_Announcement where Aid1 = ( select " +
+            "Aid from A_U where Uusername = '" + (String)Session["username"] + "')" + " or Aid2 = ( select Aid " +
+            "from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -94,6 +97,9 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button6_Click(object sender, EventArgs e)
     {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 

@@ -23,6 +23,8 @@
     
         <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
     
+        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="返回" Width="61px" />
+    
         <br />
         <br />
         <asp:Button ID="Button2" runat="server" Text="全体管理员" OnClick="Button2_Click" />
@@ -44,7 +46,7 @@
                         <asp:CheckBox ID="CheckBox1" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="Aid" HeaderText="工号" />
+                <asp:BoundField DataField="Aid" HeaderText="工号" ReadOnly="True" />
                 <asp:BoundField DataField="Aname" HeaderText="姓名" />
                 <asp:BoundField DataField="Asex" HeaderText="性别" />
                  <asp:BoundField DataField="Abirthday" HeaderText="出生日期" />

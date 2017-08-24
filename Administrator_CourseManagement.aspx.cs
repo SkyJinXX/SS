@@ -96,7 +96,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (string)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         if (!IsPostBack)
         {
@@ -202,6 +202,9 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button6_Click(object sender, EventArgs e)
     {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 
@@ -253,4 +256,9 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
     }
 
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_announcement.aspx");
+    }
 }

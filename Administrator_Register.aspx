@@ -137,7 +137,7 @@
                         <th>&nbsp;&nbsp;&nbsp;&nbsp;
                         </th>
                         <th>
-                            <asp:Button ID="Button2" runat="server" Text="完成注册" OnClick="Button2_Click1" />
+                            <asp:Button ID="Button2" runat="server" Text="完成注册" OnClick="Button2_Click1" Height="21px" />
                         </th>
                         <th>&nbsp;
                         </th>

@@ -51,8 +51,8 @@
                         <Columns>
                             <asp:BoundField DataField="Aname1" HeaderText="管理员A" />
                             <asp:BoundField DataField="Aname2" HeaderText="管理员B" />
-                            <asp:BoundField DataField="A2A_Message" HeaderText="留言信息" />
-                            <asp:BoundField DataField="A2A_Action" HeaderText="权限操作" />
+                            <asp:BoundField DataField="A_A_Message" HeaderText="留言信息" />
+                            <asp:BoundField DataField="A_A_Action" HeaderText="权限操作" />
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>

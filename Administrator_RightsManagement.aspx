@@ -26,6 +26,7 @@
                 <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程信息管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="成绩系统管理" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <li class="li_1"><a><asp:Button ID="Button7" runat="server" Width="100px" Text="个人信息修改" OnClick="Button7_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button6" runat="server" Width="100px" Text="公告发布" OnClick="Button6_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -61,6 +62,8 @@
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
+                    <br />
+                    <asp:Label ID="Label7" runat="server"></asp:Label>
                 </div>
                 <div id="operating">
                     <table id="T_1">

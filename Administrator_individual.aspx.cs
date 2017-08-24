@@ -26,7 +26,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         if (!Page.IsPostBack)
         {
@@ -70,6 +70,29 @@ public partial class Default2 : System.Web.UI.Page
         String SelectSql = "";
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
 
+        cmd.CommandText = "select Aid from A_U where Uusername = '" + (String)Session["username"] + "' ";
+        String id = (String)cmd.ExecuteScalar();
+
+        cmd.CommandText = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '"
+                + (String)Session["username"] + "')";
+        String name = (String)cmd.ExecuteScalar();
+
+        cmd.CommandText = "update  A_A_Announcement set Aname1 = '" + TextBox2.Text + "' where  Aname1 = '" + name
+            + "' and Aid1 = '" + id + "'";
+        cmd.ExecuteScalar();
+
+        cmd.CommandText = "update  A_A_Announcement set Aname2 = '" + TextBox2.Text + "' where Aname2 = '" + name
+            + "' and Aid2 = '" + id + "'";
+        cmd.ExecuteScalar();
+
+        cmd.CommandText = "update  A_S_Announcement set Aname = '" + TextBox2.Text + "' where Aname = '" + name
+            + "' and Aid = '" + id + "'";
+        cmd.ExecuteScalar();
+
+        cmd.CommandText = "update  A_T_Announcement set Aname = '" + TextBox2.Text + "' where Aname = '" + name
+            + "' and Aid = '" + id + "'";
+        cmd.ExecuteScalar();
+
         cmd.CommandText = "update Administrator set Aname = '" + TextBox2.Text + "' where Aid in ( select Aid from A_U where Uusername = '"
                 + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
@@ -86,6 +109,9 @@ public partial class Default2 : System.Web.UI.Page
                 + (String)Session["username"] + "')";
         cmd.ExecuteScalar();
 
+        Session["name"] = TextBox2.Text;
+        Label1.Text = TextBox2.Text;
+
         Response.Write("<script>alert('修改成功')</script>");
         objConnection.Close();
     }
@@ -100,6 +126,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         Session["username"] = null;
         Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 }

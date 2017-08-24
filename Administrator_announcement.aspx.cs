@@ -24,7 +24,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (string)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         if (!IsPostBack)
         {
@@ -43,6 +43,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
     {
         Session["username"] = null;
         Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 
@@ -52,18 +53,65 @@ public partial class Administrator_announcement : System.Web.UI.Page
         objConnection.Open();
         String s = "";
         SqlCommand cmd = new SqlCommand(s, objConnection);
-          
+        cmd.CommandText = "select Aid from A_U where Uusername = '" + (String)Session["username"] + "'";
+        String Aid = cmd.ExecuteScalar().ToString();
         if (Label2.Text == "1")
         {
             for (i = 0; i < GridView1.Rows.Count; i++)
             {
                 if(((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
                 {
-                    s = "insert into A_A_Management values('" + (String)Session["name"] + "' , '" 
-                        + GridView1.Rows[i].Cells[2].ToString() + "' , '"
+                    s = "insert into A_A_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                        + GridView1.Rows[i].Cells[1].Text + "' , '"+ GridView1.Rows[i].Cells[2].Text + "' , '" 
+                        + TextBox1.Text + "' , '" + "" + "')";
+                    cmd.CommandText = s;
+                    cmd.ExecuteNonQuery();
+
                 }
             }
+            Response.Write("<script>alert('发布成功')</script>");
         }
+
+        else if (Label2.Text == "2")
+        {
+            for (i = 0; i < GridView2.Rows.Count; i++)
+            {
+                if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
+                {
+                    s = "insert into A_T_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                        + GridView2.Rows[i].Cells[1].Text + "' , '" + GridView2.Rows[i].Cells[2].Text + "' , '"
+                        + TextBox1.Text + "' , '" + "" + "')";
+                    cmd.CommandText = s;
+                cmd.ExecuteNonQuery();
+
+                }
+            }
+        Response.Write("<script>alert('发布成功')</script>");
+        }
+
+        else if (Label2.Text == "3")
+        {
+            for (i = 0; i < GridView3.Rows.Count; i++)
+            {
+                if (((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked == true)
+                {
+                    s = "insert into A_S_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                        + GridView3.Rows[i].Cells[1].Text + "' , '" + GridView3.Rows[i].Cells[2].Text + "' , '"
+                        + TextBox1.Text + "' , '" + "" + "')";
+                    cmd.CommandText = s;
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            Response.Write("<script>alert('发布成功')</script>");
+        }
+
+        else
+        {
+            Response.Write("<script>alert('未知错误');window.location.href='Administrator_announcement.aspx'</script>");
+        }
+
+        objConnection.Close();
 
     }
 
@@ -184,5 +232,10 @@ public partial class Administrator_announcement : System.Web.UI.Page
                 ((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked = false;
             }
         }
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator.aspx");
     }
 }

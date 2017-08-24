@@ -55,6 +55,7 @@
                                 <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                             </th>
                             <th>&nbsp;
+                                <asp:Label ID="Label12" runat="server"></asp:Label>
                             </th>
                         </tr>
                         <tr>
@@ -67,8 +68,8 @@
                                     <asp:ListItem>女</asp:ListItem>
                                 </asp:RadioButtonList>
                             </th>
-                            <th>&nbsp;
-                            </th>
+                            <th>&nbsp;<asp:Label ID="Label13" runat="server"></asp:Label>
+&nbsp;</th>
                         </tr>
                         <tr>
                             <th>
