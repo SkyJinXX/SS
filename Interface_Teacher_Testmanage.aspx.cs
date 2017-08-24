@@ -31,6 +31,21 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         }
         if (!IsPostBack)  // 页面首次加载
         {
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            SqlCommand cm = new SqlCommand("select Ctestname from Ctest", objConnection);
+
+            SqlDataReader dr = cm.ExecuteReader();
+
+            //绑定
+
+            this.ListBox1.DataSource = dr;        //lbxEmp为ListBox对象
+
+            this.ListBox1.DataTextField = "Ctestname";
+            this.ListBox1.DataBind();
+            
+            objConnection.Close();
+            /*
             // 返回指定目录的所有文件的名称
             string[] AllFile = Directory.GetFiles(Server.MapPath("~/test/"));
             foreach (string Name in AllFile)
@@ -38,7 +53,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
                 // 返回指定路径的文件的名称
                 ListBox1.Items.Add(Path.GetFileName(Name));
             }
-
+            */
             //显示课程
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             String SelectSql = "select Cid,Cname from Course where Cid IN (Select Cid from T_C where Tid = (select Tid from T_U where Uusername = '" + (String)Session["username"] + "'))";
@@ -79,7 +94,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         // 保存文件的物理路径
         string FullPath = HttpContext.Current.Server.MapPath(Url);
         // 去除文件的只读属性
-        File.SetAttributes(FullPath, FileAttributes.Normal);
+        //File.SetAttributes(FullPath, FileAttributes.Normal);
         // 初始化FileInfo类的实例，作为文件路径的包装
         FileInfo FI = new FileInfo(FullPath);
         // 判断文件是否存在
@@ -91,6 +106,8 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
 
     protected void Button6_Click(object sender, EventArgs e)
     {
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
         string strName = FileUpload1.PostedFile.FileName;//使用fileupload控件获取上传文件的文件名
         if (strName != "")//如果文件名存在
         {
@@ -135,11 +152,32 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
                 Response.Write("<script>alert('不能上传该类型文件')</script>");
                 // Label6.Text = "只能够上传图片文件.";
             }
+            String s = "";
+            SqlCommand cmd = new SqlCommand(s, objConnection);
+            cmd.CommandText = "insert into Ctest values ('" + (String)Session["Cid"] + "' , '"+strName+"' , '"
+                + newFileName + "')";
+
+            cmd.ExecuteScalar();
         }
         else
         {
             Response.Write("<script>alert('请选择文件')</script>");
         }
+        objConnection.Close();
+        //刷新listbox
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        SqlCommand cm = new SqlCommand("select Ctestname from Ctest", objConnection);
+
+        SqlDataReader dr = cm.ExecuteReader();
+
+        //绑定
+
+        this.ListBox1.DataSource = dr;        //lbxEmp为ListBox对象
+
+        this.ListBox1.DataTextField = "Ctestname";
+        this.ListBox1.DataBind();
+        objConnection.Close();
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -199,13 +237,38 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
             {
                 string FullFileName = Session["SelectedFile"].ToString();
                 DeleteFile(FullFileName);
-                Response.Redirect(Request.Url.PathAndQuery.ToString());
+                //Response.Redirect(Request.Url.PathAndQuery.ToString());
+                Response.Write("<script>alert('文件成功删除')</script>");
+                //删除数据库
+                objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+                objConnection.Open();
+                String SqlStr = "delete  from Ctest where  Cid ='" + (String)Session["Cid"] + "' and Ctestname='" + FullFileName + "'";
+        SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
+                cmd.CommandText = SqlStr;
+                cmd.ExecuteScalar();
+                objConnection.Close();
+                
             }
         }
         else
         {
             Response.Write("<script>alert('请先选择要删除的文件')</script>");
         }
+        //刷新listbox
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        objConnection.Open();
+        SqlCommand cm = new SqlCommand("select Ctestname from Ctest", objConnection);
+
+        SqlDataReader dr = cm.ExecuteReader();
+
+        //绑定
+
+        this.ListBox1.DataSource = dr;        //lbxEmp为ListBox对象
+
+        this.ListBox1.DataTextField = "Ctestname";
+        this.ListBox1.DataBind();
+        objConnection.Close();
+
     }
 
     protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -220,5 +283,10 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
     }
 
 
-    
+
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
 }
