@@ -196,27 +196,17 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_SM.aspx");
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_release.aspx");
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+        Response.Redirect("Interface_Teacher.aspx");
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_release.aspx");
+        Response.Redirect("Interface_Teacher_SM.aspx");
     }
 
     protected void Button9_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+        Response.Redirect("Interface_Teacher_release.aspx");
     }
 
     protected void Button10_Click(object sender, EventArgs e)
@@ -302,5 +292,15 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+
+    protected void Button3_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Change.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Manage.aspx");
     }
 }

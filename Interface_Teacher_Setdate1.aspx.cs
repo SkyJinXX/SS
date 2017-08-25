@@ -58,7 +58,7 @@ public partial class Interface_Teacher_Setdate1 : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "Insert into Ctest Values('" + (String)Session["Cid"] + "','" + TextBox1.Text + "')";
+        String Sql = "Insert into Ctesttime Values('" + (String)Session["Cid"] + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, objConnection);
         cmd.CommandText = Sql;
         cmd.ExecuteScalar();
