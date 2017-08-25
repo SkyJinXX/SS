@@ -23,13 +23,13 @@ public partial class _Default : System.Web.UI.Page
         {
             objConnection.Open();
 
-            if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 16))
+            if (Check.CheckLength(input.Text.Length, 10) && Check.CheckLength(input1.Text.Length, 16))
             {
-                String SqlStr = "Select Upassword From Users where Uusername = '" + TextBox1.Text +
-                    "' and Uidentity = '" + RadioButtonList1.SelectedValue + "'";
+                String SqlStr = "Select Upassword From Users where Uusername = '" + input.Text +
+                    "' and Uidentity = '" + input3.SelectedValue + "'";
                 SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
 
-                String st = TextBox2.Text;
+                String st = input1.Text;
                 int l1 = st.Length;
                 String st1 = (String)cmd.ExecuteScalar();
                 int l2 = st1.Length;
@@ -39,27 +39,27 @@ public partial class _Default : System.Web.UI.Page
 
                 if (st == st1)
                 {
-                    Session["username"] = TextBox1.Text;
-                    Session["identity"] = RadioButtonList1.SelectedValue;
+                    Session["username"] = input.Text;
+                    Session["identity"] = input3.SelectedValue;
                     if ((String)Session["identity"] == "T")
                     {
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_Teacher.aspx'</script>");
                         cmd.CommandText = "select Tname from Teacher where Tid = (select Tid from T_U where Uusername = '" +
-                            TextBox1.Text + "')";
+                            input.Text + "')";
                         Session["name"] = cmd.ExecuteScalar().ToString();
                     }
                     else if ((String)Session["identity"] == "S")
                     {
                         Response.Write("<script>alert('登陆成功');window.location.href='Interface_Student_Announcement.aspx'</script>");
                         cmd.CommandText = "select Sname from Student where Sid = (select Sid from S_U where Uusername = '" +
-                            TextBox1.Text + "')";
+                            input.Text + "')";
                         Session["name"] = cmd.ExecuteScalar().ToString();
                     }
                     else if ((String)Session["identity"] == "A")
                     {
                         Response.Write("<script>alert('登陆成功');window.location.href='Administrator.aspx'</script>");
                         cmd.CommandText = "select Aname from Administrator where Aid = (select Aid from A_U where Uusername = '" +
-                            TextBox1.Text + "')";
+                            input.Text + "')";
                         Session["name"] = cmd.ExecuteScalar().ToString();
                     }
                     else
@@ -99,7 +99,7 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void input3_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
