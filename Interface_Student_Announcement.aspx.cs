@@ -22,22 +22,36 @@ public partial class announcement : System.Web.UI.Page
         }
         else
         {
-            Label2.Text = (String)Session["username"];
+            Label2.Text = (String)Session["name"];
         }
-        if (IsPostBack) {
+        if (!IsPostBack) {
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String SelectSql = "select Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+            objConnection.Open();
+            String SelectSql = "select Trelease.Cid , Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
             SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+
+            String SelectSql1 = "select Aname, A_S_Annou from A_S_Announcement where Sid in (Select Sid from S_U where"
+                + " Uusername = '" + (String)Session["username"] + "')  and Sname = '" + Session["name"] + "'";
+            SqlDataAdapter da1 = new SqlDataAdapter(SelectSql1, objConnection);
+            DataSet ds1 = new DataSet();
+            da1.Fill(ds1);
+            GridView2.DataSource = ds1;
+            GridView2.DataBind();
+
+            objConnection.Close();
         }
         
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 }

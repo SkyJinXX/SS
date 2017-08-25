@@ -80,9 +80,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
                 {
                     s = "insert into A_T_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
                         + GridView2.Rows[i].Cells[1].Text + "' , '" + GridView2.Rows[i].Cells[2].Text + "' , '"
-                        + TextBox1.Text + "' , '" + "" + "')";
+                        + TextBox1.Text  + "')";
                     cmd.CommandText = s;
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
                 }
             }
@@ -97,7 +97,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
                 {
                     s = "insert into A_S_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
                         + GridView3.Rows[i].Cells[1].Text + "' , '" + GridView3.Rows[i].Cells[2].Text + "' , '"
-                        + TextBox1.Text + "' , '" + "" + "')";
+                        + TextBox1.Text  + "')";
                     cmd.CommandText = s;
                     cmd.ExecuteNonQuery();
 
