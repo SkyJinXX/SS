@@ -9,6 +9,13 @@
     <link href="web_style/Interface_Teacher.css" rel="stylesheet" type="text/css" />
 
 
+    <style type="text/css">
+        .auto-style1 {
+            width: 97px;
+        }
+    </style>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -35,16 +42,14 @@
             </ul>
         </div>
         <div id="middle">
-            <div id="T_title">
-                <asp:Label ID="Label2" runat="server" Text="公告" Font-Size="X-Large"></asp:Label>
+            <div id="T_title" class="auto-style1">
+                <asp:Label ID="Label2" runat="server" Text="系统公告" Font-Size="X-Large"></asp:Label>
             </div>
             <div id="view">
-                <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="145px" Width="486px">
                     <Columns>
-                        <asp:BoundField DataField="Tmessage" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px" SortExpression="Tmessage">
-                            <HeaderStyle Height="50px"></HeaderStyle>
-                            <ItemStyle Height="80px" HorizontalAlign="Center"></ItemStyle>
-                        </asp:BoundField>
+                        <asp:BoundField DataField="Aname" HeaderText="发布人" />
+                        <asp:BoundField DataField="A_T_Annou" HeaderText="发布内容" />
                     </Columns>
                 </asp:GridView>
             </div>

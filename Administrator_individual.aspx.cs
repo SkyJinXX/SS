@@ -38,24 +38,19 @@ public partial class Default2 : System.Web.UI.Page
             cmd.CommandText = "select Aid from A_U where Uusername = '"+ (String)Session["username"] + "' ";
             TextBox1.Text = (String)cmd.ExecuteScalar();
 
-            cmd.CommandText = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '"
-                + (String)Session["username"] + "')";
+            cmd.CommandText = "select Aname from Administrator where Aid = '" + TextBox1.Text + "'";
             TextBox2.Text = (String)cmd.ExecuteScalar();
 
-            cmd.CommandText = "select Asex from Administrator where Aid in ( select Aid from A_U where Uusername = '"
-                + (String)Session["username"] + "')";
+            cmd.CommandText = "select Asex from Administrator where Aid = '" + TextBox1.Text + "'";
             RadioButtonList1.SelectedValue = (String)cmd.ExecuteScalar();
 
-            cmd.CommandText = "select Abirthday from Administrator where Aid in ( select Aid from A_U where Uusername = '"
-                + (String)Session["username"] + "')";
+            cmd.CommandText = "select Abirthday from Administrator where Aid = '" + TextBox1.Text + "'";
             TextBox4.Text = (String)cmd.ExecuteScalar();
 
-            cmd.CommandText = "select Aage from Administrator where Aid in ( select Aid from A_U where Uusername = '"
-                + (String)Session["username"] + "')";
+            cmd.CommandText = "select Aage from Administrator where Aid = '" + TextBox1.Text + "'";
             TextBox5.Text = (String)cmd.ExecuteScalar();
 
-            cmd.CommandText = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '"
-                + (String)Session["username"] + "')";
+            cmd.CommandText = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
             TextBox6.Text = (String)cmd.ExecuteScalar();
 
             objConnection.Close();
