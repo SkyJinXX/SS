@@ -42,7 +42,7 @@
             </ul>
         </div>
         <div id="middle">
-            <div id="T_title" class="auto-style1">
+            <div id="T_title">
                 <asp:Label ID="Label2" runat="server" Text="系统公告" Font-Size="X-Large"></asp:Label>
             </div>
             <div id="view">

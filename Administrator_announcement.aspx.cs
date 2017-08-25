@@ -238,4 +238,39 @@ public partial class Administrator_announcement : System.Web.UI.Page
     {
         Response.Redirect("Administrator.aspx");
     }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_RightsManagement.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_Register.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_UsersManagement.aspx");
+    }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_CourseManagement.aspx");
+    }
+
+    protected void Button12_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_TranscriptManagement.aspx");
+    }
+
+    protected void Button13_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_individual.aspx");
+    }
+
+    protected void Button14_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_announcement.aspx");
+    }
 }

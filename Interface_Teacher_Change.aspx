@@ -8,19 +8,6 @@
     <title></title>
     <link href="web_style/Interface_Teacher_Change.css" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        .auto-style1 {
-            width: 77px;
-        }
-        .auto-style2 {
-            width: 503px;
-            height: 363px;
-            margin-right: 29px;
-        }
-        .auto-style3 {
-            margin-bottom: 0px;
-        }
-    </style>
 
 </head>
 <body>
@@ -48,7 +35,7 @@
             </ul>
         </div>
         <div id="d_body">
-            <div id="d_message" class="auto-style2">
+            <div id="d_message">
                 <table id="T_1">
                     <tr>
                         <th style="width: 50px;">&nbsp;
@@ -66,67 +53,86 @@
                 </table>
                 <table id="T_2">
                     <tr>
-                        <th class="auto-style1">
-                            <asp:Label ID="Label2" runat="server" Text="生日:"></asp:Label>
+                        <th>
+                            <asp:Label ID="Label9" runat="server" Text="工号："></asp:Label>
+                        </th>
+                        <th>
+                            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <asp:Label ID="Label10" runat="server" Text="昵称："></asp:Label>
+                        </th>
+                        <th>
+                            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <asp:Label ID="Label11" runat="server" Text="性别："></asp:Label>
+                        </th>
+                        <th>
+                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="100px">
+                                <asp:ListItem>男</asp:ListItem>
+                                <asp:ListItem>女</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <asp:Label ID="Label12" runat="server" Text="权限："></asp:Label>
+                        </th>
+                        <th>
+                            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <asp:Label ID="Label2" runat="server" Text="生日："></asp:Label>
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                         </th>
                     </tr>
                     <tr>
-                        <th class="auto-style1">
-                            <asp:Label ID="Label3" runat="server" Text="职称:"></asp:Label>
+                        <th>
+                            <asp:Label ID="Label3" runat="server" Text="职称："></asp:Label>
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
                         </th>
                     </tr>
                     <tr>
-                        <th class="auto-style1">
-                            <asp:Label ID="Label4" runat="server" Text="电话号码:"></asp:Label>
+                        <th>
+                            <asp:Label ID="Label4" runat="server" Text="电话号码："></asp:Label>
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
                         </th>
                     </tr>
+                </table>
+                <table class="T_3">
                     <tr>
-                        <th class="auto-style1">
-                            <asp:Label ID="Label5" runat="server" Text="介绍:"></asp:Label>
+                        <th>
+                            <asp:Label ID="Label5" runat="server" Text="介绍："></asp:Label>
                         </th>
                         <th>
                             <asp:TextBox ID="TextBox1" runat="server" Height="120px" TextMode="MultiLine" Width="300px"></asp:TextBox>
                         </th>
                     </tr>
                 </table>
-                <table id="T_3">
+                <table class="T_3">
                     <tr>
                         <th>
-                            &nbsp;
                         </th>
                         <th>
-                            &nbsp;</th>
-                        
+                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="保存" Width="60px" Height="30px" Font-Size="Medium" CssClass="auto-style3"  />
+                        </th>
+                        <th>
+                        </th>
                     </tr>
                 </table>
-                <asp:Label ID="Label9" runat="server" Text="工号："></asp:Label>
-                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label10" runat="server" Text="昵称："></asp:Label>
-                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label11" runat="server" Text="性别："></asp:Label>
-                <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="87px">
-                    <asp:ListItem>男</asp:ListItem>
-                    <asp:ListItem>女</asp:ListItem>
-                </asp:RadioButtonList>
-                <asp:Label ID="Label12" runat="server" Text="权限："></asp:Label>
-                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="保存" Width="60px" Height="30px" Font-Size="Medium" CssClass="auto-style3"  />
-                        <br />
-                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br />
             </div>
         </div>
         <div id="footer">
