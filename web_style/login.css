@@ -178,3 +178,24 @@ span {
     color: white;
     padding: 5px;
 }
+
+#Register_box {
+    margin: 0 auto;
+    padding-top: 30px;
+    position: relative;
+    overflow: visible;
+}
+
+#Register {
+    width: 200px;
+    margin: auto;
+}
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color:burlywood;
+    text-decoration:underline;
+}

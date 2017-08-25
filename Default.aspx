@@ -44,6 +44,11 @@
             <div id="button_login">
                 <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
             </div>
+            <div id="Register_box">
+                <div id="Register">
+                    <a href="Register.aspx">还没有注册？点我注册哦</a>
+                </div>
+            </div>
         </div>
         
         <script type="text/javascript">
