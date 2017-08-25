@@ -52,13 +52,17 @@
     background-color:#574d4d;
 }
 
+#d_body {
+    width: 1000px;
+    height: auto;
+    margin: auto;
     border: 2px solid black;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     margin: auto;
-    margin-top:10px;
+    margin-top: 10px;
     background-color: white;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -66,7 +70,7 @@
 
 #d_message {
     width: 400px;
-    height: 1000px;
+    height: auto;
     border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -74,6 +78,8 @@
     border-bottom-right-radius: 10px;
     background-color: white;
     margin: auto;
+    padding-bottom:15px;
+    margin-bottom:15px;
 }
 
 #footer {

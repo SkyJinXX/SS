@@ -66,15 +66,30 @@
     margin-top: 10px;
 }
 
-#T_title {
-    width: 50px;
+.box_border {
+    width: 800px;
+    height: auto;
+    border: 1px solid black;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin: auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.T_title {
+    width: 100px;
     height: auto;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#view {
+.view {
     width: 500px;
     height: auto;
     margin: auto;
