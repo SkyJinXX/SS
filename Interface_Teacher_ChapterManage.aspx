@@ -48,7 +48,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="节"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton0" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="节"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField ShowHeader="False">
