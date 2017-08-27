@@ -84,7 +84,7 @@ public partial class Interface_Teacher_CourseManage : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Chapter.aspx");
+        Response.Redirect("Interface_Teacher_ChapterManage.aspx");
     }
 
     protected void Button6_Click(object sender, EventArgs e)
