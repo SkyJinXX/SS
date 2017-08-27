@@ -24,7 +24,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
 
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -254,6 +254,12 @@ public partial class Default2 : System.Web.UI.Page
     {
         Session["username"] = null;
         Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
+    }
+
+    protected void Button14_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_announcement.aspx");
     }
 }

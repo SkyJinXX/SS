@@ -34,20 +34,37 @@
             </ul>
         </div>
         <div id="middle">
-            <div id="T_title">
-                <asp:Label ID="Label3" runat="server" Text="公告" Font-Size="X-Large"></asp:Label>
+            <div class="box_border">
+                <div class="T_title">
+                    <asp:Label ID="Label3" runat="server" Text="课程公告" Font-Size="X-Large"></asp:Label>
+                </div>
+                <div class="view">
+                    <asp:GridView ID="GridView1" Width="500px" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Cid" HeaderText="课程" />
+                            <asp:BoundField DataField="Crelease" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="70px">
+                                <HeaderStyle HorizontalAlign="Center" />
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
-            <div id="view">
-                <asp:GridView ID="GridView1" Width="500px" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="Crelease" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="80px">
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                    </Columns>
-                </asp:GridView>
+            <div class="box_border">
+                <div class="T_title">
+                    <asp:Label ID="Label4" runat="server" Text="系统公告" Font-Size="X-Large"></asp:Label>
+                </div>
+                <div class="view">
+
+                    <asp:GridView ID="GridView2" Width="500px" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Aname" HeaderText="发布人" />
+                            <asp:BoundField DataField="A_S_Annou" HeaderText="发布内容" HeaderStyle-Height="50px" ItemStyle-Height="70px"/>
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
-        </div>
+            </div>
         <div id="footer">
 
         </div>  

@@ -25,7 +25,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
             Label3.Visible = false;
             TextBox3.Visible = false;
             Button12.Visible = false;
@@ -94,7 +94,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button6_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Default.aspx");
+        Response.Redirect("Administrator_announcement.aspx");
     }
 
     protected void Button7_Click(object sender, EventArgs e)
@@ -191,6 +191,12 @@ public partial class Default2 : System.Web.UI.Page
 
         objConnection.Open();
 
+        String s = "select Aid from A_U where Uusername = '" + (String)Session["username"] + "'";
+        SqlCommand sq = new SqlCommand(s, objConnection);
+        sq.CommandText = s;
+        String id = sq.ExecuteScalar().ToString();
+        Label7.Text = id;
+
         String a = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         String b = "select Aname from Administrator where Aid = '" + TextBox1.Text + "'";
@@ -227,8 +233,9 @@ public partial class Default2 : System.Web.UI.Page
                         action += " be down ";
                     }
                     action += "and the level become " + Convert.ToString(levela) + " .";
-                    cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar()
-                            + "','" + "" + "','" + (String)action + "')";
+                    cmd.CommandText = "insert into A_A_Announcement values( '" + id + "' , '" + (String)cmd1.ExecuteScalar() 
+                        + "','" + TextBox1.Text + "' , '" + (String)cmd2.ExecuteScalar() + "' , '" +  
+                         "" + "','" + (String)action + "')";
                     cmd.ExecuteScalar();
 
                     String SelectSql1 = "select * from Administrator";
@@ -250,7 +257,8 @@ public partial class Default2 : System.Web.UI.Page
         {
             String SelectSql = "";
             SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-            cmd.CommandText = "insert into A_A_Management values( '" + (String)cmd1.ExecuteScalar() + "','" + (String)cmd2.ExecuteScalar() + "','" + TextBox3.Text + "','" + "" + "')";
+            cmd.CommandText = "insert into A_A_Announcement values( '" + id + "','" + (String)cmd1.ExecuteScalar() + "','" 
+                + TextBox1.Text + "','"+ (String)cmd2.ExecuteScalar() + "','" + TextBox3.Text + "','" + "" + "')";
             cmd.ExecuteScalar();
 
             Response.Write("<script>alert('发送成功')</script>");

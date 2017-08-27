@@ -37,9 +37,13 @@
             <div id="d_message" style="width:350px">
                 <table>
                     <tr>
-                        <th style="width:150px"><asp:Label ID="Label2" runat="server" Text="请设置时间:" Height="20px" Width="100px"></asp:Label></th>
+                        <th style="width:150px"><asp:Label ID="Label2" runat="server" Text="请设置考试开始时间:" Height="20px" Width="100px"></asp:Label></th>
                         <th style="width:200px"><asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="200px"></asp:TextBox></th>
                     </tr>
+                    <tr>
+                        <th style="width:150px"><asp:Label ID="Label3" runat="server" Text="请设置考试结束时间:" Height="20px" Width="100px"></asp:Label></th>
+                        <th style="width:200px"><asp:TextBox ID="TextBox2" runat="server" Height="20px" Width="200px"></asp:TextBox></th>
+                        </tr>
                 </table>
                 <table>
                     <tr>

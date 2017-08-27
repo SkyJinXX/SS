@@ -27,7 +27,7 @@ th {
 }
 
 #middle {
-    width: 400px;
+    width: 1000px;
     height: auto;
     background-color: white;
     border: 2px solid black;
@@ -41,8 +41,8 @@ th {
 
 
 #d_message {
-    width: 400px;
-    height: 400px;
+    width: 440px;
+    height: auto;
     border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -54,6 +54,7 @@ th {
 }
 
 #T_2 {
+    width:400px;
     margin: auto;
     vertical-align: middle;
     padding-left: 10px;

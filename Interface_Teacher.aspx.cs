@@ -22,10 +22,11 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String SelectSql = "select * from Tmessage";
+        String SelectSql = "select Aname, A_T_Annou from A_T_Announcement where Tid in (Select Tid from T_U where"
+                + " Uusername = '" + (String)Session["username"] + "')  and Tname = '" + Session["name"] + "'";
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);

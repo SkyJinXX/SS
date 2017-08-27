@@ -22,8 +22,8 @@
         <div id="globllink">
             <ul>
                 <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="公告" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button2_Click" /></a></li>
-                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改"  BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
-                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理"  BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="个人信息修改"  BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button3_Click1"  /></a></li>
+                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="课程管理"  BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" OnClick="Button4_Click" /></a></li>
                 <!---填充导航菜单栏>
                 <li><a></a></li>
                 <li><a></a></li>
@@ -77,7 +77,7 @@
                                 <asp:BoundField DataField="Cname" HeaderText="课程名" />
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel"  Text="设置考试时间"></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel"  Text="设置考试时间" OnClick="LinkButton1_Click"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

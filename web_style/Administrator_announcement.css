@@ -56,8 +56,6 @@
     background-color:#574d4d;
 }
 
-
-
 #d_body {
     width: 1000px;
     height: auto;
@@ -71,30 +69,97 @@
     margin-top: 10px;
 }
 
-#view {
-    width: 800px;
-    height: auto;
+#menu {
+    width: 100px;
+    height: 155px;
     border: 2px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin: auto;
-    margin-top:15px;
-    margin-bottom: 15px;
+    background-color: black;
+    margin-top: 15px;
+    margin-left: 45px;
+    float: left;
 }
 
-#d_title {
-    width: 100px;
-    height: 30px;
+
+#menu ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+#menu ul li{
+    margin-top:8px;
+    text-align:center;
+    width:100px;
+    background-color:black;
+}
+
+#menu ul li a{
+    display:block;
+    padding:3px 2px 4px 2px;
+}
+
+#menu ul li a:link, #menu ul li a:visited {
+    color:white;
+    text-decoration:none;
+}
+
+#menu ul li a:hover {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#574d4d;
+}
+
+#d_body_1 {
+    width:auto;
+    height:auto;
+    margin:auto;
+}
+
+.title {
+    width:100px;
+    height: 15px;
+    margin-left: 465px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+
+#T_S {
+    width: 700px;
+    height: auto;
+    margin-left: 200px;
+    margin-bottom: 40px;
+}
+
+#T_T {
+    width: 600px;
+    height: auto;
+    margin-left: 250px;
+    margin-bottom: 40px;
+}
+
+#T_A {
+    width: 400px;
+    height: auto;
+    margin-left: 300px;
+    margin-bottom: 40px;
+}
+
+#box_1 {
+    width: 400px;
+    height: 100px;
     margin: auto;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#d_message {
-    width:700px;
+#fabu {
+    width:50px;
     height:auto;
     margin:auto;
-    margin-bottom:10px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
