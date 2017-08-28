@@ -29,12 +29,11 @@ body {
 }
 
 .holder {
-    width: 450px;
+    width: 440px;
     height: 200px;
     border: 2px,solid,black;
     margin: auto;
-    margin-top: 100px;
-    padding: 40px 80px 40px 80px;
+    padding: 40px 40px 40px 40px;
 }
 
 a.animBtn:link, a.animBtn:visited {
@@ -136,6 +135,21 @@ a.animBtn.themeD:hover:after {
     color:white;
 }
 
+#welcome{
+    width:200px;
+    height:80px;
+    margin:auto;
+    padding-left:80px;
+    padding-top:20px;
+}
+
+#dowm_arrow {
+    width:38px;
+    height:30px;
+    margin-left:45px;
+    margin-top:20px;
+    background:url(../image/dowm_arrow.png) no-repeat;
+}
 
 #menu1 {
     width: 200px;
@@ -186,4 +200,63 @@ a.animBtn.themeD:hover:after {
 #footer {
     width:100%;
     height:50px;
+}
+
+#Button5 {
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    color: Highlight;
+    border: hidden;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+#Button5:hover{
+    background-color:palegoldenrod;
+    color:black;
+    cursor:pointer;
+}
+
+#left {
+    width: 400px;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    margin-top: 30px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: 1px solid #ffffcc;
+}
+
+#right {
+    width: 400px;
+    height: auto;
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: 1px solid #ffffcc;
+}
+
+.T_title {
+    width: 100px;
+    height: auto;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.view {
+    width: 380px;
+    height: auto;
+    margin: auto;
+    margin-bottom: 10px;
 }
