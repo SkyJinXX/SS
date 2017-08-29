@@ -14,7 +14,7 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
     {
         string SelectSql = null;
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        SelectSql = string.Format("select SSection, ESection, SectionName from Vedio where Cid = '{0}' and ChapterName = '{1}' ORDER BY SSection"
+        SelectSql = string.Format("select SSection, ESection, SectionName, FileName from Vedio where Cid = '{0}' and ChapterName = '{1}' ORDER BY SSection"
             , (string)Session["Cid"], (string)Session["ChapterName"]);
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
@@ -71,9 +71,11 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
         string SectionName = ((TextBox)(GridView1.FooterRow.FindControl("TextBox6"))).Text;
         string SSection = ((TextBox)(GridView1.FooterRow.FindControl("TextBox4"))).Text;
         string ESection = ((TextBox)(GridView1.FooterRow.FindControl("TextBox5"))).Text;
+        string FileName = "无文件";
+        string URL = "NULL";
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        string sql = string.Format("insert into Vedio values ('{0}', '{1}', {2}, {3}, '{4}', {5}, {6})",
-            (string)Session["Cid"], ChapterName, SChapter, EChapter, SectionName, SSection, ESection);
+        string sql = string.Format("insert into Vedio values ('{0}', '{1}', {2}, {3}, '{4}', {5}, {6}, '{7}', '{8}')",
+            (string)Session["Cid"], ChapterName, SChapter, EChapter, SectionName, SSection, ESection, URL, FileName);
         SqlCommand cmd = new SqlCommand(sql, objConnection);
         objConnection.Open();
         cmd.ExecuteNonQuery();
@@ -132,5 +134,73 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
     protected void LinkButton5_Click(object sender, EventArgs e)
     {
         Response.Write("<script>window.location.href='Interface_Teacher_ChapterManage.aspx'</script>");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((Button)sender).NamingContainer).RowIndex;
+        FileUpload fu = (FileUpload)(GridView1.Rows[row].FindControl("FileUpload1"));
+        Label lb = (Label)(GridView1.FooterRow.FindControl("Label4"));
+        if (fu.HasFile)
+        {
+            //将文件上传服务器
+            string FileName = fu.FileName;
+            string URL = Server.MapPath("~/") + FileName;
+            fu.SaveAs(URL);
+
+            //将URL更新入数据库
+            string Cid = (string)Session["Cid"];
+            string ChapterName = (string)Session["ChapterName"];
+            string SectionName = ((Label)(GridView1.Rows[row].FindControl("Label3"))).Text;
+            string sql = string.Format("update Vedio set URL = '{0}', FileName = '{4}' where Cid = '{1}' and ChapterName = '{2}' and SectionName = '{3}'",
+                URL, Cid, ChapterName, SectionName, FileName);
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            SqlCommand cmd = new SqlCommand(sql, objConnection);
+            objConnection.Open();
+            cmd.ExecuteNonQuery();
+            objConnection.Close();
+            FlushSection();
+            ((Label)(GridView1.FooterRow.FindControl("Label4"))).Text = "上传成功";
+        }
+        else
+        {
+            lb.Text = "请先选择文件!";
+        }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        //先查询当前章节课件的URL
+        int row = ((GridViewRow)((Button)sender).NamingContainer).RowIndex;
+        string Cid = (string)Session["Cid"];
+        string ChapterName = (string)Session["ChapterName"];
+        string SectionName = ((Label)(GridView1.Rows[row].FindControl("Label3"))).Text;
+        string sql = string.Format("select URL from Vedio where Cid = '{0}' and ChapterName = '{1}' and SectionName = '{2}'"
+            , Cid, ChapterName, SectionName);
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        SqlCommand cmd = new SqlCommand(sql, objConnection);
+        objConnection.Open();
+        string URL = (string)cmd.ExecuteScalar();
+        objConnection.Close();
+
+        //删除文件，更新数据库
+        if (System.IO.File.Exists(URL))
+        {
+            try
+            {
+                System.IO.File.Delete(URL);
+            }
+            catch(Exception error)
+            {
+                error.ToString();
+            }
+            sql = string.Format("update Vedio set URL = '{0}', FileName = '{1}' where Cid = '{2}' and ChapterName = '{3}' and SectionName = '{4}'"
+                , "NULL", "无文件", Cid, ChapterName, SectionName);
+            cmd.CommandText = sql;
+            objConnection.Open();
+            cmd.ExecuteNonQuery();
+            objConnection.Close();
+            FlushSection();
+        }
     }
 }
