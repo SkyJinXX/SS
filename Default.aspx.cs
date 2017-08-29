@@ -50,7 +50,7 @@ public partial class _Default : System.Web.UI.Page
                     }
                     else if ((String)Session["identity"] == "S")
                     {
-                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_Student_Announcement.aspx'</script>");
+                        Response.Write("<script>alert('登陆成功');window.location.href='Interface_Student_Menu.aspx'</script>");
                         cmd.CommandText = "select Sname from Student where Sid = (select Sid from S_U where Uusername = '" +
                             input.Text + "')";
                         Session["name"] = cmd.ExecuteScalar().ToString();
