@@ -18,8 +18,23 @@ public partial class Interface_Teacher_ChapterManage : System.Web.UI.Page
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        if (ds.Tables[0].Rows.Count == 0)
+        {
+            ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+            int columnCount = GridView1.Rows[0].Cells.Count;
+            GridView1.Rows[0].Cells.Clear();
+            GridView1.Rows[0].Cells.Add(new TableCell());
+            GridView1.Rows[0].Cells[0].ColumnSpan = columnCount;
+            GridView1.Rows[0].Cells[0].Text = "暂时没有数据信息";
+            GridView1.RowStyle.HorizontalAlign = System.Web.UI.WebControls.HorizontalAlign.Center;
+        }
+        else
+        {
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+        }
     }
     
     protected void Page_Load(object sender, EventArgs e)
