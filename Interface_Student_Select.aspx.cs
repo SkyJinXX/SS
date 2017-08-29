@@ -124,7 +124,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label2.Text = (String)Session["username"];
+            Label1.Text = (String)Session["username"];
         }
 
         //查询全部课程的成绩
@@ -132,6 +132,14 @@ public partial class Default2 : System.Web.UI.Page
 
         //条件中通过表的连接来确保数据显示无误
         GridViewFlush();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
+        Response.Redirect("Default.aspx");
     }
 
     protected void Button4_Click(object sender, EventArgs e)
