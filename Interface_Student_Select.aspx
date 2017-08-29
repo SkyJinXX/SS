@@ -71,7 +71,7 @@
                         <asp:Button ID="Button4" CssClass="button" runat="server" Text="查询成绩" OnClick="Button4_Click" Width="85px" Height="40px" Font-Size="Medium" />
                     </td>
                     <td>
-                        <asp:Button ID="Button5" CssClass="button" runat="server" Text="返回选课" OnClick="Button5_Click" Width="85px" Height="40px" Font-Size="Medium" />
+                        <asp:Button ID="Button5" CssClass="button" runat="server" Text="返回主页" OnClick="Button5_Click" Width="85px" Height="40px" Font-Size="Medium" />
                     </td>
                 </tr>
             </table>

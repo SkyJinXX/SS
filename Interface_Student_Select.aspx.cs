@@ -170,7 +170,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Student.aspx");
+        Response.Redirect("Interface_Student_Menu.aspx");
     }
 
 
