@@ -125,18 +125,6 @@
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="开课时间" ShowHeader="False">
-                                <EditItemTemplate>
-                                    <asp:Label ID="Label9" runat="server" Text="选课开始："></asp:Label>
-                                    <asp:TextBox ID="TextBox8" runat="server" Width="88px"></asp:TextBox>
-                                    <asp:Label ID="Label10" runat="server" Text="--"></asp:Label>
-                                    <asp:TextBox ID="TextBox9" runat="server" CssClass="auto-style1" Width="88px"></asp:TextBox>
-                                    <asp:Label ID="Label11" runat="server" Text="例：2016-08-06 08：59：00"></asp:Label>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" Text="管理" Width="50px" OnClick="GridView1_RowManagement"></asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
                             <asp:CommandField CancelText="取消" DeleteText="删除" EditText="修改" ShowDeleteButton="True" ShowEditButton="True" />
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />

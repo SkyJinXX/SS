@@ -190,11 +190,6 @@ public partial class Default2 : System.Web.UI.Page
         GridViewFlush();
     }
 
-    protected void GridView1_RowManagement(object sender, GridViewCancelEditEventArgs e)
-    {
-
-    }
-
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator.aspx");
