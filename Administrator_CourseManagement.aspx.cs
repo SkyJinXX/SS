@@ -126,11 +126,6 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
     }
 
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
     protected void GridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
 
@@ -193,6 +188,11 @@ public partial class Default2 : System.Web.UI.Page
         GridView1.EditIndex = -1;
         //删除成功之后实时刷新
         GridViewFlush();
+    }
+
+    protected void GridView1_RowManagement(object sender, GridViewCancelEditEventArgs e)
+    {
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -260,5 +260,10 @@ public partial class Default2 : System.Web.UI.Page
     protected void Button10_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator_announcement.aspx");
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+
     }
 }

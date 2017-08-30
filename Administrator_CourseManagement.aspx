@@ -8,6 +8,12 @@
     <title></title>
     <link href="web_style/Administrator_CourseManagement.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 0px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server" defaultbutton ="Button9">
@@ -64,8 +70,7 @@
                 </div>
                 <div id="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
-                        OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
-                        Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                        Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowManagement ="GridView1_RowManagement" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                         <Columns>
                             <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
                             <asp:TemplateField HeaderText="课程名">
@@ -118,6 +123,18 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="开课时间" ShowHeader="False">
+                                <EditItemTemplate>
+                                    <asp:Label ID="Label9" runat="server" Text="选课开始："></asp:Label>
+                                    <asp:TextBox ID="TextBox8" runat="server" Width="88px"></asp:TextBox>
+                                    <asp:Label ID="Label10" runat="server" Text="--"></asp:Label>
+                                    <asp:TextBox ID="TextBox9" runat="server" CssClass="auto-style1" Width="88px"></asp:TextBox>
+                                    <asp:Label ID="Label11" runat="server" Text="例：2016-08-06 08：59：00"></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" Text="管理" Width="50px" OnClick="GridView1_RowManagement"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:CommandField CancelText="取消" DeleteText="删除" EditText="修改" ShowDeleteButton="True" ShowEditButton="True" />
