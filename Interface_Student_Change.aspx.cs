@@ -24,7 +24,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            Label2.Text = (String)Session["username"];
+            Label1.Text = (String)Session["username"];
         }
         TextBox5.Enabled = false;
 
@@ -116,11 +116,15 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Student.aspx");
+        Response.Redirect("Interface_Student_Menu.aspx");
     }
+    
 
-    protected void Button6_Click(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 }

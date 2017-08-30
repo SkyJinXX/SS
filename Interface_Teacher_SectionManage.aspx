@@ -75,6 +75,20 @@
                         <asp:Button ID="Button2" runat="server" Text="删除" OnClick="Button2_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="测验">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:Label ID="Label7" runat="server"></asp:Label>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("TFileName") %>'></asp:Label>
+                        <asp:FileUpload ID="FileUpload2" runat="server" Width="80px" />
+                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="上传" />
+                        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="删除" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </form>

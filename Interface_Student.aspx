@@ -11,42 +11,38 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="top">
-            <p id="top_p_r">
-                <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>
-                <asp:Label ID="Label2" runat="server" ForeColor="#FF9900"></asp:Label>
-                <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
-            </p>
+        <div id="top_menu">
+            <div id="user_box">
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+                <asp:Button ID="Button1" runat="server" Text="注销" OnClick="Button1_Click" />
+            </div>
         </div>
-        <div id="globllink">
-            <ul>
-                <li class="li_1"><a href="Interface_Student_Announcement.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Student.aspx">选课</a></li>
-                <li class="li_1"><a href="Interface_Student_Select.aspx">查询成绩</a></li>
-                <li class="li_1"><a href="Interface_Student_Change.aspx">信息修改</a></li>
-                <!---填充导航菜单栏>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <--->
-            </ul>
+        <div id="c_background">
+            <canvas id="c"></canvas>
+            <script src="JavaScript/geometry.js" type="text/javascript"></script>
         </div>
+
         <div id="d_search">
-            <table>
+            <table id="T_1">
+                <tr style="height: 10px"></tr>
                 <tr>
-                    <td>
+                    <td class="td_search">
                         <asp:Label ID="Label10" runat="server" Text="课程ID："></asp:Label>
-                        <asp:TextBox ID="TextBox2" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" Width="150px" Height="12px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
-                    <td>
+                </tr>
+                <tr style="height: 10px"></tr>
+                <tr>
+                    <td class="td_search">
                         <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
-                        <asp:TextBox ID="TextBox1" runat="server" Width="100px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="150px" Height="12px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
-                    <td>
-                        <asp:Label ID="Label9" runat="server" Text="课程类别"></asp:Label>
-                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100px" >
+                </tr>
+                <tr style="height: 10px"></tr>
+                <tr>
+                    <td class="td_search">
+                        <asp:Label ID="Label9" runat="server" Text="课程类别:"></asp:Label>
+                        <asp:DropDownList ID="DropDownList1" runat="server" Width="150px" Height="20px">
                             <asp:ListItem> </asp:ListItem>
                             <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
                             <asp:ListItem Value="编程开发">编程开发</asp:ListItem>
@@ -59,23 +55,33 @@
                             <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
                             <asp:ListItem>其他</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" Width="55px" />
+                    </td>
+                </tr>
+                <tr style="height: 10px"></tr>
+            </table>
+            <table id="T_2">
+                <tr>
+                    <td>
+                        <asp:Button ID="Button2" CssClass="button" runat="server" Text="搜索课程" OnClick="Button2_Click" Width="85px" Height="40px" Font-Size="Medium" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button5" CssClass="button" runat="server" Text="返回主页" OnClick="Button5_Click" Width="85px" Height="40px" Font-Size="Medium" />
                     </td>
                 </tr>
             </table>
         </div>
-        <p>
-        </p>
-        <div id="d_course">
-            <table class="T">
+        <div class="d_course">
+            <table class="T_t">
                 <tr>
                     <td>
                         <asp:Label ID="Label8" runat="server" Text="已开课程" Font-Size="X-Large"></asp:Label>
                     </td>
                 </tr>
+            </table>
+            <table class="T_view">
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" Width="600px" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
@@ -85,25 +91,30 @@
                                 <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="选择"></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click" Text="选择" ForeColor="White"></asp:LinkButton>
                                     </ItemTemplate>
+                                    <HeaderStyle BorderStyle="None" />
+                                    <ItemStyle HorizontalAlign="Center" />
                                 </asp:TemplateField>
                             </Columns>
                             <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
                     </td>
                 </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                </tr>
+            </table>
+        </div>
+        <div class="d_course">
+            <table class="T_t">
                 <tr>
                     <td>
                         <asp:Label ID="Label7" runat="server" Text="已选课程" Font-Size="X-Large"></asp:Label>
                     </td>
                 </tr>
+            </table>
+            <table class="T_view">
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridView2" Width="600px" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
@@ -113,12 +124,12 @@
                                 <asp:BoundField DataField="Cintroduction" HeaderText="课程简介" />
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click1" Text="退选"></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton1_Click1" Text="退选" ForeColor="White"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField ShowHeader="False">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton2_Click" Text="学习"></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="false" CommandName="" OnClick="LinkButton2_Click" Text="学习" ForeColor="White"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -129,7 +140,6 @@
             </table>
         </div>
         <div id="footer">
-            
         </div>
     </form>
 </body>

@@ -1,0 +1,85 @@
+<<<<<<< HEAD
+        <div id="middle">
+            <div id="d_message">
+                <asp:Label ID="Label2" runat="server" Text="上传试题"></asp:Label>
+                <br />
+                <br />
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br />
+                <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="上传" />
+&nbsp;&nbsp;&nbsp;
+                <br />
+                <br />
+                <div>已上传文件</div>
+     <div>
+         <asp:ListBox ID="ListBox1" runat="server" Width="269px" Height="87px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged1"></asp:ListBox>
+         <br />
+         <br />
+         <asp:Button ID="Button7" runat="server" Text="下载文件" OnClick="Button7_Click1" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+         <asp:Button ID="Button8" runat="server" Text="删除文件" OnClick="Button8_Click" />
+     </div>
+                <br />
+                <br />
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1">
+                    <Columns>
+                        <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                        <asp:BoundField DataField="Cname" HeaderText="课程名" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="设置考试时间"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <br />
+=======
+
+
+
+
+<<<<<<< HEAD
+  
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
+        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+    }
+    protected void Button8_Click(object sender, EventArgs e)
+=======
+
+// 判断是否选择了文件名
+        if (ListBox1.SelectedValue != "")
+        {
+            if ((String)Session["SelectedFile"] != "")
+            {
+                string FullFileName = Session["SelectedFile"].ToString();
+                DeleteFile(FullFileName);
+                Response.Redirect(Request.Url.PathAndQuery.ToString());
+            }
+        }
+        else
+        {
+            Response.Write("<script>alert('请先选择要删除的文件')</script>");
+        }
+
+
+
+ // 判断是否选择了文件名
+        if (ListBox1.SelectedValue != "")
+        {
+            if ((String)Session["SelectedFile"] != "")
+            {
+                string FullFileName = Session["SelectedFile"].ToString();
+                DownLoadFile(FullFileName);
+            }
+        }
+        else
+        {
+            Response.Write("<script>alert('请先选择要下载的文件')</script>");
+        }
+
+

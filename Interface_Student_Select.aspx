@@ -33,21 +33,21 @@
                 <tr style="height:10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label5" runat="server" Text="课程ID："></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Text="课程ID:"></asp:Label>
                         <asp:TextBox ID="TextBox2" runat="server" Width="150px" Height="12px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr style="height:10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text="课程名:"></asp:Label>
                         <asp:TextBox ID="TextBox1" runat="server" Width="150px" Height="12px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr style="height:10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label7" runat="server" Text="课程类别："></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text="课程类别:"></asp:Label>
                         <asp:DropDownList ID="DropDownList1" runat="server" Width="140px" Height="20px">
                             <asp:ListItem> </asp:ListItem>
                             <asp:ListItem Value="办公效率">办公效率</asp:ListItem>

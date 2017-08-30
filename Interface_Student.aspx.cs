@@ -142,7 +142,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            Label2.Text = (String)Session["username"];
+            Label1.Text = (String)Session["username"];
         }
         //显示可选课程
         GridViewFlush(1);
@@ -150,7 +150,7 @@ public partial class _Default : System.Web.UI.Page
         GridViewFlush(0);
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button2_Click(object sender, EventArgs e)
     {
         String SelectSql = GridViewFlush_Condition();
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
@@ -177,8 +177,11 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-    protected void Button5_Click(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Session["name"] = null;
         Response.Redirect("Default.aspx");
     }
 
@@ -258,5 +261,10 @@ public partial class _Default : System.Web.UI.Page
     protected void TextBox1_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Student_Menu.aspx");
     }
 }
