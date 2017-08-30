@@ -61,12 +61,22 @@
                         &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" CommandName="Delete" Text="删除"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="课件">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:Label ID="Label4" runat="server"></asp:Label>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("FileName") %>'></asp:Label>
+                        <asp:FileUpload ID="FileUpload1" runat="server" Width="80px" EnableTheming="True" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="上传" />
+                        <asp:Button ID="Button2" runat="server" Text="删除" OnClick="Button2_Click" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
     </form>
 </body>
 </html>
