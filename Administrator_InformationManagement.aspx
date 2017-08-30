@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Administrator_CourseManagement.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Administrator_InformationManagement.aspx.cs" Inherits="Administrator_InformationManagement" %>
 
 <!DOCTYPE html>
 
@@ -8,13 +8,8 @@
     <title></title>
     <link href="web_style/Administrator_CourseManagement.css" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        .auto-style1 {
-            margin-left: 0px;
-        }
-    </style>
+    </head>
 
-</head>
 <body>
     <form id="form1" runat="server" defaultbutton ="Button9">
         <div  id="top">
@@ -27,8 +22,8 @@
         <div id="globllink">
             <ul>
                 <li class="li_1"><a><asp:Button ID="Button2" runat="server" Width="100px" Text="操作管理" OnClick="Button2_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
-                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="新管理员注册" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
-                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="用户信息管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
+                <li class="li_1"><a><asp:Button ID="Button3" runat="server" Width="100px" Text="新管理员注册" OnClick="Button3_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" style="height: 17px"/></a></li>
+                <li class="li_1"><a><asp:Button ID="Button4" runat="server" Width="100px" Text="用户信息管理" OnClick="Button4_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White" style="height: 17px"/></a></li>
                 <li class="li_1"><a><asp:Button ID="Button5" runat="server" Width="100px" Text="课程信息管理" OnClick="Button5_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
                 <li class="li_1"><a><asp:Button ID="Button7" runat="server" Width="100px" Text="成绩系统管理" OnClick="Button7_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
                 <li class="li_1"><a><asp:Button ID="Button8" runat="server" Width="100px" Text="个人信息修改" OnClick="Button8_Click" BackColor="Transparent" BorderColor="Transparent" BorderStyle="None" ForeColor="White"/></a></li>
@@ -43,7 +38,7 @@
         <div id="d_body">
             <div id="view">
                 <div id="d_title">
-                    <asp:Label ID="Label2" runat="server" Text="课程管理" Font-Size="X-Large"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="信息管理" Font-Size="X-Large"></asp:Label>
                     
                 </div>
                 <div id="d_menu">
@@ -70,8 +65,16 @@
                 </div>
                 <div id="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
-                        Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowManagement ="GridView1_RowManagement" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                        Style="margin-right: 0px" >
                         <Columns>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:CheckBox runat="server" ID="cbHead" Text="全选" OnCheckedChanged="GridView1_SelectAll" AutoPostBack="true" />
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
                             <asp:TemplateField HeaderText="课程名">
                                 <EditItemTemplate>
@@ -125,10 +128,32 @@
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("Cintroduction") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:CommandField CancelText="取消" DeleteText="删除" EditText="修改" ShowDeleteButton="True" ShowEditButton="True" />
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
+                    <br />
+                    <asp:Label ID="Label13" runat="server" Visible="False"></asp:Label>
+                    &nbsp;<asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="设置课程时间" Width="113px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button13" runat="server" OnClick="Button13_Click" Text="修改课程时间" Width="113px" />
+                    &nbsp;&nbsp;
+                    <br />
+                    <br />
+                    <asp:Label ID="Label9" runat="server" Text="选课开始："></asp:Label>
+                    <asp:TextBox ID="TextBox8" runat="server" Width="97px"></asp:TextBox>
+&nbsp;&nbsp;
+                    <asp:Label ID="Label10" runat="server" Text="选课结束："></asp:Label>
+                    <asp:TextBox ID="TextBox9" runat="server" Width="97px"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="Label11" runat="server" Text="退选开始："></asp:Label>
+                    <asp:TextBox ID="TextBox10" runat="server" Width="97px"></asp:TextBox>
+&nbsp;&nbsp;
+                    <asp:Label ID="Label12" runat="server" Text="退选结束："></asp:Label>
+                    <asp:TextBox ID="TextBox11" runat="server" Width="97px"></asp:TextBox>
+                    <br />
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="确认" Width="63px" />
                 </div>
                 <div id="main_interface">
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" />
@@ -138,3 +163,4 @@
     </form>
 </body>
 </html>
+

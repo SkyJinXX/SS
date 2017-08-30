@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-
-public partial class Default2 : System.Web.UI.Page
+public partial class Administrator_InformationManagement : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
 
@@ -84,7 +87,6 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
@@ -98,10 +100,23 @@ public partial class Default2 : System.Web.UI.Page
         {
             Label1.Text = (String)Session["name"];
         }
+
         if (!IsPostBack)
         {
             GridViewFlush();
+            Label9.Visible = false;
+            Label10.Visible = false;
+            Label11.Visible = false;
+            Label12.Visible = false;
+
+            TextBox8.Visible = false;
+            TextBox9.Visible = false;
+            TextBox10.Visible = false;
+            TextBox11.Visible = false;
+
+            Button11.Visible = false;
         }
+
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
@@ -125,69 +140,25 @@ public partial class Default2 : System.Web.UI.Page
         }
         objConnection.Close();
     }
+    
 
-    protected void GridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    protected void GridView1_SelectAll(object sender, EventArgs e)
     {
-
-    }
-
-    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        int row = e.RowIndex;
-        String str1 = GridView1.Rows[row].Cells[0].Text;
-        objConnection.Open();
-        String SqlStr = "Delete S_C_Transcript where Cid = '" + str1 + "'";
-        SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-        cmd.CommandText = SqlStr;
-        cmd.ExecuteScalar();
-        SqlStr = "Delete T_C where Cid = '" + str1 + "'";
-        cmd = new SqlCommand(SqlStr, objConnection);
-        cmd.CommandText = SqlStr;
-        cmd.ExecuteScalar();
-        SqlStr = "Delete Course where Cid = '" + str1 + "'";
-        cmd = new SqlCommand(SqlStr, objConnection);
-        cmd.CommandText = SqlStr;
-        cmd.ExecuteScalar();
-        Response.Write("<script>alert('删除成功')</script>");
-        objConnection.Close();
-        //删除成功之后实时刷新
-        GridViewFlush();
-    }
-
-    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        GridView1.EditIndex = e.NewEditIndex;
-        //删除成功之后实时刷新
-        GridViewFlush();
-    }
-
-    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    {
-        //更新Course表
-        String Cid = GridView1.Rows[e.RowIndex].Cells[0].Text;
-        String Cname = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[1].Controls[1])).Text;
-        String Ccridit = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[1])).Text;
-        String Cpersonnumber = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[1])).Text;
-        String Ccategory = ((DropDownList)(GridView1.Rows[e.RowIndex].Cells[4].Controls[1])).SelectedValue;
-        String Cintroduction = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[5].Controls[1])).Text;
-        String updateSql = "update Course set Cname = '" + Cname + "', Ccredit = '" + Ccridit +
-            "', Cpersonnumber = '" + Cpersonnumber + "', Ccategory = '" + Ccategory + "', Cintroduction = '"
-            + Cintroduction + "' where Cid = '" + Cid + "'";
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        SqlCommand cmd = new SqlCommand(updateSql, objConnection);
-        objConnection.Open();
-        cmd.ExecuteNonQuery();
-        objConnection.Close();
-        GridView1.EditIndex = -1;
-        //删除成功之后实时刷新
-        GridViewFlush();
-    }
-
-    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-    {
-        GridView1.EditIndex = -1;
-        //删除成功之后实时刷新
-        GridViewFlush();
+        int i;
+        if (((CheckBox)sender).Checked)
+        {
+            for (i = 0; i < GridView1.Rows.Count; i++)
+            {
+                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = true;
+            }
+        }
+        else
+        {
+            for (i = 0; i < GridView1.Rows.Count; i++)
+            {
+                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = false;
+            }
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -240,7 +211,7 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Open();
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
         cmd.CommandText = SelectSql;
-            
+
         if ((String)cmd.ExecuteScalar() == null)
         {
             Response.Write("<script>alert('查无此课程')</script>");
@@ -262,4 +233,49 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Administrator_announcement.aspx");
     }
 
+
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button12_Click(object sender, EventArgs e)
+    {
+        Label9.Visible = true;
+        Label10.Visible = true;
+        Label11.Visible = true;
+        Label12.Visible = true;
+
+        TextBox8.Visible = true;
+        TextBox9.Visible = true;
+        TextBox10.Visible = true;
+        TextBox11.Visible = true;
+
+        Button11.Visible = true;
+        Button12.Visible = false;
+        Button13.Visible = false;
+
+        Label13.Text = "1";
+    }
+
+    protected void Button13_Click(object sender, EventArgs e)
+    {
+        Label9.Visible = true;
+        Label10.Visible = true;
+        Label11.Visible = true;
+        Label12.Visible = true;
+
+        TextBox8.Visible = true;
+        TextBox9.Visible = true;
+        TextBox10.Visible = true;
+        TextBox11.Visible = true;
+
+        Button11.Visible = true;
+        Button12.Visible = false;
+        Button13.Visible = false;
+
+        Label13.Text = "2";
+
+    }
 }
