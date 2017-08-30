@@ -16,15 +16,26 @@
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px" ImageUrl="~/image/1.jpg" />
             </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label1" runat="server" Text="第一章"></asp:Label>
-&nbsp;&nbsp;
-            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="开始学习" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="第二章"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <br />
 &nbsp;&nbsp;
-            <asp:Button ID="Button8" runat="server" OnClick="Button8_Click" Text="开始学习" />
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="ChapterName" HeaderText="章名" />
+                    <asp:BoundField DataField="SChapter" HeaderText="起始章" />
+                    <asp:BoundField DataField="EChapter" HeaderText="结束章" />
+                    <asp:BoundField DataField="SectionName" HeaderText="节名" />
+                    <asp:BoundField DataField="SSection" HeaderText="起始节" />
+                    <asp:BoundField DataField="ESection" HeaderText="结束节" />
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="学习"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
         <div id="d_body">
             <div id="menu">
@@ -62,6 +73,7 @@
                 </table>
             </div>
         </div>
+      
     </form>
 </body>
 </html>
