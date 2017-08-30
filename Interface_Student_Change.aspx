@@ -11,28 +11,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="top">
-            <p id="top_p_r">
-                <asp:Label ID="Label1" runat="server" Text="用户名:" ForeColor="#FF9900"></asp:Label>
-                <asp:Label ID="Label2" runat="server" ForeColor="#FF9900"></asp:Label>
-                <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
-            </p>
+        <div id="top_menu">
+            <div id="user_box">
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+                <asp:Button ID="Button1" runat="server" Text="注销" OnClick="Button1_Click" />
+            </div>
         </div>
-        <div id="globllink">
-            <ul>
-                <li class="li_1"><a href="Interface_Student_Announcement.aspx">公告</a></li>
-                <li class="li_1"><a href="Interface_Student.aspx">选课</a></li>
-                <li class="li_1"><a href="Interface_Student_Select.aspx">查询成绩</a></li>
-                <li class="li_1"><a href="Interface_Student_Change.aspx">信息修改</a></li>
-                <!---填充导航菜单栏>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <--->
-            </ul>
+        <div id="c_background">
+            <canvas id="c"></canvas>
+            <script src="JavaScript/geometry.js" type="text/javascript"></script>
         </div>
+
         <div id="d_body" >
             <div id="d_message">
                 <p class="p2_1"></p>
@@ -48,6 +37,7 @@
                     </tr>
                 </table>
                 <table id="T_1">
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -58,6 +48,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -68,6 +59,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -78,6 +70,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -88,6 +81,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -98,6 +92,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -108,6 +103,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -118,6 +114,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -131,6 +128,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -141,6 +139,7 @@
                         </th>
                         <th style="width: 100px;"></th>
                     </tr>
+                    <tr style="height: 10px"></tr>
                     <tr>
                         <th style="width: 100px;"></th>
                         <th style="width: 100px;">
@@ -153,18 +152,19 @@
                     </tr>
                 </table>
                 <table id="T_2">
+                    <tr style="height: 10px"></tr>
                     <tr>
-                        <th style="width: 100px;">&nbsp;
+                        <th style="width: 100px;">
                         </th>
-                        <th style="width: 100px;">&nbsp;
+                        <th style="width: 100px;">
                         </th>
                         <th>
-                            <asp:Button ID="Button4" runat="server" Text="保存" OnClick="Button4_Click" Width="50px" Height="25px" Font-Size="Small" /></th>
+                            <asp:Button ID="Button4" CssClass="button" runat="server" Text="保存" OnClick="Button4_Click" Width="50px" Height="25px" Font-Size="Small" /></th>
                         <th>
-                            <asp:Button ID="Button5" runat="server" Text="返回" OnClick="Button5_Click" Width="50px" Height="25px" Font-Size="Small" /></th>
-                        <th style="width: 100px;">&nbsp;
+                            <asp:Button ID="Button5" CssClass="button" runat="server" Text="返回" OnClick="Button5_Click" Width="50px" Height="25px" Font-Size="Small" /></th>
+                        <th style="width: 100px;">
                         </th>
-                        <th style="width: 100px;">&nbsp;
+                        <th style="width: 100px;">
                         </th>
                     </tr>
                 </table>
