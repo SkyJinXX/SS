@@ -147,7 +147,7 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
         {
             //将文件上传服务器
             string FileName = fu.FileName;
-            string URL = Server.MapPath("~/") + FileName;
+            string URL = Server.MapPath("~/Video/") + FileName;
             fu.SaveAs(URL);
 
             //将URL更新入数据库
@@ -215,7 +215,7 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
         {
             //将文件上传服务器
             string TFileName = fu.FileName;
-            string TURL = Server.MapPath("~/") + TFileName;
+            string TURL = Server.MapPath("~/test/") + TFileName;
             fu.SaveAs(TURL);
 
             //将URL更新入数据库

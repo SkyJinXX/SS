@@ -21,7 +21,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             <br />
 &nbsp;&nbsp;
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="ChapterName" HeaderText="章名" />
                     <asp:BoundField DataField="SChapter" HeaderText="起始章" />
