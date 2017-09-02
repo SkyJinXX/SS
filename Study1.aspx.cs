@@ -73,4 +73,9 @@ public partial class Study1 : System.Web.UI.Page
     {
         Response.Redirect("Mp4play.aspx");
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
