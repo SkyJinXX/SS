@@ -62,6 +62,8 @@
                     </asp:DropDownList>
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="查询" Width="55px" />
                     <br />
+                    <asp:Label ID="Label15" runat="server">（提示：请先选择课程在进行操作）</asp:Label>
+                    <br />
                 </div>
                 <div id="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
@@ -135,21 +137,21 @@
                     <asp:Label ID="Label13" runat="server" Visible="False"></asp:Label>
                     &nbsp;<asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="设置课程时间" Width="113px" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button13" runat="server" OnClick="Button13_Click" Text="修改课程时间" Width="113px" />
-                    &nbsp;&nbsp;
+                    &nbsp;<asp:Label ID="Label14" runat="server">（提示：如果修改课程请单独个别修改）</asp:Label>
                     <br />
                     <br />
                     <asp:Label ID="Label9" runat="server" Text="选课开始："></asp:Label>
-                    <asp:TextBox ID="TextBox8" runat="server" Width="97px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox8" runat="server" Width="150px"></asp:TextBox>
 &nbsp;&nbsp;
                     <asp:Label ID="Label10" runat="server" Text="选课结束："></asp:Label>
-                    <asp:TextBox ID="TextBox9" runat="server" Width="97px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox9" runat="server" Width="150px"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Label ID="Label11" runat="server" Text="退选开始："></asp:Label>
-                    <asp:TextBox ID="TextBox10" runat="server" Width="97px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox10" runat="server" Width="150px" ></asp:TextBox>
 &nbsp;&nbsp;
                     <asp:Label ID="Label12" runat="server" Text="退选结束："></asp:Label>
-                    <asp:TextBox ID="TextBox11" runat="server" Width="97px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox11" runat="server" Width="150px"></asp:TextBox>
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
