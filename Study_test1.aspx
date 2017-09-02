@@ -10,7 +10,7 @@
     <script type="text/javascript"  >
         var t;
         var hour = 1;
-        var minute =59;
+        var minute =49;
         var second = 50;
         function timeCount() {
             second++;

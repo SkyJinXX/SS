@@ -59,15 +59,15 @@ public partial class Default2 : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        for (int i = 0; i <5; i++)
+        for (int i = 0; i < 5; i++)
         {
             String ql = ((Label)DataList1.Items[i].FindControl("QidLabel")).Text;
             String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             String st = (String)cmd.ExecuteScalar();
             RadioButtonList rd = (RadioButtonList)DataList1.Items[i].FindControl("RadioButtonList1");
-           // TextBox1.Text = rd.SelectedValue;
-             //TextBox2.Text = st;
+            // TextBox1.Text = rd.SelectedValue;
+            //TextBox2.Text = st;
             if (rd.SelectedValue == st)
             {
                 count += 10;
@@ -75,10 +75,18 @@ public partial class Default2 : System.Web.UI.Page
             else
                 count += 0;
         }
-   
-        Response.Write("<script>alert('你的分数为:"+count.ToString()+"');</script>");
+
+        Response.Write("<script>alert('你的分数为:" + count.ToString() + "');</script>");
+
+        //did+1
+        String SelectSql = "";
+        SqlCommand cmd1 = new SqlCommand(SelectSql, objConnection);
+
+        cmd1.CommandText = "update S_C_Transcript set Did =Did+1  where Cid = '" + (String)Session["Cid"]+"' and Sid in(Select Sid from S_U where Uusername='"+(String)Session["username"]+"')";
+        cmd1.ExecuteScalar();
         objConnection.Close();
         //Response.Redirect("Study_test.aspx");
+
     }
 
     protected void Button2_Click(object sender, EventArgs e)
