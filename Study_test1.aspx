@@ -62,13 +62,12 @@
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </div>
             <div id="title_2">
-                <asp:Label ID="Label2" runat="server" Text="第一章" Font-Size="XX-Large"></asp:Label>
 
             </div>
         </div>
         <div id="testpaper">
             &nbsp;&nbsp;&nbsp;
-            <asp:DataList ID="DataList1" runat="server" Width="700px" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+            <asp:DataList ID="DataList1" runat="server" Width="700px" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="None">
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="White" ForeColor="#333333" />

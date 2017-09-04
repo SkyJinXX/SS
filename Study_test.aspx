@@ -8,16 +8,28 @@
     <title></title>
     <link href="web_style/Study_test.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .auto-style1 {
+            margin-bottom: 10px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="top">
+        <div id="top" class="auto-style1">
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px"  ImageUrl="~/image/1.jpg" />
             </div>
             <div id="announcement_title">
                 <asp:Label ID="Label1" runat="server" Text="第一章" Font-Size="XX-Large" ></asp:Label>
-                <asp:Button ID="Button6" runat="server" Height="40px" Width="96px" Font-Size="Medium" OnClick="Button6_Click" Text="作业测试" />
+                <asp:Button ID="Button6" runat="server" Height="40px" Width="96px" Font-Size="Medium" OnClick="Button6_Click" Text="开始测试" />
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Label2" runat="server" Text="第二章" Font-Size="XX-Large"></asp:Label>
+                <br />
+                <asp:Button ID="Button8" runat="server" Text="开始测试" Height="40px" Width="96px" Font-Size="Medium" OnClick="Button8_Click" />
             </div>
         </div>
         <div id="d_body">
