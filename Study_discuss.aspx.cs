@@ -23,7 +23,7 @@ public partial class Study_discuss : System.Web.UI.Page
             Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
         }
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String SelectSql = "select * from Umessage";
+            String SelectSql = "select * from Umessage where Cid='"+(String)Session["Cid"]+"'";
             SqlDataAdapter da1 = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds1 = new DataSet();
             da1.Fill(ds1);
@@ -31,7 +31,7 @@ public partial class Study_discuss : System.Web.UI.Page
             GridView1.DataBind();
 
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        String Sql = "select * from Ureply";
+        String Sql = "select * from Ureply where Cid='" + (String)Session["Cid"] + "'";
         SqlDataAdapter da2 = new SqlDataAdapter(Sql, objConnection);
         DataSet ds2 = new DataSet();
         da2.Fill(ds2);
@@ -74,7 +74,7 @@ public partial class Study_discuss : System.Web.UI.Page
     {
         objConnection.Open();
         if (Check.CheckLength(TextBox1.Text.Length, 30)){
-            String Sqlstr = "Insert into Umessage values('" + (string)Session["username"] + "','" + TextBox1.Text + "')";
+            String Sqlstr = "Insert into Umessage values('"+(String)Session["Cid"]+"','" + (string)Session["username"] + "','" + TextBox1.Text + "')";
             SqlCommand cmd = new SqlCommand(Sqlstr, objConnection);
             cmd.CommandText = Sqlstr;
             cmd.ExecuteScalar();
@@ -82,7 +82,7 @@ public partial class Study_discuss : System.Web.UI.Page
 
             TextBox1.Text = "";
             //objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            String SelectSql = "select * from Umessage";
+            String SelectSql = "select * from Umessage where Cid = '" + (String)Session["Cid"] + "'";
             SqlDataAdapter da1 = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds1 = new DataSet();
             da1.Fill(ds1);

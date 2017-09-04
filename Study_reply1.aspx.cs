@@ -31,7 +31,7 @@ public partial class Study_reply1 : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "Insert into Ureply Values('" + (String)Session["username"] + "','" + (String)Session["reply1"] + "','" + TextBox1.Text + "')";
+        String Sql = "Insert into Ureply Values('"+(String)Session["Cid"]+"','" + (String)Session["username"] + "','" + (String)Session["reply1"] + "','" + TextBox1.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, objConnection);
         cmd.CommandText = Sql;
         cmd.ExecuteScalar();
