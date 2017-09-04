@@ -303,4 +303,11 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
     {
         Response.Redirect("Interface_Teacher_Manage.aspx");
     }
+
+    protected void Button12_Click(object sender, EventArgs e)
+    {
+        Session["SelectedFile"] = Button12.Text;
+        string FullFileName = Session["SelectedFile"].ToString();
+        DownLoadFile(FullFileName);
+    }
 }

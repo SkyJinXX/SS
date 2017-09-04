@@ -51,6 +51,9 @@
                 </div>
                 <div id="d_message">
                     <div id="upload">
+                        <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="试题模版.txt" Width="112px" />
+                        &nbsp;<br />
+                        <br />
                         <asp:Label ID="Label2" runat="server" Text="上传试题"></asp:Label>
                         <br />
                         <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" Height="27px" />
