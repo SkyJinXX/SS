@@ -123,7 +123,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Chapter.aspx");
+        Response.Redirect("Interface_Teacher_ChapterManage.aspx");
     }
 
     protected void Button6_Click(object sender, EventArgs e)
