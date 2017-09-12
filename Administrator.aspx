@@ -8,13 +8,6 @@
     <title></title>
     <link href="web_style/Administrator.css" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        .auto-style1 {
-            width: 1003px;
-            height: 44px;
-        }
-    </style>
-
 </head>
 <body>
     <form id="form1" runat="server">

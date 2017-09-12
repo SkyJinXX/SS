@@ -18,23 +18,23 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click1(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
         objConnection.Open();
-        if (Check.CheckLength(TextBox1.Text.Length, 10) && Check.CheckLength(TextBox2.Text.Length, 16) && Check.CheckLength(TextBox3.Text.Length, 16))
+        if (Check.CheckLength(input.Text.Length, 10) && Check.CheckLength(input1.Text.Length, 16) && Check.CheckLength(input3.Text.Length, 16))
         {
             
-            String SqlStr = "Select Uusername From Users Where Uusername = '" + TextBox1.Text + "'";
+            String SqlStr = "Select Uusername From Users Where Uusername = '" + input.Text + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
             if (cmd.ExecuteScalar() != null)
                 Response.Write("<script>alert('用户名已存在')</script>");
             else
             {
-                String st1 = TextBox2.Text;
-                String st2 = TextBox3.Text;
+                String st1 = input1.Text;
+                String st2 = input3.Text;
                 int l1 = st1.Length;
                 int l2 = st2.Length;
-                if (l1 == l2&&(TextBox2.Text==TextBox3.Text))
+                if (l1 == l2&&(input1.Text== input3.Text))
                 {
                     //SqlStr = "Insert into Users values('" + TextBox1.Text + "', '" + TextBox2.Text  + "', '" + (string)Identity.SelectedValue + "')";
                     //cmd.CommandText = SqlStr;
@@ -46,8 +46,8 @@ public partial class Default2 : System.Web.UI.Page
                     }
                     else
                     {
-                        Session["username1"] = TextBox1.Text;
-                        SqlStr = "Insert into Users values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + (string)Identity.SelectedValue + "')";
+                        Session["username1"] = input.Text;
+                        SqlStr = "Insert into Users values('" + input.Text + "', '" + input1.Text + "', '" + (string)Identity.SelectedValue + "')";
                         cmd.CommandText = SqlStr;
                         cmd.ExecuteScalar();
 
@@ -111,25 +111,25 @@ public partial class Default2 : System.Web.UI.Page
     {
         if (CheckBox1.Checked == true)
         {
-            String S = TextBox2.Text;
-            String S1 = TextBox3.Text;
+            String S = input1.Text;
+            String S1 = input3.Text;
 
-            TextBox2.TextMode = TextBoxMode.SingleLine;
-            TextBox3.TextMode = TextBoxMode.SingleLine;
+            input1.TextMode = TextBoxMode.SingleLine;
+            input3.TextMode = TextBoxMode.SingleLine;
 
-            TextBox2.Text = S;
-            TextBox3.Text = S1;
+            input1.Text = S;
+            input3.Text = S1;
         }
         if(CheckBox1.Checked == false)
         {
-            String S = TextBox2.Text;
-            String S1 = TextBox3.Text;
+            String S = input1.Text;
+            String S1 = input3.Text;
 
-            TextBox2.TextMode = TextBoxMode.Password;
-            TextBox3.TextMode = TextBoxMode.Password;
+            input1.TextMode = TextBoxMode.Password;
+            input3.TextMode = TextBoxMode.Password;
 
-            TextBox2.Attributes["value"] = S;
-            TextBox3.Attributes["value"] = S1;
+            input1.Attributes["value"] = S;
+            input3.Attributes["value"] = S1;
 
         }
 
