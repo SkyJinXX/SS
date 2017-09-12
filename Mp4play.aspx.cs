@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,13 +9,22 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-
+    SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             Data_Binding();
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            String SelectSql = "";
+            SqlCommand cmd1 = new SqlCommand(SelectSql, objConnection);
+
+            cmd1.CommandText = "update S_C_Transcript set Watched =Watched+1  where Cid = '" + (String)Session["Cid"] + "' and Sid in(Select Sid from S_U where Uusername='" + (String)Session["username"] + "')";
+            cmd1.ExecuteScalar();
+            objConnection.Close();
         }
+        
     }
     private void Data_Binding()
     {
@@ -34,6 +45,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Button1_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("Study.aspx");
+        Response.Redirect("Study1.aspx");
     }
 }
