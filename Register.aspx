@@ -7,98 +7,62 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="web_style/Register.css" rel="stylesheet" type="text/css" />
+    <script src="JavaScript/jquery-2.1.1.min.js" type="text/javascript"></script>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div  id="top">
-            <p id="top_p_r">
-                <font id="font_1">Welcome to register!</font>
-            </p>
-        </div>
-        <div id="middle">
-            <div id="d_message">
-                <table id="T_1">
-                    <tr>
-                        <th style="width: 70px;">&nbsp;
-                        </th>
-                        <th style="width: 70px;">&nbsp;
-                        </th>
-                        <th>
-                            <asp:Label ID="Label11" runat="server" Text="注册用户名" Font-Size="X-Large"></asp:Label>
-                        </th>
-                        <th style="width: 50px;">&nbsp;
-                        </th>
-                        <th style="width: 50px;">&nbsp;
-                        </th>
-                    </tr>
-                </table>
-                <table id="T_2">
-                    <tr>
-                        <th>
-                            <asp:Label ID="Label4" runat="server" Text="用户名"></asp:Label>
-                        </th>
-                        <th>
-                            <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-                        </th>
-                        <th>&nbsp;
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="Label3" runat="server" Text="密码"></asp:Label>
-                        </th>
-                        <th>
-                            <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged" TextMode="Password"></asp:TextBox>
-                        </th>
-                        <th>
-                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见" />
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="Label5" runat="server" Text="确认密码"></asp:Label>
-                        </th>
-                        <th>
-                            <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged" TextMode="Password"></asp:TextBox>
-                        </th>
-                        <th>&nbsp;
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="Label1" runat="server" Text="注册身份"></asp:Label>
-                        </th>
-                        <th>
-                            <asp:RadioButtonList ID="Identity" runat="server" RepeatDirection="Horizontal"
-                                Height="20px " Width="160px" Style="margin: auto"
-                                OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
-                                <asp:ListItem Value="T">老师</asp:ListItem>
-                                <asp:ListItem Value="S">学生</asp:ListItem>
-                            </asp:RadioButtonList>
-                        </th>
-                        <th>&nbsp;
-                        </th>
-                    </tr>
-                </table>
-                <table id="T_3">
-                    <tr>
-                        <th>&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
-                        </th>
-                        <th>
-                            <asp:Button ID="Button2" runat="server" Width="60px" Height="30px" OnClick="Button2_Click" Text=" 返回 " />
-                        </th>
-                        <th>&nbsp;
-                        </th>
-                        <th>
-                            <asp:Button ID="Button1" runat="server" Width="60px" Height="30px" OnClick="Button1_Click1" Text="下一步" Style="height: 27px" />
-                        </th>
-                        <th>&nbsp;
-                        </th>
-                    </tr>
-                </table>
+        <div class="container">
+            <div id="d_header">
+                <h2>注册用户名</h2>
+            </div>
+            <div class="input-element">
+                <label for="input">________________________用户名</label>
+                <asp:TextBox ID="input" runat="server" name="input"></asp:TextBox>
+            </div>
+            <div class="input-element">
+                <label for="input1">________________________密码</label>
+                <asp:TextBox ID="input1" runat="server" name="input" type="password"></asp:TextBox>
+                
+            </div>
+            <div class="input-element bottom">
+                <label for="input3">______________________确认密码</label>
+                <asp:TextBox ID="input3" runat="server" name="input" type="password"></asp:TextBox>
+            </div>
+            <div class="input-element1">
+                <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" Text="可见密码" ForeColor="#fff" />
+            </div>
+            <div class="Select_identity">
+                <asp:RadioButtonList ID="Identity" runat="server" RepeatDirection="Horizontal"
+                    Height="32px " Width="140px" Style="color: #fff;margin: auto"
+                    OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+                    <asp:ListItem Value="T">老师</asp:ListItem>
+                    <asp:ListItem Value="S">学生</asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <div class="input-element1">
+            </div>
+            <div id="button_next">
+                <asp:Button ID="Button1" runat="server" Text="下一步" OnClick="Button1_Click" />
+            </div>
+            <div id="button_back">
+                <asp:Button ID="Button2" runat="server" Text="返回" OnClick="Button2_Click" />
             </div>
         </div>
+        
+
+        <script type="text/javascript">
+            $('.input-element input').focusin(function () {
+                $(this).parent().addClass('active');
+            });
+
+            $('.input-element input').blur(function () {
+                if (!$(this).val().length > 0) {
+                    $(this).parent().removeClass('active');
+                }
+            });
+        </script>
+
     </form>
 </body>
 </html>
