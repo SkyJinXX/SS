@@ -24,24 +24,21 @@
 
         <div id="d_search">
             <table id="T_1">
-                <tr style="height: 10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label10" runat="server" Text="课程ID："></asp:Label>
+                        <asp:Label ID="Label10" runat="server" Text="课程ID：" ForeColor="White"></asp:Label>
                         <asp:TextBox ID="TextBox2" runat="server" Width="150px" Height="12px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
-                <tr style="height: 10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label6" runat="server" Text="课程名："></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text="课程名：" ForeColor="White"></asp:Label>
                         <asp:TextBox ID="TextBox1" runat="server" Width="150px" Height="12px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
-                <tr style="height: 10px"></tr>
                 <tr>
                     <td class="td_search">
-                        <asp:Label ID="Label9" runat="server" Text="课程类别:"></asp:Label>
+                        <asp:Label ID="Label9" runat="server" Text="课程类别:" ForeColor="White"></asp:Label>
                         <asp:DropDownList ID="DropDownList1" runat="server" Width="150px" Height="20px">
                             <asp:ListItem> </asp:ListItem>
                             <asp:ListItem Value="办公效率">办公效率</asp:ListItem>
@@ -57,8 +54,7 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
-                <tr style="height: 10px"></tr>
-            </table>
+                </table>
             <table id="T_2">
                 <tr>
                     <td>
@@ -74,14 +70,14 @@
             <table class="T_t">
                 <tr>
                     <td>
-                        <asp:Label ID="Label8" runat="server" Text="已开课程" Font-Size="X-Large"></asp:Label>
+                        <asp:Label ID="Label8" runat="server" Text="已开课程" Font-Size="X-Large" ForeColor="White"></asp:Label>
                     </td>
                 </tr>
             </table>
             <table class="T_view">
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" Width="600px" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" Width="600px" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" ForeColor="White">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
@@ -107,14 +103,14 @@
             <table class="T_t">
                 <tr>
                     <td>
-                        <asp:Label ID="Label7" runat="server" Text="已选课程" Font-Size="X-Large"></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text="已选课程" Font-Size="X-Large" ForeColor="White"></asp:Label>
                     </td>
                 </tr>
             </table>
             <table class="T_view">
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView2" Width="600px" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridView2" Width="600px" runat="server" AutoGenerateColumns="False" ForeColor="White">
                             <Columns>
                                 <asp:BoundField DataField="Cid" HeaderText="课程编号" />
                                 <asp:BoundField DataField="Cname" HeaderText="课程名称" />
