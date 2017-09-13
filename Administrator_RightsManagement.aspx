@@ -8,6 +8,12 @@
     <title></title>
     <link href="web_style/Administrator_RightsManagement.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .auto-style1 {
+            height: 147px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,7 +56,7 @@
                 <div id="d_title">
                     <asp:Label ID="Label6" runat="server" Text="管理" Font-Size="X-Large"></asp:Label>
                 </div>
-                <div id="d_message">
+                <div id="d_message" class="auto-style1">
                     <asp:GridView ID="GridView1" runat="server" Width="500px" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="Aid" HeaderText="管理员编号" />
@@ -62,8 +68,6 @@
                         </Columns>
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
-                    <br />
-                    <asp:Label ID="Label7" runat="server"></asp:Label>
                 </div>
                 <div id="operating">
                     <table id="T_1">
@@ -72,23 +76,23 @@
                                 <asp:Label ID="Label2" runat="server" Enabled="False" Text="管理员工号:" Visible="False"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="TextBox1" runat="server" Width="300px" Height="20px" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server" Width="150px" Height="20px" Visible="False"></asp:TextBox>
                             </th>
                             <th>
                                 <asp:Button ID="Button11" runat="server" Text=" 搜索 " OnClick="Button11_Click" Visible="False" />
                             </th>
                         </tr>
                         <tr>
-                            <th>&nbsp</th>
-                            <th>&nbsp</th>
-                            <th>&nbsp</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
                         </tr>
                         <tr>
                             <th>
                                 <asp:Label ID="Label3" runat="server" Visible="False"></asp:Label>
                             </th>
                             <th>
-                                <asp:TextBox ID="TextBox3" runat="server" Width="300px" Height="20px" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" runat="server" Width="150px" Height="20px" Visible="False"></asp:TextBox>
                             </th>
                             <th>
                                 <asp:Button ID="Button12" runat="server" Text=" 修改 " OnClick="Button12_Click" Visible="False" />

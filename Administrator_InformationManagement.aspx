@@ -155,10 +155,11 @@
                     <br />
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="确认" Width="63px" />
+                    <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="确认" Width="92px" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" Width="91px" />
                 </div>
                 <div id="main_interface">
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" />
                 </div>
             </div>
         </div>

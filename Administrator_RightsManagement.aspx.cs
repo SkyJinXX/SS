@@ -82,14 +82,14 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Administrator_UsersManagement.aspx");
     }
 
-    protected void Button5_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Administrator_TranscriptManagement.aspx");
-    }
-
     protected void Button4_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator_CourseManagement.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_TranscriptManagement.aspx");
     }
 
     protected void Button6_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ public partial class Default2 : System.Web.UI.Page
         Button12.Visible = true;
 
         Label3.Text = "权限：";
-        TextBox3.Width = 300;
+        TextBox3.Width = 150;
         TextBox3.Height = 20;
         Button12.Text = "修改";
         TextBox1.Text = "";
@@ -138,8 +138,8 @@ public partial class Default2 : System.Web.UI.Page
         TextBox3.Visible = true;
         Button12.Visible = true;
 
-        TextBox3.Width = 300;
-        TextBox3.Height = 200;
+        TextBox3.Width = 150;
+        TextBox3.Height = 100;
         TextBox3.TextMode = TextBoxMode.MultiLine;
         Label3.Text = "留言：";
         Button12.Text = "发送";
@@ -160,7 +160,16 @@ public partial class Default2 : System.Web.UI.Page
 
         objConnection.Open();
 
-        String TB1 = TextBox1.Text;
+        String TB = TextBox1.Text;
+        String TB1 = "";
+        if(TB.Length < 3)
+        {
+            for(int i = 0; i < 3-TB.Length; i++)
+            {
+                TB1 += "0";
+            }
+        }
+        TB1 += TB;
         String SelectSql = "select Alevel from Administrator where Aid = '" + TB1 + "'";
         SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
         if (Button12.Text == "修改")
@@ -195,7 +204,6 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand sq = new SqlCommand(s, objConnection);
         sq.CommandText = s;
         String id = sq.ExecuteScalar().ToString();
-        Label7.Text = id;
 
         String a = "select Aname from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
@@ -255,17 +263,29 @@ public partial class Default2 : System.Web.UI.Page
         }
         if (Button12.Text == "发送")
         {
-            String SelectSql = "";
-            SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-            cmd.CommandText = "insert into A_A_Announcement values( '" + id + "','" + (String)cmd1.ExecuteScalar() + "','" 
-                + TextBox1.Text + "','"+ (String)cmd2.ExecuteScalar() + "','" + TextBox3.Text + "','" + "" + "')";
-            cmd.ExecuteScalar();
+            if (TextBox1.Text == "")
+            {
+                Response.Write("<script>alert('请输入留言对象在执行此操作');</script>");
+            }
+            else
+            {
+                if (TextBox3.Text == "")
+                {
+                    Response.Write("<script>alert('请输入留言内容在执行此操作');</script>");
+                }
+                else
+                {
+                    String SelectSql = "";
+                    SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+                    cmd.CommandText = "insert into A_A_Announcement values( '" + id + "','" + (String)cmd1.ExecuteScalar() + "','"
+                        + TextBox1.Text + "','" + (String)cmd2.ExecuteScalar() + "','" + TextBox3.Text + "','" + "" + "')";
+                    cmd.ExecuteScalar();
 
-            Response.Write("<script>alert('发送成功')</script>");
+                    Response.Write("<script>alert('发送成功')</script>");
+                }
+            }
         }
-
         objConnection.Close();
-
     }
 
     protected void Button13_Click(object sender, EventArgs e)
@@ -274,14 +294,3 @@ public partial class Default2 : System.Web.UI.Page
     }
 }
 
-
-/*String c = "select Alevel from A_A_Management where Aname1 = '" + (String)cmd1.ExecuteScalar()+ "'and Aname2 = '" + (String)cmd1.ExecuteScalar() + "'";
-SqlCommand cmd3 = new SqlCommand(c, objConnection);
-String d = "select Aname1 from A_A_Management where Aname1 = '" + (String)cmd1.ExecuteScalar() + "'and Aname2 = '" + (String)cmd1.ExecuteScalar() + "'";
-SqlCommand cmd4 = new SqlCommand(d, objConnection);
-if ((String)cmd.ExecuteScalar() == null)
-{
-    cmd.CommandText = "update A_A_Management set Alevel = '" + TextBox3.Text + "' where Aname1 = '" + (String)cmd1.ExecuteScalar()
-        + "'and Aname2 = '" + (String)cmd1.ExecuteScalar() + "'";
-}
-*/

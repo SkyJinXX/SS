@@ -28,77 +28,35 @@ public partial class Default2 : System.Web.UI.Page
 
     protected String GridViewFlush_Condition()
     {
-        String Sql = "";
-        if (TextBox5.Text == "")
+        String Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
+                   "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
+                   + "= Course.Cid";
+
+        if (TextBox5.Text != "")
         {
-            if (TextBox1.Text == "")
-            {
-                if (DropDownList1.SelectedValue == "")
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                        "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid";
-                }
-                else
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                          + "= Course.Cid and Ccategory = '" + DropDownList1.SelectedValue + "'";
-                }
-            }
-            else
-            {
-                if (DropDownList1.SelectedValue == "")
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                          + "= Course.Cid and Cname = '" + TextBox1.Text + "'";
-                }
-                else
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid and Cname = '" + TextBox1.Text + "'and Ccategory = '" + DropDownList1.SelectedValue
-                         + "'";
-                    
-                }
-            }
+            Sql += " and Course.Cid = '" + TextBox5.Text + "'";
         }
-        else
+
+        if (TextBox1.Text != "")
         {
-            if (TextBox1.Text == "")
-            {
-                if (DropDownList1.SelectedValue == "")
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'";
-                }
-                else
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Ccategory = '" + DropDownList1.SelectedValue
-                         + "'";
-                }
-            }
-            else
-            {
-                if (DropDownList1.SelectedValue == "")
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Cname = '" + TextBox1.Text + "'";
-                }
-                else
-                {
-                    Sql = "select Student.Sid,Sname,Pscore,Mscore,Fscore,Tscore,Course.Cid,Cname,Ccategory " +
-                         "from Student,S_C_Transcript,Course where  S_C_Transcript.Sid = Student.Sid and S_C_Transcript.Cid "
-                         + "= Course.Cid and Course.Cid = '" + TextBox5.Text + "'and Cname = '" + TextBox1.Text +
-                         "'and Ccategory = '" + DropDownList1.SelectedValue + "'";
-                }
-            }
+            Sql += " and Course.Cname = '" + TextBox1.Text + "'";
         }
+
+        if (DropDownList1.SelectedValue != "")
+        {
+            Sql += " and Course.Ccategory = '" + DropDownList1.SelectedValue + "'";
+        }
+
+        if (TextBox6.Text != "")
+        {
+            Sql += " and Student.Sid = '" + TextBox6.Text + "'";
+        }
+
+        if (TextBox7.Text != "")
+        {
+            Sql += " and Student.Sname = '" + TextBox7.Text + "'";
+        }
+        
         return Sql;
     }
 
@@ -187,7 +145,7 @@ public partial class Default2 : System.Web.UI.Page
             
         if ((String)cmd.ExecuteScalar() == null)
         {
-            Response.Write("<script>alert('查无此课程')</script>");
+            Response.Write("<script>alert('查无此记录')</script>");
         }
         else
         {

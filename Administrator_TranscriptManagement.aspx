@@ -54,7 +54,12 @@
                         <asp:ListItem Value="艺术发展">艺术发展</asp:ListItem>
                         <asp:ListItem>其他</asp:ListItem>
                     </asp:DropDownList>
-                    &nbsp<asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="课程查询" />
+                    &nbsp<br />
+                    <asp:Label ID="Label7" runat="server" Text="学生ID："></asp:Label>
+                    <asp:TextBox ID="TextBox6" runat="server" Width="100px" Height="15px"></asp:TextBox>
+                    &nbsp;<asp:Label ID="Label8" runat="server" Text="学生姓名："></asp:Label>
+                    <asp:TextBox ID="TextBox7" runat="server" Width="100px" Height="15px"></asp:TextBox>
+                    &nbsp; <asp:Button ID="Button8" runat="server" OnClick="Button8_Click1" Text="查询" Width="78px" />
                 </div>
                 <div id="d_title">
                     <asp:Label ID="Label3" runat="server" Text="课程名单" Font-Size="X-Large"></asp:Label>
