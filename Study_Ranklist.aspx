@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_reply.aspx.cs" Inherits="Study_reply" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Study_Ranklist.aspx.cs" Inherits="Study_Ranklist" %>
 
 <!DOCTYPE html>
 
@@ -15,25 +15,21 @@
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px" ImageUrl="~/image/1.jpg" />
             </div>
-        &nbsp;
-            <br />
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        &nbsp;<br />
             <br />
             <br />
             <br />
             <br />
             <br />
             <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server" Height="167px" Width="440px"></asp:TextBox>
             <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button7" runat="server" Text="回复" OnClick="Button7_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="709px">
+                <Columns>
+                    <asp:BoundField DataField="Sid" HeaderText="学号" />
+                    <asp:BoundField DataField="Progress" HeaderText="学习进度" />
+                </Columns>
+            </asp:GridView>
         </div>
         <div id="d_body">
             <div id="menu">
@@ -65,7 +61,7 @@
                     </tr>
                     <tr>
                         <th>
-                            <asp:Button ID="Button8" runat="server" Height="50px" Width="100px" Text="进度排行" OnClick="Button8_Click"  />
+                            <asp:Button ID="Button7" runat="server" Height="50px" Width="100px" Text="进度排行"  />
                         </th>
                     </tr>
                     <tr>
