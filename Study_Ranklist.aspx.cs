@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Study_reply1 : System.Web.UI.Page
+public partial class Study_Ranklist : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
@@ -21,24 +22,15 @@ public partial class Study_reply1 : System.Web.UI.Page
         {
             Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
         }
-        else
-        {
-            Label1.Text = (String)Session["username"];
-        }
-    }
-
-    protected void Button7_Click(object sender, EventArgs e)
-    {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "Insert into Ureply Values('"+(String)Session["Cid"]+"','" + (String)Session["username"] + "','" + (String)Session["reply1"] + "','" + TextBox1.Text + "')";
-        SqlCommand cmd = new SqlCommand(Sql, objConnection);
-        cmd.CommandText = Sql;
-        cmd.ExecuteScalar();
-        Response.Write("<script>alert('发言成功')</script>");
+        String Sql = "select Sid,Progress from S_C_Transcript where Cid='"+(String)Session["Cid"]+ "'  order by Progress desc";
+        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
         objConnection.Close();
-        TextBox1.Text = "";
-        Response.Redirect("Study_discuss.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -69,10 +61,5 @@ public partial class Study_reply1 : System.Web.UI.Page
     protected void Button6_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Student.aspx");
-    }
-
-    protected void Button8_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Study_Ranklist.aspx");
     }
 }

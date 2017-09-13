@@ -46,4 +46,9 @@ public partial class Study_notice : System.Web.UI.Page
     {
         Response.Redirect("Study_discuss.aspx");
     }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_Ranklist.aspx");
+    }
 }

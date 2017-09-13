@@ -78,4 +78,9 @@ public partial class Study1 : System.Web.UI.Page
     {
 
     }
+
+    protected void Button7_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_Ranklist.aspx");
+    }
 }

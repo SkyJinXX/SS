@@ -67,6 +67,11 @@
                     </tr>
                     <tr>
                         <th>
+                            <asp:Button ID="Button7" runat="server" Height="50px" Width="100px" Text="进度排行" OnClick="Button7_Click1"  />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
                             <asp:Button ID="Button6" runat="server" Height="50px" Width="100px" Text="返回选课" OnClick="Button6_Click" />
                         </th>
                     </tr>

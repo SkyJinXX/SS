@@ -119,4 +119,9 @@ public partial class Study_discuss : System.Web.UI.Page
         Session["reply1"] = GridView2.Rows[row1].Cells[0].Text;
         Response.Redirect("Study_reply1.aspx");
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Study_Ranklist.aspx");
+    }
 }
