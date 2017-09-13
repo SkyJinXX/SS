@@ -35,13 +35,12 @@
                 <--->
             </ul>
         </div>
-        <div id="d_body">
-            <div id="view">
-                <div id="d_title">
+        <div class="d_body">
+            <div class="view">
+                <div class="d_title">
                     <asp:Label ID="Label2" runat="server" Text="信息管理" Font-Size="X-Large"></asp:Label>
-                    
                 </div>
-                <div id="d_menu">
+                <div class="d_menu">
                     <asp:Label ID="Label6" runat="server" Text="课程ID："></asp:Label>
                     <asp:TextBox ID="TextBox6" runat="server" Width="100px"></asp:TextBox>
                     <asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
@@ -65,13 +64,13 @@
                     <asp:Label ID="Label15" runat="server">（提示：请先选择课程在进行操作）</asp:Label>
                     <br />
                 </div>
-                <div id="d_message">
-                    <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
+                <div class="d_message">
+                    <asp:GridView ID="GridView2" runat="server" Width="700px" AutoGenerateColumns="False"
                         Style="margin-right: 0px" >
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
-                                    <asp:CheckBox runat="server" ID="cbHead" Text="全选" OnCheckedChanged="GridView1_SelectAll" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="cbHead" Text="全选" OnCheckedChanged="GridView2_SelectAll" AutoPostBack="true" />
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -159,7 +158,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" Width="91px" />
                 </div>
-                <div id="main_interface">
+                <div class="main_interface">
                 </div>
             </div>
         </div>

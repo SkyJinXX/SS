@@ -26,6 +26,9 @@ public partial class Register_Administrator3 : System.Web.UI.Page
         {
             Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
         }
+        else {
+            Label3.Text = (String)Session["name"];
+        }
 
         String st = "";
         SqlCommand cmd3 = new SqlCommand(st, objConnection);
@@ -157,5 +160,12 @@ public partial class Register_Administrator3 : System.Web.UI.Page
 
         }
 
+    }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
     }
 }

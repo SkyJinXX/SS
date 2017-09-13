@@ -20,8 +20,8 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
         SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
+        GridView2.DataSource = ds;
+        GridView2.DataBind();
         objConnection.Close();
     }
 
@@ -142,21 +142,21 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
     }
     
 
-    protected void GridView1_SelectAll(object sender, EventArgs e)
+    protected void GridView2_SelectAll(object sender, EventArgs e)
     {
         int i;
         if (((CheckBox)sender).Checked)
         {
-            for (i = 0; i < GridView1.Rows.Count; i++)
+            for (i = 0; i < GridView2.Rows.Count; i++)
             {
-                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = true;
+                ((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked = true;
             }
         }
         else
         {
-            for (i = 0; i < GridView1.Rows.Count; i++)
+            for (i = 0; i < GridView2.Rows.Count; i++)
             {
-                ((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked = false;
+                ((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked = false;
             }
         }
     }
@@ -221,8 +221,8 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
             SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            GridView2.DataSource = ds;
+            GridView2.DataBind();
         }
         objConnection.Close();
     }
@@ -243,19 +243,19 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(s, objConnection);
         if (Label13.Text == "1")
         {
-            for (i = 0; i < GridView1.Rows.Count; i++)
+            for (i = 0; i < GridView2.Rows.Count; i++)
             {
-                if (((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
+                if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
                 {
-                    cmd.CommandText = "Select Cid from C_Time where Cid = '" + GridView1.Rows[i].Cells[1].Text + "'";
+                    cmd.CommandText = "Select Cid from C_Time where Cid = '" + GridView2.Rows[i].Cells[1].Text + "'";
                     if (cmd.ExecuteScalar() != null)
                     {
-                        String a = GridView1.Rows[i].Cells[1].Text;
+                        String a = GridView2.Rows[i].Cells[1].Text;
                         Response.Write("<script>alert('课程号为 " + a + " 的课程已经设置过，若要操作请进行修改')</script>");
                     }
                     else
                     {
-                        s = "insert into C_Time values('" + GridView1.Rows[i].Cells[1].Text + "' , Convert(datetime,'" +
+                        s = "insert into C_Time values('" + GridView2.Rows[i].Cells[1].Text + "' , Convert(datetime,'" +
                             TextBox8.Text + "') ,Convert(datetime,'" + TextBox9.Text + "') , Convert(datetime,'"
                             + TextBox10.Text + "') ,Convert(datetime,'" + TextBox11.Text + "'))";
                         cmd.CommandText = s;
@@ -269,25 +269,25 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
 
         if (Label13.Text == "2")
         {
-            for (i = 0; i < GridView1.Rows.Count; i++)
+            for (i = 0; i < GridView2.Rows.Count; i++)
             {
-                if (((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
+                if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
                 {
                     
                     cmd.CommandText = "update C_Time Set CourseIn_Time_Begin =  Convert(datetime,'" +
-                        TextBox8.Text + "') where Cid = '" + GridView1.Rows[i].Cells[1].Text + "'";
+                        TextBox8.Text + "') where Cid = '" + GridView2.Rows[i].Cells[1].Text + "'";
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "update C_Time Set CourseIn_Time_End =  Convert(datetime,'" +
-                        TextBox9.Text + "') where Cid = '" + GridView1.Rows[i].Cells[1].Text + "'";
+                        TextBox9.Text + "') where Cid = '" + GridView2.Rows[i].Cells[1].Text + "'";
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "update C_Time Set CourseOut_Time_Begin =  Convert(datetime,'" +
-                        TextBox10.Text + "') where Cid = '" + GridView1.Rows[i].Cells[1].Text + "'";
+                        TextBox10.Text + "') where Cid = '" + GridView2.Rows[i].Cells[1].Text + "'";
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = "update C_Time Set CourseOut_Time_End =  Convert(datetime,'" +
-                        TextBox11.Text + "') where Cid = '" + GridView1.Rows[i].Cells[1].Text + "'";
+                        TextBox11.Text + "') where Cid = '" + GridView2.Rows[i].Cells[1].Text + "'";
                     cmd.ExecuteNonQuery();
 
                 }
@@ -344,12 +344,12 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
         objConnection.Open();
         String s = "";
         SqlCommand cmd = new SqlCommand(s, objConnection);
-        for (i = 0; i < GridView1.Rows.Count; i++)
+        for (i = 0; i < GridView2.Rows.Count; i++)
         {
-            if (((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
+            if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
             {
                 DateTime a;
-                cmd.CommandText = "select CourseIn_Time_Begin from C_Time where Cid = '" + GridView1.Rows[i].Cells[1].Text
+                cmd.CommandText = "select CourseIn_Time_Begin from C_Time where Cid = '" + GridView2.Rows[i].Cells[1].Text
                      + "'";
                 if (cmd.ExecuteScalar() == null)
                 {
@@ -361,7 +361,7 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
                     TextBox8.Text = a.ToString("yyyy-MM-dd hh:mm:ss");
                 }
 
-                cmd.CommandText = "select CourseIn_Time_End from C_Time where Cid = '" + GridView1.Rows[i].Cells[1].Text
+                cmd.CommandText = "select CourseIn_Time_End from C_Time where Cid = '" + GridView2.Rows[i].Cells[1].Text
                      + "'";
                 if (cmd.ExecuteScalar() == null)
                 {
@@ -372,7 +372,7 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
                     a = Convert.ToDateTime(cmd.ExecuteScalar().ToString());
                     TextBox9.Text = a.ToString("yyyy-MM-dd hh:mm:ss");
                 }
-                cmd.CommandText = "select CourseOut_Time_Begin from C_Time where Cid = '" + GridView1.Rows[i].Cells[1].Text
+                cmd.CommandText = "select CourseOut_Time_Begin from C_Time where Cid = '" + GridView2.Rows[i].Cells[1].Text
                                      + "'";
                 if (cmd.ExecuteScalar() == null)
                 {
@@ -383,7 +383,7 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
                     a = Convert.ToDateTime(cmd.ExecuteScalar().ToString());
                     TextBox10.Text = a.ToString("yyyy-MM-dd hh:mm:ss");
                 }
-                cmd.CommandText = "select CourseOut_Time_End from C_Time where Cid = '" + GridView1.Rows[i].Cells[1].Text
+                cmd.CommandText = "select CourseOut_Time_End from C_Time where Cid = '" + GridView2.Rows[i].Cells[1].Text
                                      + "'";
                 if (cmd.ExecuteScalar() == null)
                 {

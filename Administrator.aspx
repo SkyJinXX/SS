@@ -144,7 +144,7 @@
                 </div>
                 <div class="menu4">
                     <a href="#" class="animBtn themeD">
-                        <asp:Button ID="Button4" runat="server" CssClass="button" Text="课程信息管理" OnClick="Button4_Click" /></a>
+                        <asp:Button ID="Button4" runat="server" CssClass="button" Text="课程管理" OnClick="Button4_Click" /></a>
                 </div>
                 <div class="menu1">
                     <a href="#" class="animBtn themeA">
@@ -152,11 +152,15 @@
                 </div>
                 <div class="menu2">
                     <a href="#" class="animBtn themeB">
-                        <asp:Button ID="Button7" runat="server" CssClass="button" Text="个人信息修改" OnClick="Button7_Click" /></a>
+                        <asp:Button ID="Button9" runat="server" CssClass="button" Text="信息管理" OnClick="Button9_Click" /></a>
                 </div>
                 <div class="menu3">
                     <a href="#" class="animBtn themeC">
                         <asp:Button ID="Button8" runat="server" CssClass="button" Text="公告发布" OnClick="Button8_Click" /></a>
+                </div>
+                <div class="menu4">
+                    <a href="#" class="animBtn themeD">
+                        <asp:Button ID="Button7" runat="server" CssClass="button" Text="个人信息修改" OnClick="Button7_Click" /></a>
                 </div>
             </div>
         </div>

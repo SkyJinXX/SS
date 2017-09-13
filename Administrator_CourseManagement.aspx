@@ -40,13 +40,14 @@
                 <--->
             </ul>
         </div>
-        <div id="d_body">
-            <div id="view">
-                <div id="d_title">
+
+        <div class="d_body">
+            <div class="view">
+                <div class="d_title">
                     <asp:Label ID="Label2" runat="server" Text="课程管理" Font-Size="X-Large"></asp:Label>
                     
                 </div>
-                <div id="d_menu">
+                <div class="d_menu">
                     <asp:Label ID="Label6" runat="server" Text="课程ID："></asp:Label>
                     <asp:TextBox ID="TextBox6" runat="server" Width="100px"></asp:TextBox>
                     <asp:Label ID="Label7" runat="server" Text="课程名："></asp:Label>
@@ -68,7 +69,7 @@
                     <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="查询" Width="55px" />
                     <br />
                 </div>
-                <div id="d_message">
+                <div class="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="700px" AutoGenerateColumns="False"
                         Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowManagement ="GridView1_RowManagement" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                         <Columns>
@@ -130,7 +131,7 @@
                         <RowStyle HorizontalAlign="Center" />
                     </asp:GridView>
                 </div>
-                <div id="main_interface">
+                <div class="main_interface">
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" />
                 </div>
             </div>

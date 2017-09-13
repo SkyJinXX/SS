@@ -112,4 +112,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Administrator_announcement.aspx");
     }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Administrator_InformationManagement.aspx");
+    }
 }

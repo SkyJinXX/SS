@@ -42,10 +42,11 @@ public partial class Default2 : System.Web.UI.Page
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
-
+        /*
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         int b = Convert.ToInt32(cmd1.ExecuteScalar());
+        
         if (b < 2)
         {
             Button2.Enabled = false;
@@ -62,7 +63,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             Button5.Enabled = false;
         }
-
+        */
         objConnection.Close();
 
     }
@@ -91,19 +92,14 @@ public partial class Default2 : System.Web.UI.Page
     {
         Response.Redirect("Administrator_TranscriptManagement.aspx");
     }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Administrator_announcement.aspx");
-    }
-
+    
     protected void Button7_Click(object sender, EventArgs e)
     {
         Response.Redirect("Administrator_individual.aspx");
     }
 
 
-    protected void Button8_Click(object sender, EventArgs e)
+    protected void Button6_Click(object sender, EventArgs e)
     {
         Session["username"] = null;
         Session["identity"] = null;
@@ -120,7 +116,7 @@ public partial class Default2 : System.Web.UI.Page
         Button12.Visible = true;
 
         Label3.Text = "权限：";
-        TextBox3.Width = 150;
+        TextBox3.Width = 200;
         TextBox3.Height = 20;
         Button12.Text = "修改";
         TextBox1.Text = "";
@@ -138,7 +134,7 @@ public partial class Default2 : System.Web.UI.Page
         TextBox3.Visible = true;
         Button12.Visible = true;
 
-        TextBox3.Width = 150;
+        TextBox3.Width = 240;
         TextBox3.Height = 100;
         TextBox3.TextMode = TextBoxMode.MultiLine;
         Label3.Text = "留言：";
