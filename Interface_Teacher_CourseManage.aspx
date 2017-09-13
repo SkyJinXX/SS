@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
     <div id="top">
-            <p id="top_p_r">
+            x<p id="top_p_r">
                 <font id="font_1">Welcome back!</font>
                 <asp:Label ID="Label1" ForeColor="#FF9900" runat="server"></asp:Label>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " BackColor="#3399FF" BorderColor="Black" BorderStyle="Dotted" BorderWidth="1px" />
