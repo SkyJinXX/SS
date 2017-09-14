@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.IO;
+
 public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
 {
     SqlConnection objConnection = new SqlConnection();
@@ -213,19 +215,39 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
         Label lb = (Label)(GridView1.FooterRow.FindControl("Label7"));
         if (fu.HasFile)
         {
+            //準備工作
+            string Cid = (string)Session["Cid"];
+            string ChapterName = (string)Session["ChapterName"];
+            string SectionName = ((Label)(GridView1.Rows[row].FindControl("Label3"))).Text;
+            string sql = null;
+            SqlCommand cmd = new SqlCommand(sql, objConnection);
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
             //将文件上传服务器
             string TFileName = fu.FileName;
             string TURL = Server.MapPath("~/test/") + TFileName;
             fu.SaveAs(TURL);
 
+            //將txt文件轉入數據庫
+            StreamReader sr = new StreamReader(TURL);
+            string line = null;
+            while((line = sr.ReadLine()) != null)
+            {
+                string[] spilt = line.Split(new char[] { ' ' });
+                sql = string.Format("insert into ChoiceQuestion values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8} )"
+                    , Cid, ChapterName, SectionName, spilt[0], spilt[1], spilt[2], spilt[3], spilt[4], spilt[5]);
+                cmd.CommandText = sql;
+                objConnection.Open();
+                cmd.ExecuteNonQuery();
+                objConnection.Close();
+            }
+            sr.Close();
+
             //将URL更新入数据库
-            string Cid = (string)Session["Cid"];
-            string ChapterName = (string)Session["ChapterName"];
-            string SectionName = ((Label)(GridView1.Rows[row].FindControl("Label3"))).Text;
-            string sql = string.Format("update Vedio set TURL = '{0}', TFileName = '{4}' where Cid = '{1}' and ChapterName = '{2}' and SectionName = '{3}'",
+            sql = string.Format("update Vedio set TURL = '{0}', TFileName = '{4}' where Cid = '{1}' and ChapterName = '{2}' and SectionName = '{3}'",
                 TURL, Cid, ChapterName, SectionName, TFileName);
-            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-            SqlCommand cmd = new SqlCommand(sql, objConnection);
+            
+            cmd.CommandText = sql;
             objConnection.Open();
             cmd.ExecuteNonQuery();
             objConnection.Close();
@@ -252,7 +274,7 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
         objConnection.Open();
         string TURL = (string)cmd.ExecuteScalar();
         objConnection.Close();
-
+        Label lb = (Label)(GridView1.FooterRow.FindControl("Label7"));
         //删除文件，更新数据库
         if (System.IO.File.Exists(TURL))
         {
@@ -261,8 +283,8 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
                 System.IO.File.Delete(TURL);
             }
             catch (Exception error)
-            {
-                error.ToString();
+            {               
+                lb.Text = error.ToString();
             }
             sql = string.Format("update Vedio set TURL = '{0}', TFileName = '{1}' where Cid = '{2}' and ChapterName = '{3}' and SectionName = '{4}'"
                 , "NULL", "无文件", Cid, ChapterName, SectionName);
@@ -270,7 +292,17 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
             objConnection.Open();
             cmd.ExecuteNonQuery();
             objConnection.Close();
+            sql = string.Format("delete from ChoiceQuestion where Cid = '{0}' and ChapterName = '{1}' and SectionName = '{2}'"
+                ,Cid, ChapterName, SectionName);
+            cmd.CommandText = sql;
+            objConnection.Open();
+            cmd.ExecuteNonQuery();
+            objConnection.Close();
             FlushSection();
+        }
+        else
+        {
+            lb.Text = "查無此人";
         }
     }
 }
