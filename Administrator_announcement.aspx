@@ -144,7 +144,7 @@
             </div>
             <div id="d_body_1">
                 <div id="T_A">
-                    <asp:GridView ID="GridView1" runat="server" Width="400px" AutoGenerateColumns="False" Visible="False" ForeColor="White">
+                    <asp:GridView ID="GridView1" runat="server" Width="400px" AutoGenerateColumns="False" ForeColor="White">
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
@@ -162,7 +162,7 @@
                     </asp:GridView>
                 </div>
                 <div id="T_T">
-                    <asp:GridView ID="GridView2" runat="server" Width="600px" Visible="False" AutoGenerateColumns="False" ForeColor="White">
+                    <asp:GridView ID="GridView2" runat="server" Width="600px" AutoGenerateColumns="False" ForeColor="White">
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
@@ -185,7 +185,7 @@
                     </asp:GridView>
                 </div>
                 <div id="T_S">
-                    <asp:GridView ID="GridView3" runat="server" Width="700px" Visible="False" AutoGenerateColumns="False" ForeColor="White">
+                    <asp:GridView ID="GridView3" runat="server" Width="700px" AutoGenerateColumns="False" ForeColor="White">
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>

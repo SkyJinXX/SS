@@ -42,28 +42,6 @@ public partial class Default2 : System.Web.UI.Page
         da.Fill(ds);
         GridView1.DataSource = ds;
         GridView1.DataBind();
-        /*
-        String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
-        SqlCommand cmd1 = new SqlCommand(a, objConnection);
-        int b = Convert.ToInt32(cmd1.ExecuteScalar());
-        
-        if (b < 2)
-        {
-            Button2.Enabled = false;
-        }
-        if (b < 3)
-        {
-            Button3.Enabled = false;
-        }
-        if (b < 4)
-        {
-            Button4.Enabled = false;
-        }
-        if (b < 5)
-        {
-            Button5.Enabled = false;
-        }
-        */
         objConnection.Close();
 
     }
