@@ -56,7 +56,7 @@
             </div>
             <div id="d_message">
                 <div id="announcement">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="120px" Width="500px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Height="120px" Width="500px" TextMode="MultiLine"></asp:TextBox>
                     <table>
                         <tr>
                             <th style="width:100px">
@@ -77,9 +77,10 @@
                 <asp:Label ID="Label2" runat="server" Text="已发公告"></asp:Label>
                 <br />
                 <br />
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" >
                     <Columns>
                         <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
+                        <asp:BoundField DataField="Cname" HeaderText="课程名" />
                         <asp:TemplateField HeaderText="公告">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Crelease") %>'></asp:TextBox>
