@@ -15,7 +15,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["Cid"]+"'";
+        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["id"]+"'";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -59,10 +59,17 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "Insert into Trelease Values('" + (String)Session["Cid"] + "','" + TextBox1.Text + "')";
+
+        String s = "Select Cname from Course where Cid = '" + (String)Session["id"] + "'";
+        SqlCommand c = new SqlCommand(s, objConnection);
+        c.CommandText = s;
+        String a= (String) c.ExecuteScalar();
+
+        String Sql = "Insert into Trelease Values('" + (String)Session["id"] + "','" + (String)a + "','" + TextBox1.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, objConnection);
         cmd.CommandText = Sql;
         cmd.ExecuteScalar();
+
         Response.Write("<script>alert('发布公告成功')</script>");
         objConnection.Close();
         TextBox1.Text = "";
