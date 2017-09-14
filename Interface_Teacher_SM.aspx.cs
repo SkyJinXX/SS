@@ -146,9 +146,4 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Interface_Teacher_Manage.aspx");
     }
 
-    protected void Button10_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Interface_Teacher_Setdate.aspx");
-    }
-
 }
