@@ -91,17 +91,7 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
     }
 
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-    }
 
-    protected void LinkButton1_Click(object sender, EventArgs e)
-    {
-        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
-        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
-        Response.Redirect("Interface_Teacher_SM.aspx");
-    }
-    
     protected void Button1_Click(object sender, EventArgs e)
     {
         Session["username"] = null;
@@ -112,7 +102,7 @@ public partial class Default2 : System.Web.UI.Page
     protected void LinkButton2_Click(object sender, EventArgs e)
     {
         int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
-        Session["Cid"] = GridView1.Rows[row].Cells[0].Text;
+        Session["id"] = GridView1.Rows[row].Cells[0].Text;
         Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
 
