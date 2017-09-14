@@ -36,7 +36,23 @@ public partial class Administrator_announcement : System.Web.UI.Page
             Button5.Visible = false;
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        Label3.Visible = true;
+        TextBox1.Visible = true;
+        Button5.Visible = true;
+        GridView1.Visible = true;
+        GridView2.Visible = false;
+        GridView3.Visible = false;
+        Label2.Text = "1";
 
+        objConnection.Open();
+        String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
+            " where Aid != (select Aid from A_U where Uusername = '" + (string)Session["username"] + "')";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+        objConnection.Close();
     }
 
     protected void Button1_Click(object sender, EventArgs e)

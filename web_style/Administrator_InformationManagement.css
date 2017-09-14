@@ -54,28 +54,67 @@ body {
     cursor:pointer;
 }
 
-#middle {
+.d_body {
     width: 1000px;
     height: auto;
+    border: 2px solid white;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     margin: auto;
     margin-top: 10px;
     margin-bottom:10px;
 }
 
-
-#d_message {
-    width: 440px;
+.view {
+    width: 800px;
     height: auto;
-    border: 1px solid white;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.d_title {
+    width: 100px;
+    height: auto;
+    margin: auto;
+    margin-bottom:10px;
+}
+
+.d_menu{
+    width:605px;
+    height:auto;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+
+.d_message {
+    width: 700px;
+    height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top:20px;
-    padding-bottom:20px;
+    margin:auto;
+    margin-bottom:10px;
+}
+
+#time_setting {
+
+}
+
+.main_interface {
+    width: 100px;
+    height: 30px;
+    margin:auto;
+}
+
+#footer {
+    width: 100%;
+    height: 100px;
 }
 
 .button {
@@ -94,22 +133,4 @@ body {
     background-color:cornflowerblue;
     color:gainsboro;
     cursor: pointer;
-}
-
-#T_2 {
-    width:400px;
-    margin: auto;
-    vertical-align: middle;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#T_3 {
-    margin: auto;
-    vertical-align: middle;
-}
-
-#footer {
-    width: 100%;
-    height: 100px;
 }

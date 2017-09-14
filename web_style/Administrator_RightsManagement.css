@@ -36,6 +36,24 @@ body {
     padding: 8px 10px 10px 10px;
 }
 
+#Button6 {
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    color: Highlight;
+    border: hidden;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+#Button6:hover{
+    background-color:palegoldenrod;
+    color:black;
+    cursor:pointer;
+}
+
 #d_body {
     width: 1000px;
     height: auto;

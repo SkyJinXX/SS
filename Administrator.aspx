@@ -152,7 +152,7 @@
                 </div>
                 <div class="menu2">
                     <a href="#" class="animBtn themeB">
-                        <asp:Button ID="Button9" runat="server" CssClass="button" Text="信息管理" OnClick="Button9_Click" /></a>
+                        <asp:Button ID="Button9" runat="server" CssClass="button" Text="选课信息管理" OnClick="Button9_Click" /></a>
                 </div>
                 <div class="menu3">
                     <a href="#" class="animBtn themeC">

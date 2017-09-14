@@ -81,10 +81,11 @@ public partial class Default2 : System.Web.UI.Page
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
+        /*
         String a = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
         SqlCommand cmd1 = new SqlCommand(a, objConnection);
         int b = Convert.ToInt32(cmd1.ExecuteScalar());
-        objConnection.Close();
+        
         if (b < 2)
         {
             Button2.Enabled = false;
@@ -101,8 +102,9 @@ public partial class Default2 : System.Web.UI.Page
         {
             Button5.Enabled = false;
         }
+        */
+        objConnection.Close();
 
-        
     }
 
     protected void Button1_Click(object sender, EventArgs e)

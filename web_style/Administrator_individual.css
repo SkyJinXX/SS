@@ -1,36 +1,65 @@
-﻿body {
-    overflow-y:scroll;
+﻿html, body, .wrapper {
+    height: auto;
 }
 
-#font_1 {
-    color: #FF9900;
+body {
+    margin: 0;
+    background: #060e1b;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-y: scroll;
 }
 
-#top {
-    width: 1000px;
-    height: 80px;
-    background-color: white;
-    border: 1px solid black;
-    background: url(../image/sky1_top.jpg);
+#canvas {
+    width: 100%;
+    height: 450px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.line {
+    height: 2px;
+    width: 90%;
     margin: auto;
-    margin-bottom: 10px;
+    background-color: cadetblue;
 }
 
-#top_p_r {
+#top_menu {
+    width: 100%;
+    height: 40px;
+    background-color: cornflowerblue;
+}
+
+#user_box {
+    width: 100px;
+    height: auto;
     float: right;
+    padding: 8px 10px 10px 10px;
+}
+
+#Button6 {
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    color: Highlight;
+    border: hidden;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+#Button6:hover{
+    background-color:palegoldenrod;
+    color:black;
+    cursor:pointer;
 }
 
 #d_body {
     width: 1000px;
     height: auto;
-    background-color: white;
-    border: 2px solid black;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
     margin: auto;
     margin-top: 10px;
+    margin-bottom:10px;
 }
 
 #d_message {
@@ -41,13 +70,14 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: auto;
-    margin-bottom: 40px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 #view {
-    width: 400px;
+    width: 500px;
     height: auto;
-    border: 2px solid black;
+    border: 2px solid white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -74,4 +104,27 @@
 
 th {
     height:30px;
+}
+
+.button {
+    width: 60px;
+    height: 25px;
+    background-color: white;
+    color:Highlight;
+    border: hidden;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.button:hover {
+    background-color:cornflowerblue;
+    color:gainsboro;
+    cursor: pointer;
+}
+
+#footer {
+    width: 100%;
+    height: 100px;
 }

@@ -117,7 +117,7 @@ public partial class Default2 : System.Web.UI.Page
     }
 
 
-    protected void Button3_Click(object sender, EventArgs e)
+    protected void Button6_Click(object sender, EventArgs e)
     {
         Session["username"] = null;
         Session["identity"] = null;
