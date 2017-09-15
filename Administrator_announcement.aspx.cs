@@ -80,6 +80,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
         {
             Label1.Text = (String)Session["name"];
         }
+
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+
         if (!IsPostBack)
         {
             GridView1.Visible = false;
@@ -88,25 +91,27 @@ public partial class Administrator_announcement : System.Web.UI.Page
             Label3.Visible = false;
             TextBox1.Visible = false;
             Button5.Visible = false;
-        }
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-        Label3.Visible = true;
-        TextBox1.Visible = true;
-        Button5.Visible = true;
-        GridView1.Visible = true;
-        GridView2.Visible = false;
-        GridView3.Visible = false;
-        Label2.Text = "1";
 
-        objConnection.Open();
-        String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
-            " where Aid != (select Aid from A_U where Uusername = '" + (string)Session["username"] + "')";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
-        objConnection.Close();
+            Label3.Visible = true;
+            TextBox1.Visible = true;
+            Button5.Visible = true;
+
+            GridView1.Visible = true;
+            Label2.Text = "1";
+            Label5.Text = "管理员表";
+
+            objConnection.Open();
+            String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
+                " where Aid != (select Aid from A_U where Uusername = '" + (string)Session["username"] + "')";
+            SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
+            objConnection.Close();
+        }
+        
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -123,6 +128,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
         GridView2.Visible = false;
         GridView3.Visible = false;
         Label2.Text = "1";
+        Label5.Text = "管理员表";
 
         objConnection.Open();
         String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
@@ -141,6 +147,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
         GridView2.Visible = true;
         GridView3.Visible = false;
         Label2.Text = "2";
+        Label5.Text = "教师表";
 
         objConnection.Open();
         String SelectSql = "select Tid, Tname, Tsex, Tbirthday, Tprofession, Tphone from Teacher";
@@ -158,6 +165,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
         GridView2.Visible = false;
         GridView3.Visible = true;
         Label2.Text = "3";
+        Label5.Text = "学生表";
 
         objConnection.Open();
         String SelectSql = "select Sid , Sname , Ssex , Sbirthday ,Sage , Sschool , Scollege , Smajor, Sphone from Student";
@@ -177,7 +185,7 @@ public partial class Administrator_announcement : System.Web.UI.Page
         }
         else
         {
-            if (TextBox1.Text == "")
+            if (TextBox1.Text != "")
             {
                 int i;
                 objConnection.Open();
