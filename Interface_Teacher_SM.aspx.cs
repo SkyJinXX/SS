@@ -117,7 +117,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
     }
 
 
