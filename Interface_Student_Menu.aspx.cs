@@ -30,7 +30,7 @@ public partial class Interface_Student_Menu : System.Web.UI.Page
         {
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             objConnection.Open();
-            String SelectSql = "select Trelease.Cname , Crelease from S_C_Transcript,Trelease where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
+            String SelectSql = "select Cname , Crelease from S_C_Transcript,Trelease,Course where S_C_Transcript.Cid = Trelease.Cid and S_C_Transcript.Cid = Course.Cid and S_C_Transcript.Sid IN (select Sid from S_U where Uusername = '" + (String)Session["username"] + "')";
             SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
