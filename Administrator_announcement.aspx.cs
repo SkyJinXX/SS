@@ -10,6 +10,60 @@ using System.Web.UI.WebControls;
 
 public partial class Administrator_announcement : System.Web.UI.Page
 {
+
+    protected bool CheckorNot()
+    {
+        int i;
+        if (Label2.Text == "1")
+        {
+            for (i = 0; i < GridView1.Rows.Count; i++)
+            {
+                if (((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
+                {
+                    break;
+                }
+            }
+            if (i < GridView1.Rows.Count)
+                return true;
+            else
+                return false;
+        }
+
+        else if (Label2.Text == "2")
+        {
+            for (i = 0; i < GridView2.Rows.Count; i++)
+            {
+                if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
+                {
+                    break;
+                }
+            }
+            if (i < GridView2.Rows.Count)
+                return true;
+            else
+                return false;
+        }
+
+        else if (Label2.Text == "3")
+        {
+            for (i = 0; i < GridView3.Rows.Count; i++)
+            {
+                if (((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked == true)
+                {
+                    break;
+                }
+            }
+            if (i < GridView3.Rows.Count)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -63,78 +117,26 @@ public partial class Administrator_announcement : System.Web.UI.Page
         Response.Redirect("Default.aspx");
     }
 
-    protected void Button5_Click(object sender, EventArgs e)
+    protected void Button2_Click(object sender, EventArgs e)
     {
-        int i;
+        GridView1.Visible = true;
+        GridView2.Visible = false;
+        GridView3.Visible = false;
+        Label2.Text = "1";
+
         objConnection.Open();
-        String s = "";
-        SqlCommand cmd = new SqlCommand(s, objConnection);
-        cmd.CommandText = "select Aid from A_U where Uusername = '" + (String)Session["username"] + "'";
-        String Aid = cmd.ExecuteScalar().ToString();
-        if (Label2.Text == "1")
-        {
-            for (i = 0; i < GridView1.Rows.Count; i++)
-            {
-                if(((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
-                {
-                    s = "insert into A_A_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
-                        + GridView1.Rows[i].Cells[1].Text + "' , '"+ GridView1.Rows[i].Cells[2].Text + "' , '" 
-                        + TextBox1.Text + "' , '" + "" + "')";
-                    cmd.CommandText = s;
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            Response.Write("<script>alert('发布成功')</script>");
-        }
-
-        else if (Label2.Text == "2")
-        {
-            for (i = 0; i < GridView2.Rows.Count; i++)
-            {
-                if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
-                {
-                    s = "insert into A_T_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
-                        + GridView2.Rows[i].Cells[1].Text + "' , '" + GridView2.Rows[i].Cells[2].Text + "' , '"
-                        + TextBox1.Text  + "')";
-                    cmd.CommandText = s;
-                    cmd.ExecuteNonQuery();
-
-                }
-            }
-        Response.Write("<script>alert('发布成功')</script>");
-        }
-
-        else if (Label2.Text == "3")
-        {
-            for (i = 0; i < GridView3.Rows.Count; i++)
-            {
-                if (((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked == true)
-                {
-                    s = "insert into A_S_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
-                        + GridView3.Rows[i].Cells[1].Text + "' , '" + GridView3.Rows[i].Cells[2].Text + "' , '"
-                        + TextBox1.Text  + "')";
-                    cmd.CommandText = s;
-                    cmd.ExecuteNonQuery();
-
-                }
-            }
-            Response.Write("<script>alert('发布成功')</script>");
-        }
-
-        else
-        {
-            Response.Write("<script>alert('未知错误');window.location.href='Administrator_announcement.aspx'</script>");
-        }
-
+        String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
+            " where Aid != (select Aid from A_U where Uusername = '" + (string)Session["username"] + "')";
+        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
         objConnection.Close();
-
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        Label3.Visible = true;
-        TextBox1.Visible = true;
-        Button5.Visible = true;
         GridView1.Visible = false;
         GridView2.Visible = true;
         GridView3.Visible = false;
@@ -152,9 +154,6 @@ public partial class Administrator_announcement : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        Label3.Visible = true;
-        TextBox1.Visible = true;
-        Button5.Visible = true;
         GridView1.Visible = false;
         GridView2.Visible = false;
         GridView3.Visible = true;
@@ -169,27 +168,91 @@ public partial class Administrator_announcement : System.Web.UI.Page
         GridView3.DataBind();
         objConnection.Close();
     }
-
-    protected void Button2_Click(object sender, EventArgs e)
+ 
+    protected void Button5_Click(object sender, EventArgs e)
     {
-        Label3.Visible = true;
-        TextBox1.Visible = true;
-        Button5.Visible = true;
-        GridView1.Visible = true;
-        GridView2.Visible = false;
-        GridView3.Visible = false;
-        Label2.Text = "1";
+        if (CheckorNot() == false)
+        {
+            Response.Write("<script>alert('请选择发布对象')</script>");
+        }
+        else
+        {
+            if (TextBox1.Text == "")
+            {
+                int i;
+                objConnection.Open();
+                String s = "";
+                SqlCommand cmd = new SqlCommand(s, objConnection);
+                cmd.CommandText = "select Aid from A_U where Uusername = '" + (String)Session["username"] + "'";
+                String Aid = cmd.ExecuteScalar().ToString();
+                if (Label2.Text == "1")
+                {
+                    for (i = 0; i < GridView1.Rows.Count; i++)
+                    {
+                        if (((CheckBox)GridView1.Rows[i].FindControl("CheckBox1")).Checked == true)
+                        {
+                            s = "insert into A_A_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                                + GridView1.Rows[i].Cells[1].Text + "' , '" + GridView1.Rows[i].Cells[2].Text + "' , '"
+                                + TextBox1.Text + "' , '" + "" + "')";
+                            cmd.CommandText = s;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    Response.Write("<script>alert('发布成功')</script>");
+                }
 
-        objConnection.Open();
-        String SelectSql = "select Aid, Aname, Asex, Abirthday, Aage from Administrator " +
-            " where Aid != (select Aid from A_U where Uusername = '" + (string)Session["username"] + "')";
-        SqlDataAdapter da = new SqlDataAdapter(SelectSql, objConnection);
-        DataSet ds = new DataSet();
-        da.Fill(ds);
-        GridView1.DataSource = ds;
-        GridView1.DataBind();
-        objConnection.Close();
+                else if (Label2.Text == "2")
+                {
+                    for (i = 0; i < GridView2.Rows.Count; i++)
+                    {
+                        if (((CheckBox)GridView2.Rows[i].FindControl("CheckBox1")).Checked == true)
+                        {
+                            s = "insert into A_T_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                                + GridView2.Rows[i].Cells[1].Text + "' , '" + GridView2.Rows[i].Cells[2].Text + "' , '"
+                                + TextBox1.Text + "')";
+                            cmd.CommandText = s;
+                            cmd.ExecuteNonQuery();
+
+                        }
+                    }
+                    Response.Write("<script>alert('发布成功')</script>");
+                }
+
+                else if (Label2.Text == "3")
+                {
+                    for (i = 0; i < GridView3.Rows.Count; i++)
+                    {
+                        if (((CheckBox)GridView3.Rows[i].FindControl("CheckBox1")).Checked == true)
+                        {
+                            s = "insert into A_S_Announcement values('" + Aid + "' , '" + (String)Session["name"] + "' , '"
+                                + GridView3.Rows[i].Cells[1].Text + "' , '" + GridView3.Rows[i].Cells[2].Text + "' , '"
+                                + TextBox1.Text + "')";
+                            cmd.CommandText = s;
+                            cmd.ExecuteNonQuery();
+
+                        }
+                    }
+                    Response.Write("<script>alert('发布成功')</script>");
+                }
+
+                else
+                {
+                    Response.Write("<script>alert('未知错误');window.location.href='Administrator_announcement.aspx'</script>");
+                }
+
+                objConnection.Close();
+            }
+            else
+            {
+                Response.Write("<script>alert('请输入公告内容')</script>");
+            }
+
+        }
+
     }
+
+
+
     protected void GridView1_SelectAll(object sender, EventArgs e)
     {
         int i;

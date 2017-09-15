@@ -67,6 +67,16 @@ public partial class Default2 : System.Web.UI.Page
             Button5.Enabled = false;
             Button5.ForeColor = System.Drawing.Color.Gray;
         }
+        if (b < 6)
+        {
+            Button8.Enabled = false;
+            Button8.ForeColor = System.Drawing.Color.Gray;
+        }
+        if (b < 7)
+        {
+            Button9.Enabled = false;
+            Button9.ForeColor = System.Drawing.Color.Gray;
+        }
 
         objConnection.Close();
     }
