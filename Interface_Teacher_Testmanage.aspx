@@ -15,7 +15,7 @@
         <div id="top_menu">
             <div id="user_box">
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server"  Text=" 注销 " />
+                <asp:Button ID="Button1" runat="server"  Text=" 注销 " OnClick="Button1_Click" />
             </div>
         </div>
         <!---动画--->
@@ -139,23 +139,28 @@
                         <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="试题模版.txt" Width="112px" CssClass="button" />
                         &nbsp;<br />
                         <br />
-                        <asp:Label ID="Label2" runat="server" Text="上传试题"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="上传试题" ForeColor="White"></asp:Label>
                         <br />
-                        <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" Height="26px" ForeColor="White" CssClass="button" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" Height="25px" ForeColor="White" CssClass="button" BorderStyle="Solid" />
                         <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="上传" CssClass="button" />
                         <br />
                     </div>
                     <div id="upload_file">
                         <div>
-                            <asp:Label ID="Label3" runat="server" Text="已上传文件" ForeColor="White"></asp:Label></div>
+                            <asp:Label ID="Label3" runat="server" Text="已上传文件" ForeColor="White"></asp:Label>
+                        </div>
                         <div>
                             <asp:ListBox ID="ListBox1" runat="server" Width="270px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" ForeColor="White"></asp:ListBox>
                             <br />
                             <br />
+                            <table>
+                                <tr>
+                                    <th style="width:100px"><asp:Button ID="Button7" runat="server" Text="下载文件" OnClick="Button7_Click" CssClass="button" Width="80px" /></th>
+                                    <th style="width:100px"><asp:Button ID="Button8" runat="server" Text="删除文件" OnClick="Button8_Click" CssClass="button" Width="80px" /></th>
+                                    <th style="width:130px"><asp:Button ID="Button2" runat="server" Text="回到课程信息修改" OnClick="Button2_Click" CssClass="button" Width="120px" /></th>
+                                </tr>
+                            </table>
                         </div>
-                        <asp:Button ID="Button7" runat="server" Text="下载文件" OnClick="Button7_Click" CssClass="button" width="80px"/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button8" runat="server" Text="删除文件" OnClick="Button8_Click" CssClass="button" width="80px"/>
                     </div>
                     <br />
                     <br />

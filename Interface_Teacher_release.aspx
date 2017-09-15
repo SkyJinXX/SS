@@ -15,7 +15,7 @@
         <div id="top_menu">
             <div id="user_box">
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" Text=" 注销 " />
+                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click" />
             </div>
         </div>
         <!---动画--->
@@ -156,10 +156,8 @@
                             </th>
                             <th style="width:100px">
                             </th>
-                            <th  style="width:100px">
-                                <asp:Button ID="Button11" runat="server" Text="返回" OnClick="Button11_Click" CssClass="button"/>
-                            </th>
-                            <th  style="width:100px">
+                            <th colspan="2" style="width:100px">
+                                <asp:Button ID="Button11" runat="server" Text="回到课程信息修改" OnClick="Button11_Click" Width="120px" CssClass="button"/>
                             </th>
                         </tr>
                     </table>
@@ -176,6 +174,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" ForeColor="White">
                     <Columns>
                         <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
+                        <asp:BoundField DataField="Cname" HeaderText="课程名" />
                         <asp:TemplateField HeaderText="公告">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Crelease") %>'></asp:TextBox>

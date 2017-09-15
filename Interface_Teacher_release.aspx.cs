@@ -15,7 +15,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["Cid"]+"'";
+        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["id"]+"'";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -36,7 +36,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
 
         if (!IsPostBack)
@@ -59,7 +59,12 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "Insert into Trelease Values('" + (String)Session["Cid"] + "','" + TextBox1.Text + "')";
+        String s = "select Cname from Course where Cid='"+(String)Session["id"]+"'";
+        SqlCommand c = new SqlCommand(s, objConnection);
+        c.CommandText = s;
+        String  a= (String)c.ExecuteScalar();
+
+        String Sql = "Insert into Trelease Values('" + (String)Session["id"] + "','"+(String)a+"','" + TextBox1.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, objConnection);
         cmd.CommandText = Sql;
         cmd.ExecuteScalar();
@@ -69,13 +74,6 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
 
         GridViewFlush();
 
-    }
-
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-        Session["username"] = null;
-        Session["identity"] = null;
-        Response.Redirect("Default.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -170,5 +168,12 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     protected void Button10_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher_ChapterManage.aspx");
+    }
+
+    protected void Button1_Click2(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
     }
 }
