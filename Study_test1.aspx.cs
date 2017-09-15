@@ -50,7 +50,7 @@ public partial class Default2 : System.Web.UI.Page
             objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
             objConnection.Open();
             SqlDataAdapter sda = new SqlDataAdapter();
-            string sql = "select Question,ChoiceA,ChoiceB,ChoiceC,ChoiceD  from ChoiceQuestion where Cid='" + (String)Session["Cid"] + "' and ChapterName='"+(String)Session["ChapterName"]+"'and SectionName='"+(String)Session["SectionName"]+"' ";
+            string sql = "select Qid, Question,ChoiceA,ChoiceB,ChoiceC,ChoiceD  from ChoiceQuestion where Cid='" + (String)Session["Cid"] + "' and ChapterName='"+(String)Session["ChapterName"]+"'and SectionName='"+(String)Session["SectionName"]+"' ";
             sda.SelectCommand = new SqlCommand(sql, objConnection);
             DataSet ds = new DataSet();
             sda.Fill(ds);

@@ -24,7 +24,7 @@ public partial class Study_test : System.Web.UI.Page
         }
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "select Cid,ChapterName,SectionName from ChoiceQuestion  where Cid  = '" + (String)Session["Cid"] + "'";
+        String Sql = "select Cid,ChapterName,SectionName from  Vedio  where Cid  = '" + (String)Session["Cid"] + "'";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
