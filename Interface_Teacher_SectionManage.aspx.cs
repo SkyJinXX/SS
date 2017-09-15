@@ -231,11 +231,12 @@ public partial class Interface_Teacher_SectionManage : System.Web.UI.Page
             //將txt文件轉入數據庫
             StreamReader sr = new StreamReader(TURL);
             string line = null;
+            int Qid = 0;
             while((line = sr.ReadLine()) != null)
             {
                 string[] spilt = line.Split(new char[] { ' ' });
-                sql = string.Format("insert into ChoiceQuestion values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8} )"
-                    , Cid, ChapterName, SectionName, spilt[0], spilt[1], spilt[2], spilt[3], spilt[4], spilt[5]);
+                sql = string.Format("insert into ChoiceQuestion values('{0}', '{1}', '{2}','{9}', '{3}', '{4}', '{5}', '{6}', '{7}', {8} )"
+                    , Cid, ChapterName, SectionName, spilt[0], spilt[1], spilt[2], spilt[3], spilt[4], spilt[5], ++Qid);
                 cmd.CommandText = sql;
                 objConnection.Open();
                 cmd.ExecuteNonQuery();
