@@ -27,7 +27,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         if (!IsPostBack)  // 页面首次加载
         {
@@ -196,7 +196,7 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher.aspx");
+        Response.Redirect("Interface_Teacher_CourseManage.aspx");
     }
 
     protected void Button5_Click(object sender, EventArgs e)
@@ -294,6 +294,13 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         Response.Redirect("Interface_Teacher_Setdate1.aspx");
     }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
+
     protected void Button3_Click1(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher_Change.aspx");
@@ -310,4 +317,6 @@ public partial class Interface_Teache_Testmanage : System.Web.UI.Page
         string FullFileName = Session["SelectedFile"].ToString();
         DownLoadFile(FullFileName);
     }
+
+    
 }

@@ -40,7 +40,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
         //刷新GridView
         if (!IsPostBack)
@@ -117,7 +117,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Interface_Teacher_Setdate1.aspx");
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
     }
 
 

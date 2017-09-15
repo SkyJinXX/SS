@@ -34,11 +34,11 @@ body {
     border-bottom-right-radius: 13px;
 }
 
-#Button1:hover {
-    background-color: palegoldenrod;
-    color: black;
-    cursor: pointer;
-}
+    #Button1:hover {
+        background-color: palegoldenrod;
+        color: black;
+        cursor: pointer;
+    }
 
 .wrapper {
     /*background-color:white;*/
@@ -60,22 +60,16 @@ body {
     background-color: cadetblue;
 }
 
-#middle {
+#d_body {
     width: 1000px;
     height: auto;
     margin: auto;
     margin-top: 10px;
 }
 
-#box {
-    width: 200px;
-    height: 180px;
-    float: left;
-}
-
 #menu {
     width: 100px;
-    height: 155px;
+    height: 156px;
     border: 2px solid white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -117,21 +111,74 @@ body {
     background-color:#574d4d;
 }
 
+#d_title {
+    width: 50px;
+    height: 30px;
+    margin: auto;
+    margin-bottom:10px;
+}
+
 #d_message {
-    width: 500px;
+    width: 640px;
     height: auto;
     border: 2px solid white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin: auto;
-    margin-top: 20px;
+    margin-left:200px;
+    margin-top: 30px;
     margin-bottom: 30px;
-    padding-top: 30px;
+    padding-top: 50px;
     padding-right: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     padding-left: 30px;
+}
+
+#operating {
+    width: 500px;
+    height:auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#T_1 {
+    margin: auto;
+    vertical-align: middle;
+}
+
+#T_2 {
+    margin: auto;
+    vertical-align: middle;
+}
+
+#T_3 {
+    margin: auto;
+    vertical-align: middle;
+}
+
+#upload {
+    width:300px;
+    height:auto;
+    margin:auto;
+    padding-top:25px;
+}
+
+#upload_file {
+    width: 300px;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#course_table {
+    width:300px;
+    height:auto;
+    margin:auto;
 }
 
 .button {
@@ -151,7 +198,6 @@ body {
     color:gainsboro;
     cursor: pointer;
 }
-
 
 #footer {
     width: 100%;

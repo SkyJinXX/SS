@@ -23,7 +23,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
 
         if (!IsPostBack)
@@ -90,8 +90,6 @@ public partial class Default2 : System.Web.UI.Page
         Button6.Visible = false;
         objConnection.Close();
     }
-
-
     protected void Button1_Click(object sender, EventArgs e)
     {
         Session["username"] = null;

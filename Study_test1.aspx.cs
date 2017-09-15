@@ -35,6 +35,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         if(!IsPostBack)
         {
+            /*
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         SqlDataAdapter sda = new SqlDataAdapter();
@@ -45,7 +46,17 @@ public partial class Default2 : System.Web.UI.Page
         DataList1.DataSource = ds;
         DataList1.DataBind();
         objConnection.Close();
-
+        */
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            string sql = "select Question,ChoiceA,ChoiceB,ChoiceC,ChoiceD  from ChoiceQuestion where Cid='" + (String)Session["Cid"] + "' and ChapterName='"+(String)Session["ChapterName"]+"'and SectionName='"+(String)Session["SectionName"]+"' ";
+            sda.SelectCommand = new SqlCommand(sql, objConnection);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            DataList1.DataSource = ds;
+            DataList1.DataBind();
+            objConnection.Close();
 
             //TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
             //this.Timer1.Enabled = true;
@@ -57,6 +68,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        /*
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         for (int i = 0; i < 5; i++)
@@ -86,6 +98,7 @@ public partial class Default2 : System.Web.UI.Page
         cmd1.ExecuteScalar();
         objConnection.Close();
         //Response.Redirect("Study_test.aspx");
+        */
 
     }
 

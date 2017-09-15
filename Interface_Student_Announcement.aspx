@@ -41,7 +41,7 @@
                 <div class="view">
                     <asp:GridView ID="GridView1" Width="500px" runat="server" AutoGenerateColumns="False">
                         <Columns>
-                            <asp:BoundField DataField="Cname" HeaderText="课程" />
+                            <asp:BoundField DataField="Cid" HeaderText="课程" />
                             <asp:BoundField DataField="Crelease" HeaderText="内容" HeaderStyle-Height="50px" ItemStyle-Height="70px">
                                 <HeaderStyle HorizontalAlign="Center" />
                                 <ItemStyle HorizontalAlign="Center" />
