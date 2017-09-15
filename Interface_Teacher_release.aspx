@@ -15,7 +15,7 @@
         <div id="top_menu">
             <div id="user_box">
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" Text=" 注销 " />
+                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click2" />
             </div>
         </div>
         <!---动画--->
@@ -176,6 +176,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" Width="494px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" ForeColor="White">
                     <Columns>
                         <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
+                        <asp:BoundField DataField="Cname" HeaderText="课程名" />
                         <asp:TemplateField HeaderText="公告">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Crelease") %>'></asp:TextBox>
