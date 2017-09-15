@@ -15,7 +15,7 @@
         <div id="top_menu">
             <div id="user_box">
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click2" />
+                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click" />
             </div>
         </div>
         <!---动画--->
