@@ -36,7 +36,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
         }
         else
         {
-            Label1.Text = (String)Session["username"];
+            Label1.Text = (String)Session["name"];
         }
 
         if (!IsPostBack)
