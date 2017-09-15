@@ -141,7 +141,7 @@
                         <br />
                         <asp:Label ID="Label2" runat="server" Text="上传试题"></asp:Label>
                         <br />
-                        <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" Height="25px" ForeColor="White" CssClass="button" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" Width="200px" Height="26px" ForeColor="White" CssClass="button" />
                         <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="上传" CssClass="button" />
                         <br />
                     </div>
