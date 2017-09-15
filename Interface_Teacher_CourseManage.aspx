@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div id="top_menu">
             <div id="user_box">
-                <asp:Label ID="Label1" ForeColor="#FF9900" runat="server"></asp:Label>
+                <asp:Label ID="Label1" ForeColor="#FF9900" runat="server" float="right"></asp:Label>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text=" 注销 " />
             </div>
         </div>
@@ -136,10 +136,6 @@
             <div id="d_message">
                 <table id="T_1">
                     <tr>
-                        <th style="width: 7px;">
-                        </th>
-                        <th style="width: 7px;">
-                        </th>
                         <th>
                             <asp:Label ID="Label8" runat="server" Text="信息修改" Font-Size="X-Large" ForeColor="White"></asp:Label>
                         </th>
@@ -207,10 +203,15 @@
                 </table>
                 <table id="T_3">
                     <tr>
-                        <th style="width:5px">
-                        </th>
+                        <th style="width: 3px"></th>
                         <th>
                             <asp:Button ID="Button7" runat="server" Text="完成修改" OnClick="Button7_Click" CssClass="button" Width="100px" Height="25px" Font-Size="Small" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="width: 3px"></th>
+                        <th>
+                            <asp:Button ID="Button6" runat="server" Text="回到已开课程信息列表" OnClick="Button6_Click" CssClass="button" Width="150px" Height="25px" Font-Size="Small" />
                         </th>
                     </tr>
                 </table>

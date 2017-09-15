@@ -52,6 +52,10 @@ public partial class Interface_Teacher_ChapterManage : System.Web.UI.Page
         {
             Response.Write("<script>alert('课程未定');window.location.href='Interface_Teacher_Manage'</script>");
         }
+        else
+        {
+            Label1.Text = (String)Session["name"];
+        }
         if (!IsPostBack)
         {
             FlushChapter();
@@ -134,5 +138,32 @@ public partial class Interface_Teacher_ChapterManage : System.Web.UI.Page
     protected void LinkButton5_Click(object sender, EventArgs e)
     {
         Response.Redirect("Interface_Teacher_CourseManage.aspx");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Session["identity"] = null;
+        Response.Redirect("Default.aspx");
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_SM.aspx");
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_release.aspx");
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_Testmanage.aspx");
+    }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Interface_Teacher_ChapterManage.aspx");
     }
 }

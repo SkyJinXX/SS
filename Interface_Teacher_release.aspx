@@ -15,7 +15,7 @@
         <div id="top_menu">
             <div id="user_box">
                 <asp:Label ID="Label1" runat="server" ForeColor="#FF9900" float="right"></asp:Label>
-                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click2" />
+                <asp:Button ID="Button1" runat="server" Text=" 注销 " OnClick="Button1_Click" />
             </div>
         </div>
         <!---动画--->
@@ -156,10 +156,8 @@
                             </th>
                             <th style="width:100px">
                             </th>
-                            <th  style="width:100px">
-                                <asp:Button ID="Button11" runat="server" Text="返回" OnClick="Button11_Click" CssClass="button"/>
-                            </th>
-                            <th  style="width:100px">
+                            <th colspan="2" style="width:100px">
+                                <asp:Button ID="Button11" runat="server" Text="回到课程信息修改" OnClick="Button11_Click" Width="120px" CssClass="button"/>
                             </th>
                         </tr>
                     </table>
