@@ -68,19 +68,19 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        /*
+        
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
-            String ql = ((Label)DataList1.Items[i].FindControl("QidLabel")).Text;
-            String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";
+            String ql = ((Label)DataList1.Items[i].FindControl("Label8")).Text;
+            String SqlStr = "Select Answer From ChoiceQuestion  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "' and ChapterName='" + (String)Session["ChapterName"] + "'and SectionName='" + (String)Session["SectionName"] + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-            String st = (String)cmd.ExecuteScalar();
+            int st = Convert.ToInt16(cmd.ExecuteScalar());
             RadioButtonList rd = (RadioButtonList)DataList1.Items[i].FindControl("RadioButtonList1");
             // TextBox1.Text = rd.SelectedValue;
             //TextBox2.Text = st;
-            if (rd.SelectedValue == st)
+            if (Convert.ToInt16(rd.SelectedValue) == st)
             {
                 count += 10;
             }
@@ -98,7 +98,6 @@ public partial class Default2 : System.Web.UI.Page
         cmd1.ExecuteScalar();
         objConnection.Close();
         //Response.Redirect("Study_test.aspx");
-        */
 
     }
 

@@ -91,10 +91,10 @@
                     <asp:Label ID="Label7" runat="server" Text='<%# Eval("ChoiceD") %>' />
                     <br/>
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Value="A">A </asp:ListItem>
-                        <asp:ListItem>B</asp:ListItem>
-                        <asp:ListItem>C</asp:ListItem>
-                        <asp:ListItem>D</asp:ListItem>
+                        <asp:ListItem Value="1">A </asp:ListItem>
+                        <asp:ListItem Value="2">B</asp:ListItem>
+                        <asp:ListItem Value="3">C</asp:ListItem>
+                        <asp:ListItem Value="4">D</asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
                 </ItemTemplate>
