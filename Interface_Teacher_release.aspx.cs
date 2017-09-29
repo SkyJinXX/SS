@@ -15,7 +15,7 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["id"]+"'";
+        String Sql = "select * from Trelease  where Cid  = '"+(String)Session["Cid"]+"'";
         SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
         DataSet ds = new DataSet();
         da.Fill(ds);
@@ -59,12 +59,12 @@ public partial class Interface_Teacher_release : System.Web.UI.Page
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String s = "select Cname from Course where Cid='"+(String)Session["id"]+"'";
+        String s = "select Cname from Course where Cid='"+(String)Session["Cid"]+"'";
         SqlCommand c = new SqlCommand(s, objConnection);
         c.CommandText = s;
         String  a= (String)c.ExecuteScalar();
 
-        String Sql = "Insert into Trelease Values('" + (String)Session["id"] + "','"+(String)a+"','" + TextBox1.Text + "')";
+        String Sql = "Insert into Trelease Values('" + (String)Session["Cid"] + "','"+(String)a+"','" + TextBox1.Text + "')";
         SqlCommand cmd = new SqlCommand(Sql, objConnection);
         cmd.CommandText = Sql;
         cmd.ExecuteScalar();

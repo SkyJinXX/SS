@@ -35,6 +35,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         if(!IsPostBack)
         {
+            /*
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
         SqlDataAdapter sda = new SqlDataAdapter();
@@ -45,7 +46,17 @@ public partial class Default2 : System.Web.UI.Page
         DataList1.DataSource = ds;
         DataList1.DataBind();
         objConnection.Close();
-
+        */
+            objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            objConnection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter();
+            string sql = "select Qid, Question,ChoiceA,ChoiceB,ChoiceC,ChoiceD  from ChoiceQuestion where Cid='" + (String)Session["Cid"] + "' and ChapterName='"+(String)Session["ChapterName"]+"'and SectionName='"+(String)Session["SectionName"]+"' ";
+            sda.SelectCommand = new SqlCommand(sql, objConnection);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            DataList1.DataSource = ds;
+            DataList1.DataBind();
+            objConnection.Close();
 
             //TimeSpan CountdownSpan = new TimeSpan(0, 20, 0);
             //this.Timer1.Enabled = true;
@@ -57,18 +68,19 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
-            String ql = ((Label)DataList1.Items[i].FindControl("QidLabel")).Text;
-            String SqlStr = "Select Qanswer From Questions  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "'";
+            String ql = ((Label)DataList1.Items[i].FindControl("Label8")).Text;
+            String SqlStr = "Select Answer From ChoiceQuestion  where Qid='" + ql + "' and Cid='" + (String)Session["Cid"] + "' and ChapterName='" + (String)Session["ChapterName"] + "'and SectionName='" + (String)Session["SectionName"] + "'";
             SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-            String st = (String)cmd.ExecuteScalar();
+            int st = Convert.ToInt16(cmd.ExecuteScalar());
             RadioButtonList rd = (RadioButtonList)DataList1.Items[i].FindControl("RadioButtonList1");
             // TextBox1.Text = rd.SelectedValue;
             //TextBox2.Text = st;
-            if (rd.SelectedValue == st)
+            if (Convert.ToInt16(rd.SelectedValue) == st)
             {
                 count += 10;
             }

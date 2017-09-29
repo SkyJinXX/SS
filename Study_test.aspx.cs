@@ -13,28 +13,24 @@ public partial class Study_test : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
-        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-       /* using (objConnection)
+        if (Session["username"] == null)
         {
-            string username = "forever";
-            string strSQL = "select Qid,Question from Questions";
-            SqlDataAdapter adapter = new SqlDataAdapter(strSQL, objConnection);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            foreach (DataRowView drv in NewMethod(ds).DefaultView)
-            {
-                Response.Write(drv["Qid"] + "    " + drv["Question"]);
+            Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");
 
-            }
         }
-        */
-        /*objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+        else if ((String)Session["identity"] != "S")
+        {
+            Response.Write("<script>alert('身份错误');window.location.href='default.aspx'</script>");
+        }
+        objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
-        String SqlStr = "Select  Qid,Question  From  Questions";
-        SqlCommand cmd = new SqlCommand(SqlStr, objConnection);
-        String st1 = (String)cmd.ExecuteScalar();
-        TextBox1.Text = st1;
-        objConnection.Close();*/
+        String Sql = "select Cid,ChapterName,SectionName from  Vedio  where Cid  = '" + (String)Session["Cid"] + "'";
+        SqlDataAdapter da = new SqlDataAdapter(Sql, objConnection);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
+        objConnection.Close();
     }
 
     private static DataTable NewMethod(DataSet ds)
@@ -91,5 +87,13 @@ public partial class Study_test : System.Web.UI.Page
     protected void Button9_Click(object sender, EventArgs e)
     {
         Response.Redirect("Study_Ranklist.aspx");
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        int row = ((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex;
+        Session["ChapterName"] = GridView1.Rows[row].Cells[1].Text;
+        Session["SectionName"] = GridView1.Rows[row].Cells[2].Text;
+        Response.Redirect("Study_test1.aspx");
     }
 }

@@ -12,6 +12,9 @@
         .auto-style1 {
             margin-bottom: 10px;
         }
+        .auto-style2 {
+            width: 37px;
+        }
     </style>
 
 </head>
@@ -21,15 +24,21 @@
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px"  ImageUrl="~/image/1.jpg" />
             </div>
-            <div id="announcement_title">
-                <asp:Label ID="Label1" runat="server" Text="第一章" Font-Size="XX-Large" ></asp:Label>
-                <asp:Button ID="Button6" runat="server" Height="40px" Width="96px" Font-Size="Medium" OnClick="Button6_Click" Text="开始测试" />
+            <div >
                 <br />
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" >
+                    <Columns>
+                        <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                        <asp:BoundField DataField="ChapterName" HeaderText="章名" />
+                        <asp:BoundField DataField="SectionName" HeaderText="节名" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="开始测试"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
                 <br />
-                <br />
-                <asp:Label ID="Label2" runat="server" Text="第二章" Font-Size="XX-Large"></asp:Label>
-                <br />
-                <asp:Button ID="Button8" runat="server" Text="开始测试" Height="40px" Width="96px" Font-Size="Medium" OnClick="Button8_Click" />
             </div>
         </div>
         <div id="d_body">

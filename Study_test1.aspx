@@ -67,22 +67,34 @@
         </div>
         <div id="testpaper">
             &nbsp;&nbsp;&nbsp;
-            <asp:DataList ID="DataList1" runat="server" Width="700px" DataKeyField="Qid" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="None">
+            <asp:DataList ID="DataList1" runat="server" Width="700px"  BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="None">
                 <FooterStyle BackColor="White" ForeColor="#333333" />
                 <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="White" ForeColor="#333333" />
                 <ItemTemplate>
-                    题号:
-                <asp:Label ID="QidLabel" runat="server" Text='<%# Eval("Qid") %>' />
+                     题号:
+                <asp:Label ID="Label8" runat="server" Text='<%# Eval("Qid") %>' />
                     <br />
                     题目:
                 <asp:Label ID="QuestionLabel" runat="server" Text='<%# Eval("Question") %>' />
                     <br />
+                    选项A
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ChoiceA") %>' />
+                    <br/>
+                    选项B
+                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("ChoiceB") %>' />
+                    <br/>
+                    选项C
+                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("ChoiceC") %>' />
+                    <br/>
+                    选项D
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("ChoiceD") %>' />
+                    <br/>
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Value="A">A </asp:ListItem>
-                        <asp:ListItem>B</asp:ListItem>
-                        <asp:ListItem>C</asp:ListItem>
-                        <asp:ListItem>D</asp:ListItem>
+                        <asp:ListItem Value="1">A </asp:ListItem>
+                        <asp:ListItem Value="2">B</asp:ListItem>
+                        <asp:ListItem Value="3">C</asp:ListItem>
+                        <asp:ListItem Value="4">D</asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
                 </ItemTemplate>
