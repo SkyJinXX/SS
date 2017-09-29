@@ -106,10 +106,6 @@ public partial class Default2 : System.Web.UI.Page
         objConnection.Close();
     }
 
-    protected void GridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
-    {
-
-    }
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
@@ -121,6 +117,18 @@ public partial class Default2 : System.Web.UI.Page
         cmd.CommandText = SqlStr;
         cmd.ExecuteScalar();
         SqlStr = "Delete T_C where Cid = '" + str1 + "'";
+        cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        SqlStr = "Delete C_Chapter where Cid = '" + str1 + "'";
+        cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        SqlStr = "Delete C_Time where Cid = '" + str1 + "'";
+        cmd = new SqlCommand(SqlStr, objConnection);
+        cmd.CommandText = SqlStr;
+        cmd.ExecuteScalar();
+        SqlStr = "Delete Vedio where Cid = '" + str1 + "'";
         cmd = new SqlCommand(SqlStr, objConnection);
         cmd.CommandText = SqlStr;
         cmd.ExecuteScalar();

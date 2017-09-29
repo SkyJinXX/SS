@@ -13,6 +13,11 @@ public partial class Default2 : System.Web.UI.Page
     SqlConnection objConnection = new SqlConnection();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(!IsPostBack)
+        {
+            Button12.Attributes.Add("onclick", "return confirm('确认重置?')");
+        }
+
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");

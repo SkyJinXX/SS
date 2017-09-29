@@ -8,6 +8,13 @@
     <title></title>
     <link href="web_style/Administrator_InformationManagement.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .auto-style1 {
+            width: 135px;
+            height: 29px;
+        }
+    </style>
+
     </head>
 
 <body>
@@ -230,27 +237,23 @@
                     </asp:GridView>
                     <div id="time_setting">
                         <table>
-                            <tr style="height:15px"></tr>
                             <tr>
-                                <th style="Width:135px"><asp:Label ID="Label13" runat="server" Visible="False" ForeColor="White" ></asp:Label></th>
-                                <th style="Width:135px"><asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="设置课程时间" Width="110px" CssClass="button" Height="25px" Font-Size="Small" /></th>
-                                <th style="Width:135px"><asp:Button ID="Button13" runat="server" OnClick="Button13_Click" Text="修改课程时间" Width="110px" CssClass="button" Height="25px" Font-Size="Small" /></th>
-                                <th style="Width:135px"><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" Width="100px" CssClass="button" Height="25px" Font-Size="Small" /></th>
+                                <th class="auto-style1"><asp:Label ID="Label13" runat="server" Visible="False" ForeColor="White" ></asp:Label></th>
+                                <th class="auto-style1"><asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="设置课程时间" Width="110px" CssClass="button" Height="25px" Font-Size="Small" /></th>
+                                <th class="auto-style1"><asp:Button ID="Button13" runat="server" OnClick="Button13_Click" Text="修改课程时间" Width="110px" CssClass="button" Height="25px" Font-Size="Small" /></th>
+                                <th class="auto-style1"><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="返回主界面" Width="100px" CssClass="button" Height="25px" Font-Size="Small" /></th>
                             </tr>
-                            <tr style="height:15px"></tr>
                             <tr>
                                 <th style="Width:135px"></th>
                                 <th colspan="3"><asp:Label ID="Label14" runat="server" ForeColor="White">（提示：如果修改课程请单独个别修改）</asp:Label></th>
                             </tr>
-                            <tr style="height:15px"></tr>
                             <tr>
                                 <th style="Width:135px"><asp:Label ID="Label9" runat="server" Text="选课开始：" ForeColor="White"></asp:Label></th>
                                 <th style="Width:135px"><asp:TextBox ID="TextBox8" runat="server" Width="130px"></asp:TextBox></th>
                                 <th style="Width:135px"><asp:Label ID="Label10" runat="server" Text="选课结束：" ForeColor="White"></asp:Label></th>
                                 <th style="Width:135px"><asp:TextBox ID="TextBox9" runat="server" Width="130px"></asp:TextBox></th>
-                                <th style="Width:135px" rowspan="3"><asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="确认" Width="70px" CssClass="button" Height="25px" Font-Size="Small" /></th>
+                                <th style="Width:135px">&nbsp;</th>
                             </tr>
-                            <tr style="height:15px"></tr>
                             <tr>
                                 <th style="Width:135px"><asp:Label ID="Label11" runat="server" Text="退选开始：" ForeColor="White"></asp:Label></th>
                                 <th style="Width:135px"><asp:TextBox ID="TextBox10" runat="server" Width="130px" ></asp:TextBox></th>
@@ -262,6 +265,7 @@
                     
                 </div>
                 <div class="main_interface">
+                    <asp:Button ID="Button11" runat="server" OnClick="Button11_Click" Text="确认" Width="70px" CssClass="button" Height="25px" Font-Size="Small" />
                 </div>
             </div>
         </div>

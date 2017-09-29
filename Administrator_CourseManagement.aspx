@@ -154,7 +154,7 @@
                 </div>
                 <div class="d_message">
                     <asp:GridView ID="GridView1" runat="server" Width="800px" AutoGenerateColumns="False"
-                        Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowManagement ="GridView1_RowManagement" OnRowDeleted="GridView1_RowDeleted" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" ForeColor="White">
+                        Style="margin-right: 0px" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowManagement ="GridView1_RowManagement"  OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" ForeColor="White">
                         <Columns>
                             <asp:BoundField DataField="Cid" HeaderText="课程号" ReadOnly="True" />
                             <asp:TemplateField HeaderText="课程名">

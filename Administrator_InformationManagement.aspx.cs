@@ -115,6 +115,8 @@ public partial class Administrator_InformationManagement : System.Web.UI.Page
             TextBox11.Visible = false;
 
             Button11.Visible = false;
+
+            Button11.Attributes.Add("onclick", "return confirm('确认设置?')");
         }
 
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();

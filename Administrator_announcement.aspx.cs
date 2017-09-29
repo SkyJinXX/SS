@@ -109,9 +109,9 @@ public partial class Administrator_announcement : System.Web.UI.Page
             GridView1.DataSource = ds;
             GridView1.DataBind();
             objConnection.Close();
+
+            Button5.Attributes.Add("onclick", "return confirm('确认发布？')");
         }
-        
-        
     }
 
     protected void Button1_Click(object sender, EventArgs e)

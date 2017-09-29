@@ -17,6 +17,11 @@ public partial class Register_Administrator3 : System.Web.UI.Page
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
         objConnection.Open();
 
+        if(!IsPostBack)
+        {
+            Button2.Attributes.Add("onclick", "return confirm('确认注册?')");
+        }
+
         if (Session["username"] == null)
         {
             Response.Write("<script>alert('请先登录');window.location.href='default.aspx'</script>");

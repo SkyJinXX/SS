@@ -54,6 +54,8 @@ public partial class Default2 : System.Web.UI.Page
             TextBox6.Text = (String)cmd.ExecuteScalar();
 
             objConnection.Close();
+
+            Button1.Attributes.Add("onclick", "return confirm('确认修改?')");
         }
 
     }
