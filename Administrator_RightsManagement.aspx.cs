@@ -140,33 +140,40 @@ public partial class Default2 : System.Web.UI.Page
 
         objConnection.Open();
 
-        String TB = TextBox1.Text;
-        String TB1 = "";
-        if(TB.Length < 3)
+        if (TextBox1.Text == "")
         {
-            for(int i = 0; i < 3-TB.Length; i++)
-            {
-                TB1 += "0";
-            }
-        }
-        TB1 += TB;
-        String SelectSql = "select Alevel from Administrator where Aid = '" + TB1 + "'";
-        SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
-        if (Button12.Text == "修改")
-        {
-            if ((String)cmd.ExecuteScalar() == null)
-            {
-                Response.Write("<script>alert('请输入正确管理员工号');</script>");
-            }
-
-            else
-            {
-                TextBox3.Text = (String)cmd.ExecuteScalar();
-            }
+            Response.Write("<script>alert('请输入查询工号')</script>");
         }
         else
-            TextBox3.Text = "";
-        objConnection.Close();
+        {
+            String TB = TextBox1.Text;
+            String TB1 = "";
+            if (TB.Length < 3)
+            {
+                for (int i = 0; i < 3 - TB.Length; i++)
+                {
+                    TB1 += "0";
+                }
+            }
+            TB1 += TB;
+            String SelectSql = "select Alevel from Administrator where Aid = '" + TB1 + "'";
+            SqlCommand cmd = new SqlCommand(SelectSql, objConnection);
+            if (Button12.Text == "修改")
+            {
+                if ((String)cmd.ExecuteScalar() == null)
+                {
+                    Response.Write("<script>alert('请输入正确管理员工号');</script>");
+                }
+
+                else
+                {
+                    TextBox3.Text = (String)cmd.ExecuteScalar();
+                }
+            }
+            else
+                TextBox3.Text = "";
+            objConnection.Close();
+        }
     }
 
     protected void Button12_Click(object sender, EventArgs e)
@@ -192,53 +199,67 @@ public partial class Default2 : System.Web.UI.Page
 
         if (Button12.Text == "修改")
         {
-            int levela = Convert.ToInt32((String)TextBox3.Text);
-            String selectlevel = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
-            SqlCommand cmd = new SqlCommand(selectlevel, objConnection);
-            int levelb = Convert.ToInt32((String)cmd.ExecuteScalar());
-
-            selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
-            cmd = new SqlCommand(selectlevel, objConnection);
-            int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
-            if (levelc > levelb)
+            if (TextBox1.Text == "")
             {
-                if (levela != levelb && levelc > levela)
-                {
-                    String SelectSql = "";
-                    cmd = new SqlCommand(SelectSql, objConnection);
-                    cmd.CommandText = "update Administrator set Alevel = '" + TextBox3.Text
-                        + "' where Aid = '" + TextBox1.Text + "'";
-                    cmd.ExecuteScalar();
-
-                    cmd = new SqlCommand(SelectSql, objConnection);
-                    String action = (String)cmd1.ExecuteScalar() + " let  the level of " + (String)cmd2.ExecuteScalar();
-                    if (levela > levelb)
-                    {
-                        action += " be up ";
-                    }
-                    else
-                    {
-                        action += " be down ";
-                    }
-                    action += "and the level become " + Convert.ToString(levela) + " .";
-                    cmd.CommandText = "insert into A_A_Announcement values( '" + id + "' , '" + (String)cmd1.ExecuteScalar() 
-                        + "','" + TextBox1.Text + "' , '" + (String)cmd2.ExecuteScalar() + "' , '" +  
-                         "" + "','" + (String)action + "')";
-                    cmd.ExecuteScalar();
-
-                    String SelectSql1 = "select * from Administrator";
-                    SqlDataAdapter da = new SqlDataAdapter(SelectSql1, objConnection);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    GridView1.DataSource = ds;
-                    GridView1.DataBind();
-
-                    Response.Write("<script>alert('修改成功')</script>");
-                }
+                Response.Write("<script>alert('请输入查询工号')</script>");
             }
             else
             {
-                Response.Write("<script>alert('无法修改高等级或平级管理员信息');</script>");
+                if (TextBox3.Text == "")
+                {
+                    Response.Write("<script>alert('请输入修改权限')</script>");
+                }
+                else
+                {
+                    int levela = Convert.ToInt32((String)TextBox3.Text);
+                    String selectlevel = "select Alevel from Administrator where Aid = '" + TextBox1.Text + "'";
+                    SqlCommand cmd = new SqlCommand(selectlevel, objConnection);
+                    int levelb = Convert.ToInt32((String)cmd.ExecuteScalar());
+
+                    selectlevel = "select Alevel from Administrator where Aid in ( select Aid from A_U where Uusername = '" + (String)Session["username"] + "')";
+                    cmd = new SqlCommand(selectlevel, objConnection);
+                    int levelc = Convert.ToInt32((String)cmd.ExecuteScalar());
+                    if (levelc > levelb)
+                    {
+                        if (levela != levelb && levelc > levela)
+                        {
+                            String SelectSql = "";
+                            cmd = new SqlCommand(SelectSql, objConnection);
+                            cmd.CommandText = "update Administrator set Alevel = '" + TextBox3.Text
+                                + "' where Aid = '" + TextBox1.Text + "'";
+                            cmd.ExecuteScalar();
+
+                            cmd = new SqlCommand(SelectSql, objConnection);
+                            String action = (String)cmd1.ExecuteScalar() + " let  the level of " + (String)cmd2.ExecuteScalar();
+                            if (levela > levelb)
+                            {
+                                action += " be up ";
+                            }
+                            else
+                            {
+                                action += " be down ";
+                            }
+                            action += "and the level become " + Convert.ToString(levela) + " .";
+                            cmd.CommandText = "insert into A_A_Announcement values( '" + id + "' , '" + (String)cmd1.ExecuteScalar()
+                                + "','" + TextBox1.Text + "' , '" + (String)cmd2.ExecuteScalar() + "' , '" +
+                                 "" + "','" + (String)action + "')";
+                            cmd.ExecuteScalar();
+
+                            String SelectSql1 = "select * from Administrator";
+                            SqlDataAdapter da = new SqlDataAdapter(SelectSql1, objConnection);
+                            DataSet ds = new DataSet();
+                            da.Fill(ds);
+                            GridView1.DataSource = ds;
+                            GridView1.DataBind();
+
+                            Response.Write("<script>alert('修改成功')</script>");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('无法修改高等级或平级管理员信息');</script>");
+                    }
+                }
             }
         }
         if (Button12.Text == "发送")
