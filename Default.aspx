@@ -7,7 +7,16 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="web_style/login.css"/>
     <script src="JavaScript/jquery-2.1.1.min.js" type="text/javascript"></script>
-    
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //点击切换验证码
+        function f_refreshtype() {
+            var Image1 = document.getElementById("img");
+            if (Image1 != null) {
+                Image1.src = Image1.src + "?";
+            }
+        }
+    </script>
 </head>
 <body>
     <form id="f1" runat="server">
@@ -28,8 +37,18 @@
                 <label for="input1">________________________密码</label>
                 <asp:TextBox ID="input1" runat="server" name="input" type="password"></asp:TextBox>
             </div>
-            <div class="input-element1">
-            </div>
+            <div class="input-element">
+                <table>
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <img src="png.aspx" id="img" onclick="f_refreshtype()" />
+                </td>
+            </tr>
+        </table>
+                </div>
             <div class="Select_identity">
                 <asp:RadioButtonList ID="input3" runat="server" Height="32px" name="input3"
                     RepeatDirection="Horizontal" Width="250px" Style="color: #fff;margin: auto" 
