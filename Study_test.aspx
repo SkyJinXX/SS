@@ -24,22 +24,6 @@
             <div id="top_image">
                 <asp:Image ID="Image1" runat="server" Height="200px" Width="200px"  ImageUrl="~/image/1.jpg" />
             </div>
-            <div >
-                <br />
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" >
-                    <Columns>
-                        <asp:BoundField DataField="Cid" HeaderText="课程号" />
-                        <asp:BoundField DataField="ChapterName" HeaderText="章名" />
-                        <asp:BoundField DataField="SectionName" HeaderText="节名" />
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="开始测试"></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
-                <br />
-            </div>
         </div>
         <div id="d_body">
             <div id="menu">
@@ -80,6 +64,21 @@
                         </th>
                     </tr>
                 </table>
+            </div>
+            <div style="display:inline" >
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" style="text-align:center;margin:0 auto">
+                    <Columns>
+                        <asp:BoundField DataField="Cid" HeaderText="课程号" />
+                        <asp:BoundField DataField="ChapterName" HeaderText="章名" />
+                        <asp:BoundField DataField="SectionName" HeaderText="节名" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false" CommandName="Cancel" OnClick="LinkButton1_Click" Text="开始测试"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <br />
             </div>
         </div>
     
