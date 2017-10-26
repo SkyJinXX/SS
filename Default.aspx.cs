@@ -15,12 +15,7 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         objConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
-
-        if(!IsPostBack)
-        {
-            Button1.Attributes.Add("onclick", "return confirm('sure?')");
-           
-        }
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
